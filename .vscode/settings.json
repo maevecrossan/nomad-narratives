@@ -15,4 +15,7 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Dark Material Dracula Soft",
    "terminal.integrated.gpuAcceleration": "canvas",
+   "[python]": {
+      "prettier.bracketSameLine": false
+   },
 }
