@@ -3,7 +3,35 @@ Posts Serializer
 '''
 
 from rest_framework import serializers
-from .models import TripPost
+from .models import TripPost, TripDetails
+
+class TripDetailsSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for TripDetails model.
+    '''
+    country_name = serializers.ReadOnlyField(source='country.name')
+    region_name = serializers.ReadOnlyField(source='region.name')
+    city_name = serializers.ReadOnlyField(source='city.name')
+    duration_display = serializers.SerializerMethodField()
+
+    def get_duration_display(self, obj):
+        '''
+        Returns a human-readable string representing the trip's duration.
+        '''
+        return f"{obj.duration_value} {obj.get_duration_unit_display()}"
+
+    class Meta:
+        '''
+        Specifies the model and the fields to be included in the 
+        serialized output.
+        '''
+        model = TripDetails
+        fields = [
+            'id', 'country', 'country_name', 'region', 'region_name', 
+            'city', 'city_name', 'traveller_number', 'relevant_for', 
+            'duration_value', 'duration_unit', 'duration_display'
+        ]
+
 
 class TripPostSerializer(serializers.ModelSerializer):
     '''
@@ -13,6 +41,7 @@ class TripPostSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    details = TripDetailsSerializer()  # Nested serializer
 
     def validate_image(self, value):
         '''
@@ -39,6 +68,31 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         request = self.context['request']
         return request.user == obj.owner
+    
+    def create(self, validated_data):
+        '''
+        Handle creation of TripPost and related TripDetails.
+        '''
+        details_data = validated_data.pop('details')
+        trip_post = TripPost.objects.create(**validated_data)
+        TripDetails.objects.create(trip_post=trip_post, **details_data)
+        return trip_post
+
+    def update(self, instance, validated_data):
+        '''
+        Handle update of TripPost and related TripDetails.
+        '''
+        details_data = validated_data.pop('details')
+        instance = super().update(instance, validated_data)
+        details_instance = instance.details
+
+        # Update the TripDetails fields
+        for field, value in details_data.items():
+            setattr(details_instance, field, value)
+        details_instance.save()
+
+        return instance
+
 
     class Meta:
         '''
@@ -48,5 +102,5 @@ class TripPostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter'
+            'title', 'content', 'image', 'image_filter', 'details'
         ]

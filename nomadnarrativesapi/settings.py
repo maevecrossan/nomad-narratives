@@ -52,10 +52,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'cities_light',
 
     'profiles',
     'posts',
 ]
+
+CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

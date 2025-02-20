@@ -3,6 +3,7 @@
 '''
 
 from django.db import models
+from cities_light.models import City, Region, Country
 from django.contrib.auth.models import User
 
 class TripPost(models.Model):
@@ -43,7 +44,6 @@ class TripPost(models.Model):
         max_length=32, choices=image_filter_choices, default='normal'
     )
 
-
     class Meta:
         '''
         Specififes ordering of posts.
@@ -52,3 +52,46 @@ class TripPost(models.Model):
 
     def __str__(self):
         return f'{self.id} {self.title}'
+
+
+class TripDetails(models.Model):
+    '''
+    Outlines the additional details a user will add to their TripPost.
+
+    These details help categorize and filter trip content based on location, 
+    traveler demographics, and trip length, providing a richer context 
+    for the main TripPost
+    '''
+    trip_post = models.OneToOneField(
+        TripPost, on_delete=models.CASCADE, related_name="details"
+        )
+    country = models.ForeignKey(Country, on_delete=models.PROTECT)
+
+    region = models.ForeignKey(Region, on_delete=models.PROTECT)
+
+    city = models.ForeignKey(City, on_delete=models.PROTECT)
+
+    traveller_number = models.PositiveIntegerField()
+
+    relevant_for_choices = [
+            ('all', 'All Genders & Orientations'),
+            ('women', 'Women'),
+            ('men', 'Men'),
+            ('nonbinary', 'Non-Binary'),
+            ('lgbtq', 'LGBTQ+ Travelers'),
+        ]
+    relevant_for = models.CharField(max_length=10, choices=relevant_for_choices)
+
+    duration_value = models.PositiveBigIntegerField()
+
+    duration_unit_choices = [
+        ('days', 'Day(s)'),
+        ('weeks', 'Week(s)'),
+        ('months', 'Month(s)'),
+        ('years', 'Year(s)'),
+    ]
+
+    duration_unit = models.CharField(max_length=10, choices=duration_unit_choices)
+
+    def __str__(self):
+        return f"Details for {self.trip_post.title} - {self.duration_value} {self.get_duration_unit_display()}"
