@@ -3,9 +3,9 @@ Posts Serializer
 '''
 
 from rest_framework import serializers
-from .models import Post
+from .models import TripPost
 
-class PostSerializer(serializers.ModelSerializer):
+class TripPostSerializer(serializers.ModelSerializer):
     '''
     Serializer for Post model.
     '''
@@ -44,7 +44,7 @@ class PostSerializer(serializers.ModelSerializer):
         '''
         Specifies what fields to be returned.
         '''
-        model = Post
+        model = TripPost
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',

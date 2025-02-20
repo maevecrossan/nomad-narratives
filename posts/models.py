@@ -5,10 +5,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Post(models.Model):
+class TripPost(models.Model):
     """
-    Post model, related to 'owner', i.e. a User instance.
+    Trip Post model, related to 'owner', i.e. a User instance.
     Default image set so that we can always reference image.url.
+
+    This model handles the content of the post (image, article content, title).
+    This model does not handle the details of the trip (see TripDetails model).
     """
 
     image_filter_choices = [

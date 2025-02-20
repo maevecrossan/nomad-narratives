@@ -3,15 +3,15 @@ from rest_framework import status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
-from .models import Post
-from .serializers import PostSerializer
+from .models import TripPost
+from .serializers import TripPostSerializer
 
 
 class PostList(APIView):
     '''
     Handles Post logic.
     '''
-    serializer_class = PostSerializer
+    serializer_class = TripPostSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
@@ -20,8 +20,8 @@ class PostList(APIView):
         '''
         GETs all posts.
         '''
-        posts = Post.objects.all()
-        serializer = PostSerializer(
+        posts = TripPost.objects.all()
+        serializer = TripPostSerializer(
             posts, many = True, context = {'request': request}
         )
         return Response(serializer.data)
@@ -30,7 +30,7 @@ class PostList(APIView):
         '''
         Post creating logic
         '''
-        serializer = PostSerializer(
+        serializer = TripPostSerializer(
             data=request.data, context={'request': request}
         )
         if serializer.is_valid():
@@ -48,17 +48,17 @@ class PostDetail(APIView):
     Allows updating post.
     '''
     permission_classes = [IsOwnerOrReadOnly]
-    serializer_class = PostSerializer
+    serializer_class = TripPostSerializer
 
     def get_object(self, pk):
         '''
         Checks if post exists.
         '''
         try:
-            post = Post.objects.get(pk=pk)
+            post = TripPost.objects.get(pk=pk)
             self.check_object_permissions(self.request, post)
             return post
-        except Post.DoesNotExist:
+        except TripPost.DoesNotExist:
             raise Http404
 
     def get(self, request, pk):
@@ -66,7 +66,7 @@ class PostDetail(APIView):
         Return post if post exists.
         '''
         post = self.get_object(pk)
-        serializer = PostSerializer (
+        serializer = TripPostSerializer (
             post, context={'request': request}
         )
         return Response(serializer.data)
@@ -76,7 +76,7 @@ class PostDetail(APIView):
         Allow editing of post content.
         '''
         post = self.get_object(pk)
-        serializer = PostSerializer(
+        serializer = TripPostSerializer(
             post, data=request.data, context={'request': request}
         )
         if serializer.is_valid():
