@@ -12,7 +12,7 @@ class Post(models.Model):
     """
 
     image_filter_choices = [
-        ('1977', '1977'),
+        ('_1977', '1977'),
         ('brannan', 'Brannan'),
         ('earlybird', 'Earlybird'),
         ('hudson', 'Hudson'),
@@ -32,7 +32,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    content = models.TextField(blank=True)
+    content = models.TextField(blank=False)
     image = models.ImageField(
         upload_to='images/', default='../default_post_hrftao', blank=True
     )
