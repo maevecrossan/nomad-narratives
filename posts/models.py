@@ -10,7 +10,7 @@ of the trip (location, duration, etc).
 '''
 
 from django.db import models
-from cities_light.models import City, Country
+from cities_light.models import Country
 from django.contrib.auth.models import User
 from utils.continents import get_continent_by_country
 
@@ -78,8 +78,6 @@ class TripDetails(models.Model):
     continent = models.CharField(max_length=20, blank=True, editable=False)
 
     country = models.ForeignKey(Country, on_delete=models.PROTECT)
-
-    cities = models.ManyToManyField(City)
 
     traveller_number = models.PositiveIntegerField()
 

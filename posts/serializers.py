@@ -12,14 +12,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     continent = serializers.ReadOnlyField()
     country_name = serializers.ReadOnlyField(source='country.name')
-    city_names = serializers.SerializerMethodField()
     duration_display = serializers.SerializerMethodField()
-
-    def get_city_names(self, obj):
-        '''
-        Returns a list of city names.
-        '''
-        return [city.name for city in obj.cities.all()]
 
     def get_duration_display(self, obj):
         '''
@@ -35,7 +28,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         model = TripDetails
         fields = [
             'id', 'country', 'country_name', 'continent',
-            'cities', 'city_names', 'traveller_number', 'relevant_for',
+            'traveller_number', 'relevant_for',
             'duration_value', 'duration_unit', 'duration_display'
         ]
 
@@ -80,12 +73,10 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
-        cities = details_data.pop('cities', [])
         trip_post = TripPost.objects.create(**validated_data)
         trip_details = TripDetails.objects.create(
             trip_post=trip_post, **details_data
             )
-        trip_details.cities.set(cities)
         return trip_post
 
     def update(self, instance, validated_data):
@@ -93,7 +84,6 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle update of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
-        cities = details_data.pop('cities', [])
 
         # Update TripPost fields
         instance = super().update(instance, validated_data)
@@ -103,9 +93,6 @@ class TripPostSerializer(serializers.ModelSerializer):
         for field, value in details_data.items():
             setattr(details_instance, field, value)
         details_instance.save()
-
-        # Update ManyToMany cities
-        details_instance.cities.set(cities)
 
         return instance
 
