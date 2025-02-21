@@ -7,6 +7,12 @@ from .models import TripPost, TripDetails
 from cities_light.models import City
 
 
+class CitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = ['id', 'name']
+
+
 class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     Serializer for TripDetails model.

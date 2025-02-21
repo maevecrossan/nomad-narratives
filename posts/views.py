@@ -5,6 +5,25 @@ from rest_framework.views import APIView
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
 from .models import TripPost
 from .serializers import TripPostSerializer
+from cities_light.models import Country, City
+from .serializers import CitySerializer
+
+
+class CountryCitiesView(APIView):
+    '''
+    Narrows down available cities depending on chosen country.
+    '''
+    def get(self, request, country_id):
+        try:
+            country = Country.objects.get(id=country_id)
+            cities = City.objects.filter(country=country)
+            serializer = CitySerializer(cities, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Country.DoesNotExist:
+            return Response(
+                {"detail": "Country not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
 
 class PostList(APIView):
@@ -22,7 +41,7 @@ class PostList(APIView):
         '''
         posts = TripPost.objects.all()
         serializer = TripPostSerializer(
-            posts, many = True, context = {'request': request}
+            posts, many=True, context={'request': request}
         )
         return Response(serializer.data)
 
@@ -42,9 +61,10 @@ class PostList(APIView):
             serializer.errors, status=status.HTTP_400_BAD_REQUEST
             )
 
+
 class PostDetail(APIView):
     '''
-    Post detail view. 
+    Post detail view.
     Allows updating post.
     '''
     permission_classes = [IsOwnerOrReadOnly]
@@ -66,7 +86,7 @@ class PostDetail(APIView):
         Return post if post exists.
         '''
         post = self.get_object(pk)
-        serializer = TripPostSerializer (
+        serializer = TripPostSerializer(
             post, context={'request': request}
         )
         return Response(serializer.data)
