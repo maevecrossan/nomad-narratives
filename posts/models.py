@@ -6,6 +6,7 @@ from django.db import models
 from cities_light.models import City, Region, Country
 from django.contrib.auth.models import User
 
+
 class TripPost(models.Model):
     """
     Trip Post model, related to 'owner', i.e. a User instance.
@@ -58,8 +59,8 @@ class TripDetails(models.Model):
     '''
     Outlines the additional details a user will add to their TripPost.
 
-    These details help categorize and filter trip content based on location, 
-    traveler demographics, and trip length, providing a richer context 
+    These details help categorize and filter trip content based on location,
+    traveler demographics, and trip length, providing a richer context
     for the main TripPost
     '''
     trip_post = models.OneToOneField(
@@ -80,7 +81,9 @@ class TripDetails(models.Model):
             ('nonbinary', 'Non-Binary'),
             ('lgbtq', 'LGBTQ+ Travelers'),
         ]
-    relevant_for = models.CharField(max_length=10, choices=relevant_for_choices)
+    relevant_for = models.CharField(
+        max_length=10, choices=relevant_for_choices
+        )
 
     duration_value = models.PositiveBigIntegerField()
 
@@ -91,7 +94,10 @@ class TripDetails(models.Model):
         ('years', 'Year(s)'),
     ]
 
-    duration_unit = models.CharField(max_length=10, choices=duration_unit_choices)
+    duration_unit = models.CharField(
+        max_length=10, choices=duration_unit_choices
+        )
 
     def __str__(self):
-        return f"Details for {self.trip_post.title} - {self.duration_value} {self.get_duration_unit_display()}"
+        return f"Details for {self.trip_post.title} - {
+            self.duration_value} {self.get_duration_unit_display()}"
