@@ -1,5 +1,6 @@
 from rest_framework import generics, permissions
 from .models import Like
+from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
 from .serializers import LikeSerializer
 
 
@@ -16,3 +17,13 @@ class LikeList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class LikeDetail(generics.RetrieveDestroyAPIView):
+    '''
+    Retrieves a like.
+    Users only like or unlike a post if they own the like.
+    '''
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Like.objects.all()
+    serializer_class = LikeSerializer
