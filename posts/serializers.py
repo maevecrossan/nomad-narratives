@@ -12,7 +12,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     continent = serializers.ReadOnlyField()
     country_name = serializers.ReadOnlyField(source='country.name')
-    city_name = serializers.SerializerMethodField()
+    city_names = serializers.SerializerMethodField()
     duration_display = serializers.SerializerMethodField()
 
     def get_city_names(self, obj):
@@ -35,7 +35,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         model = TripDetails
         fields = [
             'id', 'country', 'country_name', 'continent',
-            'cities', 'city_name', 'traveller_number', 'relevant_for',
+            'cities', 'city_names', 'traveller_number', 'relevant_for',
             'duration_value', 'duration_unit', 'duration_display'
         ]
 
