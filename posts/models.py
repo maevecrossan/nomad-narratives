@@ -16,13 +16,13 @@ from utils.continents import get_continent_by_country
 
 
 class TripPost(models.Model):
-    """
+    '''
     Trip Post model, related to 'owner', i.e. a User instance.
     Default image set so that we can always reference image.url.
 
     This model handles the content of the post (image, article content, title).
     This model does not handle the details of the trip (see TripDetails model).
-    """
+    '''
 
     image_filter_choices = [
         ('_1977', '1977'),
