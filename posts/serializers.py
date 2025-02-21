@@ -5,14 +5,21 @@ Posts Serializer
 from rest_framework import serializers
 from .models import TripPost, TripDetails
 
+
 class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     Serializer for TripDetails model.
     '''
     country_name = serializers.ReadOnlyField(source='country.name')
     region_name = serializers.ReadOnlyField(source='region.name')
-    city_name = serializers.ReadOnlyField(source='city.name')
+    city_name = serializers.SerializerMethodField()
     duration_display = serializers.SerializerMethodField()
+
+    def get_city_names(self, obj):
+        '''
+        Returns a list of city names.
+        '''
+        return [city.name for city in obj.cities.all()]
 
     def get_duration_display(self, obj):
         '''
@@ -22,13 +29,13 @@ class TripDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         '''
-        Specifies the model and the fields to be included in the 
+        Specifies the model and the fields to be included in the
         serialized output.
         '''
         model = TripDetails
         fields = [
-            'id', 'country', 'country_name', 'region', 'region_name', 
-            'city', 'city_name', 'traveller_number', 'relevant_for', 
+            'id', 'country', 'country_name', 'region', 'region_name',
+            'cities', 'city_name', 'traveller_number', 'relevant_for',
             'duration_value', 'duration_unit', 'duration_display'
         ]
 
@@ -47,20 +54,19 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         Sets parameters for acceptable image sizes.
         '''
-        if value.size > 1024 * 1024 *2:
+        if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError(
                 'Image size larger than 2MB!'
-        )
+            )
         if value.image.width > 4096:
             raise serializers.ValidationError(
                 'Image width larger than 4096px'
-        )
+            )
         if value.image.height > 4096:
             raise serializers.ValidationError(
                 'Image height larger than 4096px'
-        )
+            )
         return value
-
 
     def get_is_owner(self, obj):
         '''
@@ -68,14 +74,18 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         request = self.context['request']
         return request.user == obj.owner
-    
+
     def create(self, validated_data):
         '''
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
+        cities = details_data.pop('cities', [])
         trip_post = TripPost.objects.create(**validated_data)
-        TripDetails.objects.create(trip_post=trip_post, **details_data)
+        trip_details = TripDetails.objects.create(
+            trip_post=trip_post, **details_data
+            )
+        trip_details.cities.set(cities)
         return trip_post
 
     def update(self, instance, validated_data):
@@ -83,16 +93,21 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle update of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
+        cities = details_data.pop('cities', [])
+
+        # Update TripPost fields
         instance = super().update(instance, validated_data)
-        details_instance = instance.details
 
         # Update the TripDetails fields
+        details_instance = instance.details
         for field, value in details_data.items():
             setattr(details_instance, field, value)
         details_instance.save()
 
-        return instance
+        # Update ManyToMany cities
+        details_instance.cities.set(cities)
 
+        return instance
 
     class Meta:
         '''

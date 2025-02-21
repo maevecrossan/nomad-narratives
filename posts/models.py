@@ -69,7 +69,7 @@ class TripDetails(models.Model):
 
     region = models.ForeignKey(Region, on_delete=models.PROTECT)
 
-    city = models.ForeignKey(City, on_delete=models.PROTECT)
+    city = models.ManyToManyField(City)
 
     traveller_number = models.PositiveIntegerField()
 
