@@ -67,9 +67,10 @@ class TripDetails(models.Model):
     trip_post = models.OneToOneField(
         TripPost, on_delete=models.CASCADE, related_name="details"
         )
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
 
-    region = models.ForeignKey(Region, on_delete=models.PROTECT)
+    continent = models.CharField(max_length=20, blank=True, editable=False)
+
+    country = models.ForeignKey(Country, on_delete=models.PROTECT)
 
     cities = models.ManyToManyField(City)
 
@@ -98,6 +99,14 @@ class TripDetails(models.Model):
     duration_unit = models.CharField(
         max_length=10, choices=duration_unit_choices
         )
+
+    def save(self, *args, **kwargs):
+        """
+        Automatically set the continent based on the selected country.
+        """
+        if self.country:
+            self.continent = get_continent_by_country(self.country.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Details for {self.trip_post.title} - {
