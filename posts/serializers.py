@@ -4,6 +4,7 @@ Posts Serializer
 
 from rest_framework import serializers
 from .models import TripPost, TripDetails
+from cities_light.models import City
 
 
 class TripDetailsSerializer(serializers.ModelSerializer):
@@ -12,7 +13,19 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     continent = serializers.ReadOnlyField()
     country_name = serializers.ReadOnlyField(source='country.name')
+    city = serializers.PrimaryKeyRelatedField(
+        queryset=City.objects.none(), required=False
+        )
     duration_display = serializers.SerializerMethodField()
+
+    # Dynamic queryset for city based on the selected country
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        country = self.instance.country if self.instance else None
+        if country:
+            self.fields['city'].queryset = City.objects.filter(country=country)
+        else:
+            self.fields['city'].queryset = City.objects.none()
 
     def get_duration_display(self, obj):
         '''
@@ -28,7 +41,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         model = TripDetails
         fields = [
             'id', 'country', 'country_name', 'continent',
-            'traveller_number', 'relevant_for',
+            'city', 'traveller_number', 'relevant_for',
             'duration_value', 'duration_unit', 'duration_display'
         ]
 
