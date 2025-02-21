@@ -8,7 +8,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 ### Profile Tests
 
 | Test Case | Expected Outcome | Final Outcome |
-|  |  |
+| :--- | :---: | :---: |
 | A logged out user can create a profile | Yes |  |
 | Users can upload a personal profile picture | Yes |  |
 | Logged in users can edit their own profile picture | Yes |  |
@@ -22,7 +22,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 ### Post Tests
 
 | Test Case | Expected Outcome | Final Outcome |
-|  |  |
+| :--- | :---: | :---: |
 | Posts can be retrieved with a valid ID. | Yes |  |
 | Posts can be retrieved with an invalid ID. | No |  |
 | A logged out user see all posts | Yes |  |
@@ -43,5 +43,14 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 ### Comment Tests
 
 | Test Case | Expected Outcome | Final Outcome |
+| :--- | :---: | :---: |
+|  |  |
+
+
+## Bugs and Fixes
+
+| Bug | Fix |
+| :--- | :--- |
+| Region, country and city fields appearing but not editable. | Django-cities-light database table not populated. `python manage.py cities_light` command was used to populate data, allowing users to make a selection. |
 |  |  |
 |  |  |
