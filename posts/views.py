@@ -2,6 +2,7 @@ from django.http import Http404
 from rest_framework import status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
 from .models import TripPost
 from .serializers import TripPostSerializer
@@ -24,6 +25,39 @@ class CountryCitiesView(APIView):
                 {"detail": "Country not found."},
                 status=status.HTTP_404_NOT_FOUND
             )
+
+
+class TripPostCreateView(APIView):
+    def post(self, request, *args, **kwargs):
+        """
+        Handles creation of a TripPost,
+        including the city based on selected country.
+        """
+        country_id = request.data.get('country')
+        city_id = request.data.get('city')
+        # Singular city ID instead of cities array
+
+        # Ensure the selected country exists
+        country = get_object_or_404(Country, id=country_id)
+
+        # Ensure the selected city exists in the selected country
+        city = get_object_or_404(City, id=city_id, country=country)
+
+        # Create the TripPost instance
+        serializer = TripPostSerializer(data=request.data)
+
+        if serializer.is_valid():
+            trip_post = serializer.save(owner=request.user)
+
+            # Create the TripDetails and link the city
+            trip_details = trip_post.details
+            trip_details.country = country
+            trip_details.city = city  # Assign the single city
+            trip_details.save()
+
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class PostList(APIView):

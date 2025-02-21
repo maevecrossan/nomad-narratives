@@ -20,7 +20,8 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     continent = serializers.ReadOnlyField()
     country_name = serializers.ReadOnlyField(source='country.name')
     city = serializers.PrimaryKeyRelatedField(
-        queryset=City.objects.none(), required=False
+        queryset=City.objects.none(),
+        many=True
         )
     duration_display = serializers.SerializerMethodField()
 
