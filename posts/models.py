@@ -5,7 +5,7 @@ This file houses two models.
 This model contains the logic associated with the post itself.
 
 2. TripDetails:
-This model contains the logic associated with the finer details 
+This model contains the logic associated with the finer details
 of the trip (location, duration, etc).
 '''
 
