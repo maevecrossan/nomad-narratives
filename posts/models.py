@@ -5,6 +5,7 @@
 from django.db import models
 from cities_light.models import City, Region, Country
 from django.contrib.auth.models import User
+from utils.continents import get_continent_by_country
 
 
 class TripPost(models.Model):
