@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'profiles',
     'posts',
     'comments',
+    'likes',
 ]
 
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
