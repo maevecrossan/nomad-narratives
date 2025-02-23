@@ -78,10 +78,16 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
+        city_data = details_data.pop('city', [])
+
         trip_post = TripPost.objects.create(**validated_data)
-        TripDetails.objects.create(
+        trip_details = TripDetails.objects.create(
             trip_post=trip_post, **details_data
             )
+
+        trip_details.city.set(city_data)  # Assign multiple cities
+        trip_details.save()
+
         return trip_post
 
     def update(self, instance, validated_data):
@@ -96,8 +102,14 @@ class TripPostSerializer(serializers.ModelSerializer):
         # Update the TripDetails fields
         if details_data:
             details_instance = instance.details
+            city_data = details_data.pop('city', [])
+
             for field, value in details_data.items():
                 setattr(details_instance, field, value)
+
+            if city_data:
+                details_instance.city.set(city_data)
+
             details_instance.save()
 
         return instance
