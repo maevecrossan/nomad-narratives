@@ -7,12 +7,6 @@ from .models import TripPost, TripDetails
 from cities_light.models import City
 
 
-class CitySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = City
-        fields = ['id', 'name']
-
-
 class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     Serializer for TripDetails model.
@@ -24,15 +18,6 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         many=True
         )
     duration_display = serializers.SerializerMethodField()
-
-    # Dynamic queryset for city based on the selected country
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        country = self.instance.country if self.instance else None
-        if country:
-            self.fields['city'].queryset = City.objects.filter(country=country)
-        else:
-            self.fields['city'].queryset = City.objects.none()
 
     def get_duration_display(self, obj):
         '''
@@ -61,7 +46,7 @@ class TripPostSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
-    details = TripDetailsSerializer()  # Nested serializer
+    details = TripDetailsSerializer()
 
     def validate_image(self, value):
         '''
@@ -94,7 +79,7 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         details_data = validated_data.pop('details')
         trip_post = TripPost.objects.create(**validated_data)
-        trip_details = TripDetails.objects.create(
+        TripDetails.objects.create(
             trip_post=trip_post, **details_data
             )
         return trip_post
@@ -109,10 +94,11 @@ class TripPostSerializer(serializers.ModelSerializer):
         instance = super().update(instance, validated_data)
 
         # Update the TripDetails fields
-        details_instance = instance.details
-        for field, value in details_data.items():
-            setattr(details_instance, field, value)
-        details_instance.save()
+        if details_data:
+            details_instance = instance.details
+            for field, value in details_data.items():
+                setattr(details_instance, field, value)
+            details_instance.save()
 
         return instance
 
