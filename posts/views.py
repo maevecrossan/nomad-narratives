@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework import generics, permissions
 from django.shortcuts import get_object_or_404
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
@@ -14,7 +15,14 @@ class PostList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
-    queryset = TripPost.objects.all()
+    queryset = TripPost.objects.annotate(
+        comments_count=Count(
+            'likes',
+            distinct=True),
+        likes_count=Count(
+            'comment',
+            distinct=True),
+    ).order_by('-created_at')
 
     def perform_create(self, serializer):
         country_id = self.request.data.get('country')

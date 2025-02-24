@@ -41,7 +41,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
 
 class TripPostSerializer(serializers.ModelSerializer):
     '''
-    Serializer for Post model.
+    Serializer for TripPost model.
     '''
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -49,6 +49,8 @@ class TripPostSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     details = TripDetailsSerializer()
     like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         '''
@@ -134,5 +136,5 @@ class TripPostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter', 'like_id',
-            'details'
+            'likes_count', 'comments_count', 'details'
         ]
