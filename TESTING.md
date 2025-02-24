@@ -16,6 +16,9 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Logged in users can add a profile description | Yes |  |
 | Logged in users can edit their own profile description | Yes |  |
 | Users (logged in or out) can edit the profile descriptions of other users| No |  |
+| Users can see their own followers. |  |  |
+| Users can see other users' followers. |  |  |
+| Users appear in searches if their username is a match. |  |  |
 
 
 ### Post Tests
@@ -38,6 +41,11 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | A logged in user can add an image exceeding the sizing criteria. | No |  |
 | A logged in user can see an error message when attempting to upload an image exceeding the sizing criteria. | Yes |  |
 | A logged in user can add trip details (location, number of travellers, etc) | Yes |  |
+| Users can see comments made under posts. | Yes |  |
+| Posts appear in searches if their title is a match. |  |  |
+| Posts appear in searches if their continent is a match. |  |  |
+| Posts appear in searches if their country is a match. |  |  |
+| Posts appear in searches if their city is a match. |  |  |
 
 
 ### Comment Tests
@@ -50,6 +58,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Logged out users can add a comment to a post. | No |  |
 | Logged out users can edit other users comments. | No |  |
 | Logged in users can edit other users comments. | No |  |
+| Users can see the username and profile image belonging to the comment writer. | Yes |  |
 
 
 ## Bugs and Fixes
