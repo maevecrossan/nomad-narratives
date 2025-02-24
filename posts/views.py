@@ -1,6 +1,7 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
 from .models import TripPost
 from utils.continents import get_continent_by_country
@@ -27,7 +28,8 @@ class PostList(generics.ListCreateAPIView):
 
     filter_backends = [
         filters.OrderingFilter,
-        filters.SearchFilter
+        filters.SearchFilter,
+        DjangoFilterBackend
         ]
 
     ordering_fields = [
@@ -42,6 +44,12 @@ class PostList(generics.ListCreateAPIView):
         'details__continent',  # from TripDetails
         'details__country__name',  # from TripDetails
         'details__city__name'  # from TripDetails
+        ]
+
+    filterset_fields = [
+        'owner__profile',
+        'owner__followed__owner__profile',
+        'likes__owner__profile'
         ]
 
     def perform_create(self, serializer):
