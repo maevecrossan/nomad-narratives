@@ -1,5 +1,5 @@
 from django.db.models import Count
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from django.shortcuts import get_object_or_404
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
 from .models import TripPost
@@ -23,6 +23,15 @@ class PostList(generics.ListCreateAPIView):
             'comment',
             distinct=True),
     ).order_by('-created_at')
+
+    filter_backends = [
+        filters.OrderingFilter
+        ]
+    ordering_fields = [
+        'likes_count',
+        'comments_count',
+        'likes__created_at'
+        ]
 
     def perform_create(self, serializer):
         country_id = self.request.data.get('country')
