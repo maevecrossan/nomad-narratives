@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'cities_light',
-
+    'django_filters',
     'profiles',
     'posts',
     'comments',
