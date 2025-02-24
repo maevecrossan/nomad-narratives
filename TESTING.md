@@ -3,7 +3,7 @@
 The following is a breakdown of the testing done to ensure that the 'nomadnarrativesapi' behaves as intended and without any errors.
 
 ## Manual Testing
-Below is a breakdown of the tests performed to ensure that users can see and interact with based on their logged in status.
+Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status.
 
 ### Profile Tests
 
