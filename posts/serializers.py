@@ -4,6 +4,7 @@ Posts Serializer
 
 from rest_framework import serializers
 from .models import TripPost, TripDetails
+from likes.models import Like
 from cities_light.models import City
 
 
@@ -47,6 +48,7 @@ class TripPostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     details = TripDetailsSerializer()
+    like_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         '''
@@ -72,6 +74,15 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         request = self.context['request']
         return request.user == obj.owner
+
+    def get_like_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Like.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return like.id if like else None
+        return None
 
     def create(self, validated_data):
         '''
@@ -122,5 +133,6 @@ class TripPostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter', 'details'
+            'title', 'content', 'image', 'image_filter', 'like_id',
+            'details'
         ]
