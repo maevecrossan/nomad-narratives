@@ -14,19 +14,10 @@ class ProfileList(generics.ListAPIView):
     No Create view (profile creation handled by Django signals).
     '''
     queryset = Profile.objects.annotate(
-        posts_count=Count(
-            'owner__post',
-            distinct=True
-            ),
-        followers_count=Count(
-            'owner__followed',
-            distinct=True
-            ),
-        following_count=Count(
-            'owner__following',
-            distinct=True)
-        ).order_by('-created_at')
-
+        posts_count=Count('owner__trippost', distinct=True),
+        followers_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True)
+    ).order_by('-created_at')
     serializer_class = ProfileSerializer
 
     filter_backends = [
@@ -48,15 +39,13 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
         posts_count=Count(
-            'owner__post',
-            distinct=True
-            ),
+            'owner__trippost',
+            distinct=True),
         followers_count=Count(
             'owner__followed',
-            distinct=True
-            ),
+            distinct=True),
         following_count=Count(
             'owner__following',
             distinct=True)
-        ).order_by('-created_at')
+    ).order_by('-created_at')
     permission_classes = [IsOwnerOrReadOnly]
