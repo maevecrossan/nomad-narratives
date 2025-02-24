@@ -53,4 +53,11 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TripPostSerializer
-    queryset = TripPost.objects.all()
+    queryset = TripPost.objects.annotate(
+        comments_count=Count(
+            'likes',
+            distinct=True),
+        likes_count=Count(
+            'comment',
+            distinct=True),
+    ).order_by('-created_at')
