@@ -3,6 +3,7 @@ from rest_framework import generics, permissions, filters
 from django.shortcuts import get_object_or_404
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
 from .models import TripPost
+from utils.continents import get_continent_by_country
 from .serializers import TripPostSerializer
 from cities_light.models import Country, City
 
@@ -45,14 +46,16 @@ class PostList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         country_id = self.request.data.get('country')
-        city_id = self.request.data.get('city')
+        city_ids = self.request.data.get('city')
 
         country = get_object_or_404(Country, id=country_id)
-        city = get_object_or_404(City, id=city_id, country=country)
+        cities = City.objects.filter(id__in=city_ids)
 
         post = serializer.save(owner=self.request.user)
+
         post.details.country = country
-        post.details.city = city
+        post.details.city.set(cities)
+        post.details.continent = get_continent_by_country(country.name)
         post.details.save()
 
 
