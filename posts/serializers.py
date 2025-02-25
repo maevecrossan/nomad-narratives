@@ -1,7 +1,6 @@
 '''
 Posts Serializer
 '''
-
 from rest_framework import serializers
 from .models import TripPost, TripDetails
 from likes.models import Like
@@ -51,6 +50,7 @@ class TripPostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    content = serializers.CharField()
 
     def validate_image(self, value):
         '''
