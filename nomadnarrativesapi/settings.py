@@ -48,12 +48,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+
+    # Third-party apps
+    'cloudinary_storage',
     'cloudinary',
     'rest_framework',
-    'cities_light',
     'django_filters',
+    'cities_light',
+    'django_summernote',
+
+    # My custom apps
     'profiles',
     'posts',
     'comments',
