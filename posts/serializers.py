@@ -51,6 +51,9 @@ class TripPostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
     content = serializers.CharField()
+    alt_text = serializers.CharField(
+        required=True,
+        allow_blank=False)
 
     def validate_image(self, value):
         '''

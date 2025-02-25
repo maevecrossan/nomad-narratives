@@ -49,6 +49,12 @@ class TripPost(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_post_hrftao', blank=True
     )
+    image_alt_text = models.CharField(
+        max_length=255,
+        blank=True,
+        help_text="Please describe your image in case\
+              there is an issue displaying it."
+    )
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
