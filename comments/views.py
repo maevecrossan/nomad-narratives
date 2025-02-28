@@ -20,7 +20,7 @@ class CommentList(generics.ListCreateAPIView):
         DjangoFilterBackend
         ]
     filterset_fields = [
-        'trippost'
+        'post'
         ]
 
     def perform_create(self, serializer):
