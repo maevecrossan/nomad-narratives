@@ -3,25 +3,36 @@
 The following is a breakdown of the testing done to ensure that the 'nomadnarrativesapi' behaves as intended and without any errors.
 
 ## Manual Testing
-Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API were tested through the default interface created by the Django Rest Framework.
+Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API apps were executed through the default interface created by the Django Rest Framework.
 
-### Profile Tests
+
+### Comments Tests
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| A logged out user can create a profile | Yes |  |
-| Users can upload a personal profile picture | Yes |  |
-| Logged in users can edit their own profile picture | Yes |  |
-| Users (logged in or out) can edit profile picture of other users | No |  |
-| Logged in users can add a profile description | Yes |  |
-| Logged in users can edit their own profile description | Yes |  |
-| Users (logged in or out) can edit the profile descriptions of other users| No |  |
-| Users can see their own followers. |  |  |
-| Users can see other users' followers. |  |  |
-| Users appear in searches if their username is a match. |  |  |
+| Logged in users can add a comment to a post. | Yes |  |
+| Logged in users can edit/update their comment. | Yes |  |
+| Logged in users can delete their comment. | Yes |  |
+| Logged out users can add a comment to a post. | No |  |
+| Logged out users can edit other users comments. | No |  |
+| Logged in users can edit other users comments. | No |  |
+| Users can see the username and profile image belonging to the comment writer. | Yes |  |
 
 
-### Post Tests
+### Followers Tests
+
+| Test Case | Expected Outcome | Passed |
+| :--- | :---: | :---: |
+|  |  |  |
+
+
+### Likes Tests
+
+| Test Case | Expected Outcome | Passed |
+| :--- | :---: | :---: |
+
+
+### Posts Tests
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
@@ -42,23 +53,26 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | A logged in user can see an error message when attempting to upload an image exceeding the sizing criteria. | Yes |  |
 | A logged in user can add trip details (location, number of travellers, etc) | Yes |  |
 | Users can see comments made under posts. | Yes |  |
-| Posts appear in searches if their title is a match. |  |  |
-| Posts appear in searches if their continent is a match. |  |  |
-| Posts appear in searches if their country is a match. |  |  |
-| Posts appear in searches if their city is a match. |  |  |
+| Posts appear in searches if their title is a match. | Yes |  |
+| Posts appear in searches if their continent is a match. | Yes |  |
+| Posts appear in searches if their country is a match. | Yes |  |
+| Posts appear in searches if their city is a match. | Yes |  |
 
 
-### Comment Tests
+### Profiles Tests
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| Logged in users can add a comment to a post. | Yes |  |
-| Logged in users can edit/update their comment. | Yes |  |
-| Logged in users can delete their comment. | Yes |  |
-| Logged out users can add a comment to a post. | No |  |
-| Logged out users can edit other users comments. | No |  |
-| Logged in users can edit other users comments. | No |  |
-| Users can see the username and profile image belonging to the comment writer. | Yes |  |
+| A logged out user can create a profile | Yes |  |
+| Users can upload a personal profile picture | Yes |  |
+| Logged in users can edit their own profile picture | Yes |  |
+| Users (logged in or out) can edit profile picture of other users | No |  |
+| Logged in users can add a profile description | Yes |  |
+| Logged in users can edit their own profile description | Yes |  |
+| Users (logged in or out) can edit the profile descriptions of other users | No |  |
+| Users can see their own followers (who follows them). | Yes |  |
+| Users can see other users' followers (who follows another user). | Yes |  |
+| Users appear in searches if their username is a match. | Yes |  |
 
 
 ## Bugs and Fixes
