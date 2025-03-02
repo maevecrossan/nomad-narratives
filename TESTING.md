@@ -37,6 +37,10 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
+| Logged in users can like a post by another user | Yes |  |
+| Logged in users can unlike a post they previously liked | Yes |  |
+| Logged in users can like a post they previously liked | No |  |
+| Logged out users can like/unlike posts | No |  |
 
 
 ### Posts Tests
