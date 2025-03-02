@@ -41,23 +41,39 @@ class TripPost(models.Model):
         ('xpro2', 'X-pro II')
     ]
 
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    title = models.CharField(max_length=255)
-    content = models.TextField(blank=False)
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+        )
+    created_at = models.DateTimeField(
+        auto_now_add=True
+        )
+    updated_at = models.DateTimeField(
+        auto_now=True
+        )
+    title = models.CharField(
+        max_length=255,
+        blank=False
+        )
+    content = models.TextField(
+        blank=False
+        )
     image = models.ImageField(
-        upload_to='images/', default='../default_post_hrftao', blank=True
-    )
+        upload_to='images/',
+        default='../default_post_hrftao',
+        blank=False
+        )
     image_alt_text = models.CharField(
         max_length=255,
-        blank=True,
+        blank=False,
         help_text="Please describe your image in case\
               there is an issue displaying it."
-    )
+        )
     image_filter = models.CharField(
-        max_length=32, choices=image_filter_choices, default='normal'
-    )
+        max_length=32,
+        choices=image_filter_choices,
+        default='normal'
+        )
 
     class Meta:
         '''
