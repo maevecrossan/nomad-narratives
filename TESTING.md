@@ -3,11 +3,11 @@
 The following is a breakdown of the testing done to ensure that the 'nomadnarrativesapi' behaves as intended and without any errors.
 
 ## Manual Testing
-Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status.
+Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API were tested through the default interface created by the Django Rest Framework.
 
 ### Profile Tests
 
-| Test Case | Expected Outcome | Final Outcome |
+| Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
 | A logged out user can create a profile | Yes |  |
 | Users can upload a personal profile picture | Yes |  |
@@ -23,7 +23,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 ### Post Tests
 
-| Test Case | Expected Outcome | Final Outcome |
+| Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
 | Posts can be retrieved with a valid ID. | Yes |  |
 | Posts can be retrieved with an invalid ID. | No |  |
@@ -50,7 +50,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 ### Comment Tests
 
-| Test Case | Expected Outcome | Final Outcome |
+| Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
 | Logged in users can add a comment to a post. | Yes |  |
 | Logged in users can edit/update their comment. | Yes |  |
