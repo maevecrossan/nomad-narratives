@@ -55,12 +55,12 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'django_filters',
-    'rest_framework.authtoken', 
+    'rest_framework.authtoken',
     'dj_rest_auth',
-    'django.contrib.sites', 
-    'allauth', 
-    'allauth.account', 
-    'allauth.socialaccount', 
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'dj_rest_auth.registration',
     'cities_light',
     'django_summernote',
@@ -75,11 +75,11 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-#JWT Token Functionality
+# JWT Token Functionality
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [( 
         'rest_framework.authentication.SessionAuthentication' 
-        if 'DEV' in os.environ 
+        if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )]
     }
@@ -89,8 +89,6 @@ JWT_AUTH_COOKIE = 'my-app-auth'
 
 JWT_AUTH_SECURE = True
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-
-
 
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
 
@@ -176,7 +174,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.\
+    storage.StaticHashedCloudinaryStorage'
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
