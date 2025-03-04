@@ -1,3 +1,8 @@
+'''
+Contains the serializer for the `Like` model, which handles the creation
+and serialization of "like" relationships between users and posts.
+Includes error handling for duplicate likes.
+'''
 from django.db import IntegrityError
 from rest_framework import serializers
 from .models import Like

@@ -1,3 +1,7 @@
+'''
+Defines URL patterns for managing "like" relationships, including listing likes 
+and viewing details of a specific like.
+'''
 from django.urls import path
 from likes import views
 
