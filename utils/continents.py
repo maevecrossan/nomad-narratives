@@ -1,3 +1,12 @@
+'''
+This module provides a mapping of countries to their respective continents.
+It includes a function to retrieve the continent of a given country.
+
+The `CONTINENT_MAPPING` dictionary contains the continent as the key and
+a list of countries as the value. The function `get_continent_by_country`
+returns the continent name for a given country.
+'''
+
 CONTINENT_MAPPING = {
     "Africa": [
         "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso",
