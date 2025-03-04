@@ -1,3 +1,7 @@
+'''
+The `Follower` model tracks which users are following other users.
+'''
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -27,8 +31,19 @@ class Follower(models.Model):
         )
 
     class Meta:
+        '''
+        - Specifies the default ordering for query results
+        - Ensures that each pair of `owner` (follower) and `followed`
+            (followed user) is unique, preventing a user from following
+            the same user more than once.
+        '''
         ordering = ['-created_at']
         unique_together = ['owner', 'followed']
 
     def __str__(self):
+        '''
+        - Returns a string representation of the Follower instance.
+        - A string showing the owner and followed users in the format
+            'owner followed'.
+        '''
         return f'{self.owner} {self.followed}'
