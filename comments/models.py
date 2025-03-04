@@ -1,3 +1,7 @@
+'''
+Represents a comment made by a user on a specific trip post.
+'''
+
 from django.db import models
 from django.contrib.auth.models import User
 from posts.models import TripPost
@@ -5,7 +9,8 @@ from posts.models import TripPost
 
 class Comment(models.Model):
     '''
-    Comment model, related to User and Post
+    Comment model, related to User and Post.
+
     '''
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(TripPost, on_delete=models.CASCADE)
@@ -14,7 +19,13 @@ class Comment(models.Model):
     content = models.TextField()
 
     class Meta:
+        '''
+        Orders comments by creation time in descending order.
+        '''
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.content
+        '''
+        Returns a string representation of the comment's content.
+        '''
+        return str(self.content)
