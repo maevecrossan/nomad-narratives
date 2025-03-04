@@ -91,8 +91,7 @@ JWT_AUTH_SECURE = True
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'nomadnarrativesapi.serializers.\
-        CurrentUserSerializer'
+    'USER_DETAILS_SERIALIZER': 'nomadnarrativesapi.serializers.CurrentUserSerializer'
     }
 
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
