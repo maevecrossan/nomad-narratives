@@ -1,7 +1,10 @@
 '''
-Profiles Serializer
-'''
+Serializer for the Profile model and related fields.
 
+- `ProfileSerializer`: Serializes Profile model data, including user profile
+    details and dynamic fields like follow status, post counts, and
+    follower counts.
+'''
 from rest_framework import serializers
 from .models import Profile
 from followers.models import Follower

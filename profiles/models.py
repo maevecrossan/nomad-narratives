@@ -1,3 +1,11 @@
+'''
+Defines the Profile model and its related logic for user profiles.
+
+- `Profile`: Stores user profile information such as name, content (bio),
+    and image.
+- A new profile is automatically created when a new User instance is created.
+'''
+
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
