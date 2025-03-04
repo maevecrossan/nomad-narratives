@@ -1,6 +1,15 @@
+'''
+Contains API views for managing "like" relationships between users and posts.
+
+- `LikeList`: Lists all likes and allows authenticated users to create
+  a new like for a post. Non-authenticated users have read-only access.
+
+- `LikeDetail`: Retrieves or deletes a specific like. Only the owner of the
+  like can modify or remove it.
+'''
 from rest_framework import generics, permissions
-from .models import Like
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
+from .models import Like
 from .serializers import LikeSerializer
 
 
