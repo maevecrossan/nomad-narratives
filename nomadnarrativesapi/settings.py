@@ -73,6 +73,8 @@ INSTALLED_APPS = [
     'followers',
 ]
 
+SITE_ID = 1
+
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
 
 
