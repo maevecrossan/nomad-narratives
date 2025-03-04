@@ -1,6 +1,11 @@
 '''
-Profile Views
+Profile Views for handling profile-related API endpoints.
+
+Includes views for retrieving, listing, and updating user profiles. It also
+handles custom filtering and ordering options for profiles based on
+various metrics.
 '''
+
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
