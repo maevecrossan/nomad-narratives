@@ -133,6 +133,8 @@ CORS_ALLOWED_ORIGINS = [
     ] if origin
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
 ROOT_URLCONF = 'nomadnarrativesapi.urls'
 
 TEMPLATES = [
