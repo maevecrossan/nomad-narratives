@@ -142,12 +142,20 @@ WSGI_APPLICATION = 'nomadnarrativesapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DEVELOPMENT' in os.environ:
+    print('Development environment')
+    # Uncomment the following lines to use sqlite3 for testing
+    DATABASES = {
+        'default': {
+           'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+        },
     }
-}
+
+    # Comment the following lines to use sqlite3 for testing
+    # DATABASES = {
+    #     'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    # }
 
 
 # Password validation
