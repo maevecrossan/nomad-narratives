@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -142,20 +143,24 @@ WSGI_APPLICATION = 'nomadnarrativesapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if 'DEVELOPMENT' in os.environ:
+if os.environ.get('DEV') == '1':
     print('Development environment')
     # Uncomment the following lines to use sqlite3 for testing
+    # Use SQLite for development or testing
     DATABASES = {
         'default': {
-           'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         },
     }
+else:
+    print('Production environment')
 
-    # Comment the following lines to use sqlite3 for testing
-    # DATABASES = {
-    #     'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    # }
+    # Uncomment import at the top of this file for production
+    # Use Postgres or another database for production (e.g., Heroku)
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    }
 
 
 # Password validation
