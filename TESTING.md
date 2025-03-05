@@ -92,4 +92,4 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | :--- | :--- |
 | Region, country and city fields appearing but not editable. | Django-cities-light database table not populated. `python manage.py cities_light` command was used to populate data, allowing users to make a selection. |
 | Django-cities-light 'city' category was too detailed as it included city, subregion, and country. I wasn't able to extract just the cities out of it, nor was I able to dynamically load the city based on the user's selected country. I'm hoping to add this more user-friendly feature on the front end with React. |  |
-|  |  |
+| Failed Heroku Deployment | There was an issue (`error: subprocess-exited-with-error`) building `wheel` so I tried downgrading Pillow from 10.1.0 to 10.0.0. |
