@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 // NavBar for Logged In User
 const NavBar = () => {
     return (
-        <Navbar bg="light" expand="md">
+        <Navbar bg="light" expand="md" fixed='top'>
             <Navbar.Brand href="#home">Nomad Narratives</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
