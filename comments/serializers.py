@@ -21,6 +21,18 @@ class CommentSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_created_at(self, obj):
+        '''
+        Returns as human readable time.
+        '''
+        return naturaltime(obj.created_at)
+
+    def get_updated_at(self, obj):
+        '''
+        Returns as human readable time.
+        '''
+        return naturaltime(obj.updated_at)
+
     class Meta:
         '''
         Specifies what fields to be returned.
