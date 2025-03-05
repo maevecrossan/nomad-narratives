@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'corsheaders',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -114,6 +116,7 @@ CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
