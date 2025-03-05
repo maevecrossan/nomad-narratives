@@ -39,11 +39,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG") == "True"
 
 ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
     'localhost',
-    '127.0.0.1',
-    'nomad-narratives-05968209a16d.herokuapp.com',
+    '127.0.0.1'
 ]
-
 
 # Application definition
 
