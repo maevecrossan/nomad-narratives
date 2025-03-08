@@ -1,5 +1,5 @@
 '''
-Django admin configuration for the City model.
+Django admin configuration for the Comment model.
 '''
 from django.contrib import admin
 from .models import Comment
