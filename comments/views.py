@@ -1,3 +1,9 @@
+'''
+Views for the Comments application.
+
+This module defines API views for listing, creating, retrieving, updating,
+and deleting comments using Django REST Framework.
+'''
 from rest_framework import generics, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
