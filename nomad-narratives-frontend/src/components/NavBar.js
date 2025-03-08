@@ -13,18 +13,25 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                {/* If a validated user: */}
+                
+                {/* Logged In State */}
                 <Nav.Link href="#home">My Feed</Nav.Link>
-                {/* <Nav.Link href="#home">Saved Posts</Nav.Link> */}
+                <Nav.Link href="#link">My Profile</Nav.Link>
                 <NavDropdown title="Explore" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1">Region</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Country</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">City</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">Target Audience</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.5">Duration</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#link">My Profile</Nav.Link>
-                {/* If a un/validated user: */}
+                <NavDropdown title="Help" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
+                </NavDropdown>
+                
+                {/* Logged Out State */}
                 <Nav.Link href="#link">About Us</Nav.Link>
                 <Nav.Link href="#link">Community Guidelines</Nav.Link>
                 </Nav>
