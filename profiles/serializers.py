@@ -6,8 +6,8 @@ Serializer for the Profile model and related fields.
     follower counts.
 '''
 from rest_framework import serializers
-from .models import Profile
 from followers.models import Follower
+from .models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -29,9 +29,18 @@ class ProfileSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     def get_following_id(self, obj):
+        '''
+        Retrieves the ID of the following relationship between the
+        requester (authenticated user) and the profile's owner.
+
+        If the requester is following the profile's owner, the ID of the
+        corresponding Follower object is returned. Otherwise, None
+        is returned.
+
+        '''
         user = self.context['request'].user
         if user.is_authenticated:
-            following = Follower.objects.filter(
+            following = Follower.objects.filter(  # pylint: disable=no-member
                 owner=user, followed=obj.owner
             ).first()
             return following.id if following else None
