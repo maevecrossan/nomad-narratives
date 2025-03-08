@@ -139,7 +139,7 @@ class TripDetails(models.Model):
 
     def __str__(self):
         return (
-            f"Details for "  # pylint: disable=no-member
+            f"Details for "
             f"{self.trip_post.title} - "  # pylint: disable=no-member
             f"{self.duration_value} "
             f"{self.get_duration_unit_display()}"  # pylint: disable=no-member
