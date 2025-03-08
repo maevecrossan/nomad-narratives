@@ -19,7 +19,7 @@ class ProfileList(generics.ListAPIView):
     Returns a list of all profiles.
     No Create view (profile creation handled by Django signals).
     '''
-    queryset = Profile.objects.annotate(
+    queryset = Profile.objects.annotate(  # pylint: disable=no-member
         posts_count=Count('owner__trippost', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
@@ -50,7 +50,7 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     Allows profile retrieval and updating.
     '''
     serializer_class = ProfileSerializer
-    queryset = Profile.objects.annotate(
+    queryset = Profile.objects.annotate(  # pylint: disable=no-member
         posts_count=Count(
             'owner__trippost',
             distinct=True),
