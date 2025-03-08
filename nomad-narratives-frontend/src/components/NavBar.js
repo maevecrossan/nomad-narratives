@@ -13,6 +13,7 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
+                {/* If a validated user: */}
                 <Nav.Link href="#home">My Feed</Nav.Link>
                 {/* <Nav.Link href="#home">Saved Posts</Nav.Link> */}
                 <NavDropdown title="Explore" id="basic-nav-dropdown">
@@ -23,6 +24,7 @@ const NavBar = () => {
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="#link">My Profile</Nav.Link>
+                {/* If a un/validated user: */}
                 <Nav.Link href="#link">About Us</Nav.Link>
                 <Nav.Link href="#link">Community Guidelines</Nav.Link>
                 </Nav>
