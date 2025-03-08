@@ -2,9 +2,9 @@
 Posts Serializer
 '''
 from rest_framework import serializers
-from .models import TripPost, TripDetails
-from likes.models import Like
 from cities_light.models import City
+from likes.models import Like
+from .models import TripPost, TripDetails
 
 
 class TripDetailsSerializer(serializers.ModelSerializer):
@@ -81,9 +81,13 @@ class TripPostSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     def get_like_id(self, obj):
+        '''
+        Retrieves the ID of the 'Like' associated with
+        the given post and the current user.
+        '''
         user = self.context['request'].user
         if user.is_authenticated:
-            like = Like.objects.filter(
+            like = Like.objects.filter(   # pylint: disable=no-member
                 owner=user, post=obj
             ).first()
             return like.id if like else None
@@ -96,8 +100,10 @@ class TripPostSerializer(serializers.ModelSerializer):
         details_data = validated_data.pop('details')
         city_data = details_data.pop('city', [])
 
-        trip_post = TripPost.objects.create(**validated_data)
-        trip_details = TripDetails.objects.create(
+        trip_post = TripPost.objects.create(  # pylint: disable=no-member
+            **validated_data
+            )
+        trip_details = TripDetails.objects.create(  # pylint: disable=no-member
             trip_post=trip_post, **details_data
             )
 
