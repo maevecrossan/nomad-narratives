@@ -25,7 +25,7 @@ class FollowerList(generics.ListCreateAPIView):
     Read-only access is available to non-authenticated users.
     '''
     serializer_class = FollowerSerializer
-    queryset = Follower.objects.all()
+    queryset = Follower.objects.all()  # pylint: disable=no-member
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
@@ -38,5 +38,5 @@ class FollowerDetail(generics.RetrieveDestroyAPIView):
     Allows users to follow or unfollow another user.
     '''
     serializer_class = FollowerSerializer
-    queryset = Follower.objects.all()
+    queryset = Follower.objects.all()  # pylint: disable=no-member
     permission_classes = [IsOwnerOrReadOnly]
