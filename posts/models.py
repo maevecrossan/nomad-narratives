@@ -82,7 +82,7 @@ class TripPost(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f'{self.id} {self.title}'
+        return f'{self.id} {self.title}'  # pylint: disable=no-member
 
 
 class TripDetails(models.Model):
@@ -138,5 +138,9 @@ class TripDetails(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Details for {self.trip_post.title} - {
-            self.duration_value} {self.get_duration_unit_display()}"
+        return (
+            f"Details for "  # pylint: disable=no-member
+            f"{self.trip_post.title} - "  # pylint: disable=no-member
+            f"{self.duration_value} "
+            f"{self.get_duration_unit_display()}"  # pylint: disable=no-member
+        )
