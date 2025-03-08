@@ -1,3 +1,9 @@
+'''
+URL configuration for the Comments application.
+
+This module defines the URL patterns for the Comments app, mapping
+views to specific endpoints for handling comment-related requests.
+'''
 from django.urls import path
 from comments import views
 
