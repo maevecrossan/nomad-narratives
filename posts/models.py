@@ -10,8 +10,8 @@ of the trip (location, duration, etc).
 '''
 
 from django.db import models
-from cities_light.models import City, Country
 from django.contrib.auth.models import User
+from cities_light.models import City, Country
 from utils.continents import get_continent_by_country
 
 
