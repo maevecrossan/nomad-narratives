@@ -22,7 +22,7 @@ class LikeList(generics.ListCreateAPIView):
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = LikeSerializer
-    queryset = Like.objects.all()
+    queryset = Like.objects.all()  # pylint: disable=no-member
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -34,5 +34,5 @@ class LikeDetail(generics.RetrieveDestroyAPIView):
     Users only like or unlike a post if they own the like.
     '''
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Like.objects.all()
+    queryset = Like.objects.all()  # pylint: disable=no-member
     serializer_class = LikeSerializer
