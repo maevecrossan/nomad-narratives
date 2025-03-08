@@ -1,12 +1,19 @@
+'''
+Imports for views related to TripPost.
+
+This module imports various libraries and components used for handling
+TripPost views, including Django, REST framework components, and custom
+permissions and serializers.
+'''
 from django.db.models import Count
-from rest_framework import generics, permissions, filters
 from django.shortcuts import get_object_or_404
+from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
-from .models import TripPost
 from utils.continents import get_continent_by_country
-from .serializers import TripPostSerializer
 from cities_light.models import Country, City
+from .serializers import TripPostSerializer
+from .models import TripPost
 
 
 class PostList(generics.ListCreateAPIView):
@@ -17,7 +24,7 @@ class PostList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
-    queryset = TripPost.objects.annotate(
+    queryset = TripPost.objects.annotate(  # pylint: disable=no-member
         comments_count=Count(
             'likes',
             distinct=True),
@@ -74,7 +81,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TripPostSerializer
-    queryset = TripPost.objects.annotate(
+    queryset = TripPost.objects.annotate(  # pylint: disable=no-member
         comments_count=Count(
             'likes',
             distinct=True),
