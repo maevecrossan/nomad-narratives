@@ -6,7 +6,7 @@ import './NavBar.css';
 // NavBar for Logged In User
 const NavBar = () => {
     return (
-        <Navbar bg="light" expand="md" fixed='top'>
+        <Navbar expand="md" fixed='top'>
             <Navbar.Brand href="#home">
                 <img src={logo} alt="Logo" className="img-fluid navbar-logo"/>
             </Navbar.Brand>
