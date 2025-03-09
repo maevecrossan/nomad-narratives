@@ -22,12 +22,12 @@ const NavBar = () => {
                 <Nav className="ml-auto text-center">
                 
                 {/* Logged In State */}
-                <NavLink  to="/myfeed">
+                <NavLink to="/myfeed" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className='fas fa-home'></i>
                     My Feed
                 </NavLink>
 
-                <NavLink to="/myprofile">
+                <NavLink to="/myprofile" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className="fa-regular fa-circle-user"></i>
                     My Profile
                 </NavLink>
@@ -57,28 +57,28 @@ const NavBar = () => {
                         <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
                     </NavDropdown> */}
 
-                <NavLink to="/logout">
+                <NavLink to="/logout" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     Log Out
                 </NavLink>
                 
                 {/* Logged Out State */}
-                <NavLink to="/aboutus">
+                <NavLink to="/aboutus" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className="fa-solid fa-info"></i>
                     About Us
                 </NavLink>
 
-                <NavLink to="/communityguidelines">
+                <NavLink to="/communityguidelines" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className="fa-regular fa-file-lines"></i>
                     Community Guidelines
                 </NavLink>
 
-                <NavLink to="/signin">
+                <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className="fa-solid fa-sign-in-alt"></i>
                     Sign In
                 </NavLink>
 
-                <NavLink to="/signup">
+                <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}>
                     <i className="fa-solid fa-user-plus"></i>
                     Sign up
                 </NavLink>
