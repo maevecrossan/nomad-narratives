@@ -45,19 +45,50 @@ const NavBar = () => {
                 </NavLink>
 
                 {/* Explore Dropdown */}
-                {/* <NavDropdown title={
+                <NavDropdown title={
                     <>
                         <i className="fas fa-compass me-2"></i> Explore
                     </>
                     } id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Region</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Country</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">City</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">Target Audience</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.5">Duration</NavDropdown.Item>
+                    <NavDropdown.Item 
+                        exact
+                        as={NavLink} 
+                        to="/region"
+                        >
+                        Region
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item as={NavLink} to="/country">
+                        Country
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item 
+                        exact
+                        as={NavLink} 
+                        to="/city"
+                        >
+                        City
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item 
+                        exact
+                        as={NavLink} 
+                        to="/target-audience">
+                        Target Audience
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item 
+                        exact
+                        as={NavLink} 
+                        to="/duration"
+                        >
+                        Duration
+                    </NavDropdown.Item>
+
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown> */}
+
+                    <NavDropdown.Item>Separated link</NavDropdown.Item>
+                </NavDropdown>
 
                 {/* Help Dropdown */}
                     {/* <NavDropdown title={
