@@ -1,14 +1,14 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import logo from '../assets/nn-logo-transparent.png'
-import './NavBar.css';
+import styles from '../styles/NavBar.module.css'
 
 // NavBar for Logged In User
 const NavBar = () => {
     return (
-        <Navbar expand="md" fixed='top'>
+        <Navbar className={styles.NavBar} expand="md" fixed='top'>
             <Navbar.Brand href="#home">
-                <img src={logo} alt="Logo" className="img-fluid navbar-logo"/>
+                <img src={logo} alt="Logo" className={styles.navbarLogo}/>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
