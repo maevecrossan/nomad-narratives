@@ -50,12 +50,17 @@ const NavBar = () => {
                     My Profile
                 </NavLink>
 
-                {/* Explore Dropdown */}
-                <NavDropdown title={
-                    <>
-                        <i className="fas fa-compass me-2"></i> Explore
-                    </>
-                    } id="basic-nav-dropdown">
+                {/* FUTURE DEVELOPMENT: Explore Dropdown */}
+                {/* <NavDropdown 
+                    title={
+                        <span className={`${isExploreActive ? styles.Active : ""}`}>
+                            <i className={`fas fa-compass me-2 ${isExploreActive ? styles.ActiveIcon : ""}`}></i>
+                            Explore
+                        </span>
+                    }
+                    id="basic-nav-dropdown"
+                    className={`${styles.NavLink} ${isExploreActive ? styles.Active : styles.NavDropdown}`}
+                    >
                     <NavDropdown.Item 
                         exact
                         as={NavLink} 
@@ -64,7 +69,11 @@ const NavBar = () => {
                         Region
                     </NavDropdown.Item>
 
-                    <NavDropdown.Item as={NavLink} to="/by-country">
+                    <NavDropdown.Item 
+                        exact
+                        as={NavLink} 
+                        to="/by-country"
+                        >
                         Country
                     </NavDropdown.Item>
 
@@ -94,7 +103,7 @@ const NavBar = () => {
                     <NavDropdown.Divider />
 
                     <NavDropdown.Item>Separated link</NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
 
                 {/* Help Dropdown */}
                     {/* <NavDropdown title={
