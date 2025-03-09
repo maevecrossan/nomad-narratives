@@ -15,8 +15,10 @@ const NavBar = () => {
                 <Nav className="mr-auto">
                 
                 {/* Logged In State */}
-                <Nav.Link href="#home">My Feed</Nav.Link>
-                <Nav.Link href="#link">My Profile</Nav.Link>
+                <Nav.Link>My Feed</Nav.Link>
+                <Nav.Link>My Profile</Nav.Link>
+
+                {/* Explore Dropdown */}
                 <NavDropdown title="Explore" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Region</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Country</NavDropdown.Item>
@@ -26,6 +28,8 @@ const NavBar = () => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
+
+                {/* Help Dropdown */}
                 <NavDropdown title="Help" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
@@ -34,6 +38,8 @@ const NavBar = () => {
                 {/* Logged Out State */}
                 <Nav.Link href="#link">About Us</Nav.Link>
                 <Nav.Link href="#link">Community Guidelines</Nav.Link>
+                <Nav.Link>Sign In</Nav.Link>
+                <Nav.Link>Sign up</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
