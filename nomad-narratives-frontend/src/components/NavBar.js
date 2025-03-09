@@ -2,10 +2,16 @@ import React from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import logo from '../assets/nn-logo-transparent.png'
 import styles from '../styles/NavBar.module.css'
-import { NavLink } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom/cjs/react-router-dom';
 
 // NavBar for Logged In User
 const NavBar = () => {
+
+    const location = useLocation();
+
+    // Check if the current route matches any dropdown item
+    const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
+
     return (
         <Navbar className={styles.NavBar} expand="md" fixed='top'>
             <NavLink 
@@ -26,7 +32,7 @@ const NavBar = () => {
                 {/* Logged In State */}
                 <NavLink 
                     exact
-                    to="/myfeed" 
+                    to="/my-feed" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
@@ -36,7 +42,7 @@ const NavBar = () => {
 
                 <NavLink 
                     exact
-                    to="/myprofile" 
+                    to="/my-profile" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
@@ -53,19 +59,19 @@ const NavBar = () => {
                     <NavDropdown.Item 
                         exact
                         as={NavLink} 
-                        to="/region"
+                        to="/by-region"
                         >
                         Region
                     </NavDropdown.Item>
 
-                    <NavDropdown.Item as={NavLink} to="/country">
+                    <NavDropdown.Item as={NavLink} to="/by-country">
                         Country
                     </NavDropdown.Item>
 
                     <NavDropdown.Item 
                         exact
                         as={NavLink} 
-                        to="/city"
+                        to="/by-city"
                         >
                         City
                     </NavDropdown.Item>
@@ -73,14 +79,14 @@ const NavBar = () => {
                     <NavDropdown.Item 
                         exact
                         as={NavLink} 
-                        to="/target-audience">
+                        to="/by-target-audience">
                         Target Audience
                     </NavDropdown.Item>
 
                     <NavDropdown.Item 
                         exact
                         as={NavLink} 
-                        to="/duration"
+                        to="/by-duration"
                         >
                         Duration
                     </NavDropdown.Item>
@@ -102,7 +108,7 @@ const NavBar = () => {
 
                 <NavLink 
                     exact 
-                    to="/logout" 
+                    to="/log-out" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
@@ -113,7 +119,7 @@ const NavBar = () => {
                 {/* Logged Out State */}
                 <NavLink 
                     exact 
-                    to="/aboutus" 
+                    to="/about-us" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
@@ -123,7 +129,7 @@ const NavBar = () => {
 
                 <NavLink 
                     exact 
-                    to="/communityguidelines" 
+                    to="/community-guidelines" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
@@ -133,7 +139,7 @@ const NavBar = () => {
 
                 <NavLink 
                     exact 
-                    to="/signin" 
+                    to="/sign-in" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
@@ -143,7 +149,7 @@ const NavBar = () => {
 
                 <NavLink 
                     exact 
-                    to="/signup" 
+                    to="/sign-up" 
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
