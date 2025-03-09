@@ -15,11 +15,21 @@ const NavBar = () => {
                 <Nav className="mr-auto">
                 
                 {/* Logged In State */}
-                <Nav.Link>My Feed</Nav.Link>
-                <Nav.Link>My Profile</Nav.Link>
+                <Nav.Link>
+                    <i className='fas fa-home'></i>
+                    My Feed
+                </Nav.Link>
+                <Nav.Link>
+                    <i class="fa-regular fa-circle-user"></i>
+                    My Profile
+                </Nav.Link>
 
                 {/* Explore Dropdown */}
-                <NavDropdown title="Explore" id="basic-nav-dropdown">
+                <NavDropdown title={
+                    <>
+                        <i className="fas fa-compass me-2"></i> Explore
+                    </>
+                    } id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Region</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Country</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.3">City</NavDropdown.Item>
@@ -30,12 +40,19 @@ const NavBar = () => {
                 </NavDropdown>
 
                 {/* Help Dropdown */}
-                <NavDropdown title="Help" id="basic-nav-dropdown">
+                <NavDropdown title={
+                    <>
+                        <i className="fas fa-question"></i> Help
+                    </>
+                    } id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
                 </NavDropdown>
 
-                <Nav.Link>Log Out</Nav.Link>
+                <Nav.Link>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Log Out
+                </Nav.Link>
                 
                 {/* Logged Out State */}
                 <Nav.Link href="#link">About Us</Nav.Link>
