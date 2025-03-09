@@ -1,5 +1,5 @@
 .NavBar {
-    background-color: #fff8ed
+    background-color: #fff8ed;
 }
 
 .navbarLogo {
@@ -11,23 +11,24 @@
     box-sizing: border-box;
 }
 
-a{
-    color: black;
+.NavLink {
+    color: #acacac;
     transition: color ease-in-out 0.3s;
+    font-weight: 500;
 }
 
-a:hover {
+.NavLink:hover {
     text-decoration: none;
     color: #2e2e2e;
 }
 
-a:hover i {
+.NavLink:hover i {
     color: #2e2e2e;
     transition: color ease-in-out 0.3s;
 }
   
 i {
-    color: #cfced3;
+    color: #acacac;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
@@ -36,10 +37,13 @@ i {
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: darkslategray;
+    color: #2e2e2e;
+}
+
+.Active {
+    color: #2e2e2e;
 }
 
 .Active i {
     color: #2e2e2e;
-    text-decoration: underline;
 }
