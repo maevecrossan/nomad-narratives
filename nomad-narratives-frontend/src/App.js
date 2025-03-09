@@ -25,6 +25,11 @@ return (
 					path="/my-profile" 
 					render={() => <h1>My Profile</h1>} />
 
+				<Route 
+					exact 
+					path="/explore" 
+					render={() => <h1>Explore</h1>} />
+
 				{/* FUTURE DEVELOPMENT: Explore Dropdown */}
 				{/* <Route 
 					exact 
