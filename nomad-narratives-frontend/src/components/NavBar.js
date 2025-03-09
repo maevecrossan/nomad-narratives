@@ -55,8 +55,13 @@ const NavBar = () => {
                 </Nav.Link>
                 
                 {/* Logged Out State */}
-                <Nav.Link href="#link">About Us</Nav.Link>
-                <Nav.Link href="#link">Community Guidelines</Nav.Link>
+                <Nav.Link href="#link">
+                    <i class="fa-solid fa-info"></i>
+                    About Us
+                </Nav.Link>
+                <Nav.Link href="#link">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Community Guidelines</Nav.Link>
                 <Nav.Link>
                     <i class="fa-solid fa-sign-in-alt"></i>
                     Sign In
