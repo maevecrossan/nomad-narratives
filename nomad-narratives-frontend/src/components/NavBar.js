@@ -28,7 +28,7 @@ const NavBar = () => {
                 </NavLink>
 
                 <NavLink to="/myprofile">
-                    <i class="fa-regular fa-circle-user"></i>
+                    <i className="fa-regular fa-circle-user"></i>
                     My Profile
                 </NavLink>
 
@@ -58,28 +58,28 @@ const NavBar = () => {
                     </NavDropdown> */}
 
                 <NavLink to="/logout">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     Log Out
                 </NavLink>
                 
                 {/* Logged Out State */}
                 <NavLink to="/aboutus">
-                    <i class="fa-solid fa-info"></i>
+                    <i className="fa-solid fa-info"></i>
                     About Us
                 </NavLink>
 
                 <NavLink to="/communityguidelines">
-                    <i class="fa-regular fa-file-lines"></i>
+                    <i className="fa-regular fa-file-lines"></i>
                     Community Guidelines
                 </NavLink>
 
                 <NavLink to="/signin">
-                    <i class="fa-solid fa-sign-in-alt"></i>
+                    <i className="fa-solid fa-sign-in-alt"></i>
                     Sign In
                 </NavLink>
 
                 <NavLink to="/signup">
-                    <i class="fa-solid fa-user-plus"></i>
+                    <i className="fa-solid fa-user-plus"></i>
                     Sign up
                 </NavLink>
                 </Nav>
