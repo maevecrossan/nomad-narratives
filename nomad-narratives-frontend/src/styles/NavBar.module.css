@@ -18,11 +18,11 @@ a{
 
 a:hover {
     text-decoration: none;
-    color: darkslategray;
+    color: #2e2e2e;
 }
 
 a:hover i {
-    color: darkslategray;
+    color: #2e2e2e;
     transition: color ease-in-out 0.3s;
 }
   
@@ -37,4 +37,9 @@ i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
     color: darkslategray;
+}
+
+.Active i {
+    color: #2e2e2e;
+    text-decoration: underline;
 }
