@@ -57,8 +57,14 @@ const NavBar = () => {
                 {/* Logged Out State */}
                 <Nav.Link href="#link">About Us</Nav.Link>
                 <Nav.Link href="#link">Community Guidelines</Nav.Link>
-                <Nav.Link>Sign In</Nav.Link>
-                <Nav.Link>Sign up</Nav.Link>
+                <Nav.Link>
+                    <i class="fa-solid fa-sign-in-alt"></i>
+                    Sign In
+                </Nav.Link>
+                <Nav.Link>
+                    <i class="fa-solid fa-user-plus"></i>
+                    Sign up
+                </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
