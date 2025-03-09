@@ -50,6 +50,16 @@ const NavBar = () => {
                     My Profile
                 </NavLink>
 
+                <NavLink 
+                    exact
+                    to="/explore" 
+                    className={styles.NavLink} 
+                    activeClassName={styles.Active}
+                    >
+                    <i className="fa-regular fa-compass"></i>
+                    Explore
+                </NavLink>
+
                 {/* FUTURE DEVELOPMENT: Explore Dropdown */}
                 {/* <NavDropdown 
                     title={
