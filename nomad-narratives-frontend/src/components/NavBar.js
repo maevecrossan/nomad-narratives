@@ -28,13 +28,14 @@ const NavBar = () => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link>Log Out</Nav.Link>
 
                 {/* Help Dropdown */}
                 <NavDropdown title="Help" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
                 </NavDropdown>
+
+                <Nav.Link>Log Out</Nav.Link>
                 
                 {/* Logged Out State */}
                 <Nav.Link href="#link">About Us</Nav.Link>
