@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import { Container } from 'react-bootstrap';
 import {Route, Switch} from 'react-router-dom';
 import './api/axiosDefaults';
+import SignUpForm from './pages/auth/SignUpForm';
 
 function App() {
 return (
@@ -76,7 +77,7 @@ return (
 				<Route 
 					exact 
 					path="/sign-up" 
-					render={() => <h1>Sign Up</h1>} />
+					render={() => <SignUpForm />} />
 			</Switch>
 		</Container>
 	</div>
