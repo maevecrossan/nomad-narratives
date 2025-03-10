@@ -12,7 +12,7 @@
 }
 
 .NavLink {
-    color: #acacac;
+    color: #717171;
     transition: color ease-in-out 0.3s;
     font-weight: 500;
     padding-right: 12px;
@@ -29,7 +29,7 @@
 }
   
 i {
-    color: #acacac;
+    color: #858585;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
@@ -43,6 +43,7 @@ i:hover {
 
 .Active {
     color: #5a473a;
+    font-weight: 800;
 }
 
 .Active i {
