@@ -1,16 +1,16 @@
 import React from 'react'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-transparent.png'
 import styles from '../styles/NavBar.module.css'
-import { NavLink, useLocation } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 
 // NavBar for Logged In User
 const NavBar = () => {
 
-    const location = useLocation();
+    // const location = useLocation();
 
-    // Check if the current route matches any dropdown item
-    const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
+    // // Check if the current route matches any dropdown item
+    // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
 
     return (
         <Navbar className={styles.NavBar} expand="md" fixed='top'>
