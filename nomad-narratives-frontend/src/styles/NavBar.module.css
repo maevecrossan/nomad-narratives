@@ -20,11 +20,11 @@
 
 .NavLink:hover {
     text-decoration: none;
-    color: #2e2e2e;
+    color: #5a473a;
 }
 
 .NavLink:hover i {
-    color: #2e2e2e;
+    color: #5a473a;
     transition: color ease-in-out 0.3s;
 }
   
@@ -38,13 +38,13 @@ i {
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #2e2e2e;
+    color: #5a473a;
 }
 
 .Active {
-    color: #2e2e2e;
+    color: #5a473a;
 }
 
 .Active i {
-    color: #2e2e2e;
+    color: #5a473a;
 }
