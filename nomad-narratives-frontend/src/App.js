@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import {Route, Switch} from 'react-router-dom';
 import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
+import WelcomePage from './pages/WelcomePage';
 
 function App() {
 return (
@@ -15,7 +16,7 @@ return (
 				<Route 
 					exact 
 					path="/welcome" 
-					render={() => <h1>Welcome</h1>} />
+					render={() => <WelcomePage/>} />
 
 				<Route 
 					exact 
