@@ -137,6 +137,16 @@ const NavBar = () => {
                 
                 {/* Logged Out State */}
                 <NavLink 
+                    exact
+                    to="/welcome" 
+                    className={styles.NavLink} 
+                    activeClassName={styles.Active}
+                    >
+                    <i className='fas fa-home'></i>
+                    Welcome
+                </NavLink>
+
+                <NavLink 
                     exact 
                     to="/about-us" 
                     className={styles.NavLink} 
