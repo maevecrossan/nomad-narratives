@@ -20,7 +20,7 @@ const WelcomePage = () => {
 
             <Row className={styles.Row}>
                 <Col className={styles.ImageCol}> 
-                    <img className={styles.ImageCol} src='https://res.cloudinary.com/dimeyes2b/image/upload/v1741679079/home-image-1_qcmr5e.jpg' alt='Waves crashing again rough, black volcanic rocks.'></img>
+                    <img className={styles.DecorImage} src='https://res.cloudinary.com/dimeyes2b/image/upload/v1741679079/home-image-1_qcmr5e.jpg' alt='Waves crashing again rough, black volcanic rocks.'></img>
                 </Col>
                 
                 <Col className={styles.TextCol}> 
