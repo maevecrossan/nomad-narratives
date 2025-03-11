@@ -1,7 +1,8 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Row, Col, Button } from "react-bootstrap";
 import styles from '../styles/WelcomePage.module.css'
+import btnStyles from "../styles/Button.module.css";
+import { Link } from "react-router-dom/cjs/react-router-dom";
+
 
 // Add slogan below greeting
 // Add min-widths
@@ -28,6 +29,10 @@ const WelcomePage = () => {
                     <p>Welcome to Nomad Narratives – a travel blog where every journey has a story. Whether you’re chasing sunsets in Bali, backpacking through Europe, or discovering hidden gems in your own backyard, this is the place to share and explore real travel experiences.</p>
                     <p>Browse stories by destination, topic, or traveller, and immerse yourself in stunning visuals from around the world. Join our community, share your adventures, and get inspired for your next trip!</p>
                     <p>Where will your next story take you? 🌍✈️</p>
+
+                    <Link className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} to="/sign-up">
+                        Ready to get started? Sign up here!
+                    </Link>
                 </Col>
             </Row>
             
