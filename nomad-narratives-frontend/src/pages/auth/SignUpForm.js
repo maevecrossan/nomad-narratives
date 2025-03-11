@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 const SignUpForm = () => {
+	const [signUpData, setSignUpData] = useState({
+		username: '',
+		password1: '',
+		password2: '',
+	});
+
+	const { username, password1, password2} = signUpData;
+
 	return (
 		<Container
 		className={`${styles.SignUpForm} d-flex flex-column align-items-center justify-content-center ${styles["bg-image"]}`}
@@ -25,6 +33,7 @@ const SignUpForm = () => {
 						type="text"
 						placeholder="Username"
 						name="username"
+						value={username}
 					/>
 					</Form.Group>
 
@@ -35,6 +44,7 @@ const SignUpForm = () => {
 						type="password"
 						placeholder="Password"
 						name="password1"
+						value={password1}
 					/>
 					</Form.Group>
 
@@ -45,6 +55,7 @@ const SignUpForm = () => {
 						type="password"
 						placeholder="Confirm password"
 						name="password2"
+						value={password2}
 					/>
 					</Form.Group>
 
