@@ -3,6 +3,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from '../styles/WelcomePage.module.css'
 
+// Add slogan below greeting
+// Add min-widths
+// Hide image on mobile
+
 const WelcomePage = () => {
     return (
         <Container fluid>
