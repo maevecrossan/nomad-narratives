@@ -116,7 +116,7 @@ const SignUpForm = () => {
 
 		<Row>
 			<Col>
-				<Link className={styles.Link} to="/signin">
+				<Link className={styles.Link} to="/sign-in">
 					Already have an account? Sign in here.
 				</Link>
 			</Col>
