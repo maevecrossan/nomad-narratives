@@ -25,6 +25,10 @@ h1 {
     font-family: 'DM Serif Display', serif;
 }
 
+h2 {
+    font-family: 'DM Serif Display', serif;
+}
+
 /* About Us and Community Guidelines */
 .ImageCol {
     height: 70vh;
@@ -39,10 +43,4 @@ h1 {
     height: 70vh;
     background-color: brown;
     width: auto;
-}
-
-/* Gallery Row */
-.GalleryRow {
-    width: 100%;
-    justify-content: space-around;
 }
