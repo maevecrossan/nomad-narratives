@@ -12,7 +12,7 @@ const WelcomePage = () => {
         <Container fluid>
             <Row className={styles.Row}>
                 <Col className={styles.Hero}>
-                    <h1> 
+                    <h1 className={styles.WelcomeH1}> 
                         Welcome to <span>Nomad Narratives</span>
                     </h1>
                 </Col>
