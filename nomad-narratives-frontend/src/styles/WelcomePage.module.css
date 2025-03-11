@@ -37,10 +37,13 @@ h2 {
 	background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+    border-radius: 10px;
 }
 
 .TextCol {
-    height: 70vh;
-    background-color: brown;
+    min-height: 70vh;
+    border-radius: 10px;
+    background-color: #cfb19d;
     width: auto;
+    padding: 30px;
 }
