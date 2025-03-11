@@ -40,6 +40,15 @@
     border-radius: 10px;
 }
 
+.DecorImage {
+    height: 70vh;
+    background-position: bottom center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    padding: 0;
+    border-radius: 10px;
+}
+
 .TextCol {
     min-height: 70vh;
     min-width: 310px;
@@ -47,4 +56,5 @@
     background-color: #cfb19d;
     width: auto;
     margin: 15px;
+    padding: 20px 30px;
 }
