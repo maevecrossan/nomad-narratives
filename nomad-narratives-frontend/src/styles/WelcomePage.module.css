@@ -18,3 +18,18 @@
 h1 {
     margin-top: 30%;
 }
+
+.ImageCol {
+    height: 70vh;
+    background-position: bottom center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.TextCol {
+    height: 70vh;
+    background-color: brown;
+    width: auto;
+}
