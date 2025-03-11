@@ -4,8 +4,7 @@
 
 /* Hero Styles */
 .Hero {
-    background-color: rgba(255, 255, 255, 0.107);
-    background-blend-mode: overlay;
+    background-color: rgb(61, 54, 54);
     border-radius: 10px;
     height: 75vh;
     background-image: url('https://res.cloudinary.com/dimeyes2b/image/upload/v1741680019/126A1396_yqo1rw.jpg');
@@ -25,25 +24,26 @@
     font-family: 'DM Serif Display', serif;
 }
 
-h2 {
+.SubSectionTitle {
     font-family: 'DM Serif Display', serif;
 }
 
 /* About Us and Community Guidelines */
 .ImageCol {
     height: 70vh;
+    margin: 15px;
     background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
-    margin: 0;
     padding: 0;
     border-radius: 10px;
 }
 
 .TextCol {
     min-height: 70vh;
+    min-width: 310px;
     border-radius: 10px;
     background-color: #cfb19d;
     width: auto;
-    padding: 30px;
+    margin: 15px;
 }
