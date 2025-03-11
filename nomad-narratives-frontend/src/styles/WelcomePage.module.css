@@ -2,23 +2,30 @@
     margin-bottom: 30px;
 }
 
+/* Hero Styles */
 .Hero {
     background-color: rgba(255, 255, 255, 0.107);
     background-blend-mode: overlay;
     border-radius: 10px;
     height: 75vh;
-    background-image: url('https://res.cloudinary.com/dimeyes2b/image/upload/v1741677514/hero-image_qycbis.jpg');
+    background-image: url('https://res.cloudinary.com/dimeyes2b/image/upload/v1741680019/126A1396_yqo1rw.jpg');
     background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
-    text-align: center;
-    justify-content: center;
 }
 
 h1 {
-    margin-top: 30%;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    min-height: 75vh;
+    color: #fff;
+    font-family: 'DM Serif Display', serif;
 }
 
+/* About Us and Community Guidelines */
 .ImageCol {
     height: 70vh;
     background-position: bottom center;
@@ -32,4 +39,10 @@ h1 {
     height: 70vh;
     background-color: brown;
     width: auto;
+}
+
+/* Gallery Row */
+.GalleryRow {
+    width: 100%;
+    justify-content: space-around;
 }
