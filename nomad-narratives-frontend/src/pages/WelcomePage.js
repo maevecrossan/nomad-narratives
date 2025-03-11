@@ -26,11 +26,24 @@ const WelcomePage = () => {
                 
                 <Col className={styles.TextCol}> 
                     <h2 className={styles.SubSectionTitle}>About Us</h2> 
-                    <p>Welcome to Nomad Narratives – a travel blog where every journey has a story. Whether you’re chasing sunsets in Bali, backpacking through Europe, or discovering hidden gems in your own backyard, this is the place to share and explore real travel experiences.</p>
-                    <p>Browse stories by destination, topic, or traveller, and immerse yourself in stunning visuals from around the world. Join our community, share your adventures, and get inspired for your next trip!</p>
+                    <p>Welcome to Nomad Narratives – a travel blog where 
+                        every journey has a story. Whether you’re chasing 
+                        sunsets in Bali, backpacking through Europe, or 
+                        discovering hidden gems in your own backyard, this 
+                        is the place to share and explore real travel 
+                        experiences.
+                    </p>
+                    <p>Browse stories by destination, topic, or traveller, 
+                        and immerse yourself in stunning visuals from around 
+                        the world. Join our community, share your adventures, 
+                        and get inspired for your next trip!</p>
                     <p>Where will your next story take you? 🌍✈️</p>
 
-                    <Link className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} to="/sign-up">
+                    <Link className={
+                        `${btnStyles.Button} 
+                        ${btnStyles.Wide} 
+                        ${btnStyles.Bright}`} 
+                        to="/sign-up">
                         Ready to get started? Sign up here!
                     </Link>
                 </Col>
@@ -39,7 +52,12 @@ const WelcomePage = () => {
             <Row className={styles.Row}>
                 <Col className={styles.TextCol}> 
                     <h2 className={styles.SubSectionTitle}>Community Guidelines</h2>
-                    <p>Welcome to Nomad Narratives! We're thrilled to have you as part of our community of travelers, storytellers, and adventure-seekers. To ensure this space remains welcoming, inspiring, and respectful for all, please follow these guidelines:</p>
+                    <p>
+                        Welcome to Nomad Narratives! We're thrilled to 
+                        have you as part of our community of travelers, 
+                        storytellers, and adventure-seekers. To ensure 
+                        this space remains welcoming, inspiring, and 
+                        respectful for all, please follow these guidelines:</p>
 
                     <p>
                         <strong>
@@ -47,7 +65,10 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        Everyone’s journey is unique. Treat fellow travelers with respect, even if you have different opinions or experiences. No hate speech, discrimination, or harassment of any kind will be tolerated.
+                        Everyone’s journey is unique. Treat fellow travelers 
+                        with respect, even if you have different opinions 
+                        or experiences. No hate speech, discrimination, or 
+                        harassment of any kind will be tolerated.
                     </p>
 
                     <p>
@@ -56,7 +77,9 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        We value genuine travel experiences. Share your stories truthfully and avoid misinformation, exaggerated claims, or misleading content.
+                        We value genuine travel experiences. Share your 
+                        stories truthfully and avoid misinformation, 
+                        exaggerated claims, or misleading content.
                     </p>
 
                     <p>
@@ -65,7 +88,9 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        If you include photos, quotes, or recommendations from others, be sure to give proper credit. Plagiarism or unauthorized use of content is not allowed.
+                        If you include photos, quotes, or recommendations 
+                        from others, be sure to give proper credit. Plagiarism 
+                        or unauthorized use of content is not allowed.
                     </p>
                     
                     <p>
@@ -74,7 +99,10 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        Avoid sharing dangerous or reckless travel behaviors that could put others at risk. Be mindful of local cultures, customs, and environments when sharing your experiences.
+                        Avoid sharing dangerous or reckless travel behaviors 
+                        that could put others at risk. Be mindful of local 
+                        cultures, customs, and environments when sharing 
+                        your experiences.
                     </p>
                     
                     <p>
@@ -83,7 +111,10 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        We love hearing about your travels, but excessive self-promotion, ads, or irrelevant content will be removed. If you want to collaborate or promote something, please reach out to us directly.
+                        We love hearing about your travels, but excessive 
+                        self-promotion, ads, or irrelevant content will 
+                        be removed. If you want to collaborate or promote 
+                        something, please reach out to us directly.
                     </p>
                     
                     <p>
@@ -92,7 +123,9 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        Don’t share personal or sensitive information—yours or others'. Respect people’s privacy when posting about your experiences.
+                        Don’t share personal or sensitive information—yours 
+                        or others'. Respect people’s privacy when posting 
+                        about your experiences.
                     </p>
                     
                     <p>
@@ -101,13 +134,17 @@ const WelcomePage = () => {
                         </strong>
                     </p>
                     <p>
-                        If you see content that violates these guidelines, please report it. We’re committed to maintaining a positive and supportive space for all travelers.
+                        If you see content that violates these guidelines, 
+                        please report it. We’re committed to maintaining a 
+                        positive and supportive space for all travelers.
                     </p>
 
                     <p>
-                        By being a user of Nomad Narratives, you agree to uphold these guidelines and contribute to a vibrant, respectful, and inspiring travel community. Let’s explore the world together—one story at a time! 🌍✨
+                        By being a user of Nomad Narratives, you agree to 
+                        uphold these guidelines and contribute to a vibrant, 
+                        respectful, and inspiring travel community. Let’s 
+                        explore the world together—one story at a time! 🌍✨
                     </p>
-
                 </Col>
             </Row>
         </Container>
