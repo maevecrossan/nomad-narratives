@@ -13,15 +13,32 @@
 	background-repeat: no-repeat;
 }
 
-.WelcomeH1 {
+.WelcomeTitleContent {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     min-height: 75vh;
-    color: #fff;
-    font-family: 'DM Serif Display', serif;
+    gap: 15px;
+}
+
+.WelcomeTitle {
+    margin: 0;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.WelcomeLogo { 
+    font-size: 6rem;
+    margin: 2rem;
+}
+
+.WelcomeSlogan {
+    font-size: 1.5rem;
+    font-weight: 300;
+    max-width: 80%;
+    margin-top: 10px;
 }
 
 /* About Us and Community Guidelines */
