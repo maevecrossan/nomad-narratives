@@ -11,3 +11,17 @@
 * {
     box-sizing: border-box;
 }
+
+/* Font Styles */
+
+.WhiteText {
+    color: #fff8ed;
+}
+
+.RobotoFont {
+    font-family: 'Roboto', sans-serif;
+}
+
+.DmSerifFont {
+    font-family: 'DM Serif Display', serif;
+}
