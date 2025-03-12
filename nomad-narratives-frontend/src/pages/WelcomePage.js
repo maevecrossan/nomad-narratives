@@ -1,10 +1,9 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
-import styles from '../styles/WelcomePage.module.css'
+import { Container, Row, Col } from "react-bootstrap";
+import styles from '../styles/WelcomePage.module.css';
+import generalStyles from '../../src/App.module.css';
 import btnStyles from "../styles/Button.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
-
-// Add slogan below greeting
 // Add min-widths
 // Hide image on mobile
 
@@ -12,11 +11,36 @@ const WelcomePage = () => {
     return (
         <Container fluid>
             <Row className={styles.Row}>
-                <Col className={styles.Hero}>
-                    <h1 className={styles.WelcomeH1}> 
-                        Welcome to <span>Nomad Narratives</span>
+            <Col className={styles.Hero}>
+                <div 
+                className={styles.WelcomeTitleContent}
+                >
+                    <p 
+                    className={
+                        `${generalStyles.RobotoFont} 
+                        ${styles.WelcomeSlogan} 
+                        ${generalStyles.WhiteText}`
+                        }>
+                        Welcome to
+                    </p>
+                    <h1 
+                    className={
+                        `${generalStyles.DmSerifFont} 
+                        ${styles.WelcomeLogo} 
+                        ${generalStyles.WhiteText}`
+                        }>
+                        Nomad Narratives
                     </h1>
-                </Col>
+                    <p 
+                    className={
+                        `${generalStyles.RobotoFont} 
+                        ${styles.WelcomeSlogan} 
+                        ${generalStyles.WhiteText}`
+                        }>
+                        Where will your next story take you? 🌍✈️
+                    </p>
+                </div>
+            </Col>
             </Row>
 
             <Row className={styles.Row}>
@@ -37,7 +61,6 @@ const WelcomePage = () => {
                         and immerse yourself in stunning visuals from around 
                         the world. Join our community, share your adventures, 
                         and get inspired for your next trip!</p>
-                    <p>Where will your next story take you? 🌍✈️</p>
 
                     <Link className={
                         `${btnStyles.Button} 
