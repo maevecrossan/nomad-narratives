@@ -110,6 +110,13 @@ const SignUpForm = () => {
 						</Alert>
 					))}
 
+					<Form.Group  className={styles.Link} controlId="formCheckbox">
+						<Form.Check 
+							type="checkbox" 
+							label="I have read and agree to adhere to the community guidelines." 
+							/>
+					</Form.Group>
+
 				</Form>
 			</Col>
 		</Row>
