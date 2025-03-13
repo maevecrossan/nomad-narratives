@@ -38,7 +38,6 @@ def create_profile(instance, created):
     '''
     Creates a new profile every time a user is created.
     '''
-    # pylint: disable=unused-argument
     if created:
         Profile.objects.create(owner=instance)  # pylint: disable=no-member
 
