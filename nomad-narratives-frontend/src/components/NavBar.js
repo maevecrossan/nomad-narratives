@@ -63,18 +63,6 @@ const NavBar = () => {
                 <i className="fa-regular fa-compass"></i>
                 Explore
             </NavLink> */}
-            <NavLink 
-                exact 
-                to="/log-out" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
-                onClick={() => {
-
-                }}
-                >
-                <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                    Log Out
-            </NavLink>
 
             <NavLink 
                 exact 
@@ -84,6 +72,18 @@ const NavBar = () => {
                 >
                 <i className="fa-solid fa-heart"></i>
                     Likes
+            </NavLink>
+
+            <NavLink 
+                exact 
+                to="/log-out" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                onClick={() => {
+                }}
+                >
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                    Log Out
             </NavLink>
         </>
     
