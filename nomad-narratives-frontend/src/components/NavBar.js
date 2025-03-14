@@ -14,6 +14,18 @@ const NavBar = () => {
     // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
 
     const currentUser = useCurrentUser();
+
+    const newPostIcon = (
+        <NavLink 
+        exact 
+        to="/log-out" 
+        className={styles.NavLink} 
+        activeClassName={styles.Active}
+        >
+            <i className="fa-solid fa-plus-square"></i>
+            New Post
+        </NavLink>
+    )
     
     const loggedInIcons = <> 
         {currentUser?.username} 
@@ -92,6 +104,8 @@ const NavBar = () => {
                 />
                 </Navbar.Brand>
             </NavLink>
+
+            {currentUser && newPostIcon}
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
