@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-brown-transparent.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
 
 
@@ -15,6 +15,16 @@ const NavBar = () => {
     // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
 
     const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+
+    const handleSignOut = async () => {
+        try {
+            await axios.post('dj-rest-auth/logout/');
+            setCurrentUser(null);
+        } catch(err) {
+            console.log(err)
+        }
+    }
 
     const newPostIcon = (
         <NavLink 
@@ -79,8 +89,7 @@ const NavBar = () => {
                 to="/log-out" 
                 className={styles.NavLink} 
                 activeClassName={styles.Active}
-                onClick={() => {
-                }}
+                onClick={handleSignOut}
                 >
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     Log Out
