@@ -31,7 +31,7 @@ const NavBar = () => {
     const loggedOutIcons = <>
         <NavLink 
             exact
-            to="/welcome" 
+            to="/welcome#hero" 
             className={styles.NavLink} 
             activeClassName={styles.Active}
             >
@@ -41,7 +41,7 @@ const NavBar = () => {
 
         <NavLink 
             exact 
-            to="/about-us" 
+            to="/welcome#about-us" 
             className={styles.NavLink} 
             activeClassName={styles.Active}
             >
@@ -51,7 +51,7 @@ const NavBar = () => {
 
         <NavLink 
             exact 
-            to="/community-guidelines" 
+            to="/welcome#community-guidelines" 
             className={styles.NavLink} 
             activeClassName={styles.Active}
             >
