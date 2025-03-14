@@ -29,46 +29,56 @@ const NavBar = () => {
     
     const loggedInIcons = <> 
         {currentUser?.username} 
-        <NavLink 
-                    exact
-                    to="/my-feed" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className='fas fa-house-user'></i>
+            <NavLink 
+                exact
+                to="/my-feed" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className='fas fa-house-user'></i>
                     My Feed
-                </NavLink>
+            </NavLink>
 
-                <NavLink 
-                    exact
-                    to="/my-profile" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-regular fa-circle-user"></i>
+            <NavLink 
+                exact
+                to="/my-profile" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className="fa-regular fa-circle-user"></i>
                     My Profile
-                </NavLink>
+            </NavLink>
 
-                {/* Future Development */}
-                {/* <NavLink 
-                    exact
-                    to="/explore" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-regular fa-compass"></i>
-                    Explore
-                </NavLink> */}
-        <NavLink 
-            exact 
-            to="/log-out" 
-            className={styles.NavLink} 
-            activeClassName={styles.Active}
-            >
-            <i className="fa-solid fa-arrow-right-from-bracket"></i>
-            Log Out
-        </NavLink>
-    </>
+            {/* Future Development */}
+            {/* <NavLink 
+                exact
+                to="/explore" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className="fa-regular fa-compass"></i>
+                Explore
+            </NavLink> */}
+            <NavLink 
+                exact 
+                to="/log-out" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                    Log Out
+            </NavLink>
+
+            <NavLink 
+                exact 
+                to="/liked" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className="fa-solid fa-heart"></i>
+                    Likes
+            </NavLink>
+        </>
     
     const loggedOutIcons = <>
         <NavLink 
@@ -78,7 +88,7 @@ const NavBar = () => {
             activeClassName={styles.Active}
             >
             <i className='fas fa-home'></i>
-            Welcome
+                Welcome
         </NavLink>
 
         <NavLink 
@@ -88,7 +98,7 @@ const NavBar = () => {
             activeClassName={styles.Active}
             >
             <i className="fa-solid fa-info"></i>
-            About Us
+                About Us
         </NavLink>
 
         <NavLink 
@@ -98,7 +108,7 @@ const NavBar = () => {
             activeClassName={styles.Active}
             >
             <i className="fa-regular fa-file-lines"></i>
-            Community Guidelines
+                Community Guidelines
         </NavLink>
 
         <NavLink 
@@ -108,7 +118,7 @@ const NavBar = () => {
             activeClassName={styles.Active}
             >
             <i className="fa-solid fa-sign-in-alt"></i>
-            Sign In
+                Sign In
         </NavLink>
 
         <NavLink 
@@ -118,7 +128,7 @@ const NavBar = () => {
             activeClassName={styles.Active}
             >
             <i className="fa-solid fa-user-plus"></i>
-            Sign up
+                Sign up
         </NavLink>
     </>
 
