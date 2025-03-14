@@ -1,13 +1,22 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { useEffect } from "react";
 import styles from '../styles/WelcomePage.module.css';
 import generalStyles from '../../src/App.module.css';
 import btnStyles from "../styles/Button.module.css";
-import { Link } from "react-router-dom/cjs/react-router-dom";
-
-// Add min-widths
-// Hide image on mobile
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom";
 
 const WelcomePage = () => {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const element = document.getElementById(hash.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [hash]);
+
     return (
         <Container fluid>
             <Row className={styles.Row}>
@@ -49,7 +58,7 @@ const WelcomePage = () => {
                 </Col>
                 
                 <Col className={styles.TextCol}> 
-                    <h2 className={styles.SubSectionTitle}>About Us</h2> 
+                    <h2 id="about-us" className={styles.SubSectionTitle}>About Us</h2> 
                     <p>Welcome to Nomad Narratives – a travel blog where 
                         every journey has a story. Whether you’re chasing 
                         sunsets in Bali, backpacking through Europe, or 
@@ -74,7 +83,7 @@ const WelcomePage = () => {
             
             <Row className={styles.Row}>
                 <Col className={styles.TextCol}> 
-                    <h2 className={styles.SubSectionTitle}>Community Guidelines</h2>
+                    <h2 id="community-guidelines" className={styles.SubSectionTitle}>Community Guidelines</h2>
                     <p>
                         Welcome to Nomad Narratives! We're thrilled to 
                         have you as part of our community of travelers, 
