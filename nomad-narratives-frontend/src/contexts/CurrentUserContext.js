@@ -1,3 +1,8 @@
+/** 
+ * Stores custom context logic (current user state 
+ * and making API call when component mounts.)
+*/
+
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
