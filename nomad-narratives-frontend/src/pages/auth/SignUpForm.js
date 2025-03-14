@@ -115,6 +115,7 @@ const SignUpForm = () => {
 							type="checkbox" 
 							label="I have read and agree to adhere to the community guidelines." 
 							/>
+						<Link to="/welcome#community-guidelines">Read our community guidelines.</Link>
 					</Form.Group>
 
 				</Form>
