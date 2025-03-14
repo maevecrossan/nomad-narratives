@@ -1,16 +1,73 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-brown-transparent.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
+import { CurrentUserContext } from '../App';
 
-// NavBar for Logged In User
+
 const NavBar = () => {
 
     // const location = useLocation();
 
     // // Check if the current route matches any dropdown item
     // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
+
+    const currentUser = useContext(CurrentUserContext)
+    
+    const loggedInIcons = <> {currentUser?.username} </>
+    
+    const loggedOutIcons = <>
+        <NavLink 
+            exact
+            to="/welcome" 
+            className={styles.NavLink} 
+            activeClassName={styles.Active}
+            >
+            <i className='fas fa-home'></i>
+            Welcome
+        </NavLink>
+
+        <NavLink 
+            exact 
+            to="/about-us" 
+            className={styles.NavLink} 
+            activeClassName={styles.Active}
+            >
+            <i className="fa-solid fa-info"></i>
+            About Us
+        </NavLink>
+
+        <NavLink 
+            exact 
+            to="/community-guidelines" 
+            className={styles.NavLink} 
+            activeClassName={styles.Active}
+            >
+            <i className="fa-regular fa-file-lines"></i>
+            Community Guidelines
+        </NavLink>
+
+        <NavLink 
+            exact 
+            to="/sign-in" 
+            className={styles.NavLink} 
+            activeClassName={styles.Active}
+            >
+            <i className="fa-solid fa-sign-in-alt"></i>
+            Sign In
+        </NavLink>
+
+        <NavLink 
+            exact 
+            to="/sign-up" 
+            className={styles.NavLink} 
+            activeClassName={styles.Active}
+            >
+            <i className="fa-solid fa-user-plus"></i>
+            Sign up
+        </NavLink>
+    </>
 
     return (
         <Navbar className={styles.NavBar} expand="md" fixed='top'>
@@ -30,35 +87,7 @@ const NavBar = () => {
                 <Nav className="ml-auto">
                 
                 {/* Logged In State */}
-                <NavLink 
-                    exact
-                    to="/my-feed" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className='fas fa-home'></i>
-                    My Feed
-                </NavLink>
-
-                <NavLink 
-                    exact
-                    to="/my-profile" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-regular fa-circle-user"></i>
-                    My Profile
-                </NavLink>
-
-                <NavLink 
-                    exact
-                    to="/explore" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-regular fa-compass"></i>
-                    Explore
-                </NavLink>
+                
 
                 {/* FUTURE DEVELOPMENT: Explore Dropdown */}
                 {/* <NavDropdown 
@@ -135,56 +164,7 @@ const NavBar = () => {
                     Log Out
                 </NavLink>
                 
-                {/* Logged Out State */}
-                <NavLink 
-                    exact
-                    to="/welcome" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className='fas fa-home'></i>
-                    Welcome
-                </NavLink>
-
-                <NavLink 
-                    exact 
-                    to="/about-us" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-solid fa-info"></i>
-                    About Us
-                </NavLink>
-
-                <NavLink 
-                    exact 
-                    to="/community-guidelines" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-regular fa-file-lines"></i>
-                    Community Guidelines
-                </NavLink>
-
-                <NavLink 
-                    exact 
-                    to="/sign-in" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-solid fa-sign-in-alt"></i>
-                    Sign In
-                </NavLink>
-
-                <NavLink 
-                    exact 
-                    to="/sign-up" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-solid fa-user-plus"></i>
-                    Sign up
-                </NavLink>
+                {currentUser ? loggedInIcons : loggedOutIcons}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
