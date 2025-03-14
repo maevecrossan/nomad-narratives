@@ -1,1 +1,0 @@
-# Nomand Narratives React/Front End
