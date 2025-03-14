@@ -5,6 +5,7 @@ import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
+import axios from 'axios';
 
 
 const NavBar = () => {
@@ -38,8 +39,7 @@ const NavBar = () => {
         </NavLink>
     )
     
-    const loggedInIcons = <> 
-        {currentUser?.username} 
+    const loggedInIcons = <>  
             <NavLink 
                 exact
                 to="/my-feed" 
@@ -48,6 +48,16 @@ const NavBar = () => {
                 >
                 <i className='fas fa-house-user'></i>
                     My Feed
+            </NavLink>
+
+            <NavLink 
+                exact 
+                to="/liked" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className="fa-solid fa-heart"></i>
+                    Likes
             </NavLink>
 
             <NavLink 
@@ -60,7 +70,7 @@ const NavBar = () => {
                     text="Profile"
                     height={40} 
                     />
-                    My Profile
+                    {currentUser?.username}'s Profile
             </NavLink>
 
             {/* Future Development */}
@@ -73,16 +83,6 @@ const NavBar = () => {
                 <i className="fa-regular fa-compass"></i>
                 Explore
             </NavLink> */}
-
-            <NavLink 
-                exact 
-                to="/liked" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
-                >
-                <i className="fa-solid fa-heart"></i>
-                    Likes
-            </NavLink>
 
             <NavLink 
                 exact 
