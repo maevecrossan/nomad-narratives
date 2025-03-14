@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import WelcomePage from './pages/WelcomePage';
+import SignInForm from './pages/auth/SignInForm';
 
 function App() {
 return (
@@ -73,7 +74,7 @@ return (
 
 				<Route 
 					exact 
-					path="/sign-in" render={() => <h1>Sign In</h1>} />
+					path="/sign-in" render={() => < SignInForm />} />
 
 				<Route 
 					exact 
