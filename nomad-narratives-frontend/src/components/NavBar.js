@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-brown-transparent.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-import { CurrentUserContext } from '../App';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 
 const NavBar = () => {
@@ -13,7 +13,7 @@ const NavBar = () => {
     // // Check if the current route matches any dropdown item
     // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
 
-    const currentUser = useContext(CurrentUserContext)
+    const currentUser = useCurrentUser();
     
     const loggedInIcons = <> 
         {currentUser?.username} 
