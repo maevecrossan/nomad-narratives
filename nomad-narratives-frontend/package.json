@@ -49,5 +49,5 @@
     "node": "16.19.1",
     "npm": "8.19.3"
   },
-  "homepage": "/welcome"
+  "proxy": "http://localhost:8000/"
 }
