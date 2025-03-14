@@ -15,7 +15,18 @@ const NavBar = () => {
 
     const currentUser = useContext(CurrentUserContext)
     
-    const loggedInIcons = <> {currentUser?.username} </>
+    const loggedInIcons = <> 
+        {currentUser?.username} 
+        <NavLink 
+            exact 
+            to="/log-out" 
+            className={styles.NavLink} 
+            activeClassName={styles.Active}
+            >
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>
+            Log Out
+        </NavLink>
+    </>
     
     const loggedOutIcons = <>
         <NavLink 
@@ -153,16 +164,6 @@ const NavBar = () => {
                         <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
                     </NavDropdown> */}
-
-                <NavLink 
-                    exact 
-                    to="/log-out" 
-                    className={styles.NavLink} 
-                    activeClassName={styles.Active}
-                    >
-                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                    Log Out
-                </NavLink>
                 
                 {currentUser ? loggedInIcons : loggedOutIcons}
                 </Nav>
