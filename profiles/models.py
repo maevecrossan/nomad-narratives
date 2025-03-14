@@ -8,6 +8,7 @@ Defines the Profile model and its related logic for user profiles.
 
 from django.db import models
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.contrib.auth.models import User
 
 
@@ -34,6 +35,7 @@ class Profile(models.Model):
         return f"{self.owner}'s profile"
 
 
+@receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     '''
     Creates a new profile every time a user is created.
