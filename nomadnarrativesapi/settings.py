@@ -136,7 +136,7 @@ ROOT_URLCONF = 'nomadnarrativesapi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'staticfiles', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
