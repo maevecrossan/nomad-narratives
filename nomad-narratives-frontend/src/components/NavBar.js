@@ -41,11 +41,10 @@ const NavBar = () => {
 
             <NavLink 
                 exact
-                to="/my-profile" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
+                to={`/profiles/${currentUser?.profile_id}`} 
+                className={styles.NavLink}
                 >
-                <i className="fa-regular fa-circle-user"></i>
+                <img src={currentUser?.profile_image}/>
                     My Profile
             </NavLink>
 
@@ -64,6 +63,9 @@ const NavBar = () => {
                 to="/log-out" 
                 className={styles.NavLink} 
                 activeClassName={styles.Active}
+                onClick={() => {
+
+                }}
                 >
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     Log Out
