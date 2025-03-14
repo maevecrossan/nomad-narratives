@@ -35,7 +35,7 @@ const NavBar = () => {
                     className={styles.NavLink} 
                     activeClassName={styles.Active}
                     >
-                    <i className='fas fa-home'></i>
+                    <i className='fas fa-house-user'></i>
                     My Feed
                 </NavLink>
 
