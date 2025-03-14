@@ -1,5 +1,16 @@
-.bg-image {
+.su-bg-image {
 	background-image: url("https://res.cloudinary.com/dimeyes2b/image/upload/v1741631639/nz-4_vq9acs.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 60vh;
+	width: 90vw;
+	border-radius: 6px;
+	margin-top: 10vh;
+}
+
+.si-bg-image {
+	background-image: url("https://res.cloudinary.com/dimeyes2b/image/upload/a_vflip/v1741940216/IMG_5681_nu7s2z.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
