@@ -21,7 +21,7 @@ const WelcomePage = () => {
         <Container fluid>
             <Row className={styles.Row}>
             <Col className={styles.Hero}>
-                <div 
+                <div id="hero"
                 className={styles.WelcomeTitleContent}
                 >
                     <p 
@@ -32,7 +32,7 @@ const WelcomePage = () => {
                         }>
                         Welcome to
                     </p>
-                    <h1 
+                    <h1
                     className={
                         `${generalStyles.DmSerifFont} 
                         ${styles.WelcomeLogo} 
