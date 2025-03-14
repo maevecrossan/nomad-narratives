@@ -3,9 +3,10 @@
  * and making API call when component mounts.)
 */
 
-import { createContext, useContext, useEffect, useMemo, useState, useHistory } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { axiosReq, axiosRes } from '../api/axiosDefaults';
+import { useHistory } from "react-router";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -15,7 +16,7 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
 export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-	const history = useHistory()
+	const history = useHistory();
 
 	const handleMount = async () => {
 		try {
@@ -67,16 +68,16 @@ export const CurrentUserProvider = ({ children }) => {
 					}
 					return axios(err.config);
 				} 
-				return Promise.reject(err)
+				return Promise.reject(err);
 			}
 		)
 	}, [history]);
 
     return(
-        <CurrentUserContext.Provider value={currentUser}>
-			<SetCurrentUserContext.Provider  value={setCurrentUser}>
-                {children}
-            </SetCurrentUserContext.Provider>
-        </CurrentUserContext.Provider>
-    )
-}
+		<CurrentUserContext.Provider value={currentUser}>
+			<SetCurrentUserContext.Provider value={setCurrentUser}>
+				{children}
+			</SetCurrentUserContext.Provider>
+		</CurrentUserContext.Provider>
+    );
+};
