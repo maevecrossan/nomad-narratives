@@ -30,6 +30,36 @@ const NavBar = () => {
     const loggedInIcons = <> 
         {currentUser?.username} 
         <NavLink 
+                    exact
+                    to="/my-feed" 
+                    className={styles.NavLink} 
+                    activeClassName={styles.Active}
+                    >
+                    <i className='fas fa-home'></i>
+                    My Feed
+                </NavLink>
+
+                <NavLink 
+                    exact
+                    to="/my-profile" 
+                    className={styles.NavLink} 
+                    activeClassName={styles.Active}
+                    >
+                    <i className="fa-regular fa-circle-user"></i>
+                    My Profile
+                </NavLink>
+
+                {/* Future Development */}
+                {/* <NavLink 
+                    exact
+                    to="/explore" 
+                    className={styles.NavLink} 
+                    activeClassName={styles.Active}
+                    >
+                    <i className="fa-regular fa-compass"></i>
+                    Explore
+                </NavLink> */}
+        <NavLink 
             exact 
             to="/log-out" 
             className={styles.NavLink} 
