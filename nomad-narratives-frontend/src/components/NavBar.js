@@ -11,10 +11,6 @@ import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 
 const NavBar = () => {
 
-    // const location = useLocation();
-
-    // // Check if the current route matches any dropdown item
-    // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
@@ -74,17 +70,6 @@ const NavBar = () => {
                     />
                     {currentUser?.username}'s Profile
             </NavLink>
-
-            {/* Future Development */}
-            {/* <NavLink 
-                exact
-                to="/explore" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
-                >
-                <i className="fa-regular fa-compass"></i>
-                Explore
-            </NavLink> */}
 
             <NavLink 
                 exact 
@@ -172,76 +157,7 @@ const NavBar = () => {
             />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                
-                {/* Logged In State */}
-                
-
-                {/* FUTURE DEVELOPMENT: Explore Dropdown */}
-                {/* <NavDropdown 
-                    title={
-                        <span className={`${isExploreActive ? styles.Active : ""}`}>
-                            <i className={`fas fa-compass me-2 ${isExploreActive ? styles.ActiveIcon : ""}`}></i>
-                            Explore
-                        </span>
-                    }
-                    id="basic-nav-dropdown"
-                    className={`${styles.NavLink} ${isExploreActive ? styles.Active : styles.NavDropdown}`}
-                    >
-                    <NavDropdown.Item 
-                        exact
-                        as={NavLink} 
-                        to="/by-region"
-                        >
-                        Region
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Item 
-                        exact
-                        as={NavLink} 
-                        to="/by-country"
-                        >
-                        Country
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Item 
-                        exact
-                        as={NavLink} 
-                        to="/by-city"
-                        >
-                        City
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Item 
-                        exact
-                        as={NavLink} 
-                        to="/by-target-audience">
-                        Target Audience
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Item 
-                        exact
-                        as={NavLink} 
-                        to="/by-duration"
-                        >
-                        Duration
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Divider />
-
-                    <NavDropdown.Item>Separated link</NavDropdown.Item>
-                </NavDropdown> */}
-
-                {/* Help Dropdown */}
-                    {/* <NavDropdown title={
-                        <>
-                            <i className="fas fa-question"></i> Help
-                        </>
-                        } id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Community Guidelines</NavDropdown.Item>
-                    </NavDropdown> */}
-                
-                {currentUser ? loggedInIcons : loggedOutIcons}
+                    {currentUser ? loggedInIcons : loggedOutIcons}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
