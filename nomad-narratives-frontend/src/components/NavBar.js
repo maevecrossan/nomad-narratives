@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-brown-transparent.png'
 import styles from '../styles/NavBar.module.css'
@@ -17,6 +17,8 @@ const NavBar = () => {
 
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+
+    const [expanded, setExpanded] = useState(false);
 
     const handleSignOut = async () => {
         try {
@@ -149,7 +151,7 @@ const NavBar = () => {
     </>
 
     return (
-        <Navbar className={styles.NavBar} expand="md" fixed='top'>
+        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed='top'>
             <NavLink 
                 exact
                 to="/">
@@ -163,7 +165,10 @@ const NavBar = () => {
 
             {currentUser && newPostIcon}
 
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle 
+                onClick={() => setExpanded(!expanded)} 
+                aria-controls="basic-navbar-nav" 
+            />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                 
