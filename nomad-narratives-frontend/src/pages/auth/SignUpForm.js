@@ -104,6 +104,18 @@ const SignUpForm = () => {
 						</Alert>
 					))}
 
+					<Form.Group  className={styles.Link} controlId="formCheckbox">
+						<Form.Check 
+							type="checkbox" 
+							label="I have read and agree to adhere to the community guidelines."
+							checked={isChecked}
+							onChange={handleCheckboxChange}
+						/>
+						<div className="d-flex justify-content-center">
+							<Link to="/welcome#community-guidelines">Read our community guidelines.</Link>
+						</div>
+					</Form.Group>
+
 					<Button
 					className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
 					type="submit"
@@ -116,18 +128,6 @@ const SignUpForm = () => {
 							{message}
 						</Alert>
 					))}
-
-					<Form.Group  className={styles.Link} controlId="formCheckbox">
-						<Form.Check 
-							type="checkbox" 
-							label="I have read and agree to adhere to the community guidelines."
-							checked={isChecked}
-							onChange={handleCheckboxChange}
-						/>
-						<div className="d-flex justify-content-center">
-							<Link to="/welcome#community-guidelines">Read our community guidelines.</Link>
-						</div>
-					</Form.Group>
 
 				</Form>
 			</Col>
