@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-brown-transparent.png'
 import styles from '../styles/NavBar.module.css'
@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
 import axios from 'axios';
+import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 
 
 const NavBar = () => {
@@ -14,22 +15,10 @@ const NavBar = () => {
 
     // // Check if the current route matches any dropdown item
     // const isExploreActive = ["/region", "/country", "/city", "/target-audience", "/duration"].includes(location.pathname);
-
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
-    const [expanded, setExpanded] = useState(false);
-    const ref = useRef(null);
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (ref.current && !ref.current.contains(event.target)) 
-                setExpanded(false)
-        }
-        document.addEventListener('mouseup', handleClickOutside)
-        return () => {
-            document.removeEventListener('mouseup', handleClickOutside)
-        }
-    }, [ref])
+    const {expanded, setExpanded, ref} = useClickOutsideToggle();
 
     const handleSignOut = async () => {
         try {
