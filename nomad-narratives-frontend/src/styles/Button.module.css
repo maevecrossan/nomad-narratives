@@ -59,3 +59,10 @@ width: 100%;
     background-color: #fff8ed;
     color: #242a3d;
 }
+
+.Button:disabled {
+    background-color: #dcdcdc;
+    color: #8c8c8c;
+    border: 1px solid #ccc;
+    cursor: not-allowed;
+  }
