@@ -34,6 +34,12 @@ const SignUpForm = () => {
 		}
 	};
 
+	const [isChecked, setIsChecked] = useState(false);
+
+	const handleCheckboxChange = () => {
+		setIsChecked(!isChecked);
+	};
+
 	return (
 		<Container
 		className={`${styles.SignUpForm} d-flex flex-column align-items-center justify-content-center ${styles["su-bg-image"]}`}
@@ -101,6 +107,7 @@ const SignUpForm = () => {
 					<Button
 					className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
 					type="submit"
+					disabled={!isChecked}
 					>
 						Sign up
 					</Button>
@@ -113,8 +120,10 @@ const SignUpForm = () => {
 					<Form.Group  className={styles.Link} controlId="formCheckbox">
 						<Form.Check 
 							type="checkbox" 
-							label="I have read and agree to adhere to the community guidelines." 
-							/>
+							label="I have read and agree to adhere to the community guidelines."
+							checked={isChecked}
+							onChange={handleCheckboxChange}
+						/>
 						<div className="d-flex justify-content-center">
 							<Link to="/welcome#community-guidelines">Read our community guidelines.</Link>
 						</div>
