@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/nn-logo-brown-transparent.png'
 import styles from '../styles/NavBar.module.css'
@@ -19,6 +19,17 @@ const NavBar = () => {
     const setCurrentUser = useSetCurrentUser();
 
     const [expanded, setExpanded] = useState(false);
+    const ref = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) 
+                setExpanded(false)
+        }
+        document.addEventListener('mouseup', handleClickOutside)
+        return () => {
+            document.removeEventListener('mouseup', handleClickOutside)
+        }
+    }, [ref])
 
     const handleSignOut = async () => {
         try {
@@ -166,6 +177,7 @@ const NavBar = () => {
             {currentUser && newPostIcon}
 
             <Navbar.Toggle 
+                ref={ref}
                 onClick={() => setExpanded(!expanded)} 
                 aria-controls="basic-navbar-nav" 
             />
