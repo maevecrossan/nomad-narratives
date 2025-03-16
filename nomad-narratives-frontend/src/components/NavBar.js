@@ -28,7 +28,7 @@ const NavBar = () => {
     const newPostIcon = (
         <NavLink 
         exact 
-        to="/log-out" 
+        to="/posts/create" 
         className={styles.NavLink} 
         activeClassName={styles.Active}
         >
