@@ -127,6 +127,41 @@ function PostCreateForm() {
                 />
             </Form.Group>
 
+            <Form.Group>
+                <Form.Label>Country:</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="country"
+                    value={country}
+                    onChange={handleCountryChange}
+                >
+                    <option value="">Select Country</option>
+                    {countries.map((country) => (
+                        <option key={country.id} value={country.id}>
+                            {country.name}
+                        </option>
+                    ))}
+                </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+                <Form.Label>City:</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="city"
+                    value={city}
+                    onChange={handleChange}
+                    disabled={!country}  // Disable city dropdown if no country is selected
+                >
+                    <option value="">Select City</option>
+                    {cities.map((city) => (
+                        <option key={city.id} value={city.id}>
+                            {city.name}
+                        </option>
+                    ))}
+                </Form.Control>
+            </Form.Group>
+
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
                 onClick={() => {}}
