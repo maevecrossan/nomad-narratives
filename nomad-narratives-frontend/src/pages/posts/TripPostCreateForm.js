@@ -21,6 +21,8 @@ function PostCreateForm() {
             content: "",
             image: "",
         });
+    
+    const { title, content, image } = tripPostData;
 
     const textFields = (
         <div className="text-center">
@@ -30,6 +32,7 @@ function PostCreateForm() {
                 <Form.Control
                     type="text"
                     name="title"
+                    value={title}
                 />
             </Form.Group>
 
@@ -39,6 +42,7 @@ function PostCreateForm() {
                     as="textarea"
                     name="content"
                     rows={10}
+                    value={content}
                 />
             </Form.Group>
 
