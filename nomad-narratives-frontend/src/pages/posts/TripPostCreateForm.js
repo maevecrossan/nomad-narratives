@@ -19,6 +19,22 @@ function PostCreateForm() {
     const textFields = (
         <div className="text-center">
             {/* Add your form fields here */}
+            <Form.Group>
+                <Form.Label>Title:</Form.Label>
+                <Form.Control
+                    type="text"
+                    name="title"
+                />
+            </Form.Group>
+
+            <Form.Group>
+                <Form.Label>Your Content:</Form.Label>
+                <Form.Control
+                    as="textarea"
+                    name="content"
+                    rows={10}
+                />
+            </Form.Group>
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
