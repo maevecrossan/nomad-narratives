@@ -12,6 +12,13 @@
     box-sizing: border-box;
 }
 
+.Content {
+    background-color: #dfd8ce;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #b3aa9b;
+}
+
 /* Font Styles */
 
 .WhiteText {
