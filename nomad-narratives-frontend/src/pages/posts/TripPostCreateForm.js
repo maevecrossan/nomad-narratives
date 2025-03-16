@@ -30,8 +30,8 @@ function PostCreateForm() {
 
     const { title, content, image, country, city  } = tripPostData;
 
-    const [countries, setCountries] = useState([]); // State to hold country options
-    const [cities, setCities] = useState([]); // State to hold city options based on selected country
+    const [countries, setCountries] = useState([]);
+    const [cities, setCities] = useState([]);
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -47,7 +47,7 @@ function PostCreateForm() {
         const fetchCountries = async () => {
             try {
                 const { data } = await axiosReq.get("/countries/");
-                setCountries(data);  // Assuming `/countries/` API provides the country list
+                setCountries(data);
             } catch (err) {
                 console.error(err);
             }
@@ -70,13 +70,13 @@ function PostCreateForm() {
         setTripPostData({
             ...tripPostData,
             country: selectedCountryId,
-            city: "",  // Reset city selection when the country changes
+            city: "",
         });
 
-        // Fetch cities based on the selected country
+        
         try {
             const { data } = await axiosReq.get(`/cities-by-country/${selectedCountryId}/`);
-            setCities(data.cities);  // Assuming the API returns a list of cities in 'cities' field
+            setCities(data.cities);
         } catch (err) {
             console.error(err);
         }
@@ -151,7 +151,7 @@ function PostCreateForm() {
                     name="city"
                     value={city}
                     onChange={handleChange}
-                    disabled={!country}  // Disable city dropdown if no country is selected
+                    disabled={!country}
                 >
                     <option value="">Select City</option>
                     {cities.map((city) => (
