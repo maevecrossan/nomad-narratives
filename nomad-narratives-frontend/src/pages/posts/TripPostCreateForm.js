@@ -16,6 +16,12 @@ import Asset from "../../components/Asset";
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
 
+    const [tripPostData, setTripPostData] = useState({
+            title: "",
+            content: "",
+            image: "",
+        });
+
     const textFields = (
         <div className="text-center">
             {/* Add your form fields here */}
