@@ -15,6 +15,7 @@ import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 
 import { useHistory } from "react-router";
+import axios from "axios";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
@@ -32,6 +33,8 @@ function PostCreateForm() {
 
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
+    const [selectedCountry, setSelectedCountry] = useState(null);
+    const [selectedCity, setSelectedCity] = useState(null);
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -44,16 +47,38 @@ function PostCreateForm() {
     };
 
     useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const { data } = await axiosReq.get("/countries/");
-                setCountries(data);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        fetchCountries();
+        // Fetch all countries when the component mounts
+        axios
+            .get("http://localhost:8000/api/countries/") // CHANGE FOR DEPLOYMENT
+            .then((response) => {
+                setCountries(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching countries", error);
+            });
     }, []);
+
+    useEffect(() => {
+        if (selectedCountry) {
+            // Fetch cities when a country is selected
+            axios
+                .get(`http://localhost:8000/api/cities-by-country/${selectedCountry}`) // CHANGE FOR DEPLOYMENT
+                .then((response) => {
+                    setCities(response.data.cities);
+                })
+                .catch((error) => {
+                    console.error("Error fetching cities", error);
+                });
+        }
+    }, [selectedCountry]);
+
+    const handleCountryChange = (event) => {
+        setSelectedCountry(event.target.value);
+    };
+
+    const handleCityChange = (event) => {
+        setSelectedCity(event.target.value);
+    };
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
@@ -62,23 +87,6 @@ function PostCreateForm() {
                 ...tripPostData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
-        }
-    };
-
-    const handleCountryChange = async (event) => {
-        const selectedCountryId = event.target.value;
-        setTripPostData({
-            ...tripPostData,
-            country: selectedCountryId,
-            city: "",
-        });
-
-        
-        try {
-            const { data } = await axiosReq.get(`/cities-by-country/${selectedCountryId}/`);
-            setCities(data.cities);
-        } catch (err) {
-            console.error(err);
         }
     };
 
@@ -127,15 +135,14 @@ function PostCreateForm() {
                 />
             </Form.Group>
 
-            <Form.Group>
-                <Form.Label>Country:</Form.Label>
+            <Form.Group controlId="countrySelect">
+                <Form.Label>Select Country</Form.Label>
                 <Form.Control
                     as="select"
-                    name="country"
-                    value={country}
+                    value={selectedCountry || ""}
                     onChange={handleCountryChange}
                 >
-                    <option value="">Select Country</option>
+                    <option value="">Select a country</option>
                     {countries.map((country) => (
                         <option key={country.id} value={country.id}>
                             {country.name}
@@ -144,16 +151,15 @@ function PostCreateForm() {
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group>
-                <Form.Label>City:</Form.Label>
+            <Form.Group controlId="citySelect">
+                <Form.Label>Select City</Form.Label>
                 <Form.Control
                     as="select"
-                    name="city"
-                    value={city}
-                    onChange={handleChange}
-                    disabled={!country}
+                    value={selectedCity || ""}
+                    onChange={handleCityChange}
+                    disabled={!selectedCountry}
                 >
-                    <option value="">Select City</option>
+                    <option value="">Select a city</option>
                     {cities.map((city) => (
                         <option key={city.id} value={city.id}>
                             {city.name}
