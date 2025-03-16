@@ -43,6 +43,18 @@ function PostCreateForm() {
         });
     };
 
+    useEffect(() => {
+        const fetchCountries = async () => {
+            try {
+                const { data } = await axiosReq.get("/countries/");
+                setCountries(data);  // Assuming `/countries/` API provides the country list
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        fetchCountries();
+    }, []);
+
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
