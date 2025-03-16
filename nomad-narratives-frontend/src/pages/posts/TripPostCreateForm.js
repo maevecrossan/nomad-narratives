@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -24,6 +24,8 @@ function PostCreateForm() {
     });
 
     const { title, content, image } = tripPostData;
+
+    const imageInput = useRef(null);
 
     const handleChange = (event) => {
         setTripPostData({
@@ -124,6 +126,7 @@ function PostCreateForm() {
                                 accept="image/*"
                                 onChange={handleChangeImage}
                                 style={{ display: "none" }}
+                                ref={imageInput}
                             />
 
                         </Form.Group>
