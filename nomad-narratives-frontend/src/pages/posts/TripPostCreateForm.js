@@ -31,6 +31,16 @@ function PostCreateForm() {
         });
     };
 
+    const handleChangeImage = (event) => {
+        if (event.target.files.length){
+            URL.revokeObjectURL(image);
+            setTripPostData({
+                ...tripPostData,
+                image: URL.createObjectURL(event.target.file[0])
+            })
+        }
+    }
+
     const textFields = (
         <div className="text-center">
             {/* Add your form fields here */}
@@ -87,7 +97,11 @@ function PostCreateForm() {
                                     message="Click or tap here to upload an image."
                                 />
                             </Form.Label>
-                            <Form.File id="image-upload" accept="image/*"/>
+                            <Form.File 
+                                id="image-upload" 
+                                accept="image/*"
+                                onChange={handleChangeImage}
+                            />
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
                     </Container>
