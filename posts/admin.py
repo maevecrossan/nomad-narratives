@@ -1,22 +1,33 @@
-'''
-Django admin configuration for the City model.
-
-This module customizes the admin interface for the City model
-from the cities_light app by simplifying the displayed fields
-and enhancing search functionality.
-'''
 from django.contrib import admin
-from cities_light.models import City
+from .models import TripPost, TripDetails
 
 
-class CityAdmin(admin.ModelAdmin):
+class TripDetailsInline(admin.StackedInline):
     '''
-    Cleans up admin panel to remove unnecessary additonal fields.
-    Only displays the city name
+    TripDetails Inline Admin: Allow editing TripDetails 
+    directly within TripPost.
     '''
-    list_display = ['name']
-    search_fields = ['name']
+    model = TripDetails
+    extra = 1  # Number of empty forms to show by default
+    fields = (
+        'country', 'city', 'traveller_number', 'relevant_for',
+        'duration_value', 'duration_unit'
+    )  # Fields to display in the inline form
+
+    def get_cities(self, obj):
+        """
+        Custom method to display a list of cities as a
+        comma-separated string.
+        """
+        return ", ".join([city.name for city in obj.city.all()])
+    get_cities.short_description = 'Cities'
 
 
-admin.site.unregister(City)
-admin.site.register(City, CityAdmin)
+@admin.register(TripPost)
+class TripPostAdmin(admin.ModelAdmin):
+    '''
+    Register the TripPost model
+    '''
+    list_display = ('title', 'owner', 'created_at', 'updated_at')
+    search_fields = ('title', 'content')
+    inlines = [TripDetailsInline]
