@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from .views import logout_route
+from . import views
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
@@ -32,6 +33,9 @@ urlpatterns = [
     path('api/', include('comments.urls')),
     path('api/', include('likes.urls')),
     path('api/', include('followers.urls')),
+    path('api/cities-by-country/<int:country_id>/', 
+         views.cities_by_country,
+         name='city-list-by-country'),
 ]
 
 handler404 = TemplateView.as_view(template_name='index.html')
