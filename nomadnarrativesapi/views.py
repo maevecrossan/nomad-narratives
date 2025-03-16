@@ -46,18 +46,26 @@ def logout_route(request):
 
 
 @api_view(['GET'])
+def get_all_countries(request):
+    '''
+    Returns a list of all countries.
+    '''
+    countries = Country.objects.all()
+    country_list = [
+        {"id": country.id, "name": country.name} for country in countries
+        ]
+    return Response({"countries": country_list})
+
+
+@api_view(['GET'])
 def cities_by_country(request, country_id):
-    """
+    '''
     Returns a list of cities for the given country.
     If no cities are found, it fetches and adds them to the database.
-    """
+    '''
     country = get_object_or_404(Country, id=country_id)
-
-    # Fetch and add cities if none exist
-    if not City.objects.filter(country=country).exists():
-        fetch_and_add_cities_for_country(country.id)
-
     cities = City.objects.filter(country=country)
+
     city_list = [{"id": city.id, "name": city.name} for city in cities]
 
     return Response({"cities": city_list})
