@@ -87,6 +87,7 @@ function PostCreateForm() {
                                     message="Click or tap here to upload an image."
                                 />
                             </Form.Label>
+                            <Form.File id="image-upload" accept="image/*"/>
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
                     </Container>
