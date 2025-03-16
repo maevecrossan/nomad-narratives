@@ -12,7 +12,7 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 from cities_light.models import Country, City
-from utils.continents import fetch_and_add_cities_for_country
+# from utils.continents import fetch_and_add_cities_for_country
 
 
 @api_view()
