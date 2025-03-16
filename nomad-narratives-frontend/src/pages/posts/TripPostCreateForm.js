@@ -86,9 +86,11 @@ function PostCreateForm() {
         event.preventDefault()
         const formData = new FormData();
 
-        formData.append('title', title)
-        formData.append('content', content)
-        formData.append('image', imageInput.current.files[0])
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('image', imageInput.current.files[0]);
+        formData.append("country", country);
+        formData.append("city", city);
 
         try {
             const {data} = await axiosReq.post('/posts/', formData);
