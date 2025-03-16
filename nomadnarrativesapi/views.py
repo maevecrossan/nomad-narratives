@@ -4,12 +4,15 @@ Root Route View
 This module defines the root route for the Django REST framework API.
 It provides a simple welcome message when accessed.
 '''
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .settings import (
     JWT_AUTH_COOKIE, JWT_AUTH_REFRESH_COOKIE, JWT_AUTH_SAMESITE,
     JWT_AUTH_SECURE,
 )
+from cities_light.models import Country, City
+from utils.continents import fetch_and_add_cities_for_country
 
 
 @api_view()
@@ -40,3 +43,21 @@ def logout_route(request):
         secure=JWT_AUTH_SECURE,
     )
     return response
+
+
+@api_view(['GET'])
+def cities_by_country(request, country_id):
+    """
+    Returns a list of cities for the given country.
+    If no cities are found, it fetches and adds them to the database.
+    """
+    country = get_object_or_404(Country, id=country_id)
+
+    # Fetch and add cities if none exist
+    if not City.objects.filter(country=country).exists():
+        fetch_and_add_cities_for_country(country.id)
+
+    cities = City.objects.filter(country=country)
+    city_list = [{"id": city.id, "name": city.name} for city in cities]
+
+    return Response({"cities": city_list})
