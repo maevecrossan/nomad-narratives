@@ -7,6 +7,7 @@ import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import WelcomePage from './pages/WelcomePage';
 import SignInForm from './pages/auth/SignInForm';
+import TripPostCreateForm from './pages/posts/TripPostCreateForm';
 
 
 function App() {
@@ -81,6 +82,11 @@ function App() {
 						exact 
 						path="/sign-up" 
 						render={() => <SignUpForm />} />
+
+					<Route 
+						exact 
+						path="/posts/create" 
+						render={() => <TripPostCreateForm />} />
 				</Switch>
 			</Container>
 		</div>
