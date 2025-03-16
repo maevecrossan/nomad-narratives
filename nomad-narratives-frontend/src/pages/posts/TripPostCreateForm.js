@@ -24,6 +24,13 @@ function PostCreateForm() {
     
     const { title, content, image } = tripPostData;
 
+    const handleChange = (event) => {
+        setTripPostData({
+            ...tripPostData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
     const textFields = (
         <div className="text-center">
             {/* Add your form fields here */}
@@ -33,6 +40,7 @@ function PostCreateForm() {
                     type="text"
                     name="title"
                     value={title}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -43,6 +51,7 @@ function PostCreateForm() {
                     name="content"
                     rows={10}
                     value={content}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
