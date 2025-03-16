@@ -24,9 +24,14 @@ function PostCreateForm() {
         title: "",
         content: "",
         image: "",
+        country: "",
+        city: "",
     });
 
-    const { title, content, image } = tripPostData;
+    const { title, content, image, country, city  } = tripPostData;
+
+    const [countries, setCountries] = useState([]); // State to hold country options
+    const [cities, setCities] = useState([]); // State to hold city options based on selected country
 
     const imageInput = useRef(null);
     const history = useHistory();
