@@ -65,6 +65,23 @@ function PostCreateForm() {
         }
     };
 
+    const handleCountryChange = async (event) => {
+        const selectedCountryId = event.target.value;
+        setTripPostData({
+            ...tripPostData,
+            country: selectedCountryId,
+            city: "",  // Reset city selection when the country changes
+        });
+
+        // Fetch cities based on the selected country
+        try {
+            const { data } = await axiosReq.get(`/cities-by-country/${selectedCountryId}/`);
+            setCities(data.cities);  // Assuming the API returns a list of cities in 'cities' field
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         const formData = new FormData();
