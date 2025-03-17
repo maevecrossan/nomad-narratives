@@ -27,11 +27,16 @@ function PostCreateForm() {
         title: "",
         content: "",
         image: "",
+        image_alt_text: "",
         country: "",
         city: "",
+        duration_value: "",
+        duration_unit: "",
+        traveller_number: "",
+        relevant_for: "",
     });
 
-    const { title, content, image, country, city } = tripPostData;
+    const { title, content, image, image_alt_text, country, city, duration_value, duration_unit, traveller_number, relevant_for } = tripPostData;
 
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
@@ -101,8 +106,13 @@ function PostCreateForm() {
         formData.append("title", title);
         formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
+        formData.append("image_alt_text", image_alt_text);
         formData.append("country", country);
         formData.append("city", city);
+        formData.append("duration_value", duration_value);
+        formData.append("duration_unit", duration_unit);
+        formData.append("traveller_number", traveller_number);
+        formData.append("relevant_for", relevant_for);
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
@@ -225,6 +235,17 @@ function PostCreateForm() {
                         </Form.Control>
                     </Col>
                 </Row>
+            </Form.Group>
+
+            <Form.Group>
+                <Form.Label>Image Description:</Form.Label>
+                <Form.Control
+                    type="text"
+                    name="image_alt_text"
+                    value={image_alt_text || ""}
+                    onChange={handleChange}
+                    placeholder="Enter a brief description of your image."
+                />
             </Form.Group>
 
             <Button
