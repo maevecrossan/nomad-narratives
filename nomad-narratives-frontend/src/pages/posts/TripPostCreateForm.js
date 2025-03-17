@@ -51,6 +51,7 @@ function PostCreateForm() {
         axios
             .get("http://localhost:8000/api/countries/") // CHANGE FOR DEPLOYMENT
             .then((response) => {
+                console.log(response.data); // Log the response data
                 setCountries(response.data);
             })
             .catch((error) => {
@@ -91,25 +92,25 @@ function PostCreateForm() {
     };
 
     const handleSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         const formData = new FormData();
-
+    
         formData.append('title', title);
         formData.append('content', content);
         formData.append('image', imageInput.current.files[0]);
         formData.append("country", country);
         formData.append("city", city);
-
+    
         try {
-            const {data} = await axiosReq.post('/posts/', formData);
-            history.push('/posts/${data.id}')
-        } catch(err) {
-            console.log(err)
-            if (err.response?.status !== 401){
-                setErrors(err.response?.data)
+            const { data } = await axiosReq.post('/posts/', formData);
+            history.push(`/posts/${data.id}`); // Correct string interpolation
+        } catch (err) {
+            console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
             }
         }
-    }
+    };
 
     const textFields = (
         <div className="text-center">
