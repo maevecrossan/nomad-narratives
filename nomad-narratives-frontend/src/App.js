@@ -8,6 +8,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import WelcomePage from './pages/WelcomePage';
 import SignInForm from './pages/auth/SignInForm';
 import TripPostCreateForm from './pages/posts/TripPostCreateForm';
+import TripPostPage from './pages/posts/TripPostPage';
 
 
 function App() {
@@ -87,6 +88,11 @@ function App() {
 						exact 
 						path="/posts/create" 
 						render={() => <TripPostCreateForm />} />
+
+					<Route 
+						exact 
+						path="/posts/:id" 
+						render={() => <TripPostPage />} />
 				</Switch>
 			</Container>
 		</div>
