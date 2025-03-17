@@ -101,13 +101,11 @@ function PostCreateForm() {
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
-            const file = event.target.files[0];
-    
-            setTripPostData((prevData) => ({
-                ...prevData,
-                image: URL.createObjectURL(file),
-                imageFile: file,
-            }));
+            URL.revokeObjectURL(image);
+            setTripPostData({
+                ...tripPostData,
+                image: URL.createObjectURL(event.target.files[0]),
+            });
         }
     };
 
