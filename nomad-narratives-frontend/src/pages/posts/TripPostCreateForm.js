@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 
 import Upload from "../../assets/upload.png";
@@ -137,6 +138,11 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.title?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group>
                 <Form.Label>Your Content:</Form.Label>
@@ -148,6 +154,11 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.content?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group controlId="countrySelect">
                 <Form.Label>Select Country</Form.Label>
@@ -164,6 +175,11 @@ function PostCreateForm() {
                     ))}
                 </Form.Control>
             </Form.Group>
+            {errors?.selectedCountry?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group controlId="citySelect">
                 <Form.Label>Select City</Form.Label>
@@ -181,6 +197,11 @@ function PostCreateForm() {
                     ))}
                 </Form.Control>
             </Form.Group>
+            {errors?.selectedCity?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group>
                 <Form.Label>Traveller Number:</Form.Label>
@@ -191,6 +212,11 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.traveller_number?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group controlId="relevantForSelect">
                 <Form.Label>Relevant For:</Form.Label>
@@ -208,6 +234,11 @@ function PostCreateForm() {
                     <option value="lgbtq">LGBTQ+ Travelers</option>
                 </Form.Control>
             </Form.Group>
+            {errors?.relevant_for?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group>
                 <Form.Label>Duration:</Form.Label>
@@ -236,6 +267,15 @@ function PostCreateForm() {
                     </Col>
                 </Row>
             </Form.Group>
+            {errors?.duration_value?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}{errors?.duration_unit?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Form.Group>
                 <Form.Label>Image Description:</Form.Label>
@@ -247,6 +287,11 @@ function PostCreateForm() {
                     placeholder="Enter a brief description of your image."
                 />
             </Form.Group>
+            {errors?.image_alt_text?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
@@ -309,6 +354,12 @@ function PostCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {errors?.image?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
