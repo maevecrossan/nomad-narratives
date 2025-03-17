@@ -63,10 +63,10 @@ function PostCreateForm() {
             // Fetch cities when a country is selected
             axios
                 .get(
-                    `http://localhost:8000/api/cities-by-country/${selectedCountry}`
+                    `http://localhost:8000/api/cities/by-country?country=${selectedCountry}`
                 ) // CHANGE FOR DEPLOYMENT
                 .then((response) => {
-                    setCities(response.data.cities);
+                    setCities(response.data);
                 })
                 .catch((error) => {
                     console.error("Error fetching cities", error);
