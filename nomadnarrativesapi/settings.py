@@ -67,7 +67,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'cities_light',
-    'django_summernote',
 
     # My custom apps
     'profiles',
