@@ -64,3 +64,20 @@ class CityViewSet(viewsets.ReadOnlyModelViewSet):
         if country_id:
             queryset = queryset.filter(country_id=country_id)
         return queryset
+
+
+@api_view(['GET'])
+def cities_by_country(request):
+    '''
+    Returns a list of cities for a given country.
+    Example: /api/cities/?country_id=1
+    '''
+    country_id = request.GET.get('country_id')
+
+    if not country_id:
+        return Response({"error": "Missing country_id parameter"}, status=400)
+
+    cities = City.objects.filter(country_id=country_id)
+    city_list = [{"id": city.id, "name": city.name} for city in cities]
+
+    return Response({"cities": city_list})
