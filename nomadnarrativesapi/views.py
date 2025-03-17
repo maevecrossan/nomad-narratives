@@ -11,9 +11,11 @@ from .settings import (
     JWT_AUTH_COOKIE, JWT_AUTH_REFRESH_COOKIE, JWT_AUTH_SAMESITE,
     JWT_AUTH_SECURE,
 )
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions, status
+from rest_framework.pagination import PageNumberPagination
 from cities_light.models import Country, City
 from .serializers import CountrySerializer, CitySerializer
+from rest_framework.decorators import action
 
 
 @api_view()
@@ -46,38 +48,31 @@ def logout_route(request):
     return response
 
 
+class CountryPagination(PageNumberPagination):
+    page_size = 500
+
+
 class CountryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
+    pagination_class = CountryPagination
 
 
-class CityViewSet(viewsets.ReadOnlyModelViewSet):
+class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all()
     serializer_class = CitySerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        ''''
-        Filter cities by country if a query parameter is provided.
-        '''
-        queryset = City.objects.all()
-        country_id = self.request.query_params.get('country_id')
+    # This custom action allows filtering cities by country
+    @action(detail=False, methods=['get'], url_path='by-country')
+    def get_cities_by_country(self, request):
+        country_id = request.query_params.get('country', None)
         if country_id:
-            queryset = queryset.filter(country_id=country_id)
-        return queryset
-
-
-@api_view(['GET'])
-def cities_by_country(request):
-    '''
-    Returns a list of cities for a given country.
-    Example: /api/cities/?country_id=1
-    '''
-    country_id = request.GET.get('country_id')
-
-    if not country_id:
-        return Response({"error": "Missing country_id parameter"}, status=400)
-
-    cities = City.objects.filter(country_id=country_id)
-    city_list = [{"id": city.id, "name": city.name} for city in cities]
-
-    return Response({"cities": city_list})
+            cities = City.objects.filter(country_id=country_id)
+            serializer = self.get_serializer(cities, many=True)
+            return Response(serializer.data)
+        else:
+            return Response(
+                {"detail": "Country ID is required."},
+                status=status.HTTP_400_BAD_REQUEST
+                )
