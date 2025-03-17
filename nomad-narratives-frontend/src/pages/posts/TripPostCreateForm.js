@@ -173,7 +173,7 @@ function PostCreateForm() {
                 <Form.Label>Select Country</Form.Label>
                 <Form.Control
                     as="select"
-                    value={selectedCountry || ""}
+                    value={tripPostData.country}
                     onChange={handleCountryChange}
                 >
                     <option value="">Select a country</option>
@@ -194,7 +194,7 @@ function PostCreateForm() {
                 <Form.Label>Select City</Form.Label>
                 <Form.Control
                     as="select"
-                    value={selectedCity || ""}
+                    value={tripPostData.city}
                     onChange={handleCityChange}
                     disabled={!selectedCountry}
                 >
