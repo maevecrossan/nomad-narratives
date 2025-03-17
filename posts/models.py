@@ -81,31 +81,31 @@ class TripDetails(models.Model):
 
     # city = models.ManyToManyField(City)
 
-    traveller_number = models.PositiveIntegerField()
+    # traveller_number = models.PositiveIntegerField()
 
-    relevant_for_choices = [
-            ('all', 'All Genders & Orientations'),
-            ('women', 'Women'),
-            ('men', 'Men'),
-            ('nonbinary', 'Non-Binary'),
-            ('lgbtq', 'LGBTQ+ Travelers'),
-        ]
-    relevant_for = models.CharField(
-        max_length=10, choices=relevant_for_choices
-        )
+    # relevant_for_choices = [
+    #         ('all', 'All Genders & Orientations'),
+    #         ('women', 'Women'),
+    #         ('men', 'Men'),
+    #         ('nonbinary', 'Non-Binary'),
+    #         ('lgbtq', 'LGBTQ+ Travelers'),
+    #     ]
+    # relevant_for = models.CharField(
+    #     max_length=10, choices=relevant_for_choices
+    #     )
 
-    duration_value = models.PositiveBigIntegerField()
+    # duration_value = models.PositiveBigIntegerField()
 
-    duration_unit_choices = [
-        ('days', 'Day(s)'),
-        ('weeks', 'Week(s)'),
-        ('months', 'Month(s)'),
-        ('years', 'Year(s)'),
-    ]
+    # duration_unit_choices = [
+    #     ('days', 'Day(s)'),
+    #     ('weeks', 'Week(s)'),
+    #     ('months', 'Month(s)'),
+    #     ('years', 'Year(s)'),
+    # ]
 
-    duration_unit = models.CharField(
-        max_length=10, choices=duration_unit_choices
-        )
+    # duration_unit = models.CharField(
+    #     max_length=10, choices=duration_unit_choices
+    #     )
 
     # def save(self, *args, **kwargs):
     #     """
