@@ -29,7 +29,7 @@ function PostCreateForm() {
         city: "",
     });
 
-    const { title, content, image, country, city  } = tripPostData;
+    const { title, content, image, country, city } = tripPostData;
 
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
@@ -63,7 +63,9 @@ function PostCreateForm() {
         if (selectedCountry) {
             // Fetch cities when a country is selected
             axios
-                .get(`http://localhost:8000/api/cities-by-country/${selectedCountry}`) // CHANGE FOR DEPLOYMENT
+                .get(
+                    `http://localhost:8000/api/cities-by-country/${selectedCountry}`
+                ) // CHANGE FOR DEPLOYMENT
                 .then((response) => {
                     setCities(response.data.cities);
                 })
@@ -94,15 +96,15 @@ function PostCreateForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-    
-        formData.append('title', title);
-        formData.append('content', content);
-        formData.append('image', imageInput.current.files[0]);
+
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("image", imageInput.current.files[0]);
         formData.append("country", country);
         formData.append("city", city);
-    
+
         try {
-            const { data } = await axiosReq.post('/posts/', formData);
+            const { data } = await axiosReq.post("/posts/", formData);
             history.push(`/posts/${data.id}`); // Correct string interpolation
         } catch (err) {
             console.log(err);
@@ -170,59 +172,59 @@ function PostCreateForm() {
             </Form.Group>
 
             <Form.Group>
-            <Form.Label>Traveller Number:</Form.Label>
-            <Form.Control
-                type="number"
-                name="traveller_number"
-                value={tripPostData.traveller_number || ""}
-                onChange={handleChange}
-            />
-        </Form.Group>
+                <Form.Label>Traveller Number:</Form.Label>
+                <Form.Control
+                    type="number"
+                    name="traveller_number"
+                    value={tripPostData.traveller_number || ""}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-        <Form.Group controlId="relevantForSelect">
-            <Form.Label>Relevant For:</Form.Label>
-            <Form.Control
-                as="select"
-                name="relevant_for"
-                value={tripPostData.relevant_for || ""}
-                onChange={handleChange}
-            >
-                <option value="">Select a group</option>
-                <option value="all">All Genders & Orientations</option>
-                <option value="women">Women</option>
-                <option value="men">Men</option>
-                <option value="nonbinary">Non-Binary</option>
-                <option value="lgbtq">LGBTQ+ Travelers</option>
-            </Form.Control>
-        </Form.Group>
+            <Form.Group controlId="relevantForSelect">
+                <Form.Label>Relevant For:</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="relevant_for"
+                    value={tripPostData.relevant_for || ""}
+                    onChange={handleChange}
+                >
+                    <option value="">Select a group</option>
+                    <option value="all">All Genders & Orientations</option>
+                    <option value="women">Women</option>
+                    <option value="men">Men</option>
+                    <option value="nonbinary">Non-Binary</option>
+                    <option value="lgbtq">LGBTQ+ Travelers</option>
+                </Form.Control>
+            </Form.Group>
 
-        <Form.Group>
-            <Form.Label>Duration:</Form.Label>
-            <Row>
-                <Col>
-                    <Form.Control
-                        type="number"
-                        name="duration_value"
-                        value={tripPostData.duration_value || ""}
-                        onChange={handleChange}
-                        placeholder="Enter number"
-                    />
-                </Col>
-                <Col>
-                    <Form.Control
-                        as="select"
-                        name="duration_unit"
-                        value={tripPostData.duration_unit || ""}
-                        onChange={handleChange}
-                    >
-                        <option value="days">Day(s)</option>
-                        <option value="weeks">Week(s)</option>
-                        <option value="months">Month(s)</option>
-                        <option value="years">Year(s)</option>
-                    </Form.Control>
-                </Col>
-            </Row>
-        </Form.Group>
+            <Form.Group>
+                <Form.Label>Duration:</Form.Label>
+                <Row>
+                    <Col>
+                        <Form.Control
+                            type="number"
+                            name="duration_value"
+                            value={tripPostData.duration_value || ""}
+                            onChange={handleChange}
+                            placeholder="Enter number"
+                        />
+                    </Col>
+                    <Col>
+                        <Form.Control
+                            as="select"
+                            name="duration_unit"
+                            value={tripPostData.duration_unit || ""}
+                            onChange={handleChange}
+                        >
+                            <option value="days">Day(s)</option>
+                            <option value="weeks">Week(s)</option>
+                            <option value="months">Month(s)</option>
+                            <option value="years">Year(s)</option>
+                        </Form.Control>
+                    </Col>
+                </Row>
+            </Form.Group>
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
@@ -284,7 +286,6 @@ function PostCreateForm() {
                                 style={{ display: "none" }}
                                 ref={imageInput}
                             />
-
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
                     </Container>
