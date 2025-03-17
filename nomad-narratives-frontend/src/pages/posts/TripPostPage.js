@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 
-function PostPage() {
+function TripPostPage() {
     // Add your logic here
 
     return (
@@ -23,4 +23,4 @@ function PostPage() {
     );
 }
 
-export default PostPage;
+export default TripPostPage;
