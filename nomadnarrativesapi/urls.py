@@ -20,9 +20,9 @@ from rest_framework.routers import DefaultRouter
 from .views import CountryViewSet, CityViewSet
 from .views import logout_route
 
-# router = DefaultRouter()
-# router.register(r'countries', CountryViewSet, basename="country")
-# router.register(r'cities', CityViewSet, basename="city")
+router = DefaultRouter()
+router.register(r'countries', CountryViewSet, basename="country")
+router.register(r'cities', CityViewSet, basename="city")
 
 
 urlpatterns = [
@@ -39,7 +39,7 @@ urlpatterns = [
     path('api/', include('comments.urls')),
     path('api/', include('likes.urls')),
     path('api/', include('followers.urls')),
-    # path('api/', include(router.urls)),
+    path('api/', include(router.urls)),
 ]
 
 handler404 = TemplateView.as_view(template_name='index.html')
