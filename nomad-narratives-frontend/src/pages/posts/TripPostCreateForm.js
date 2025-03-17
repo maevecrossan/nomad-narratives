@@ -49,7 +49,7 @@ function PostCreateForm() {
     useEffect(() => {
         // Fetch all countries when the component mounts
         axios
-            .get("http://localhost:8000/api/countries/") // CHANGE FOR DEPLOYMENT
+            .get("https://nomad-narratives-05968209a16d.herokuapp.com/api/countries/") // CHANGE FOR DEPLOYMENT
             .then((response) => {
                 setCountries(response.data.results);
             })
@@ -63,7 +63,7 @@ function PostCreateForm() {
             // Fetch cities when a country is selected
             axios
                 .get(
-                    `http://localhost:8000/api/cities/by-country?country=${selectedCountry}`
+                    `https://nomad-narratives-05968209a16d.herokuapp.com/api/cities/by-country?country=${selectedCountry}`
                 ) // CHANGE FOR DEPLOYMENT
                 .then((response) => {
                     setCities(response.data);
