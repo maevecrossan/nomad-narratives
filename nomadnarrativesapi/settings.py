@@ -51,10 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-    # Third-party apps
     'cloudinary_storage',
+    'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
     'django_filters',
@@ -68,7 +66,6 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'cities_light',
 
-    # My custom apps
     'profiles',
     'posts',
     'comments',
