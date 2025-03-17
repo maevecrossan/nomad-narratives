@@ -10,8 +10,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
-from utils.continents import get_continent_by_country
-from cities_light.models import Country, City
+# from utils.continents import get_continent_by_country
+# from cities_light.models import Country, City
 from .serializers import TripPostSerializer
 from .models import TripPost
 
@@ -47,10 +47,7 @@ class PostList(generics.ListCreateAPIView):
 
     search_fields = [
         'owner__username',
-        'title',  # TripPost title
-        'details__continent',  # from TripDetails
-        'details__country__name',  # from TripDetails
-        'details__city__name'  # from TripDetails
+        'title'  # TripPost title
         ]
 
     filterset_fields = [
@@ -60,17 +57,17 @@ class PostList(generics.ListCreateAPIView):
         ]
 
     def perform_create(self, serializer):
-        country_id = self.request.data.get('country')
-        city_ids = self.request.data.get('city')
+        # country_id = self.request.data.get('country')
+        # city_ids = self.request.data.get('city')
 
-        country = get_object_or_404(Country, id=country_id)
-        cities = City.objects.filter(id__in=city_ids)
+        # country = get_object_or_404(Country, id=country_id)
+        # cities = City.objects.filter(id__in=city_ids)
 
         post = serializer.save(owner=self.request.user)
 
-        post.details.country = country
-        post.details.city.set(cities)
-        post.details.continent = get_continent_by_country(country.name)
+        # post.details.country = country
+        # post.details.city.set(cities)
+        # post.details.continent = get_continent_by_country(country.name)
         post.details.save()
 
 

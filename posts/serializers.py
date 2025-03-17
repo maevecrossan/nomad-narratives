@@ -2,7 +2,7 @@
 Posts Serializer
 '''
 from rest_framework import serializers
-from cities_light.models import City
+# from cities_light.models import City
 from likes.models import Like
 from .models import TripPost, TripDetails
 
@@ -11,12 +11,12 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     '''
     Serializer for TripDetails model.
     '''
-    continent = serializers.ReadOnlyField()
-    country_name = serializers.ReadOnlyField(source='country.name')
-    city = serializers.PrimaryKeyRelatedField(
-        queryset=City.objects.all(),
-        many=True
-        )
+    # continent = serializers.ReadOnlyField()
+    # country_name = serializers.ReadOnlyField(source='country.name')
+    # city = serializers.PrimaryKeyRelatedField(
+    #     queryset=City.objects.all(),
+    #     many=True
+    #     )
     duration_display = serializers.SerializerMethodField()
 
     def get_duration_display(self, obj):
@@ -32,8 +32,7 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         '''
         model = TripDetails
         fields = [
-            'id', 'country', 'country_name', 'continent',
-            'city', 'traveller_number', 'relevant_for',
+            'id', 'traveller_number', 'relevant_for',
             'duration_value', 'duration_unit', 'duration_display'
         ]
 
@@ -98,7 +97,7 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
-        city_data = details_data.pop('city', [])
+        # city_data = details_data.pop('city', [])
 
         trip_post = TripPost.objects.create(  # pylint: disable=no-member
             **validated_data
@@ -107,7 +106,7 @@ class TripPostSerializer(serializers.ModelSerializer):
             trip_post=trip_post, **details_data
             )
 
-        trip_details.city.set(city_data)  # Assign multiple cities
+        # trip_details.city.set(city_data)  # Assign multiple cities
         trip_details.save()
 
         return trip_post
@@ -124,13 +123,13 @@ class TripPostSerializer(serializers.ModelSerializer):
         # Update the TripDetails fields
         if details_data:
             details_instance = instance.details
-            city_data = details_data.pop('city', [])
+            # city_data = details_data.pop('city', [])
 
             for field, value in details_data.items():
                 setattr(details_instance, field, value)
 
-            if city_data:
-                details_instance.city.set(city_data)
+            # if city_data:
+            #     details_instance.city.set(city_data)
 
             details_instance.save()
 
