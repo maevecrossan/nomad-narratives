@@ -215,7 +215,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles/build')
 STATICFILES_STORAGE = (
     'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 )
