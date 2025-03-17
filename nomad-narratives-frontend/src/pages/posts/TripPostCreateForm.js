@@ -114,7 +114,7 @@ function PostCreateForm() {
 
         formData.append("title", title);
         formData.append("content", content);
-        formData.append("image", tripPostData.imageFile);
+        formData.append("image", imageInput.current.files[0]);
         formData.append("image_alt_text", image_alt_text);
         formData.append("country", country);
         formData.append("city", city);
