@@ -169,6 +169,61 @@ function PostCreateForm() {
                 </Form.Control>
             </Form.Group>
 
+            <Form.Group>
+            <Form.Label>Traveller Number:</Form.Label>
+            <Form.Control
+                type="number"
+                name="traveller_number"
+                value={tripPostData.traveller_number || ""}
+                onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group controlId="relevantForSelect">
+            <Form.Label>Relevant For:</Form.Label>
+            <Form.Control
+                as="select"
+                name="relevant_for"
+                value={tripPostData.relevant_for || ""}
+                onChange={handleChange}
+            >
+                <option value="">Select a group</option>
+                <option value="all">All Genders & Orientations</option>
+                <option value="women">Women</option>
+                <option value="men">Men</option>
+                <option value="nonbinary">Non-Binary</option>
+                <option value="lgbtq">LGBTQ+ Travelers</option>
+            </Form.Control>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Duration:</Form.Label>
+            <Row>
+                <Col>
+                    <Form.Control
+                        type="number"
+                        name="duration_value"
+                        value={tripPostData.duration_value || ""}
+                        onChange={handleChange}
+                        placeholder="Enter number"
+                    />
+                </Col>
+                <Col>
+                    <Form.Control
+                        as="select"
+                        name="duration_unit"
+                        value={tripPostData.duration_unit || ""}
+                        onChange={handleChange}
+                    >
+                        <option value="days">Day(s)</option>
+                        <option value="weeks">Week(s)</option>
+                        <option value="months">Month(s)</option>
+                        <option value="years">Year(s)</option>
+                    </Form.Control>
+                </Col>
+            </Row>
+        </Form.Group>
+
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
                 onClick={() => {}}
