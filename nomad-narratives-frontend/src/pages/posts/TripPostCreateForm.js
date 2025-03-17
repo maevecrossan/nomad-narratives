@@ -83,20 +83,19 @@ function PostCreateForm() {
     }, [selectedCountry]);
 
     const handleCountryChange = (event) => {
-        const selectedCountry = event.target.value;
-        setTripPostData((prevData) => ({
-            ...prevData,
-            country: selectedCountry,
-            city: "",
-        }));
+        setTripPostData({
+            ...tripPostData,
+            [event.target.name]: event.target.value,
+        });
+        setSelectedCountry(event.target.value);
     };
 
     const handleCityChange = (event) => {
-        const selectedCity = event.target.value;
-        setTripPostData((prevData) => ({
-            ...prevData,
-            city: selectedCity,
-        }));
+        setTripPostData({
+            ...tripPostData,
+            [event.target.name]: event.target.value,
+        });
+        setSelectedCity(event.target.value);
     };
 
     const handleChangeImage = (event) => {
