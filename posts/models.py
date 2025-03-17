@@ -11,15 +11,15 @@ of the trip (location, duration, etc).
 
 from django.db import models
 from django.contrib.auth.models import User
-from cities_light.models import City, Country
-from utils.continents import get_continent_by_country
+# from cities_light.models import City, Country
+# from utils.continents import get_continent_by_country
 
 
 class TripPost(models.Model):
     '''
     Trip Post model, related to 'owner', i.e. a User instance.
     Default image set so that we can always reference image.url.
-
+    
     This model handles the content of the post (image, article content, title).
     This model does not handle the details of the trip (see TripDetails model).
     '''
@@ -55,7 +55,7 @@ class TripPost(models.Model):
 
     class Meta:
         '''
-        Specififes ordering of posts.
+        Specifies ordering of posts.
         '''
         ordering = ['-created_at']
 
@@ -66,7 +66,7 @@ class TripPost(models.Model):
 class TripDetails(models.Model):
     '''
     Outlines the additional details a user will add to their TripPost.
-
+    
     These details help categorize and filter trip content based on location,
     traveler demographics, and trip length, providing a richer context
     for the main TripPost
@@ -75,11 +75,11 @@ class TripDetails(models.Model):
         TripPost, on_delete=models.CASCADE, related_name="details"
         )
 
-    continent = models.CharField(max_length=20, blank=True, editable=False)
+    # continent = models.CharField(max_length=20, blank=True, editable=False)
 
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
+    # country = models.ForeignKey(Country, on_delete=models.PROTECT)
 
-    city = models.ManyToManyField(City)
+    # city = models.ManyToManyField(City)
 
     traveller_number = models.PositiveIntegerField()
 
@@ -107,13 +107,13 @@ class TripDetails(models.Model):
         max_length=10, choices=duration_unit_choices
         )
 
-    def save(self, *args, **kwargs):
-        """
-        Automatically set the continent based on the selected country.
-        """
-        if self.country:
-            self.continent = get_continent_by_country(self.country.name)
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     """
+    #     Automatically set the continent based on the selected country.
+    #     """
+    #     if self.country:
+    #         self.continent = get_continent_by_country(self.country.name)
+    #     super().save(*args, **kwargs)
 
     def __str__(self):
         return (
