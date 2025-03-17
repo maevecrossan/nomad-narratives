@@ -18,6 +18,8 @@ import { useHistory } from "react-router";
 import axios from "axios";
 import { axiosReq } from "../../api/axiosDefaults";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
 
@@ -49,7 +51,7 @@ function PostCreateForm() {
     useEffect(() => {
         // Fetch all countries when the component mounts
         axios
-            .get("https://nomad-narratives-05968209a16d.herokuapp.com/api/countries/") // CHANGE FOR DEPLOYMENT
+            .get(`${API_URL}/api/countries/`)
             .then((response) => {
                 setCountries(response.data.results);
             })
@@ -62,9 +64,9 @@ function PostCreateForm() {
         if (selectedCountry) {
             // Fetch cities when a country is selected
             axios
-                .get(
-                    `https://nomad-narratives-05968209a16d.herokuapp.com/api/cities/by-country?country=${selectedCountry}`
-                ) // CHANGE FOR DEPLOYMENT
+            .get(
+                `${API_URL}/api/cities/by-country?country=${selectedCountry}`
+            )
                 .then((response) => {
                     setCities(response.data);
                 })
