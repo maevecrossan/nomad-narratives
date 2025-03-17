@@ -51,8 +51,7 @@ function PostCreateForm() {
         axios
             .get("http://localhost:8000/api/countries/") // CHANGE FOR DEPLOYMENT
             .then((response) => {
-                console.log(response.data); // Log the response data
-                setCountries(response.data);
+                setCountries(response.data.results);
             })
             .catch((error) => {
                 console.error("Error fetching countries", error);
