@@ -101,11 +101,13 @@ function PostCreateForm() {
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
-            URL.revokeObjectURL(image);
-            setTripPostData({
-                ...tripPostData,
-                image: URL.createObjectURL(event.target.files[0]),
-            });
+            const file = event.target.files[0];
+    
+            setTripPostData((prevData) => ({
+                ...prevData,
+                image: URL.createObjectURL(file),
+                imageFile: file,
+            }));
         }
     };
 
@@ -115,7 +117,7 @@ function PostCreateForm() {
 
         formData.append("title", title);
         formData.append("content", content);
-        formData.append("image", imageInput.current.files[0]);
+        formData.append("image", tripPostData.imageFile);
         formData.append("image_alt_text", image_alt_text);
         formData.append("country", country);
         formData.append("city", city);
