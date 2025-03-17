@@ -20,9 +20,9 @@ from rest_framework.routers import DefaultRouter
 from .views import CountryViewSet, CityViewSet
 from .views import logout_route
 
-router = DefaultRouter()
-router.register(r'countries', CountryViewSet, basename="country")
-router.register(r'cities', CityViewSet, basename="city")
+# router = DefaultRouter()
+# router.register(r'countries', CountryViewSet, basename="country")
+# router.register(r'cities', CityViewSet, basename="city")
 
 
 urlpatterns = [
