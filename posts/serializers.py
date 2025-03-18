@@ -26,6 +26,19 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         '''
         return f"{obj.duration_value} {obj.get_duration_unit_display()}"
 
+    def validate_duration_value(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("Duration value must be positive.")
+        return value
+
+    def validate_duration_unit(self, value):
+        valid_units = ['days', 'weeks', 'months', 'years']
+        if value not in valid_units:
+            raise serializers.ValidationError(
+                f"Invalid duration unit. Valid options are: {', '.join(valid_units)}."
+                )
+        return value
+
     class Meta:
         '''
         Specifies the model and the fields to be included in the
@@ -34,7 +47,8 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         model = TripDetails
         fields = [
             'id', 'traveller_number', 'relevant_for',
-            'duration_value', 'duration_unit', 'duration_display'
+            'duration_value', 'duration_unit', 'duration_display',
+            'continent', 'country', 'city'
         ]
 
 
