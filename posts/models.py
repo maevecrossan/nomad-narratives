@@ -67,11 +67,15 @@ class TripDetails(models.Model):
 
     continent = models.CharField(max_length=20, blank=True, editable=False)
 
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
+    country = models.ForeignKey(
+        Country, on_delete=models.SET_NULL, null=True, blank=False
+        )
 
-    city = models.ManyToManyField(City)
+    city = models.ForeignKey(
+        City, on_delete=models.SET_NULL, null=True, blank=False
+        )
 
-    traveller_number = models.PositiveIntegerField()
+    traveller_number = models.PositiveIntegerField(blank=False)
 
     relevant_for_choices = [
             ('all', 'All Genders & Orientations'),
