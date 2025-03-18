@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from rest_framework.routers import DefaultRouter
-from .views import CountryViewSet, CityViewSet
+# from rest_framework.routers import DefaultRouter
+# from .views import CountryViewSet, CityViewSet
 from .views import logout_route
+from . import views
 
-router = DefaultRouter()
-router.register(r'countries', CountryViewSet, basename="country")
-router.register(r'cities', CityViewSet, basename="city")
+# router = DefaultRouter()
+# router.register(r'countries', CountryViewSet, basename="country")
+# router.register(r'cities', CityViewSet, basename="city")
 
 
 urlpatterns = [
@@ -39,7 +40,9 @@ urlpatterns = [
     path('api/', include('comments.urls')),
     path('api/', include('likes.urls')),
     path('api/', include('followers.urls')),
-    path('api/', include(router.urls)),
+    # path('api/', include(router.urls)),
+    path('api/countries/', views.get_countries, name='get_countries'),
+    path('api/cities/<int:country_id>/', views.get_cities, name='get_cities'),
 ]
 
 handler404 = TemplateView.as_view(template_name='index.html')
