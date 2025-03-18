@@ -111,6 +111,13 @@ function PostCreateForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+         // Check if duration_value or duration_unit are empty or invalid
+        if (!duration_value || !duration_unit) {
+            setErrors({ details: ["Duration value and unit are required."] });
+            return;
+        }
+
         const formData = new FormData();
 
         formData.append("title", title);
@@ -125,9 +132,7 @@ function PostCreateForm() {
         formData.append("relevant_for", relevant_for);
 
         // DEBUGGING
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+        console.log('FormData being sent: ', formData);
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
