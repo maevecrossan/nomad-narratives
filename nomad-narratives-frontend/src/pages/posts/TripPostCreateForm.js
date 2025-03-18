@@ -29,15 +29,15 @@ function PostCreateForm() {
         content: "",
         image: "",
         image_alt_text: "",
-        country: "",
-        city: "",
+        // country: "",
+        // city: "",
         duration_value: "",
         duration_unit: "",
         traveller_number: "",
         relevant_for: "",
     });
 
-    const { title, content, image, image_alt_text, country, city, duration_value, duration_unit, traveller_number, relevant_for } = tripPostData;
+    const { title, content, image, image_alt_text, duration_value, duration_unit, traveller_number, relevant_for } = tripPostData;
 
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
@@ -55,11 +55,11 @@ function PostCreateForm() {
     };
 
     useEffect(() => {
-        // Fetch all countries when the component mounts
         axios
             .get(`${API_URL}/api/countries/`)
             .then((response) => {
-                setCountries(response.data.results);
+                console.log("Countries response:", response.data); // Log to see the data
+                setCountries(response.data); // Directly set countries to response.data (which is an array)
             })
             .catch((error) => {
                 console.error("Error fetching countries", error);
@@ -71,7 +71,7 @@ function PostCreateForm() {
             // Fetch cities when a country is selected
             axios
             .get(
-                `${API_URL}/api/cities/by-country?country=${selectedCountry}`
+                `${API_URL}/api/cities/${selectedCountry}`
             )
                 .then((response) => {
                     setCities(response.data);
@@ -88,6 +88,7 @@ function PostCreateForm() {
             [event.target.name]: event.target.value,
         });
         setSelectedCountry(event.target.value);
+        setSelectedCity(null);
     };
 
     const handleCityChange = (event) => {
@@ -116,12 +117,17 @@ function PostCreateForm() {
         formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
         formData.append("image_alt_text", image_alt_text);
-        formData.append("country", country);
-        formData.append("city", city);
+        formData.append("country", selectedCountry);
+        formData.append("city", selectedCity);
         formData.append("duration_value", duration_value);
         formData.append("duration_unit", duration_unit);
         formData.append("traveller_number", traveller_number);
         formData.append("relevant_for", relevant_for);
+
+        // DEBUGGING
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
