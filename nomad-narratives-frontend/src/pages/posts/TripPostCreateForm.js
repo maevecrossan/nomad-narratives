@@ -58,8 +58,7 @@ function PostCreateForm() {
         axios
             .get(`${API_URL}/api/countries/`)
             .then((response) => {
-                console.log("Countries response:", response.data); // Log to see the data
-                setCountries(response.data); // Directly set countries to response.data (which is an array)
+                setCountries(response.data);
             })
             .catch((error) => {
                 console.error("Error fetching countries", error);
@@ -111,12 +110,6 @@ function PostCreateForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-         // Check if duration_value or duration_unit are empty or invalid
-        if (!duration_value || !duration_unit) {
-            setErrors({ details: ["Duration value and unit are required."] });
-            return;
-        }
 
         const formData = new FormData();
 
