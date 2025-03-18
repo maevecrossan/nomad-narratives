@@ -58,17 +58,18 @@ class PostList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         country_id = self.request.data.get('country')
-        city_ids = self.request.data.get('city')
+        city_id = self.request.data.get('city')
 
         country = get_object_or_404(Country, id=country_id)
-        cities = City.objects.filter(id__in=city_ids)
+        city = get_object_or_404(City, id=city_id)
 
-        post = serializer.save(owner=self.request.user)
+        post = serializer.save(
+            owner=self.request.user, country=country, city=city
+            )
 
-        post.details.country = country
-        post.details.city.set(cities)
-        post.details.continent = get_continent_by_country(country.name)
-        post.details.save()
+        continent = get_continent_by_country(country.name)
+        post.continent = continent
+        post.save()
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
