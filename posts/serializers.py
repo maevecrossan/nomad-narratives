@@ -2,7 +2,7 @@
 Posts Serializer
 '''
 from rest_framework import serializers
-from cities_light.models import City
+from cities_light.models import City, Country
 from likes.models import Like
 from .models import TripPost, TripDetails
 
@@ -12,10 +12,11 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     Serializer for TripDetails model.
     '''
     continent = serializers.ReadOnlyField()
-    country_name = serializers.ReadOnlyField(source='country.name')
-    city = serializers.PrimaryKeyRelatedField(
-        queryset=City.objects.all(),
-        many=True
+    country = serializers.SlugRelatedField(
+        slug_field='name', queryset=Country.objects.all()
+        )
+    city = serializers.SlugRelatedField(
+        slug_field='name', queryset=City.objects.all()
         )
     duration_display = serializers.SerializerMethodField()
 
