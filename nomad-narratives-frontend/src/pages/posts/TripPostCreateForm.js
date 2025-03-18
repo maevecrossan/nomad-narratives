@@ -115,20 +115,25 @@ function PostCreateForm() {
 
         formData.append("title", title);
         formData.append("content", content);
-        formData.append("image", imageInput.current.files[0]);
+        if (imageInput.current.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+        }
         formData.append("image_alt_text", image_alt_text);
-        formData.append("country", selectedCountry);
-        formData.append("city", selectedCity);
-        formData.append("duration_value", duration_value);
-        formData.append("duration_unit", duration_unit);
-        formData.append("traveller_number", traveller_number);
-        formData.append("relevant_for", relevant_for);
+        // Details data
+        formData.append("details.country", selectedCountry);
+        formData.append("details.city", selectedCity);
+        formData.append("details.duration_value", duration_value);
+        formData.append("details.duration_unit", duration_unit);
+        formData.append("details.traveller_number", traveller_number);
+        formData.append("details.relevant_for", relevant_for);
 
         // DEBUGGING
-        console.log('FormData being sent: ', formData);
+        console.log("FormData being sent:", Object.fromEntries(formData));
+
+        const config = { headers: { "Content-Type": "multipart/form-data" } };
 
         try {
-            const { data } = await axiosReq.post("/posts/", formData);
+            const { data } = await axiosReq.post("/posts/", formData, config);
             history.push(`/posts/${data.id}`);
         } catch (err) {
             console.log(err);
@@ -268,7 +273,7 @@ function PostCreateForm() {
                         <Form.Control
                             as="select"
                             name="duration_unit"
-                            value={tripPostData.duration_unit || ""}
+                            value={tripPostData.duration_unit || "Day(s)"}
                             onChange={handleChange}
                         >
                             <option value="days">Day(s)</option>
