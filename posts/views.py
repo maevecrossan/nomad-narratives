@@ -57,11 +57,16 @@ class PostList(generics.ListCreateAPIView):
         'likes__owner__profile'
         ]
 
+    def create(self, request, *args, **kwargs):
+        print("POST request is hitting create method")
+        return self.perform_create(request, *args, **kwargs)
+
     def perform_create(self, serializer):
+        print("CREATING POST")
         # Get country name from the request
-        country_name = self.request.data.get(
-            'details', {}).get('country', None
-                               )
+        country_name = self.request.data.get('details.country', None)
+        print("Request Data:", self.request.data)
+        print("Extracted country name:", country_name)
 
         if not country_name:
             return Response(
@@ -73,7 +78,8 @@ class PostList(generics.ListCreateAPIView):
         country = get_object_or_404(Country, name=country_name)
 
         # Get city name from the request
-        city_name = self.request.data.get('details', {}).get('city', None)
+        city_name = self.request.data.get('details.city', None)
+        print("Extracted city name:", city_name)
 
         if not city_name:
             return Response(
@@ -83,6 +89,7 @@ class PostList(generics.ListCreateAPIView):
 
         # Retrieve the city object based on its name
         city = get_object_or_404(City, name=city_name)
+        print(city)
 
         # Proceed with saving the post
         post = serializer.save(owner=self.request.user)
