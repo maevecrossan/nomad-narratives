@@ -87,8 +87,8 @@ class PostList(generics.ListCreateAPIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Retrieve the city object based on its name
-        city = get_object_or_404(City, name=city_name)
+        # Retrieve the city object based on its name and country
+        city = get_object_or_404(City, name=city_name, country=country)
         print(city)
 
         # Proceed with saving the post
