@@ -91,8 +91,12 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         Checks for owner.
         '''
-        request = self.context['request']
-        return request.user == obj.owner
+        # Make sure obj is not a dictionary (like during serialization 
+        # or validation)
+        if isinstance(obj, TripPost):  # Ensure it's the model instance
+            request = self.context['request']
+            return request.user == obj.owner
+        return False  # Default behavior when it's not a model instance
 
     def get_like_id(self, obj):
         '''
@@ -112,19 +116,16 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
-        # city_data = details_data.pop('city', [])
 
-        trip_post = TripPost.objects.create(  # pylint: disable=no-member
-            **validated_data
-            )
-        trip_details = TripDetails.objects.create(  # pylint: disable=no-member
+        # Create the trip_post instance
+        trip_post = TripPost.objects.create(**validated_data)
+
+        # Create the trip_details instance and link it with the trip_post
+        trip_details = TripDetails.objects.create(
             trip_post=trip_post, **details_data
             )
 
-        # trip_details.city.set(city_data)  # Assign multiple cities
-        trip_details.save()
-
-        return trip_post
+        return trip_post, trip_details
 
     def update(self, instance, validated_data):
         '''
