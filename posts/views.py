@@ -58,35 +58,47 @@ class PostList(generics.ListCreateAPIView):
         ]
 
     def perform_create(self, serializer):
-        country_id = self.request.data.get('country')
-        country = get_object_or_404(Country, id=country_id)
+        # Get country name from the request
+        country_name = self.request.data.get(
+            'details', {}).get('country', None
+                               )
 
-        city_ids = self.request.data.get("details", {}).get("cities", [])
-        if not isinstance(city_ids, list):
+        if not country_name:
             return Response(
-                {"error": "Invalid city data format"},
-                status=status.HTTP_400_BAD_REQUEST)
+                {"error": "Country is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
-        cities = City.objects.filter(id__in=city_ids)
+        # Retrieve the country object based on its name
+        country = get_object_or_404(Country, name=country_name)
 
-        if cities.count() != len(city_ids):
+        # Get city name from the request
+        city_name = self.request.data.get('details', {}).get('city', None)
+
+        if not city_name:
             return Response(
-                {"error": "Some cities were not found."},
-                status=status.HTTP_400_BAD_REQUEST)
+                {"error": "City is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
+        # Retrieve the city object based on its name
+        city = get_object_or_404(City, name=city_name)
+
+        # Proceed with saving the post
         post = serializer.save(owner=self.request.user)
 
+        # Create TripDetails and associate with the post
         trip_details = TripDetails.objects.create(
             trip_post=post,
             country=country,
+            continent=get_continent_by_country(country.name),
+            city=city  # Associate the single city
         )
 
-        if cities.exists():
-            trip_details.city = cities.first()  # Assign the first city for now
-
-        # Set continent
-        trip_details.continent = get_continent_by_country(country.name)
+        # Save the trip details
         trip_details.save()
+
+        return post
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
