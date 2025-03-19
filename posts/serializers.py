@@ -12,8 +12,8 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     Serializer for TripDetails model.
     '''
     continent = serializers.ReadOnlyField()
-    country = serializers.PrimaryKeyRelatedField(queryset=City.objects.all())
-    city = serializers.PrimaryKeyRelatedField(queryset=Country.objects.all())
+    country = serializers.PrimaryKeyRelatedField(queryset=Country.objects.all())
+    city = serializers.PrimaryKeyRelatedField(queryset=City.objects.all())
     duration_display = serializers.SerializerMethodField()
 
     def get_duration_display(self, obj):
