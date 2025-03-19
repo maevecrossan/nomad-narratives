@@ -124,11 +124,11 @@ class TripPostSerializer(serializers.ModelSerializer):
         trip_post = TripPost.objects.create(**validated_data)
 
         # Create the trip_details instance and link it with the trip_post
-        trip_details = TripDetails.objects.create(
+        TripDetails.objects.create(
             trip_post=trip_post, **details_data
-            )
+        )
 
-        return trip_post, trip_details
+        return trip_post
 
     def update(self, instance, validated_data):
         '''
