@@ -120,6 +120,7 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
+        print("DETAILS DATA:", details_data)
 
         # Create the trip_post instance
         trip_post = TripPost.objects.create(**validated_data)
