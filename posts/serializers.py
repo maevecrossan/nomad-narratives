@@ -28,14 +28,18 @@ class TripDetailsSerializer(serializers.ModelSerializer):
 
     def validate_duration_value(self, value):
         if value <= 0:
-            raise serializers.ValidationError("Duration value must be positive.")
+            raise serializers.ValidationError(
+                "Duration value must be positive."
+                )
         return value
 
     def validate_duration_unit(self, value):
         valid_units = ['days', 'weeks', 'months', 'years']
         if value not in valid_units:
             raise serializers.ValidationError(
-                f"Invalid duration unit. Valid options are: {', '.join(valid_units)}."
+                f"Invalid duration unit. Valid options are: {
+                    ', '.join(valid_units)
+                    }."
                 )
         return value
 
