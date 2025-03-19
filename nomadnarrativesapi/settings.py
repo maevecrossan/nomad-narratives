@@ -107,7 +107,9 @@ REST_AUTH_SERIALIZERS = {
 
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
 CITIES_LIGHT_GEONAMES_USERNAME = os.environ.get("GEONAMES_USERNAME")
-
+CITIES_LIGHT_CITY_SOURCES = [
+    'https://download.geonames.org/export/dump/cities15000.zip',
+]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
