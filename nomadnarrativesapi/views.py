@@ -72,32 +72,3 @@ def get_cities(request, country_id):
     cities = City.objects.filter(country=country)
     data = [{'id': city.id, 'name': city.name} for city in cities]
     return Response(data)
-
-# class CountryPagination(PageNumberPagination):
-#     page_size = 500
-
-
-# class CountryViewSet(viewsets.ReadOnlyModelViewSet):
-#     queryset = Country.objects.all()
-#     serializer_class = CountrySerializer
-#     pagination_class = CountryPagination
-
-
-# class CityViewSet(viewsets.ModelViewSet):
-#     queryset = City.objects.all()
-#     serializer_class = CitySerializer
-#     permission_classes = [permissions.IsAuthenticated]
-
-#     # This custom action allows filtering cities by country
-#     @action(detail=False, methods=['get'], url_path='by-country')
-#     def get_cities_by_country(self, request):
-#         country_id = request.query_params.get('country', None)
-#         if country_id:
-#             cities = City.objects.filter(country_id=country_id)
-#             serializer = self.get_serializer(cities, many=True)
-#             return Response(serializer.data)
-#         else:
-#             return Response(
-#                 {"detail": "Country ID is required."},
-#                 status=status.HTTP_400_BAD_REQUEST
-#                 )
