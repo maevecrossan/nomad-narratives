@@ -120,11 +120,11 @@ function PostCreateForm() {
         }
         formData.append("image_alt_text", image_alt_text);
         // Details data
-        const countryName = countries.find(country => country.id === parseInt(selectedCountry))?.name || "";
-        const cityName = cities.find(city => city.id === parseInt(selectedCity))?.name || "";
+        const countryID = selectedCountry;
+        const cityID = selectedCity;
 
-        formData.append("details.country", countryName);
-        formData.append("details.city", cityName);
+        formData.append("details.country", countryID);
+        formData.append("details.city", cityID);
         formData.append("details.duration_value", duration_value);
         formData.append("details.duration_unit", duration_unit);
         formData.append("details.traveller_number", traveller_number);
