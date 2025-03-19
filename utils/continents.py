@@ -7,48 +7,6 @@ a list of countries as the value. The function `get_continent_by_country`
 returns the continent name for a given country.
 '''
 
-# utils/continents.py
-import os
-import requests
-from cities_light.models import Country, City
-
-GEONAMES_USERNAME = os.environ.get("GEONAMES_USERNAME")
-
-
-def fetch_and_add_cities_for_country(country_id):
-    '''
-    Fetches cities for a specific country using the GeoNames
-    API and adds them to the database.
-    '''
-    country = Country.objects.get(id=country_id)
-
-    api_url = (
-        f"http://api.geonames.org/searchJSON?country={country.code}"
-        f"&maxRows=1000&username={GEONAMES_USERNAME}"
-    )
-
-    response = requests.get(api_url)
-    data = response.json()
-
-    for city_data in data.get('geonames', []):
-        if not City.objects.filter(
-            name=city_data['name'], country=country
-        ).exists():
-            City.objects.create(name=city_data['name'], country=country)
-
-    print(f"Cities added for country {country.name}.")
-
-
-def populate_cities_for_all_countries():
-    '''
-    Fetches and adds cities for all countries in the database.
-    '''
-    countries = Country.objects.all()
-
-    for country in countries:
-        fetch_and_add_cities_for_country(country.id)
-
-
 CONTINENT_MAPPING = {
     "Africa": [
         "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso",
