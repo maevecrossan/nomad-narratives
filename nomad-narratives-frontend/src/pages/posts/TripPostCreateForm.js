@@ -276,7 +276,7 @@ function PostCreateForm() {
                         <Form.Control
                             as="select"
                             name="duration_unit"
-                            value={tripPostData.duration_unit || "Day(s)"}
+                            value={tripPostData.duration_unit || "days"}
                             onChange={handleChange}
                         >
                             <option value="days">Day(s)</option>
@@ -288,10 +288,6 @@ function PostCreateForm() {
                 </Row>
             </Form.Group>
             {errors?.duration_value?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                {message}
-                </Alert>
-            ))}{errors?.duration_unit?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                 {message}
                 </Alert>
