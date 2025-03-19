@@ -118,6 +118,8 @@ class TripPostSerializer(serializers.ModelSerializer):
         details_data = validated_data.pop('details')
         print("DETAILS DATA:", details_data)
 
+        validated_data['owner'] = self.context['request'].user
+
         # Create the trip_post instance
         trip_post = TripPost.objects.create(**validated_data)
 
