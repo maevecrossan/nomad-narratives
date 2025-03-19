@@ -58,54 +58,21 @@ class PostList(generics.ListCreateAPIView):
         ]
 
     def create(self, request, *args, **kwargs):
-        print("POST request is hitting create method")
-        return self.perform_create(request, *args, **kwargs)
-
-    def perform_create(self, serializer):
-        print("CREATING POST")
-        # Get country name from the request
-        country_name = self.request.data.get('details.country', None)
-        print("Request Data:", self.request.data)
-        print("Extracted country name:", country_name)
-
-        if not country_name:
+        # Ensure the user is logged in
+        if not request.user.is_authenticated:
             return Response(
-                {"error": "Country is required."},
-                status=status.HTTP_400_BAD_REQUEST
+                {"error": "Authentication is required to create a post."},
+                status=status.HTTP_401_UNAUTHORIZED
             )
-
-        # Retrieve the country object based on its name
-        country = get_object_or_404(Country, name=country_name)
-
-        # Get city name from the request
-        city_name = self.request.data.get('details.city', None)
-        print("Extracted city name:", city_name)
-
-        if not city_name:
-            return Response(
-                {"error": "City is required."},
-                status=status.HTTP_400_BAD_REQUEST
+        data = request.data.copy()
+        data['owner'] = request.user.id
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED, headers=headers
             )
-
-        # Retrieve the city object based on its name and country
-        city = get_object_or_404(City, name=city_name, country=country)
-        print(city)
-
-        # Proceed with saving the post
-        post = serializer.save(owner=self.request.user)
-
-        # Create TripDetails and associate with the post
-        trip_details = TripDetails.objects.create(
-            trip_post=post,
-            country=country,
-            continent=get_continent_by_country(country.name),
-            city=city  # Associate the single city
-        )
-
-        # Save the trip details
-        trip_details.save()
-
-        return post
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
