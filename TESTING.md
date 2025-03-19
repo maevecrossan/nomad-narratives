@@ -96,4 +96,4 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Sign Up Form Submission Redsulting in 500 error. | Readded 'sender' argument into `create_profile` (profiles/models.py) function so that the User model can be referenced. |
 | Refreshing page logs a user out. | 'DEV' setting on Heroku enabled database confusing. Setting removed to allow one sqlite for development and psotgres for production. |
 | Heroku app alternating between deployin but app not opening and build succeeding but failing to deploy. | Static file setting were causing conflicts. I ended up copying static file settings from an old Django project and then redeploying. It was successfully built and deployed. |
-|  |  |
+| Posts submission failing. | The fix for this was intricate as I first identified that the perform_method wasn't being called, nor were the 'details' being accessed correctly. |
