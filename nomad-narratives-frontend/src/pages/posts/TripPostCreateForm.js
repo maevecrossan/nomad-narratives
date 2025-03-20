@@ -29,8 +29,6 @@ function PostCreateForm() {
         content: "",
         image: "",
         image_alt_text: "",
-        // country: "",
-        // city: "",
         duration_value: "",
         duration_unit: "",
         traveller_number: "",
@@ -67,7 +65,6 @@ function PostCreateForm() {
 
     useEffect(() => {
         if (selectedCountry) {
-            // Fetch cities when a country is selected
             axios
             .get(
                 `${API_URL}/api/cities/${selectedCountry}`
@@ -112,6 +109,8 @@ function PostCreateForm() {
         event.preventDefault();
 
         const formData = new FormData();
+        const countryID = selectedCountry;
+        const cityID = selectedCity;
 
         formData.append("title", title);
         formData.append("content", content);
@@ -119,10 +118,6 @@ function PostCreateForm() {
             formData.append("image", imageInput.current.files[0]);
         }
         formData.append("image_alt_text", image_alt_text);
-        // Details data
-        const countryID = selectedCountry;
-        const cityID = selectedCity;
-
         formData.append("details.country", countryID);
         formData.append("details.city", cityID);
         formData.append("details.duration_value", duration_value);
@@ -130,8 +125,6 @@ function PostCreateForm() {
         formData.append("details.traveller_number", traveller_number);
         formData.append("details.relevant_for", relevant_for);
 
-        // DEBUGGING
-        console.log("FormData being sent:", Object.fromEntries(formData));
 
         const config = { headers: { "Content-Type": "multipart/form-data" } };
 
@@ -148,7 +141,6 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
-            {/* Add your form fields here */}
             <Form.Group>
                 <Form.Label>Title:</Form.Label>
                 <Form.Control
