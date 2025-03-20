@@ -81,22 +81,22 @@ const TripPost = (props) => {
                     placement="top"
                     overlay={<Tooltip>You can't like your own post!</Tooltip>}
                     >
-                    <i className="far fa-heart" />
+                        <i className="far fa-heart" />
                     </OverlayTrigger>
                 ) : likes_id ? (
                     <span onClick={() => {}}>
-                    <i className={`fas fa-heart ${styles.Heart}`} />
+                        <i className={`fas fa-heart ${styles.Heart}`} />
                     </span>
                 ) : currentUser ? (
                     <span onClick={handleLike}>
-                    <i className={`far fa-heart ${styles.HeartOutline}`} />
+                        <i className={`far fa-heart ${styles.HeartOutline}`} />
                     </span>
                 ) : (
                     <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>Log in to like posts!</Tooltip>}
                     >
-                    <i className="far fa-heart" />
+                        <i className="far fa-heart" />
                     </OverlayTrigger>
                 )}
                 {likes_count}
