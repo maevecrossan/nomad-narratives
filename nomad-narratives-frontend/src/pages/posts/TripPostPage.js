@@ -32,7 +32,7 @@ function TripPostPage() {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles for mobile</p>
-                < TripPost {...tripPost.results[0]} setTripPost={setTripPost}/>
+                < TripPost {...tripPost.results[0]} setTripPost={setTripPost} TripPostPage />
                 <Container className={appStyles.Content}>Comments</Container>
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
