@@ -6,6 +6,17 @@
     text-align: center;
 }
 
+.Username {
+    color: #444444;
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+.Username:hover {
+    color: black;
+    text-decoration: none;
+}
+
 .Post figure,
 h5 {
     margin: 0 0;
