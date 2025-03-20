@@ -29,7 +29,7 @@ function App() {
 
 					<Route 
 						exact 
-						path="/my-profile" 
+						path="/profiles" 
 						render={() => <h1>My Profile</h1>} />
 
 					<Route 
