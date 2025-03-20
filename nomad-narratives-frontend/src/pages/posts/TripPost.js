@@ -26,7 +26,8 @@ const TripPost = (props) => {
             traveller_number,
             relevant_for,
             duration_value,
-            duration_unit
+            duration_unit,
+            TripPostPage,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -39,7 +40,22 @@ const TripPost = (props) => {
                     <Avatar src={profile_image} height={55}/>
                     {owner}
                 </Link>
+                <div className="d-flex align-items-center">
+                    <span>{updated_at}</span>
+                    {is_owner && TripPostPage && "..."}
+                </div>
             </Media>
+        </Card.Body>
+        <Card.Body>
+            {title && <Card.Title className="text-center">{title}</Card.Title>}
+        </Card.Body>
+
+        <Link to={`/posts/${id}`}>
+            <Card.Img src={image} alt={title}/>
+        </Link>
+
+        <Card.Body>
+            {content && <Card.Text>{content}</Card.Text>}
         </Card.Body>
     </Card>
 }
