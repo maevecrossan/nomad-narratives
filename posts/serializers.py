@@ -117,7 +117,6 @@ class TripPostSerializer(serializers.ModelSerializer):
         Handle creation of TripPost and related TripDetails.
         '''
         details_data = validated_data.pop('details')
-        print("DETAILS DATA:", details_data)
 
         validated_data['owner'] = self.context['request'].user
 
