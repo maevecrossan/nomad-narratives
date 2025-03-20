@@ -6,15 +6,12 @@ TripPost views, including Django, REST framework components, and custom
 permissions and serializers.
 '''
 from django.db.models import Count
-from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, filters, status
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from nomadnarrativesapi.permissions import IsOwnerOrReadOnly
-from utils.continents import get_continent_by_country
-from cities_light.models import Country, City
 from .serializers import TripPostSerializer
-from .models import TripPost, TripDetails
+from .models import TripPost
 
 
 class PostList(generics.ListCreateAPIView):
@@ -58,7 +55,6 @@ class PostList(generics.ListCreateAPIView):
         ]
 
     def create(self, request, *args, **kwargs):
-        # Ensure the user is logged in
         if not request.user.is_authenticated:
             return Response(
                 {"error": "Authentication is required to create a post."},
@@ -82,7 +78,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TripPostSerializer
-    queryset = TripPost.objects.annotate(  # pylint: disable=no-member
+    queryset = TripPost.objects.annotate(
         comments_count=Count(
             'likes',
             distinct=True),
