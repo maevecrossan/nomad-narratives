@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/TripPost.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
 const TripPost = (props) => {
+
     const {
             id,
             owner,
@@ -17,23 +21,50 @@ const TripPost = (props) => {
             title,
             content,
             image,
-            image_alt_text,
             comments_count,
             likes_count,
             like_id,
-            continent,
-            country,
-            city,
-            traveller_number,
-            relevant_for,
-            duration_value,
-            duration_unit,
             TripPostPage,
             setTripPost,
+            details,
     } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
+    const countryId = details?.country;
+    const cityId = details?.city;
+
+    const [countries, setCountries] = useState([]);
+    const [cityName, setCityName] = useState("");
+
+
+    useEffect(() => {
+        // Fetch all countries
+        axios.get(`${API_URL}/api/countries/`)
+            .then(response => {
+                setCountries(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching countries:", error);
+                setCountries([]);
+            });
+
+        // Fetch city if available
+        if (countryId && cityId) {
+            axios.get(`${API_URL}/api/cities/${countryId}/`)
+                .then(response => {
+                    const city = response.data.find(c => c.id === cityId);
+                    setCityName(city ? city.name : "Unknown City");
+                })
+                .catch(error => {
+                    console.error("Error fetching city:", error);
+                    setCityName("Unknown City");
+                });
+        }
+    }, [countryId, cityId]);
+
+
+    const countryName = countries.find(c => c.id === countryId)?.name || "Unknown Country";
 
     const handleLike = async () => {
         try {
@@ -85,10 +116,35 @@ const TripPost = (props) => {
         <Card.Body>
             {title && <Card.Title className="text-center">{title}</Card.Title>}
         </Card.Body>
+        
+        <Card.Body>
+            <div className="text-center">
+                <p>
+                    <strong>Location:</strong> {cityName ? `${cityName}, ` : ""}
+                    {countryName}
+                </p>
+            </div>
+        </Card.Body>
 
         <Link to={`/posts/${id}`}>
             <Card.Img src={image} alt={title}/>
         </Link>
+
+        <Card.Body>
+            <div className="d-flex align-items-center justify-content-between">
+                <p>
+                    <strong>Traveller Number:</strong> {details?.traveller_number}
+                </p>
+
+                <p>
+                    <strong>Relevant for:</strong> {details?.relevant_for}
+                </p>
+
+                <p>
+                    <strong>Duration:</strong> {details?.duration_display}
+                </p>
+            </div>
+        </Card.Body>
 
         <Card.Body>
             {content && <Card.Text>{content}</Card.Text>}
