@@ -20,7 +20,7 @@ const TripPost = (props) => {
             image_alt_text,
             comments_count,
             likes_count,
-            likes_id,
+            like_id,
             continent,
             country,
             city,
@@ -29,7 +29,7 @@ const TripPost = (props) => {
             duration_value,
             duration_unit,
             TripPostPage,
-            setTripPosts,
+            setTripPost,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -37,12 +37,12 @@ const TripPost = (props) => {
 
     const handleLike = async () => {
         try {
-            const { data } = await axiosRes.post("/likes/", { Post: id });
-            setTripPosts((prevPosts) => ({
+            const { data } = await axiosRes.post("/likes/", { post: id });
+            setTripPost((prevPosts) => ({
                 ...prevPosts,
                 results: prevPosts.results.map((post) => {
                 return post.id === id
-                    ? { ...post, likes_count: post.likes_count + 1, likes_id: data.id }
+                    ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
                     : post;
                 }),
             }));
@@ -53,8 +53,8 @@ const TripPost = (props) => {
 
     const handleUnlike = async () => {
         try {
-            await axiosRes.delete(`/likes/${likes_id}/`);
-            setTripPosts((prevPosts) => ({
+            await axiosRes.delete(`/likes/${like_id}/`);
+            setTripPost((prevPosts) => ({
             ...prevPosts,
             results: prevPosts.results.map((post) => {
                 return post.id === id
@@ -101,7 +101,7 @@ const TripPost = (props) => {
                     >
                         <i className="far fa-heart" />
                     </OverlayTrigger>
-                ) : likes_id ? (
+                ) : like_id ? (
                     <span onClick={handleUnlike}>
                         <i className={`fas fa-heart ${styles.Heart}`} />
                     </span>
