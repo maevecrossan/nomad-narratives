@@ -97,3 +97,5 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Refreshing page logs a user out. | 'DEV' setting on Heroku enabled database confusing. Setting removed to allow one sqlite for development and psotgres for production. |
 | Heroku app alternating between deployin but app not opening and build succeeding but failing to deploy. | Static file setting were causing conflicts. I ended up copying static file settings from an old Django project and then redeploying. It was successfully built and deployed. |
 | Posts submission failing. | The fix for this was intricate as I first identified that the perform_method wasn't being called, nor were the 'details' being accessed correctly. |
+| 400 error when trying to submit Trip Post form. | My serializer wasn't processing the data correctly. I had accidentally created two sets of logic, one in the serializer and one in the views, which was causing a city duplicate error. The request owner wasn't correctly being compared to the authorised user, and so wasn't allowing the post to be authenticated (as they can only be made by an authenticated user). |
+|  |  |
