@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const TripPost = (props) => {
     const {
@@ -28,6 +29,7 @@ const TripPost = (props) => {
             duration_value,
             duration_unit,
             TripPostPage,
+            setTripPosts,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -35,12 +37,12 @@ const TripPost = (props) => {
 
     const handleLike = async () => {
         try {
-            const { data } = await axiosRes.post("/likes/", { post: id });
-            setPosts((prevPosts) => ({
+            const { data } = await axiosRes.post("/likes/", { Post: id });
+            setTripPosts((prevPosts) => ({
                 ...prevPosts,
                 results: prevPosts.results.map((post) => {
                 return post.id === id
-                    ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+                    ? { ...post, likes_count: post.likes_count + 1, likes_id: data.id }
                     : post;
                 }),
             }));
@@ -51,8 +53,8 @@ const TripPost = (props) => {
 
     const handleUnlike = async () => {
         try {
-            await axiosRes.delete(`/likes/${like_id}/`);
-            setPosts((prevPosts) => ({
+            await axiosRes.delete(`/likes/${likes_id}/`);
+            setTripPosts((prevPosts) => ({
             ...prevPosts,
             results: prevPosts.results.map((post) => {
                 return post.id === id
