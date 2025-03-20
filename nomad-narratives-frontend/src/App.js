@@ -32,10 +32,10 @@ function App() {
 						path="/profiles" 
 						render={() => <h1>My Profile</h1>} />
 
-					<Route 
+					{/* <Route 
 						exact 
 						path="/explore" 
-						render={() => <h1>Explore</h1>} />
+						render={() => <h1>Explore</h1>} /> */}
 
 					{/* FUTURE DEVELOPMENT: Explore Dropdown */}
 					{/* <Route 
