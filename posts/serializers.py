@@ -12,8 +12,10 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     Serializer for TripDetails model.
     '''
     continent = serializers.ReadOnlyField()
-    country = serializers.PrimaryKeyRelatedField(queryset=Country.objects.all())
-    city = serializers.PrimaryKeyRelatedField(queryset=City.objects.all())
+    country = serializers.PrimaryKeyRelatedField(
+        queryset=Country.objects.all())
+    city = serializers.PrimaryKeyRelatedField(queryset=City.objects.all()
+                                              )
     duration_display = serializers.SerializerMethodField()
 
     def get_duration_display(self, obj):
@@ -91,12 +93,11 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         Checks for owner.
         '''
-        # Make sure obj is not a dictionary (like during serialization 
-        # or validation)
-        if isinstance(obj, TripPost):  # Ensure it's the model instance
+
+        if isinstance(obj, TripPost):
             request = self.context['request']
             return request.user == obj.owner
-        return False  # Default behavior when it's not a model instance
+        return False
 
     def get_like_id(self, obj):
         '''
@@ -105,7 +106,7 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         user = self.context['request'].user
         if user.is_authenticated:
-            like = Like.objects.filter(   # pylint: disable=no-member
+            like = Like.objects.filter(
                 owner=user, post=obj
             ).first()
             return like.id if like else None
@@ -120,10 +121,8 @@ class TripPostSerializer(serializers.ModelSerializer):
 
         validated_data['owner'] = self.context['request'].user
 
-        # Create the trip_post instance
         trip_post = TripPost.objects.create(**validated_data)
 
-        # Create the trip_details instance and link it with the trip_post
         TripDetails.objects.create(
             trip_post=trip_post, **details_data
         )
@@ -136,19 +135,13 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         details_data = validated_data.pop('details')
 
-        # Update TripPost fields
         instance = super().update(instance, validated_data)
 
-        # Update the TripDetails fields
         if details_data:
             details_instance = instance.details
-            # city_data = details_data.pop('city', [])
 
             for field, value in details_data.items():
                 setattr(details_instance, field, value)
-
-            # if city_data:
-            #     details_instance.city.set(city_data)
 
             details_instance.save()
 
