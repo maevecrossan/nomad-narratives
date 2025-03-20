@@ -98,7 +98,15 @@ const TripPost = (props) => {
         }
     };
 
-    
+    // Function to convert content into JSX elements with line breaks
+    const renderContentWithBreaks = (content) => {
+        return content.split("\n").map((str, index) => (
+            <span key={index}>
+                {str}
+                <br />
+            </span>
+        ));
+    };    
 
     return <Card className={styles.TripPost}>
         <Card.Body>
@@ -147,7 +155,8 @@ const TripPost = (props) => {
         </Card.Body>
 
         <Card.Body>
-            {content && <Card.Text>{content}</Card.Text>}
+              {/* Render content with line breaks */}
+            {content && <Card.Text>{renderContentWithBreaks(content)}</Card.Text>}
 
             <div className={styles.PostBar}>
                 {is_owner ? (
