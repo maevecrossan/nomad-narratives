@@ -10,6 +10,8 @@ import styles from "../../styles/TripPostFeed.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from '../../api/axiosDefaults';
 import TripPost from './TripPost';
+import Asset from '../../components/Asset';
+import NotFound from '../../assets/not-found.png';
 
 function TripPostFeed({message, filter=""}) {
     const [tripPosts, setTripPosts] = useState({results: [] })
@@ -39,14 +41,18 @@ function TripPostFeed({message, filter=""}) {
                     <>
                         {tripPosts.results.length ? (
                             tripPosts.results.map(tripPost => (
-                                <TripPost key={tripPost.id} {...tripPost} setTripPosts={setTripPosts} />
+                                <TripPost key={tripPost.id} {...tripPost} setTripPost={setTripPosts} />
                             ))
                         ) : (
-                            console.log('show no results asset')
+                            <Container className={appStyles.Content}>
+                                <Asset src={NotFound} message={message}/>
+                            </Container>
                         )}
                     </>
                 ) : (
-                    console.log('show loading spinner')
+                    <Container className={appStyles.Content}>
+                        <Asset spinner/>
+                    </Container>
                 )}
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
