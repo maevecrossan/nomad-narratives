@@ -120,7 +120,7 @@ function PostCreateForm() {
         }
         if (!traveller_number) {
             newErrors.traveller_number = ["This field is required."];
-        } else if (duration_value <= 0) {
+        } else if (traveller_number <= 0) {
             newErrors.traveller_number = ["Traveller number must be a positive number greater than 0."];
         }
         if (!relevant_for) newErrors.relevant_for = ["This field is required."];
@@ -132,7 +132,8 @@ function PostCreateForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!validateForm()) return;
+        if (!validateForm()) return; 
+
         const formData = new FormData();
         const countryID = selectedCountry;
         const cityID = selectedCity;
