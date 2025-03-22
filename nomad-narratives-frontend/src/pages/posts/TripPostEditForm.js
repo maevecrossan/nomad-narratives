@@ -394,7 +394,7 @@ function TripPostEditForm() {
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
                 type="submit"
             >
-                create
+                update
             </Button>
         </div>
     );
