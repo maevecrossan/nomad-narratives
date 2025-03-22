@@ -35,7 +35,7 @@ const SignInForm = () => {
                 signInData
             );
             setCurrentUser(data.user);
-            history.push("/my-feed");
+            history.push("/explore");
         } catch (err) {
             setErrors(err.response?.data);
         }
