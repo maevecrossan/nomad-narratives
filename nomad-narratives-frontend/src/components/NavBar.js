@@ -88,7 +88,7 @@ const NavBar = () => {
                 onClick={handleSignOut}
                 >
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                    Log Out
+                    Sign Out
             </NavLink>
         </>
     
