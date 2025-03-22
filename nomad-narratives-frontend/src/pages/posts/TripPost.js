@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
+import { OptionsDropdown } from "../../components/OptionsDropdown";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
@@ -133,7 +134,7 @@ const TripPost = (props) => {
                 </Link>
                 <div className="d-flex align-items-center">
                     <span>{updated_at}</span>
-                    {is_owner && TripPostPage && "..."}
+                    {is_owner && TripPostPage && <OptionsDropdown />}
                 </div>
             </Media>
         </Card.Body>
