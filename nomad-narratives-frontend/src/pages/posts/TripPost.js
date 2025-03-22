@@ -38,7 +38,7 @@ const TripPost = (props) => {
     const [cityName, setCityName] = useState("");
 
     // Truncate content to show only a portion in the feed
-    const truncateContent = (content, maxLength = 300) => {
+    const truncateContent = (content, maxLength = 500) => {
         if (!content) return "";
         if (content.length <= maxLength) return content;
         return content.substring(0, maxLength) + "...";
