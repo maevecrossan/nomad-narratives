@@ -95,7 +95,7 @@ const NavBar = () => {
     const loggedOutIcons = <>
         <NavLink 
             exact
-            to="/welcome#hero" 
+            to="/" 
             className={styles.NavLink} 
             activeClassName={styles.Active}
             >
