@@ -7,6 +7,7 @@ import Avatar from "../../components/Avatar";
 import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
 import { OptionsDropdown } from "../../components/OptionsDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
@@ -32,6 +33,21 @@ const TripPost = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+    };
+
+    const handleDelete = async () => {
+        try {
+          await axiosRes.delete(`/posts/${id}/`);
+          history.goBack();
+        } catch (err) {
+          console.log(err);
+        }
+    };
+
     const countryId = details?.country;
     const cityId = details?.city;
 
@@ -134,7 +150,7 @@ const TripPost = (props) => {
                 </Link>
                 <div className="d-flex align-items-center">
                     <span>{updated_at}</span>
-                    {is_owner && TripPostPage && <OptionsDropdown />}
+                    {is_owner && TripPostPage && <OptionsDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>}
                 </div>
             </Media>
         </Card.Body>
