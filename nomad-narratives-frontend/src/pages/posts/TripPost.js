@@ -112,13 +112,14 @@ const TripPost = (props) => {
 
     // Function to convert content into JSX elements with line breaks
     const renderContentWithBreaks = (content) => {
+        if (!content) return null;  // Return null if content is undefined or empty
         return content.split("\n").map((str, index) => (
             <span key={index}>
                 {str}
                 <br />
             </span>
         ));
-    };    
+    };   
 
     return <Card className={styles.TripPost}>
         <Card.Body>
@@ -172,16 +173,18 @@ const TripPost = (props) => {
         <Card.Body>
             {/* Show truncated content in the feed */}
             {!TripPostPage && (
-                    <>
-                        <Card.Text>{truncatedContent}</Card.Text>
-                        <Link to={`/posts/${id}`} className={styles.ReadMore}>
-                            Read More
-                        </Link>
-                    </>
-                )}
+                <>
+                    <Card.Text>
+                        {renderContentWithBreaks(truncatedContent)} {/* Render truncated content with line breaks */}
+                    </Card.Text>
+                    <Link to={`/posts/${id}`} className={styles.ReadMore}>
+                        Read More
+                    </Link>
+                </>
+            )}
 
             {/* Show full content on the post page */}
-            {TripPostPage && <Card.Text>{content}</Card.Text>}
+            {TripPostPage && <Card.Text>{renderContentWithBreaks(content)}</Card.Text>} {/* Render full content with line breaks */}
 
             <div className={styles.PostBar}>
                 {is_owner ? (
