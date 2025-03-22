@@ -18,6 +18,7 @@ import { Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
@@ -53,6 +54,44 @@ function TripPostEditForm() {
 
     const imageInput = useRef(null);
     const history = useHistory();
+    const { id } = useParams();
+
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const { data } = await axiosReq.get(`/posts/${id}/`);
+                const {
+                    title,
+                    content,
+                    image,
+                    image_alt_text,
+                    duration_value,
+                    duration_unit,
+                    traveller_number,
+                    relevant_for,
+                    is_owner,
+                } = data;
+
+                if (is_owner) {
+                    setTripPostData({
+                        title,
+                        content,
+                        image,
+                        image_alt_text,
+                        duration_value,
+                        duration_unit,
+                        traveller_number,
+                        relevant_for,
+                    });
+                } else {
+                    history.push("/explore");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        handleMount(); // Call the function properly
+    }, [history, id]); // Dependency array
 
     const handleChange = (event) => {
         setTripPostData({
@@ -154,7 +193,7 @@ function TripPostEditForm() {
 
         formData.append("title", title);
         formData.append("content", content);
-        if (imageInput.current.files[0]) {
+        if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
         }
         formData.append("image_alt_text", image_alt_text);
@@ -168,8 +207,8 @@ function TripPostEditForm() {
         const config = { headers: { "Content-Type": "multipart/form-data" } };
 
         try {
-            const { data } = await axiosReq.post("/posts/", formData, config);
-            history.push(`/posts/${data.id}`);
+            await axiosReq.put(`/posts/${id}`, formData, config);
+            history.push(`/posts/${id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
