@@ -30,7 +30,7 @@ function PostCreateForm() {
         image: "",
         image_alt_text: "",
         duration_value: "",
-        duration_unit: "",
+        duration_unit: "days",
         traveller_number: "",
         relevant_for: "",
     });
@@ -268,7 +268,7 @@ function PostCreateForm() {
                         <Form.Control
                             as="select"
                             name="duration_unit"
-                            value={tripPostData.duration_unit || "days"}
+                            value={tripPostData.duration_unit}
                             onChange={handleChange}
                         >
                             <option value="days">Day(s)</option>
