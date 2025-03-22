@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/TripPostFeed.module.css";
 
-function TripPostFeed() {
+function TripPostFeed({message, filter=""}) {
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
