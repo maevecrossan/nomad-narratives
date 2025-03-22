@@ -87,12 +87,6 @@ function App() {
 
                     <Route
                         exact
-                        path="/log-out"
-                        render={() => <h1>Log Out</h1>}
-                    />
-
-                    <Route
-                        exact
                         path="/about-us"
                         render={() => <h1>About Us</h1>}
                     />
