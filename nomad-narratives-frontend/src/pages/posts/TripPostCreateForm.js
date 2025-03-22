@@ -105,9 +105,34 @@ function PostCreateForm() {
         }
     };
 
+    //Client-side validation
+    const validateForm = () => {
+        const newErrors = {};
+        if (!title) newErrors.title = ["This field is required."];
+        if (!content) newErrors.content = ["This field is required."];
+        if (!selectedCity) newErrors.selectedCity = ["This field is required."];
+        if (!selectedCountry) newErrors.selectedCountry = ["This field is required."];
+        if (!duration_unit) newErrors.duration_unit = ["This field is required."];
+        if (!duration_value) {
+            newErrors.duration_value = ["This field is required."];
+        } else if (duration_value <= 0) {
+            newErrors.duration_value = ["Duration must be a positive number greater than 0."];
+        }
+        if (!traveller_number) {
+            newErrors.traveller_number = ["This field is required."];
+        } else if (duration_value <= 0) {
+            newErrors.traveller_number = ["Traveller number must be a positive number greater than 0."];
+        }
+        if (!relevant_for) newErrors.relevant_for = ["This field is required."];
+        if (!image_alt_text) newErrors.image_alt_text = ["This field is required."];
+        if (!image) newErrors.image = ["This field is required."];
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        if (!validateForm()) return;
         const formData = new FormData();
         const countryID = selectedCountry;
         const cityID = selectedCity;
@@ -280,6 +305,11 @@ function PostCreateForm() {
                 </Row>
             </Form.Group>
             {errors?.duration_value?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                {message}
+                </Alert>
+            ))}
+            {errors?.duration_unit?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                 {message}
                 </Alert>
