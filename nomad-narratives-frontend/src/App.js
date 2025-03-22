@@ -97,6 +97,12 @@ function App() {
                         path="/posts/:id"
                         render={() => <TripPostPage />}
                     />
+
+                    <Route
+                        exact
+                        path="/posts/:id/edit"
+                        render={() => <TripPostPage />}
+                    />
                 </Switch>
             </Container>
         </div>
