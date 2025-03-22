@@ -65,11 +65,8 @@ function TripPostEditForm() {
                     content,
                     image,
                     image_alt_text,
-                    duration_value,
-                    duration_unit,
-                    traveller_number,
-                    relevant_for,
                     is_owner,
+                    details,
                 } = data;
 
                 if (is_owner) {
@@ -78,11 +75,14 @@ function TripPostEditForm() {
                         content,
                         image,
                         image_alt_text,
-                        duration_value,
-                        duration_unit,
-                        traveller_number,
-                        relevant_for,
+                        duration_value: details?.duration_value || "",
+                        duration_unit: details?.duration_unit || "",
+                        traveller_number: details?.traveller_number || "",
+                        relevant_for: details?.relevant_for || "",
+                        details,
                     });
+                    setSelectedCountry(details?.country || null);
+                    setSelectedCity(details?.city || null);
                 } else {
                     history.push("/explore");
                 }
