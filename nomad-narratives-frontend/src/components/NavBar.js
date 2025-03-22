@@ -82,7 +82,7 @@ const NavBar = () => {
 
             <NavLink 
                 exact 
-                to="/log-out" 
+                to="/" 
                 className={styles.NavLink} 
                 activeClassName={styles.Active}
                 onClick={handleSignOut}
