@@ -207,8 +207,8 @@ function TripPostEditForm() {
         const config = { headers: { "Content-Type": "multipart/form-data" } };
 
         try {
-            await axiosReq.put(`/posts/${id}`, formData, config);
-            history.push(`/posts/${id}`);
+            await axiosReq.put(`/posts/${id}/`, formData, config);
+            history.push(`/posts/${id}/`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
