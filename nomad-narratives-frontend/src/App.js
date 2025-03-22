@@ -11,6 +11,7 @@ import TripPostCreateForm from "./pages/posts/TripPostCreateForm";
 import TripPostPage from "./pages/posts/TripPostPage";
 import TripPostFeed from "./pages/posts/TripPostFeed";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import TripPostEditForm from "./pages/posts/TripPostEditForm";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -101,7 +102,7 @@ function App() {
                     <Route
                         exact
                         path="/posts/:id/edit"
-                        render={() => <TripPostPage />}
+                        render={() => <TripPostEditForm />}
                     />
                 </Switch>
             </Container>
