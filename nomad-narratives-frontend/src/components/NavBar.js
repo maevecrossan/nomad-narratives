@@ -55,7 +55,7 @@ const NavBar = () => {
                 activeClassName={styles.Active}
                 >
                 <i className="fa-solid fa-heart"></i>
-                    Likes
+                    My Likes
             </NavLink>
 
             <NavLink 
