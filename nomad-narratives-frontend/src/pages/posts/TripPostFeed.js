@@ -18,10 +18,12 @@ function TripPostFeed({message, filter=""}) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const {pathname} = useLocation();
 
+    const [query, setQuery] = useState("");
+
     useEffect(() => {
         const fetchTripPosts = async () => {
           try {
-            const { data } = await axiosReq.get(`/posts/?${filter}`);
+            const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
             setTripPosts(data);
             setHasLoaded(true);
           } catch (err) {
@@ -30,8 +32,13 @@ function TripPostFeed({message, filter=""}) {
         };
 
         setHasLoaded(false);
-        fetchTripPosts();
-      }, [filter, pathname]);
+        const timer = setTimeout(() => {
+            fetchTripPosts();
+        }, 1000)
+        return () => {
+            clearTimeout(timer)
+        }
+      }, [filter, query, pathname]);
 
     return (
         <Row className="h-100">
@@ -43,7 +50,9 @@ function TripPostFeed({message, filter=""}) {
                     className={styles.SearchBar}
                     onSubmit={(event) => event.preventDefault()}
                 >
-                    <Form.Control 
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
                         type="text" 
                         className="mr-sm-2"
                         placeholder="Search posts"
