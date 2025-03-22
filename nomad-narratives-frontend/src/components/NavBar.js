@@ -1,8 +1,8 @@
-import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap';
-import logo from '../assets/nn-logo-brown-transparent.png'
-import styles from '../styles/NavBar.module.css'
-import { NavLink } from 'react-router-dom/cjs/react-router-dom';
+import React, { useState } from 'react';
+import { Navbar, Nav, Modal, Button } from 'react-bootstrap';
+import logo from '../assets/nn-logo-brown-transparent.png';
+import styles from '../styles/NavBar.module.css';
+import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
 import axios from 'axios';
@@ -16,14 +16,27 @@ const NavBar = () => {
 
     const {expanded, setExpanded, ref} = useClickOutsideToggle();
 
-    const handleSignOut = async () => {
+    const [showModal, setShowModal] = useState(false);
+    const history = useHistory();
+
+    const handleSignOutClick = () => {
+        setShowModal(true);
+        };
+
+    const handleConfirmSignOut = async () => {
         try {
             await axios.post('dj-rest-auth/logout/');
             setCurrentUser(null);
-        } catch(err) {
-            console.log(err)
+            setShowModal(false);
+            history.push('/');
+        } catch (err) {
+            console.error('Error during sign-out:', err);
         }
-    }
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        };
 
     const newPostIcon = (
         <NavLink 
@@ -82,10 +95,9 @@ const NavBar = () => {
 
             <NavLink 
                 exact 
-                to="/" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
-                onClick={handleSignOut}
+                to="#" 
+                className={styles.NavLink}
+                onClick={handleSignOutClick}
                 >
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     Sign Out
@@ -107,7 +119,6 @@ const NavBar = () => {
             exact 
             to="/#about-us" 
             className={styles.NavLink} 
-            // activeClassName={styles.Active}
             >
             <i className="fa-solid fa-info"></i>
                 About Us
@@ -116,8 +127,7 @@ const NavBar = () => {
         <NavLink 
             exact 
             to="/#community-guidelines" 
-            className={styles.NavLink} 
-            // activeClassName={styles.Active}
+            className={styles.NavLink}
             >
             <i className="fa-regular fa-file-lines"></i>
                 Community Guidelines
@@ -145,32 +155,40 @@ const NavBar = () => {
     </>
 
     return (
-        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed='top'>
-            <NavLink 
-                exact
-                to="/">
-                <Navbar.Brand>
-                    <img src={logo} 
-                    alt="Logo" 
-                    className={styles.navbarLogo}
-                />
-                </Navbar.Brand>
-            </NavLink>
+        <>
+            <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+                <NavLink exact to="/">
+                    <Navbar.Brand>
+                        <img src={logo} alt="Logo" className={styles.navbarLogo} />
+                    </Navbar.Brand>
+                </NavLink>
 
-            {currentUser && newPostIcon}
+                {currentUser && newPostIcon}
 
-            <Navbar.Toggle 
-                ref={ref}
-                onClick={() => setExpanded(!expanded)} 
-                aria-controls="basic-navbar-nav" 
-            />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    {currentUser ? loggedInIcons : loggedOutIcons}
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
-    )
+                <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        {currentUser ? loggedInIcons : loggedOutIcons}
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+
+            <Modal show={showModal} onHide={handleCloseModal} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Sign Out</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to sign out?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseModal}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger" onClick={handleConfirmSignOut}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
 }
 
 export default NavBar
