@@ -9,6 +9,7 @@ import WelcomePage from './pages/WelcomePage';
 import SignInForm from './pages/auth/SignInForm';
 import TripPostCreateForm from './pages/posts/TripPostCreateForm';
 import TripPostPage from './pages/posts/TripPostPage';
+import TripPostFeed from './pages/posts/TripPostFeed';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 					<Route 
 						exact 
 						path="/my-feed" 
-						render={() => <h1>My Feed</h1>} />
+						render={() => <TripPostFeed message="No results found. Please try another search term." />} />
 
 					<Route 
 						exact 
