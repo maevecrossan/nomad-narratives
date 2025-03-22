@@ -12,6 +12,8 @@ import { axiosReq } from '../../api/axiosDefaults';
 import TripPost from './TripPost';
 import Asset from '../../components/Asset';
 import NotFound from '../../assets/not-found.png';
+import InfiniteScroll from "react-infinite-scroll-component";
+import fetchMoreData from "../../utils/utils";
 
 function TripPostFeed({message, filter=""}) {
     const [tripPosts, setTripPosts] = useState({results: [] })
@@ -62,9 +64,17 @@ function TripPostFeed({message, filter=""}) {
                 {hasLoaded ? (
                     <>
                         {tripPosts.results.length ? (
-                            tripPosts.results.map(tripPost => (
-                                <TripPost key={tripPost.id} {...tripPost} setTripPost={setTripPosts} />
-                            ))
+                            <InfiniteScroll 
+                                children={
+                                    tripPosts.results.map(tripPost => (
+                                        <TripPost key={tripPost.id} {...tripPost} setTripPost={setTripPosts} />
+                                    ))
+                                }
+                                dataLength={tripPosts.results.length}
+                                loader={<Asset spinenr/>}
+                                hasMore={!!tripPosts.next}
+                                next={() => fetchMoreData(tripPosts, setTripPosts)}
+                            />
                         ) : (
                             <Container className={appStyles.Content}>
                                 <Asset src={NotFound} message={message}/>
