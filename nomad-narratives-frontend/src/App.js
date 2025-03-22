@@ -21,19 +21,18 @@ function App() {
             <NavBar />
             <Container className={styles.Main}>
                 <Switch>
-                    <Route 
-						exact 
-						path="/" 
-						render={() => <WelcomePage />} 
-					/>
+                    <Route exact path="/" render={() => <WelcomePage />} />
 
-                    {/* <Route
+                    <Route
+                    // TripPostFeed but with no filters. Renamed to 'explore' for better UX.
                         exact
-                        path="/my-feed"
+                        path="/explore"
                         render={() => (
-                            <TripPostFeed message="No results found. Please try another search term." />
+                            <TripPostFeed
+                                message="No results found. Please try another search term."
+                            />
                         )}
-                    /> */}
+                    />
 
                     <Route
                         exact
@@ -50,10 +49,10 @@ function App() {
                         exact
                         path="/liked"
                         render={() => (
-                            <TripPostFeed 
-								message="No results found. Please try another search term or like a post."
-								filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-							/>
+                            <TripPostFeed
+                                message="No results found. Please try another search term or like a post."
+                                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                            />
                         )}
                     />
 
@@ -62,11 +61,6 @@ function App() {
                         path="/profiles"
                         render={() => <h1>My Profile</h1>}
                     />
-
-                    {/* <Route 
-						exact 
-						path="/explore" 
-						render={() => <h1>Explore</h1>} /> */}
 
                     {/* FUTURE DEVELOPMENT: Explore Dropdown */}
                     {/* <Route 
