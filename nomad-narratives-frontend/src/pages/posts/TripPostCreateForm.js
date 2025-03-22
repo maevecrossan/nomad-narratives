@@ -35,7 +35,16 @@ function PostCreateForm() {
         relevant_for: "",
     });
 
-    const { title, content, image, image_alt_text, duration_value, duration_unit, traveller_number, relevant_for } = tripPostData;
+    const {
+        title,
+        content,
+        image,
+        image_alt_text,
+        duration_value,
+        duration_unit,
+        traveller_number,
+        relevant_for,
+    } = tripPostData;
 
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
@@ -66,9 +75,7 @@ function PostCreateForm() {
     useEffect(() => {
         if (selectedCountry) {
             axios
-            .get(
-                `${API_URL}/api/cities/${selectedCountry}`
-            )
+                .get(`${API_URL}/api/cities/${selectedCountry}`)
                 .then((response) => {
                     setCities(response.data);
                 })
@@ -111,20 +118,27 @@ function PostCreateForm() {
         if (!title) newErrors.title = ["This field is required."];
         if (!content) newErrors.content = ["This field is required."];
         if (!selectedCity) newErrors.selectedCity = ["This field is required."];
-        if (!selectedCountry) newErrors.selectedCountry = ["This field is required."];
-        if (!duration_unit) newErrors.duration_unit = ["This field is required."];
+        if (!selectedCountry)
+            newErrors.selectedCountry = ["This field is required."];
+        if (!duration_unit)
+            newErrors.duration_unit = ["This field is required."];
         if (!duration_value) {
             newErrors.duration_value = ["This field is required."];
         } else if (duration_value <= 0) {
-            newErrors.duration_value = ["Duration must be a positive number greater than 0."];
+            newErrors.duration_value = [
+                "Duration must be a positive number greater than 0.",
+            ];
         }
         if (!traveller_number) {
             newErrors.traveller_number = ["This field is required."];
         } else if (traveller_number <= 0) {
-            newErrors.traveller_number = ["Traveller number must be a positive number greater than 0."];
+            newErrors.traveller_number = [
+                "Traveller number must be a positive number greater than 0.",
+            ];
         }
         if (!relevant_for) newErrors.relevant_for = ["This field is required."];
-        if (!image_alt_text) newErrors.image_alt_text = ["This field is required."];
+        if (!image_alt_text)
+            newErrors.image_alt_text = ["This field is required."];
         if (!image) newErrors.image = ["This field is required."];
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -132,7 +146,7 @@ function PostCreateForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!validateForm()) return; 
+        if (!validateForm()) return;
 
         const formData = new FormData();
         const countryID = selectedCountry;
@@ -150,7 +164,6 @@ function PostCreateForm() {
         formData.append("details.duration_unit", duration_unit);
         formData.append("details.traveller_number", traveller_number);
         formData.append("details.relevant_for", relevant_for);
-
 
         const config = { headers: { "Content-Type": "multipart/form-data" } };
 
@@ -178,7 +191,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -194,7 +207,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -215,7 +228,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.selectedCountry?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -237,7 +250,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.selectedCity?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -252,7 +265,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.traveller_number?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -274,7 +287,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.relevant_for?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -307,12 +320,12 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.duration_value?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
             {errors?.duration_unit?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
@@ -328,7 +341,7 @@ function PostCreateForm() {
             </Form.Group>
             {errors?.image_alt_text?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
-                {message}
+                    {message}
                 </Alert>
             ))}
 
