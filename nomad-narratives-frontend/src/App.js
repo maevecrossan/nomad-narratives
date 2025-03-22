@@ -62,29 +62,6 @@ function App() {
                         render={() => <h1>My Profile</h1>}
                     />
 
-                    {/* FUTURE DEVELOPMENT: Explore Dropdown */}
-                    {/* <Route 
-						exact 
-						path="/by-region" 
-						render={() => <h1>Region</h1>} />
-
-					<Route 
-						exact 
-						path="/by-country" 
-						render={() => <h1>Country</h1>} />
-					<Route 
-						exact 
-						path="/by-city" 
-						render={() => <h1>City</h1>} />
-					<Route 
-						exact 
-						path="/by-target-audience" 
-						render={() => <h1>Target Audience</h1>} />
-					<Route 
-						exact 
-						path="/by-duration" 
-						render={() => <h1>Duration</h1>} /> */}
-
                     <Route
                         exact
                         path="/about-us"
