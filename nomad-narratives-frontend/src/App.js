@@ -10,9 +10,13 @@ import SignInForm from './pages/auth/SignInForm';
 import TripPostCreateForm from './pages/posts/TripPostCreateForm';
 import TripPostPage from './pages/posts/TripPostPage';
 import TripPostFeed from './pages/posts/TripPostFeed';
+import { useCurrentUser } from './contexts/CurrentUserContext';
 
 
 function App() {
+	const currentUser = useCurrentUser();
+	const profile_id = currentUser?.profile_id || ""
+
 	return (
 		<div className={styles.App}>
 			< NavBar />
@@ -20,7 +24,7 @@ function App() {
 				<Switch>
 					<Route 
 						exact 
-						path="/welcome" 
+						path="/" 
 						render={() => <WelcomePage/>} />
 
 					<Route 
