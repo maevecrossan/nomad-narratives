@@ -121,6 +121,27 @@ class TripDetails(models.Model):
         max_length=10, choices=duration_unit_choices, blank=False
         )
 
+    def clean(self):
+        '''
+        Custom validation for TripDetails model.
+        '''
+        if self.duration_value <= 0:
+            raise ValidationError("Duration value must be positive.")
+
+        if self.traveller_number <= 0:
+            raise ValidationError("Traveller number must be positive.")
+
+        relevant_valid_values = ['all', 'women', 'men', 'nonbinary', 'lgbtq']
+        if self.relevant_for not in [
+            'all', 'women', 'men', 'nonbinary', 'lgbtq'
+                ]:
+            raise ValidationError(
+                f"Invalid relevant_for value. Valid options are: {', '.join(
+                    relevant_valid_values)}."
+                    )
+
+        super().clean()
+
     def save(self, *args, **kwargs):
         """
         Automatically set the continent based on the selected country.
