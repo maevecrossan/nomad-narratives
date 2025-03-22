@@ -20,7 +20,6 @@ function TripPostPage() {
                     axiosReq.get(`/posts/${id}`),
                 ])
                 setTripPost({ results: [tripPost] });
-                console.log(tripPost);
             } catch(err) {
                 console.log(err);
             }
