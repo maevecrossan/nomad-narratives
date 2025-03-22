@@ -40,6 +40,16 @@ const NavBar = () => {
     const loggedInIcons = <>  
             <NavLink 
                 exact
+                to="/explore" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                >
+                <i className='fa-solid fa-map'></i>
+                    Explore
+            </NavLink>
+            
+            <NavLink 
+                exact
                 to="/my-feed" 
                 className={styles.NavLink} 
                 activeClassName={styles.Active}
