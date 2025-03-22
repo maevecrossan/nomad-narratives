@@ -41,6 +41,16 @@ class TripDetailsSerializer(serializers.ModelSerializer):
                 )
         return value
 
+    def validate_relevant_for(self, value):
+        valid_values = ['all', 'women', 'men', 'nonbinary', 'lgbtq']
+        if value not in valid_values:
+            raise serializers.ValidationError(
+                f"Invalid relevant_for value. Valid options are: {
+                    ', '.join(valid_values)
+                    }."
+                )
+        return value
+
     class Meta:
         '''
         Specifies the model and the fields to be included in the
