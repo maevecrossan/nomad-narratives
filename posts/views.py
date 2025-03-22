@@ -45,13 +45,17 @@ class PostList(generics.ListCreateAPIView):
 
     search_fields = [
         'owner__username',
-        'title'  # TripPost title
+        'title',
+        'details__country__name',
+        'details__city__name'
         ]
 
     filterset_fields = [
         'owner__profile',
         'owner__followed__owner__profile',
-        'likes__owner__profile'
+        'likes__owner__profile',
+        'details__country__name',
+        'details__city__name'
         ]
 
     def create(self, request, *args, **kwargs):
