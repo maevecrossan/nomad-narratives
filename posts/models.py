@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from cities_light.models import City, Country
 from utils.continents import get_continent_by_country
@@ -42,6 +43,25 @@ class TripPost(models.Model):
         help_text="Please describe your image in case\
               there is an issue displaying it."
         )
+
+    def clean(self):
+        '''
+        Custom validation for TripPost model.
+        Ensures that the fields are valid before saving.
+        '''
+        if not self.title:
+            raise ValidationError("Title is required.")
+
+        if not self.content:
+            raise ValidationError("Content is required.")
+
+        if not self.image:
+            raise ValidationError("Image is required.")
+
+        if not self.image_alt_text:
+            raise ValidationError("Image alt text is required.")
+
+        super().clean()
 
     class Meta:
         '''
