@@ -99,3 +99,4 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Posts submission failing. | The fix for this was intricate as I first identified that the perform_method wasn't being called, nor were the 'details' being accessed correctly. |
 | 400 error when trying to submit Trip Post form. | My serializer wasn't processing the data correctly. I had accidentally created two sets of logic, one in the serializer and one in the views, which was causing a city duplicate error. The request owner wasn't correctly being compared to the authorised user, and so wasn't allowing the post to be authenticated (as they can only be made by an authenticated user). |
 | Profile image not displaying. | Changed Avatar component to properly destructure props (src, height, text) from props object by adding missing curly brackets. |
+| 'Details' section of edit form not prepopulating. |  |
