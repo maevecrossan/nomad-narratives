@@ -105,7 +105,7 @@ const NavBar = () => {
 
         <NavLink 
             exact 
-            to="/welcome#about-us" 
+            to="/#about-us" 
             className={styles.NavLink} 
             activeClassName={styles.Active}
             >
@@ -115,7 +115,7 @@ const NavBar = () => {
 
         <NavLink 
             exact 
-            to="/welcome#community-guidelines" 
+            to="/#community-guidelines" 
             className={styles.NavLink} 
             activeClassName={styles.Active}
             >
