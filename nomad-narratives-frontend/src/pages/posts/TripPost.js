@@ -37,6 +37,15 @@ const TripPost = (props) => {
     const [countries, setCountries] = useState([]);
     const [cityName, setCityName] = useState("");
 
+    // Truncate content to show only a portion in the feed
+    const truncateContent = (content, maxLength = 300) => {
+        if (!content) return "";
+        if (content.length <= maxLength) return content;
+        return content.substring(0, maxLength) + "...";
+    };
+
+    const truncatedContent = truncateContent(content);
+
 
     useEffect(() => {
         // Fetch all countries
@@ -161,8 +170,18 @@ const TripPost = (props) => {
         </Card.Body>
 
         <Card.Body>
-              {/* Render content with line breaks */}
-            {content && <Card.Text>{renderContentWithBreaks(content)}</Card.Text>}
+            {/* Show truncated content in the feed */}
+            {!TripPostPage && (
+                    <>
+                        <Card.Text>{truncatedContent}</Card.Text>
+                        <Link to={`/posts/${id}`} className={styles.ReadMore}>
+                            Read More
+                        </Link>
+                    </>
+                )}
+
+            {/* Show full content on the post page */}
+            {TripPostPage && <Card.Text>{content}</Card.Text>}
 
             <div className={styles.PostBar}>
                 {is_owner ? (
