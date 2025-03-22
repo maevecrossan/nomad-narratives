@@ -63,6 +63,11 @@ class TripPostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     details = TripDetailsSerializer()
+    # Fields to directly expose for filtering or searching
+    country = serializers.CharField(
+        source='details.country.name', read_only=True
+        )
+    city = serializers.CharField(source='details.city.name', read_only=True)
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
@@ -155,5 +160,6 @@ class TripPostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_alt_text',
-            'like_id', 'likes_count', 'comments_count', 'details'
+            'like_id', 'likes_count', 'comments_count', 'details',
+            'country', 'city'
         ]
