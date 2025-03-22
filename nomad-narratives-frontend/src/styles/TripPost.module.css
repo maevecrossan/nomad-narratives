@@ -6,6 +6,14 @@
     text-align: center;
 }
 
+.TripPostImage {
+    height: 65vh;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
 .Username {
     color: #444444;
     font-weight: 600;
