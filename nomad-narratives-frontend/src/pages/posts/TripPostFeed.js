@@ -7,10 +7,12 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/TripPostFeed.module.css";
+import { useLocation } from "react-router";
 
 function TripPostFeed({message, filter=""}) {
     const [tripPosts, setTripPosts] = useState({results: [] })
     const [hasLoaded, setHasLoaded] = useState(false);
+    const {pathname} = useLocation();
 
     return (
         <Row className="h-100">
