@@ -107,7 +107,7 @@ const NavBar = () => {
             exact 
             to="/#about-us" 
             className={styles.NavLink} 
-            activeClassName={styles.Active}
+            // activeClassName={styles.Active}
             >
             <i className="fa-solid fa-info"></i>
                 About Us
@@ -117,7 +117,7 @@ const NavBar = () => {
             exact 
             to="/#community-guidelines" 
             className={styles.NavLink} 
-            activeClassName={styles.Active}
+            // activeClassName={styles.Active}
             >
             <i className="fa-regular fa-file-lines"></i>
                 Community Guidelines
