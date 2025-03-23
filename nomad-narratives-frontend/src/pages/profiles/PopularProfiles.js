@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Asset from "../../components/Asset";
+import Profile from "./Profile";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
+    const { popularProfiles } = useProfileData();
 
     return (
         <Container
