@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../styles/TripPost.module.css";
+import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -154,7 +155,7 @@ const TripPost = (props) => {
             </Media>
         </Card.Body>
         <Card.Body>
-            {title && <Card.Title className="text-center">{title}</Card.Title>}
+            {title && <Card.Title className={`${appStyles.DmSerifFont} ${styles.TripPostTitle} text-center`}>{title}</Card.Title>}
         </Card.Body>
         
         <Card.Body>
