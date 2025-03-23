@@ -69,7 +69,7 @@ const Comment = (props) => {
                     )}
                 </Media.Body>
                 {is_owner && !showEditForm && (
-                    <MoreDropdown
+                    <OptionsDropdown
                         handleEdit={() => setShowEditForm(true)}
                         handleDelete={handleDelete}
                     />
