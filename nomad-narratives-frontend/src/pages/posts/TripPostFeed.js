@@ -67,7 +67,7 @@ function TripPostFeed({message, filter=""}) {
                             <InfiniteScroll 
                                 children={
                                     tripPosts.results.map(tripPost => (
-                                        <TripPost key={tripPost.id} {...tripPost} setTripPost={setTripPosts} />
+                                        <TripPost key={tripPost.id} {...tripPost} setTripPosts={setTripPosts} />
                                     ))
                                 }
                                 dataLength={tripPosts.results.length}
