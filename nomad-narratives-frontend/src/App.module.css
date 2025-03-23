@@ -25,7 +25,11 @@
     object-fit: contain;
 }
 
-/* Font Styles */
+/* Font & Text Styles */
+
+.TextLeft {
+    text-align: left;
+}
 
 .WhiteText {
     color: #fff8ed;

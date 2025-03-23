@@ -186,7 +186,9 @@ const TripPost = (props) => {
             <Card.Body>
                 <div className="text-center">
                     <p>
-                        <strong><i class="fa-solid fa-location-dot"></i></strong>{" "}
+                        <strong>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </strong>{" "}
                         {cityName ? `${cityName}, ` : ""}
                         {countryName}
                     </p>
@@ -222,7 +224,7 @@ const TripPost = (props) => {
                 {/* Show truncated content in the feed */}
                 {!TripPostPage && (
                     <>
-                        <Card.Text>
+                        <Card.Text className={appStyles.TextLeft}>
                             {renderContentWithBreaks(truncatedContent)}{" "}
                             {/* Render truncated content with line breaks */}
                         </Card.Text>
@@ -238,7 +240,7 @@ const TripPost = (props) => {
                 )}
                 {/* Show full content on the post page */}
                 {TripPostPage && (
-                    <Card.Text>{renderContentWithBreaks(content)}</Card.Text>
+                    <Card.Text className={appStyles.TextLeft}>{renderContentWithBreaks(content)}</Card.Text>
                 )}{" "}
                 {/* Render full content with line breaks */}
                 <div className={styles.PostBar}>
