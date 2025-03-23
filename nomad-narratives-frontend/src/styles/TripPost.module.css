@@ -46,3 +46,13 @@ h5 {
 .HeartOutline:hover {
     color: #444444;
 }
+
+.ReadMore {
+    font-weight: 600;
+    color: #5a473a;
+}
+
+.ReadMore:Hover {
+    text-decoration: underline ;
+    color: #444444;
+}
