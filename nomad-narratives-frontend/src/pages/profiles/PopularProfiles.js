@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
-import { axiosReq } from '../../api/axiosDefaults';
-import appStyles from '../../App.module.css';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Asset from "../../components/Asset";
 
 const PopularProfiles = () => {
     const [profileData, setProfileData] = useState({
@@ -16,14 +17,14 @@ const PopularProfiles = () => {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const {data} = await axiosReq.get(
-                    'profiles/?ordering=-followers_count'
+                const { data } = await axiosReq.get(
+                    "profiles/?ordering=-followers_count"
                 );
-                setProfileData(prevState => ({
+                setProfileData((prevState) => ({
                     ...prevState,
                     popularProfiles: data,
-                }))
-            } catch(err) {
+                }));
+            } catch (err) {
                 console.log(err);
             }
         };
@@ -32,9 +33,18 @@ const PopularProfiles = () => {
 
     return (
         <Container className={appStyles.Content}>
-            <p>Most followed profiles:</p>
+            {popularProfiles.results.length ? (
+                <>
+                    <p>Most followed profiles.</p>
+                    {popularProfiles.results.map((profile) => (
+                        <p key={profile.id}>{profile.owner}</p>
+                    ))}
+                </>
+            ) : (
+                <Asset spinner />
+            )}
         </Container>
-    )
-}
+    );
+};
 
-export default PopularProfiles
+export default PopularProfiles;
