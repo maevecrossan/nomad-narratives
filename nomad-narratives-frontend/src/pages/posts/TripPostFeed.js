@@ -14,6 +14,7 @@ import Asset from '../../components/Asset';
 import NotFound from '../../assets/not-found.png';
 import InfiniteScroll from "react-infinite-scroll-component";
 import fetchMoreData from "../../utils/utils";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function TripPostFeed({message, filter=""}) {
     const [tripPosts, setTripPosts] = useState({results: [] })
@@ -88,7 +89,7 @@ function TripPostFeed({message, filter=""}) {
                 )}
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-                <p>Popular profiles for desktop</p>
+                <PopularProfiles />
             </Col>
         </Row>
     );
