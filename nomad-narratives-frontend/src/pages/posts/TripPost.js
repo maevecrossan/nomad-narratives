@@ -27,9 +27,10 @@ const TripPost = (props) => {
             likes_count,
             like_id,
             TripPostPage,
-            setTripPosts,
+            setTripPost,
             details,
     } = props;
+    console.log(props);
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
@@ -98,7 +99,7 @@ const TripPost = (props) => {
         try {
             const { data } = await axiosRes.post("/likes/", { post: id });
             if (isMounted) { // Only update state if still mounted
-                setTripPosts((prevPosts) => ({
+                setTripPost((prevPosts) => ({
                     ...prevPosts,
                     results: prevPosts.results.map((post) => 
                         post.id === id ? { ...post, likes_count: post.likes_count + 1, like_id: data.id } : post
@@ -114,7 +115,7 @@ const TripPost = (props) => {
     const handleUnlike = async () => {
         try {
             await axiosRes.delete(`/likes/${like_id}/`);
-            setTripPosts((prevPosts) => ({
+            setTripPost((prevPosts) => ({
             ...prevPosts,
             results: prevPosts.results.map((post) => {
                 return post.id === id
@@ -136,7 +137,9 @@ const TripPost = (props) => {
                 <br />
             </span>
         ));
-    };   
+    };
+    console.log(likes_count)
+    console.log(comments_count)
 
     return <Card className={styles.TripPost}>
         <Card.Body>
