@@ -14,8 +14,9 @@ class TripDetailsSerializer(serializers.ModelSerializer):
     continent = serializers.ReadOnlyField()
     country = serializers.PrimaryKeyRelatedField(
         queryset=Country.objects.all())
-    city = serializers.PrimaryKeyRelatedField(queryset=City.objects.all()
-                                              )
+    city = serializers.PrimaryKeyRelatedField(
+        queryset=City.objects.all()
+        )
     duration_display = serializers.SerializerMethodField()
 
     def get_duration_display(self, obj):
@@ -79,8 +80,8 @@ class TripPostSerializer(serializers.ModelSerializer):
         )
     city = serializers.CharField(source='details.city.name', read_only=True)
     like_id = serializers.SerializerMethodField()
-    likes_count = serializers.ReadOnlyField(source="likes.count")
-    comments_count = serializers.ReadOnlyField(source="comments.count")
+    likes_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
     content = serializers.CharField()
     image_alt_text = serializers.CharField(
         required=True,
