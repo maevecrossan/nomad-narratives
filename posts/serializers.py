@@ -79,8 +79,8 @@ class TripPostSerializer(serializers.ModelSerializer):
         )
     city = serializers.CharField(source='details.city.name', read_only=True)
     like_id = serializers.SerializerMethodField()
-    likes_count = serializers.ReadOnlyField()
-    comments_count = serializers.ReadOnlyField()
+    likes_count = serializers.ReadOnlyField(source="likes.count")
+    comments_count = serializers.ReadOnlyField(source="comments.count")
     content = serializers.CharField()
     image_alt_text = serializers.CharField(
         required=True,
