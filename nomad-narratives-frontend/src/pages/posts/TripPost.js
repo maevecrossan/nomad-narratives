@@ -16,7 +16,6 @@ const TripPost = (props) => {
     const {
             id,
             owner,
-            created_at,
             updated_at,
             profile_id,
             profile_image,
