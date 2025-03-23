@@ -186,7 +186,7 @@ const TripPost = (props) => {
             <Card.Body>
                 <div className="text-center">
                     <p>
-                        <strong>Location:</strong>{" "}
+                        <strong><i class="fa-solid fa-location-dot"></i></strong>{" "}
                         {cityName ? `${cityName}, ` : ""}
                         {countryName}
                     </p>
