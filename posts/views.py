@@ -24,10 +24,10 @@ class PostList(generics.ListCreateAPIView):
     ]
     queryset = TripPost.objects.annotate(  # pylint: disable=no-member
         comments_count=Count(
-            'likes',
+            'comment',
             distinct=True),
         likes_count=Count(
-            'comment',
+            'likes',
             distinct=True),
     ).order_by('-created_at')
 
