@@ -84,9 +84,9 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TripPostSerializer
     queryset = TripPost.objects.annotate(
         comments_count=Count(
-            'likes',
+            'comment',
             distinct=True),
         likes_count=Count(
-            'comment',
+            'likes',
             distinct=True),
     ).order_by('-created_at')
