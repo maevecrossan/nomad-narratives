@@ -27,7 +27,7 @@ const TripPost = (props) => {
             likes_count,
             like_id,
             TripPostPage,
-            setTripPost,
+            setTripPosts,
             details,
     } = props;
     console.log(props);
@@ -99,7 +99,7 @@ const TripPost = (props) => {
         try {
             const { data } = await axiosRes.post("/likes/", { post: id });
             if (isMounted) { // Only update state if still mounted
-                setTripPost((prevPosts) => ({
+                setTripPosts((prevPosts) => ({
                     ...prevPosts,
                     results: prevPosts.results.map((post) => 
                         post.id === id ? { ...post, likes_count: post.likes_count + 1, like_id: data.id } : post
@@ -115,7 +115,7 @@ const TripPost = (props) => {
     const handleUnlike = async () => {
         try {
             await axiosRes.delete(`/likes/${like_id}/`);
-            setTripPost((prevPosts) => ({
+            setTripPosts((prevPosts) => ({
             ...prevPosts,
             results: prevPosts.results.map((post) => {
                 return post.id === id
