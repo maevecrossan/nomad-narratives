@@ -16,7 +16,9 @@ const PopularProfiles = ({ mobile }) => {
         >
             {popularProfiles.results.length ? (
                 <>
-                    <p>Most followed profiles.</p>
+                    <p className={appStyles.DmSerifFont}>
+                        Most followed profiles
+                    </p>
                     {mobile ? (
                         <div className="d-flex justify-content-around">
                             {popularProfiles.results
