@@ -7,7 +7,16 @@ import styles from "../../styles/Comment.module.css";
 import OptionsDropdown from "../../components/OptionsDropdown";
 
 const Comment = (props) => {
-    const { profile_id, profile_image, owner, updated_at, content } = props;
+    const {
+        profile_id,
+        profile_image,
+        owner,
+        updated_at,
+        content,
+        id,
+        setTripPost,
+        setComments,
+    } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
@@ -25,7 +34,10 @@ const Comment = (props) => {
                     <p>{content}</p>
                 </Media.Body>
                 {is_owner && (
-                    <OptionsDropdown handleEdit={() => {}} handleDelete={() => {}}/>
+                    <OptionsDropdown
+                        handleEdit={() => {}}
+                        handleDelete={() => {}}
+                    />
                 )}
             </Media>
         </div>
