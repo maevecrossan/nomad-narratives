@@ -30,7 +30,6 @@ const TripPost = (props) => {
             setTripPosts,
             details,
     } = props;
-    console.log(props);
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
@@ -95,7 +94,7 @@ const TripPost = (props) => {
 
     const handleLike = async () => {
         let isMounted = true;
-
+        
         try {
             const { data } = await axiosRes.post("/likes/", { post: id });
             if (isMounted) { // Only update state if still mounted
@@ -138,8 +137,6 @@ const TripPost = (props) => {
             </span>
         ));
     };
-    console.log(likes_count)
-    console.log(comments_count)
 
     return <Card className={styles.TripPost}>
         <Card.Body>
