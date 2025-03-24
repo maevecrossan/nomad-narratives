@@ -42,7 +42,7 @@ export const OptionsDropdown = ({ handleEdit, handleDelete }) => {
     );
 };
 
-export const ProfileEditDropdown = ({ id }) => {
+export const UserProfileEditDropdown = ({ id }) => {
     const history = useHistory();
     return (
         <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
