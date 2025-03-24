@@ -10,7 +10,7 @@ import styles from "../../styles/UserProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useParams } from "react-router";
-import { axiosReq } from "axios";
+import { axiosReq } from "../../api/axiosDefaults"; 
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -36,7 +36,7 @@ function UserProfilePage() {
                 ]);
                 setProfileData((prevState) => ({
                     ...prevState,
-                    profilePage: { results: [profilePage] },
+                    pageProfile: { results: [profilePage] },
                 }));
                 setHasLoaded(true);
             } catch (err) {
