@@ -12,6 +12,7 @@ import TripPostPage from "./pages/posts/TripPostPage";
 import TripPostFeed from "./pages/posts/TripPostFeed";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import TripPostEditForm from "./pages/posts/TripPostEditForm";
+import UserProfilePage from "./pages/profiles//UserProfilePage";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -59,8 +60,8 @@ function App() {
 
                     <Route
                         exact
-                        path="/profiles"
-                        render={() => <h1>My Profile</h1>}
+                        path="/profiles/:id"
+                        render={() => < UserProfilePage />}
                     />
 
                     <Route
