@@ -1,18 +1,27 @@
 import styles from "./App.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/NavBar";
+
 import { Container } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
+
+import NavBar from "./components/NavBar";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+
 import SignUpForm from "./pages/auth/SignUpForm";
-import WelcomePage from "./pages/WelcomePage";
 import SignInForm from "./pages/auth/SignInForm";
-import TripPostCreateForm from "./pages/posts/TripPostCreateForm";
+
+import WelcomePage from "./pages/WelcomePage";
+
 import TripPostPage from "./pages/posts/TripPostPage";
 import TripPostFeed from "./pages/posts/TripPostFeed";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
 import TripPostEditForm from "./pages/posts/TripPostEditForm";
+import TripPostCreateForm from "./pages/posts/TripPostCreateForm";
+
 import UserProfilePage from "./pages/profiles//UserProfilePage";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -26,13 +35,27 @@ function App() {
                     <Route exact path="/" render={() => <WelcomePage />} />
 
                     <Route
-                    // TripPostFeed but with no filters. Renamed to 'explore' for better UX.
+                        exact
+                        path="/profiles/:id/edit/username"
+                        render={() => <UsernameForm />}
+                    />
+                    <Route
+                        exact
+                        path="/profiles/:id/edit/password"
+                        render={() => <UserPasswordForm />}
+                    />
+                    <Route
+                        exact
+                        path="/profiles/:id/edit"
+                        render={() => <ProfileEditForm />}
+                    />
+
+                    <Route
+                        // TripPostFeed but with no filters. Renamed to 'explore' for better UX.
                         exact
                         path="/explore"
                         render={() => (
-                            <TripPostFeed
-                                message="No results found. Please try another search term."
-                            />
+                            <TripPostFeed message="No results found. Please try another search term." />
                         )}
                     />
 
@@ -61,7 +84,7 @@ function App() {
                     <Route
                         exact
                         path="/profiles/:id"
-                        render={() => < UserProfilePage />}
+                        render={() => <UserProfilePage />}
                     />
 
                     <Route
