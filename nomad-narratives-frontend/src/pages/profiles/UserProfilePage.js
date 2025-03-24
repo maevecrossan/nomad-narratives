@@ -71,7 +71,7 @@ function UserProfilePage() {
                     />
                 </Col>
                 <Col lg={6}>
-                    <h3 className={`${appStyles.DmSerifFont} m-2`}>{profile?.owner}</h3>
+                    <h3 className={`${styles.ProfilePageUsername} ${appStyles.DmSerifFont} m-2`}>{profile?.owner}</h3>
                     <Row className="justify-content-center no-gutters">
                         <Col xs={3} className="my-2">
                             <div>{profile?.posts_count ?? 0}</div>
