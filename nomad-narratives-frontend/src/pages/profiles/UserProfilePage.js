@@ -106,7 +106,7 @@ function UserProfilePage() {
                             </Button>
                         ))}
                 </Col>
-                <Col className="p-3">Profile content</Col>
+                <Col className="p-3">{profile?.content}</Col>
             </Row>
         </>
     );
