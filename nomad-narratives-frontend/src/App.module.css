@@ -4,6 +4,10 @@
     min-height: 100vh;
 }
 
+body {
+    height: 100vh;
+}
+
 .Main {
     padding-top: 110px;
 }
