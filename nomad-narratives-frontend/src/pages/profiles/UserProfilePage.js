@@ -9,6 +9,8 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/UserProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import { useParams } from "react-router";
+import { axiosReq } from "axios";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -30,11 +32,11 @@ function UserProfilePage() {
         const fetchData = async () => {
             try {
                 const [{ data: profilePage }] = await Promise.all([
-                    axios.get(`/profiles/${id}/`),
+                    axiosReq.get(`/profiles/${id}/`),
                 ]);
                 setProfileData((prevState) => ({
                     ...prevState,
-                    pageProfile: { results: [profilePage] },
+                    profilePage: { results: [profilePage] },
                 }));
                 setHasLoaded(true);
             } catch (err) {
@@ -50,7 +52,7 @@ function UserProfilePage() {
                 <Col lg={3} className="text-lg-left">
                     <Image
                         className={styles.ProfileImage}
-                        src={profile.image}
+                        src={profile?.image}
                     />
                 </Col>
                 <Col lg={6}>
