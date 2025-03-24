@@ -17,14 +17,42 @@ export const ProfileDataProvider = ({ children }) => {
     const currentUser = useCurrentUser();
 
     const handleFollow = async (clickedProfile) => {
-        try {
-            const { data } = await axiosRes.post("/followers/", {
-                followed: clickedProfile.id,
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    };
+		try {
+			const { data } = await axiosRes.post("/followers/", {
+				followed: clickedProfile.id,
+			});
+	
+			setProfileData(prevState => ({
+				...prevState,
+				profilePage: prevState.profilePage?.id === clickedProfile.id
+					? {
+						...prevState.profilePage,
+						followers_count: prevState.profilePage.followers_count + 1,
+						following_id: data.id,
+					}
+					: prevState.profilePage,
+				popularProfiles: {
+					...prevState.popularProfiles,
+					results: prevState.popularProfiles.results.map(profile => {
+						profile.id === clickedProfile.id
+							? {
+								...profile,
+								followers_count: profile.followers_count + 1,
+								following_id: data.id,
+							}
+							: profile.is_owner
+							? {
+								...profile,
+								following_count: profile.following_count + 1,
+							}
+							: profile
+						}),
+				},
+			}));
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
     useEffect(() => {
         const handleMount = async () => {
