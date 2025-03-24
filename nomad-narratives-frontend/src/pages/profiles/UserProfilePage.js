@@ -56,7 +56,7 @@ function UserProfilePage() {
                     />
                 </Col>
                 <Col lg={6}>
-                    <h3 className="m-2">Profile username</h3>
+                    <h3 className="m-2">{profile?.owner}</h3>
                     <p>Profile stats</p>
                 </Col>
                 <Col lg={3} className="text-lg-right">
