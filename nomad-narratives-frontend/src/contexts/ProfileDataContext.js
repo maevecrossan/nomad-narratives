@@ -34,19 +34,20 @@ export const ProfileDataProvider = ({ children }) => {
 				popularProfiles: {
 					...prevState.popularProfiles,
 					results: prevState.popularProfiles.results.map(profile => {
-						profile.id === clickedProfile.id
-							? {
+						if (profile.id === clickedProfile.id) {
+							return {
 								...profile,
 								followers_count: profile.followers_count + 1,
 								following_id: data.id,
-							}
-							: profile.is_owner
-							? {
+							};
+						} else if (profile.is_owner) {
+							return {
 								...profile,
 								following_count: profile.following_count + 1,
-							}
-							: profile
-						}),
+							};
+						}
+						return profile;
+					}),
 				},
 			}));
 		} catch (err) {
