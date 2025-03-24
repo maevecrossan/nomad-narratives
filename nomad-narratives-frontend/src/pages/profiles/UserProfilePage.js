@@ -18,7 +18,7 @@ import {
     useProfileData,
     useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 
 function UserProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -26,7 +26,8 @@ function UserProfilePage() {
     const { id } = useParams();
     const setProfileData = useSetProfileData();
     const { profilePage } = useProfileData();
-    const profile = profilePage || {}; 
+    const profile = profilePage || {};
+    const is_owner = currentUser?.username === profile?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -74,7 +75,23 @@ function UserProfilePage() {
                     </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
-                    <p>Follow button</p>
+                    {currentUser &&
+                        !is_owner &&
+                        (profile?.following_id ? (
+                            <Button
+                                className={`${btnStyles.Button} ${btnStyles.BrownOutline}`}
+                                onClick={() => {}}
+                            >
+                                unfollow
+                            </Button>
+                        ) : (
+                            <Button
+                                className={`${btnStyles.Button} ${btnStyles.Brown}`}
+                                onClick={() => {}}
+                            >
+                                follow
+                            </Button>
+                        ))}
                 </Col>
                 <Col className="p-3">Profile content</Col>
             </Row>
