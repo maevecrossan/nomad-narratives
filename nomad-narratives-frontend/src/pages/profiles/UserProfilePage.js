@@ -32,7 +32,7 @@ function UserProfilePage() {
     const {setProfileData, handleFollow} = useSetProfileData();
     const { profilePage } = useProfileData();
     
-    const profile = profilePage || {};
+    const [profile] = profilePage.results;
     const is_owner = currentUser?.username === profile?.owner;
     const [profilePosts, setProfilePosts] = useState({ results: [] });
 
@@ -46,7 +46,7 @@ function UserProfilePage() {
                     ]);
                 setProfileData((prevState) => ({
                     ...prevState,
-                    profilePage: profilePage,
+                    profilePage: { results: [profilePage] },
                 }));
                 setProfilePosts(profilePosts);
                 setHasLoaded(true);
