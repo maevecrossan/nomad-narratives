@@ -1,6 +1,6 @@
 import { axiosReq } from "../api/axiosDefaults";
 
-const fetchMoreData = async (resource, setResource) => {
+export const fetchMoreData = async (resource, setResource) => {
     try {
         const { data } = await axiosReq.get(resource.next);
         setResource((prevResource) => ({
@@ -14,5 +14,3 @@ const fetchMoreData = async (resource, setResource) => {
         }));
     } catch (err) {}
 };
-
-export default fetchMoreData;
