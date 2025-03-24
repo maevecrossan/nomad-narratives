@@ -12,7 +12,11 @@ import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
+import {
+    useProfileData,
+    useSetProfileData,
+} from "../../contexts/ProfileDataContext";
+import { Image } from "react-bootstrap";
 
 function UserProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -44,7 +48,10 @@ function UserProfilePage() {
         <>
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
-                    <p>Image</p>
+                    <Image
+                        className={styles.ProfileImage}
+                        src={profile.image}
+                    />
                 </Col>
                 <Col lg={6}>
                     <h3 className="m-2">Profile username</h3>
