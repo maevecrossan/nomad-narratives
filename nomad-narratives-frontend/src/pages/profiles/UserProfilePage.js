@@ -24,6 +24,8 @@ import { Button, Image } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
 import NotFound from "../../assets/not-found.png";
 
+import { UserProfileEditDropdown } from "../../components/OptionsDropdown";
+
 function UserProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
@@ -59,6 +61,7 @@ function UserProfilePage() {
 
     const mainProfile = (
         <>
+            {profile?.is_owner && <UserProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
                     <Image
