@@ -19,7 +19,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 
 function TripPostPage() {
     const { id } = useParams();
-    const [tripPost, setTripPosts] = useState({ results: [] });
+    const [tripPost, setTripPost] = useState({ results: [] });
     const currentUser = useCurrentUser();
     const profile_image = currentUser?.profile_image;
     const [comments, setComments] = useState({ results: [] });
@@ -32,7 +32,7 @@ function TripPostPage() {
                         axiosReq.get(`/posts/${id}`),
                         axiosReq.get(`/comments/?post=${id}`),
                     ]);
-                setTripPosts({ results: [tripPost] });
+                setTripPost({ results: [tripPost] });
                 setComments(comments);
             } catch (err) {
                 console.log(err);
@@ -47,7 +47,7 @@ function TripPostPage() {
                 <PopularProfiles mobile/>
                 <TripPost
                     {...tripPost.results[0]}
-                    setTripPosts={setTripPosts}
+                    setTripPost={setTripPost}
                     TripPostPage
                 />
                 <Container className={appStyles.Content}>
@@ -57,7 +57,7 @@ function TripPostPage() {
                             profile_id={currentUser.profile_id}
                             profileImage={profile_image}
                             tripPost={id}
-                            setTripPosts={setTripPosts}
+                            setTripPost={setTripPost}
                             setComments={setComments}
                         />
                     ) : comments.results.length ? (
@@ -69,7 +69,7 @@ function TripPostPage() {
                                 <Comment
                                     key={comment.id}
                                     {...comment}
-                                    setTripPosts={setTripPosts}
+                                    setTripPost={setTripPost}
                                     setComments={setComments}
                                 />
                             ))}
