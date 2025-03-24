@@ -40,5 +40,3 @@ export const OptionsDropdown = ({ handleEdit, handleDelete }) => {
         </Dropdown>
     );
 };
-
-export default OptionsDropdown;
