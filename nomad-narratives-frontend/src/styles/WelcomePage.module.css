@@ -46,6 +46,7 @@
 .SubSectionTitle {
     font-family: 'DM Serif Display', serif;
     margin-bottom: 25px;
+    text-decoration: underline;
 }
 
 .ImageCol {
