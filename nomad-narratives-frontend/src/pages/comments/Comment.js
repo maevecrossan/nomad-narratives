@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Comment.module.css";
-import OptionsDropdown from "../../components/OptionsDropdown";
+import { OptionsDropdown } from "../../components/OptionsDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
 
