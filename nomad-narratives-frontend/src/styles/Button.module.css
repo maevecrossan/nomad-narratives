@@ -46,18 +46,20 @@ width: 100%;
 .Brown:hover {
     background-color: #fff8ed;
     color: #5a473a;
+    border-radius: 1px solid #5a473a;
 }
+
 
 .Black,
 .BlackOutline:hover {
-    background-color: #242a3d;
+    background-color: #392822;
     color: #fff8ed;
 }
 
 .Black:hover,
 .BlackOutline {
     background-color: #fff8ed;
-    color: #242a3d;
+    color: #392822;
 }
 
 .Button:disabled {
