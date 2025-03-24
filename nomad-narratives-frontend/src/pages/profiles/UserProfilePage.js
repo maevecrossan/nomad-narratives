@@ -21,7 +21,7 @@ import {
 import InfiniteScroll from "react-infinite-scroll-component";
 import TripPost from "../posts/TripPost";
 import { Button, Image } from "react-bootstrap";
-import fetchMoreData from "../../utils/utils";
+import { fetchMoreData } from "../../utils/utils";
 import NotFound from "../../assets/not-found.png";
 
 function UserProfilePage() {
