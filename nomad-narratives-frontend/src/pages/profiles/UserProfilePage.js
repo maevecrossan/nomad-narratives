@@ -10,7 +10,7 @@ import styles from "../../styles/UserProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults"; 
+import { axiosReq } from "../../api/axiosDefaults";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -26,7 +26,7 @@ function UserProfilePage() {
     const { id } = useParams();
     const setProfileData = useSetProfileData();
     const { profilePage } = useProfileData();
-    const [profile] = profilePage.results;
+    const profile = profilePage || {}; 
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,7 +36,7 @@ function UserProfilePage() {
                 ]);
                 setProfileData((prevState) => ({
                     ...prevState,
-                    pageProfile: { results: [profilePage] },
+                    profilePage: profilePage,
                 }));
                 setHasLoaded(true);
             } catch (err) {
@@ -53,11 +53,25 @@ function UserProfilePage() {
                     <Image
                         className={styles.ProfileImage}
                         src={profile?.image}
+                        roundedCircle
                     />
                 </Col>
                 <Col lg={6}>
                     <h3 className="m-2">{profile?.owner}</h3>
-                    <p>Profile stats</p>
+                    <Row className="justify-content-center no-gutters">
+                        <Col xs={3} className="my-2">
+                            <div>{profile?.posts_count ?? 0}</div>
+                            <div>posts</div>
+                        </Col>
+                        <Col xs={3} className="my-2">
+                            <div>{profile?.followers_count ?? 0}</div>
+                            <div>followers</div>
+                        </Col>
+                        <Col xs={3} className="my-2">
+                            <div>{profile?.following_count ?? 0}</div>
+                            <div>following</div>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
                     <p>Follow button</p>
