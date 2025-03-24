@@ -73,6 +73,9 @@ const WelcomePage = () => {
                         world. Join our community, share your adventures, and
                         get inspired for your next trip!
                     </p>
+                    <p>
+                        Ready to get started?
+                    </p>
 
                     <Link
                         className={`${btnStyles.Button} 
@@ -80,7 +83,7 @@ const WelcomePage = () => {
                         ${btnStyles.Bright}`}
                         to="/sign-up"
                     >
-                        Ready to get started? Sign up here!
+                        Sign up here!
                     </Link>
                 </Col>
             </Row>
