@@ -13,7 +13,7 @@ import TripPost from './TripPost';
 import Asset from '../../components/Asset';
 import NotFound from '../../assets/not-found.png';
 import InfiniteScroll from "react-infinite-scroll-component";
-import fetchMoreData from "../../utils/utils";
+import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
 function TripPostFeed({message, filter=""}) {
