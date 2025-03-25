@@ -51,16 +51,7 @@ const NavBar = () => {
     )
     
     const loggedInIcons = <>  
-            <NavLink 
-                exact
-                to="/" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
-                >
-                <i className='fas fa-home'></i>
-                    Welcome
-            </NavLink>
-            
+                       
             <NavLink 
                 exact
                 to="/explore" 
@@ -112,6 +103,27 @@ const NavBar = () => {
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     Sign Out
             </NavLink>
+
+            <NavLink 
+                exact
+                to="/" 
+                className={styles.NavLink} 
+                activeClassName={styles.Active}
+                > 
+                {/* Homepage */}
+                <i className='fas fa-home'></i>
+            </NavLink>
+
+            <NavLink 
+                exact 
+                to="/contact" 
+                className={styles.NavLink}
+                onClick={handleSignOutClick}
+                >
+                {/* Contact form */}
+                <i class="fa-solid fa-circle-question"></i>
+            </NavLink>
+
         </>
     
     const loggedOutIcons = <>
@@ -162,6 +174,16 @@ const NavBar = () => {
             <i className="fa-solid fa-user-plus"></i>
                 Sign up
         </NavLink>
+
+        <NavLink 
+                exact 
+                to="/contact" 
+                className={styles.NavLink}
+                onClick={handleSignOutClick}
+                >
+                <i class="fa-solid fa-circle-question"></i>
+                Contact Us
+            </NavLink>
     </>
 
     return (
