@@ -77,7 +77,7 @@ const NavBar = () => {
                 className={styles.NavLink} 
                 activeClassName={styles.Active}
                 >
-                <i className='fas fa-house-user'></i>
+                <i class="fa-solid fa-bars"></i>
                     My Feed
             </NavLink>
 
