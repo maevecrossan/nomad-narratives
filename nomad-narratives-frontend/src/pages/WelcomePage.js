@@ -48,15 +48,7 @@ const WelcomePage = () => {
             </Row>
 
             <Row className={styles.Row}>
-                <Col className={styles.ImageCol}>
-                    <img
-                        className={styles.DecorImage}
-                        src="https://res.cloudinary.com/dimeyes2b/image/upload/v1741679079/home-image-1_qcmr5e.jpg"
-                        alt="Waves crashing again rough, black volcanic rocks."
-                    ></img>
-                </Col>
-
-                <Col className={styles.TextCol}>
+                    <Col className={styles.TextCol}>
                     <h2 id="about-us" className={styles.SubSectionTitle}>
                         About Us
                     </h2>
@@ -85,6 +77,17 @@ const WelcomePage = () => {
                     >
                         Sign up here!
                     </Link>
+                </Col>
+            </Row>
+
+            {/* Gallery Row */}
+            <Row> 
+                <Col className={styles.ImageCol}>
+                    <img
+                        className={styles.DecorImage}
+                        src="https://res.cloudinary.com/dimeyes2b/image/upload/v1741679079/home-image-1_qcmr5e.jpg"
+                        alt="Waves crashing again rough, black volcanic rocks."
+                    ></img>
                 </Col>
             </Row>
 
