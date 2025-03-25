@@ -86,7 +86,7 @@ const ProfileEditForm = () => {
     const textFields = (
         <>
             <Form.Group>
-                <Form.Label>Update your user bio below:</Form.Label>
+                <Form.Label className="mt-3 mb-3"><strong>Update your user bio below:</strong></Form.Label>
                 <Form.Control
                     as="textarea"
                     value={content}
@@ -118,10 +118,11 @@ const ProfileEditForm = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Row>
+            <Row className='d-flex justify-content-center'>
                 <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-                    <Container className={appStyles.Content}>
+                    <Container className={`${appStyles.Content} mb-3`}>
                         <Form.Group>
+                        <Form.Label className="mt-3 mb-3"><strong>Update your user profile picture:</strong></Form.Label>
                             {image && (
                                 <figure>
                                     <Image src={image} fluid />
@@ -137,14 +138,14 @@ const ProfileEditForm = () => {
                                     className={`${btnStyles.Button} ${btnStyles.Brown} btn my-auto`}
                                     htmlFor="image-upload"
                                 >
-                                    Change my profile picture
+                                    change my profile picture
                                 </Form.Label>
                             </div>
                             <Form.File
                                 id="image-upload"
                                 ref={imageFile}
                                 accept="image/*"
-                                className="d-md-none"
+                                className="d-none"
                                 onChange={(e) => {
                                     if (e.target.files.length) {
                                         setProfileData({
@@ -157,18 +158,19 @@ const ProfileEditForm = () => {
                                 }}
                             />
                         </Form.Group>
-                        <div className="d-md-none">{textFields}</div>
+                        <div className="d-none">{textFields}</div>
                     </Container>
-                </Col>
-                <Col
-                    md={5}
-                    lg={6}
-                    className="d-none d-md-block p-0 p-md-2 text-center"
-                >
                     <Container className={appStyles.Content}>
                         {textFields}
                     </Container>
                 </Col>
+                {/* <Col
+                    md={5}
+                    lg={6}
+                    className="d-none d-md-block p-0 p-md-2 text-center"
+                >
+                    
+                </Col> */}
             </Row>
         </Form>
     );
