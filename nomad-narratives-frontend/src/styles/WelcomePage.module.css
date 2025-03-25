@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 75vh;
+    min-height: 55vh;
     gap: 15px;
 }
 
@@ -70,11 +70,11 @@
 }
 
 .TextCol {
-    min-height: 70vh;
-    min-width: 310px;
+    min-height: fit-content;
+    min-width: 300px;
     border-radius: 10px;
     background-color: #cfb19d;
     width: auto;
-    margin: 15px;
+    margin: 30px;
     padding: 20px 30px;
 }
