@@ -143,7 +143,7 @@ function UserProfilePage() {
         <Row>
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
-                <Container className={appStyles.Content}>
+                <Container className={`${appStyles.Content} ${styles.ProfileContainer}`}>
                     {hasLoaded ? (
                         <>
                             {mainProfile}

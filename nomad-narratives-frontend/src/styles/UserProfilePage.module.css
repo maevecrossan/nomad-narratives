@@ -1,3 +1,7 @@
+.ProfileContainer {
+    border-radius: 10px;
+}
+
 .ProfileImage {
     object-fit: cover;
     height: 120px;
