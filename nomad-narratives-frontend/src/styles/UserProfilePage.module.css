@@ -9,6 +9,11 @@
     margin: 4px;
 }
 
+.UserStatsContainer {
+    background-color: #f2ebe2;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 991px) {
     .ProfileImage {
         width: 250px;
