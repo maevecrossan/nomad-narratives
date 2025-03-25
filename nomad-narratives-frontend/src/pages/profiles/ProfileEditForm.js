@@ -164,13 +164,6 @@ const ProfileEditForm = () => {
                         {textFields}
                     </Container>
                 </Col>
-                {/* <Col
-                    md={5}
-                    lg={6}
-                    className="d-none d-md-block p-0 p-md-2 text-center"
-                >
-                    
-                </Col> */}
             </Row>
         </Form>
     );
