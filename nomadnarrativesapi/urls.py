@@ -40,6 +40,7 @@ urlpatterns = [
     path('api/', include('comments.urls')),
     path('api/', include('likes.urls')),
     path('api/', include('followers.urls')),
+    path('api/', include('contact.urls')),
     # path('api/', include(router.urls)),
     path('api/countries/', views.get_countries, name='get_countries'),
     path('api/cities/<int:country_id>/', views.get_cities, name='get_cities'),
