@@ -30,8 +30,9 @@
 }
 
 .WelcomeLogo { 
-    font-size: 6rem;
+    font-size: clamp(3.5rem, 6vw, 7rem);
     margin: 2rem;
+    font-weight: bold;
 }
 
 .WelcomeSlogan {
