@@ -1,5 +1,5 @@
 .ContactBgImage {
-	background-image: url("https://res.cloudinary.com/dimeyes2b/image/upload/v1742977542/_MG_4162_llfa1f.jpg");
+	background-image: url("https://res.cloudinary.com/dimeyes2b/image/upload/v1743015995/126A1390_m8ltce.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -29,8 +29,17 @@
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #fff8ed;
+    color: #ffffff;
 	margin: 28px;
+    display: inline-block;
+    padding: 10px 10px;
+    border-radius: 10px; /* Smooth edges */
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, /* Fully transparent at start */
+        rgba(0, 0, 0, 0.3) 50%, /* Darkest in the middle */
+        rgba(0, 0, 0, 0) 100% /* Fully transparent at end */
+    );
 }
   
 .Link,
