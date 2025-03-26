@@ -29,7 +29,7 @@ const ContactForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await axios.post("/api/contact/", formData);
+            const { data } = await axios.post("contact/", formData);
             setStatus("Message sent successfully!");
             setFormData({ 
                 sender_name: "", 
