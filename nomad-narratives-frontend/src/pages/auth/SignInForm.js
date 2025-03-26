@@ -43,7 +43,7 @@ const SignInForm = () => {
 
     return (
         <Container
-            className={`d-flex flex-column align-items-center justify-content-center ${styles["si-bg-image"]}`}
+            className={`d-flex flex-column align-items-center justify-content-center ${styles.SignInBgImage}`}
         >
             <Row>
                 <Col>
