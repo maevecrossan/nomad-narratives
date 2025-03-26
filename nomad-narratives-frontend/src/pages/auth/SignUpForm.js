@@ -114,7 +114,11 @@ const SignUpForm = () => {
 							onChange={handleCheckboxChange}
 						/>
 						<div className="d-flex justify-content-center">
-							<Link to="/welcome#community-guidelines">Read our community guidelines.</Link>
+							<Link to="/welcome#community-guidelines">
+								<strong>
+									Read our community guidelines
+								</strong>	
+							</Link>
 						</div>
 					</Form.Group>
 
