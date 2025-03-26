@@ -23,10 +23,12 @@ import TripPost from "../posts/TripPost";
 import { Button, Image } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
 import NotFound from "../../assets/not-found.png";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import { UserProfileEditDropdown } from "../../components/OptionsDropdown";
 
 function UserProfilePage() {
+    useRedirect('loggedOut');
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams();
