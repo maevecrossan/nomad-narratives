@@ -183,7 +183,7 @@ function PostCreateForm() {
     const textFields = (
         <div className="text-center">
             <Form.Group controlId="title">
-                <Form.Label>Title:</Form.Label>
+                <Form.Label htmlFor="title">Title:</Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
@@ -199,7 +199,7 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="content">
-                <Form.Label>Your Content:</Form.Label>
+                <Form.Label htmlFor="content">Your Content:</Form.Label>
                 <Form.Control
                     as="textarea"
                     name="content"
@@ -232,7 +232,7 @@ function PostCreateForm() {
                         so we can update our options!
                     </strong>
                 </p>
-                <Form.Label>Select Country</Form.Label>
+                <Form.Label htmlFor="countrySelect">Select Country</Form.Label>
                 <Form.Control
                     as="select"
                     id="countrySelect"
@@ -254,7 +254,7 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="citySelect">
-                <Form.Label>Select City</Form.Label>
+                <Form.Label htmlFor="citySelect">Select City</Form.Label>
                 <Form.Control
                     as="select"
                     value={selectedCity || ""}
@@ -277,7 +277,7 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="traveller_number">
-                <Form.Label>Traveller Number:</Form.Label>
+                <Form.Label htmlFor="traveller_number">Traveller Number:</Form.Label>
                 <Form.Control
                     type="number"
                     name="traveller_number"
@@ -293,7 +293,7 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="relevantForSelect">
-                <Form.Label>Relevant For:</Form.Label>
+                <Form.Label htmlFor="relevant_for">Relevant For:</Form.Label>
                 <Form.Control
                     as="select"
                     name="relevant_for"
@@ -317,7 +317,7 @@ function PostCreateForm() {
 
             <Row>
                 <Form.Group controlId="duration_value">
-                    <Form.Label>Duration Value:</Form.Label>
+                    <Form.Label htmlFor="duration_value">Duration Value:</Form.Label>
 
                     <Col>
                         <Form.Control
@@ -337,7 +337,7 @@ function PostCreateForm() {
                 ))}
 
                 <Form.Group controlId="duration_unit">
-                    <Form.Label>Duration Unit:</Form.Label>
+                    <Form.Label htmlFor="duration_unit">Duration Unit:</Form.Label>
                     <Col>
                         <Form.Control
                             as="select"
@@ -361,7 +361,7 @@ function PostCreateForm() {
             </Row>
 
             <Form.Group controlId="duration_value">
-                <Form.Label>Image Description:</Form.Label>
+                <Form.Label htmlFor="duration_value">Image Description:</Form.Label>
                 <Form.Control
                     type="text"
                     name="image_alt_text"
