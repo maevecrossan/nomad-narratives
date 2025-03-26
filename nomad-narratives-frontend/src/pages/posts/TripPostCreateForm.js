@@ -18,10 +18,12 @@ import { Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 function PostCreateForm() {
+    useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
 
     const [tripPostData, setTripPostData] = useState({
