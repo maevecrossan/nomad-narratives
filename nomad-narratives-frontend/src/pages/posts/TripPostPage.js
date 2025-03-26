@@ -16,8 +16,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function TripPostPage() {
+    useRedirect('loggedOut');
     const { id } = useParams();
     const [tripPost, setTripPost] = useState({ results: [] });
     const currentUser = useCurrentUser();
