@@ -1,0 +1,45 @@
+.ContactBgImage {
+	background-image: url("https://res.cloudinary.com/dimeyes2b/image/upload/v1742977542/_MG_4162_llfa1f.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 90vw;
+	border-radius: 6px;
+}
+
+.Input {
+    background: #ffffff;
+    border: 1px solid #f0f1f9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #797979;
+    text-align: center;
+    padding: 10px;
+	width: 395px;
+    min-width: 220px;
+    display: block;
+}
+  
+.Header {
+    font-style: normal;
+    font-weight: bold;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #5a473a;
+	margin: 28px;
+}
+  
+.Link {
+    font-size: 0.8rem;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
+    padding: 13px 15px;
+    min-width: 75px;
+    color: #5a473a;
+    background-color: #fff8ed;
+    flex-wrap: wrap;
+}
