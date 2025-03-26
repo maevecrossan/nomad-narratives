@@ -17,7 +17,6 @@ const ContactForm = () => {
 
     const { sender_name, email, message } = formData;
 
-    // Handle input changes
     const handleChange = (event) => {
         setFormData({
             ...formData,
@@ -25,7 +24,6 @@ const ContactForm = () => {
         });
     };
 
-    // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -37,7 +35,7 @@ const ContactForm = () => {
                 message: "" });
         } catch (err) {
             setErrors(err.response?.data || {});
-            setStatus(""); // Clear success status if there's an error
+            setStatus("");
         }
     };
 
@@ -57,7 +55,7 @@ const ContactForm = () => {
             <Row>
                 <Col>
                     <Form onSubmit={handleSubmit}>
-                        {/* Sender Name */}
+
                         <Form.Group controlId="sender_name">
                             <Form.Label className="d-none">Name</Form.Label>
                             <Form.Control
@@ -75,7 +73,6 @@ const ContactForm = () => {
                             </Alert>
                         ))}
 
-                        {/* Email */}
                         <Form.Group controlId="email">
                             <Form.Label className="d-none">Email</Form.Label>
                             <Form.Control
@@ -93,7 +90,6 @@ const ContactForm = () => {
                             </Alert>
                         ))}
 
-                        {/* Message */}
                         <Form.Group controlId="message">
                             <Form.Label className="d-none">Message</Form.Label>
                             <Form.Control
@@ -112,7 +108,6 @@ const ContactForm = () => {
                             </Alert>
                         ))}
 
-                        {/* Submit Button */}
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
                             type="submit"
@@ -120,7 +115,6 @@ const ContactForm = () => {
                             Send Message
                         </Button>
 
-                        {/* Non-field errors */}
                         {errors.non_field_errors?.map((message, idx) => (
                             <Alert key={idx} variant="warning" className="mt-3">
                                 {message}
@@ -130,7 +124,6 @@ const ContactForm = () => {
                 </Col>
             </Row>
 
-            {/* Status Message */}
             {status && (
                 <Row>
                     <Col>
@@ -139,7 +132,6 @@ const ContactForm = () => {
                 </Row>
             )}
 
-            {/* Link back to welcome page */}
             <Row>
                 <Col>
                     <Link className={styles.Link} to="/">
