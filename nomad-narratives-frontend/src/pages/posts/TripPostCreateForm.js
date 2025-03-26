@@ -23,7 +23,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 function PostCreateForm() {
-    useRedirect('loggedOut');
+    useRedirect("loggedOut");
     const [errors, setErrors] = useState({});
 
     const [tripPostData, setTripPostData] = useState({
@@ -182,11 +182,12 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
-            <Form.Group>
+            <Form.Group controlId="title">
                 <Form.Label>Title:</Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
+                    id="title"
                     value={title}
                     onChange={handleChange}
                 />
@@ -197,11 +198,12 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group>
+            <Form.Group controlId="content">
                 <Form.Label>Your Content:</Form.Label>
                 <Form.Control
                     as="textarea"
                     name="content"
+                    id="content"
                     rows={10}
                     value={content}
                     onChange={handleChange}
@@ -214,24 +216,26 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="countrySelect">
-            <p>
-                <strong>
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    Don't see the country or city option you need? Select a temporary one for now and message us&nbsp;
-                        <a 
-                            href="/contact" 
-                            target="_blank" 
+                <p>
+                    <strong>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        Don't see the country or city option you need? Select a
+                        temporary one for now and message us&nbsp;
+                        <a
+                            href="/contact"
+                            target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Go to the contact page to message us. Opens in new tab."
-                            >
-                                here&nbsp;
-                            </a> 
-                    so we can update our options!
-                </strong>
-            </p>
+                        >
+                            here&nbsp;
+                        </a>
+                        so we can update our options!
+                    </strong>
+                </p>
                 <Form.Label>Select Country</Form.Label>
                 <Form.Control
                     as="select"
+                    id="countrySelect"
                     value={selectedCountry || ""}
                     onChange={handleCountryChange}
                 >
@@ -254,6 +258,7 @@ function PostCreateForm() {
                 <Form.Control
                     as="select"
                     value={selectedCity || ""}
+                    id="citySelect"
                     onChange={handleCityChange}
                     disabled={!selectedCountry}
                 >
@@ -271,11 +276,12 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group>
+            <Form.Group controlId="traveller_number">
                 <Form.Label>Traveller Number:</Form.Label>
                 <Form.Control
                     type="number"
                     name="traveller_number"
+                    id="traveller_number"
                     value={tripPostData.traveller_number || ""}
                     onChange={handleChange}
                 />
@@ -291,6 +297,7 @@ function PostCreateForm() {
                 <Form.Control
                     as="select"
                     name="relevant_for"
+                    id="relevantForSelect"
                     value={tripPostData.relevant_for || ""}
                     onChange={handleChange}
                 >
@@ -308,22 +315,34 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group>
-                <Form.Label>Duration:</Form.Label>
-                <Row>
+            <Row>
+                <Form.Group controlId="duration_value">
+                    <Form.Label>Duration Value:</Form.Label>
+
                     <Col>
                         <Form.Control
                             type="number"
                             name="duration_value"
+                            id="duration_value"
                             value={tripPostData.duration_value || ""}
                             onChange={handleChange}
                             placeholder="Enter number"
                         />
                     </Col>
+                </Form.Group>
+                {errors?.duration_value?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group controlId="duration_unit">
+                    <Form.Label>Duration Unit:</Form.Label>
                     <Col>
                         <Form.Control
                             as="select"
                             name="duration_unit"
+                            id="duration_unit"
                             value={tripPostData.duration_unit}
                             onChange={handleChange}
                         >
@@ -333,24 +352,20 @@ function PostCreateForm() {
                             <option value="years">Year(s)</option>
                         </Form.Control>
                     </Col>
-                </Row>
-            </Form.Group>
-            {errors?.duration_value?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-            ))}
-            {errors?.duration_unit?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-            ))}
+                </Form.Group>
+                {errors?.duration_unit?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+            </Row>
 
-            <Form.Group>
+            <Form.Group controlId="duration_value">
                 <Form.Label>Image Description:</Form.Label>
                 <Form.Control
                     type="text"
                     name="image_alt_text"
+                    id="duration_value"
                     value={image_alt_text || ""}
                     onChange={handleChange}
                     placeholder="Enter a brief description of your image."
@@ -433,7 +448,9 @@ function PostCreateForm() {
                     </Container>
                 </Col>
                 <Col md={7} lg={8} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={`${appStyles.Content} ${styles.Container}`}>
+                    <Container
+                        className={`${appStyles.Content} ${styles.Container}`}
+                    >
                         {textFields}
                     </Container>
                 </Col>
