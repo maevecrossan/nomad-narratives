@@ -217,14 +217,14 @@ function PostCreateForm() {
             <p>
                 <strong>
                     <i class="fa-solid fa-circle-exclamation"></i>
-                    Don't see the country or city option you need? Select a temporary one for now and message us{" "}
+                    Don't see the country or city option you need? Select a temporary one for now and message us&nbsp;
                         <a 
                             href="/contact" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             aria-label="Go to the contact page to message us. Opens in new tab."
                             >
-                                here
+                                here&nbsp;
                             </a> 
                     so we can update our options!
                 </strong>
