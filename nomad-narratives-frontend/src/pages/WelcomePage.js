@@ -83,7 +83,7 @@ const WelcomePage = () => {
 
             {/* Gallery Row */}
             <Row> 
-                <Col className={`${styles.ImageCol} d-flex justify-content-center`}>
+                <Col className={`${styles.ImageCol} d-none d-lg-flex justify-content-center`}>
                     <img
                         className={styles.DecorImage}
                         src="https://res.cloudinary.com/dimeyes2b/image/upload/v1741679079/home-image-1_qcmr5e.jpg"
