@@ -220,7 +220,7 @@ function PostCreateForm() {
                             href="/contact" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            aria-label="Go to the contact page to message us"
+                            aria-label="Go to the contact page to message us. Opens in new tab."
                             >
                                 here
                             </a> 
