@@ -42,7 +42,7 @@ const SignUpForm = () => {
 
 	return (
 		<Container
-		className={`d-flex flex-column align-items-center justify-content-center ${styles["su-bg-image"]}`}
+		className={`d-flex flex-column align-items-center justify-content-center ${styles["SignUpBgImage"]}`}
 		>
 		<Row>
 			<Col>
