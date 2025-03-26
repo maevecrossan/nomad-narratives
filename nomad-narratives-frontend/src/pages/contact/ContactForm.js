@@ -45,7 +45,11 @@ const ContactForm = () => {
         >
             <Row>
                 <Col>
-                    <h1 className={`${styles.Header}`}>Contact Us</h1>
+                    <h1 className={`${styles.Header}`}>
+                        <strong>
+                            Contact Us
+                        </strong>
+                    </h1>
                     <p className={`${styles.InfoText} mb-4`}>
                         See a bug? Have a question or suggestion? Get in touch with us below!
                     </p>
