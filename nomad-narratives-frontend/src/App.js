@@ -22,6 +22,7 @@ import UserProfilePage from "./pages/profiles//UserProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import ContactForm from "./pages/contact/ContactForm";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -127,6 +128,12 @@ function App() {
                         exact
                         path="/posts/:id/edit"
                         render={() => <TripPostEditForm />}
+                    />
+
+                    <Route
+                        exact
+                        path="/contact"
+                        render={() => <ContactForm />}
                     />
                 </Switch>
             </Container>
