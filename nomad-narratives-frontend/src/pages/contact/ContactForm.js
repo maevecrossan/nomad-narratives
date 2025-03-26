@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../../styles/ContactForm.module.css";
-import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import axios from "axios";
 
