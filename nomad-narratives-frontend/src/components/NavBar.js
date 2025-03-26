@@ -109,6 +109,7 @@ const NavBar = () => {
                 to="/" 
                 className={styles.NavLink} 
                 activeClassName={styles.Active}
+                aria-label="Welcome Page"
                 > 
                 {/* Homepage */}
                 <i className='fas fa-home'></i>
@@ -119,6 +120,8 @@ const NavBar = () => {
                 to="/contact" 
                 className={styles.NavLink}
                 onClick={handleSignOutClick}
+                aria-label="Contact form"
+
                 >
                 {/* Contact form */}
                 <i class="fa-solid fa-circle-question"></i>
