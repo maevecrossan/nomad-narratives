@@ -119,7 +119,6 @@ const NavBar = () => {
                 exact 
                 to="/contact" 
                 className={styles.NavLink}
-                onClick={handleSignOutClick}
                 aria-label="Contact form"
 
                 >
@@ -182,7 +181,6 @@ const NavBar = () => {
                 exact 
                 to="/contact" 
                 className={styles.NavLink}
-                onClick={handleSignOutClick}
                 >
                 <i class="fa-solid fa-circle-question"></i>
                 Contact Us
