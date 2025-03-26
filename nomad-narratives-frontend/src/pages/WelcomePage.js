@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect } from "react";
 import styles from "../styles/WelcomePage.module.css";
-import generalStyles from "../../src/App.module.css";
+import appStyles from "../../src/App.module.css";
 import btnStyles from "../styles/Button.module.css";
 import { Link, useLocation } from "react-router-dom/cjs/react-router-dom";
 
@@ -23,23 +23,23 @@ const WelcomePage = () => {
                 <Col className={styles.Hero}>
                     <div id="hero" className={styles.WelcomeTitleContent}>
                         <p
-                            className={`${generalStyles.RobotoFont} 
+                            className={`${appStyles.RobotoFont} 
                         ${styles.WelcomeSlogan} 
-                        ${generalStyles.WhiteText}`}
+                        ${appStyles.WhiteText}`}
                         >
                             Welcome to
                         </p>
                         <h1
-                            className={`${generalStyles.DmSerifFont} 
+                            className={`${appStyles.DmSerifFont} 
                         ${styles.WelcomeLogo} 
-                        ${generalStyles.WhiteText}`}
+                        ${appStyles.WhiteText}`}
                         >
                             Nomad Narratives
                         </h1>
                         <p
-                            className={`${generalStyles.RobotoFont} 
+                            className={`${appStyles.RobotoFont} 
                         ${styles.WelcomeSlogan} 
-                        ${generalStyles.WhiteText}`}
+                        ${appStyles.WhiteText}`}
                         >
                             Where will your next story take you? 🌍✈️
                         </p>
@@ -50,14 +50,14 @@ const WelcomePage = () => {
             <Row className={styles.Row}>
                     <Col className={styles.TextCol}>
                     <h2 id="about-us" className={styles.SubSectionTitle}>
-                        About Us
+                        A little about us
                     </h2>
                     <p>
-                        Welcome to Nomad Narratives – a travel blog where every
-                        journey has a story. Whether you’re chasing sunsets in
-                        Bali, backpacking through Europe, or discovering hidden
-                        gems in your own backyard, this is the place to share
-                        and explore real travel experiences.
+                        Welcome to Nomad Narratives - a travel blog where every
+                        journey has a story. Whether you're chasing northern 
+                        lights in Iceland, road-tripping down Route 66, or 
+                        uncovering secret beaches in Thailand, this is your 
+                        space to share and explore real travel experiences.
                     </p>
                     <p>
                         Browse stories by destination, topic, or traveller, and
@@ -66,7 +66,8 @@ const WelcomePage = () => {
                         get inspired for your next trip!
                     </p>
                     <p>
-                        Ready to get started?
+                        Ready to get started? Create a free account to start
+                        exploring now!
                     </p>
 
                     <div className="d-flex justify-content-center">
@@ -75,6 +76,7 @@ const WelcomePage = () => {
                             ${btnStyles.Brown} py-2 px-3`}
                             to="/sign-up"
                         >
+                            <i class="fa-solid fa-users"></i> 
                             Sign up here!
                         </Link>
                     </div>
