@@ -4,8 +4,10 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import axios from 'axios';
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+	useRedirect('loggedIn') //redirect away from this page if they are already logged in.
 	const [signUpData, setSignUpData] = useState({
 		username: '',
 		password1: '',
