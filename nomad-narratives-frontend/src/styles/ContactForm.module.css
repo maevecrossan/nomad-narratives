@@ -8,6 +8,7 @@
 	border-radius: 6px;
 }
 
+
 .Input {
     background: #ffffff;
     border: 1px solid #f0f1f9;
@@ -28,14 +29,15 @@
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #5a473a;
+    color: #fff8ed;
 	margin: 28px;
 }
   
-.Link {
+.Link,
+.InfoText {
     font-size: 0.8rem;
     align-self: center;
-    border-radius: 100px;
+    border-radius: 10px;
     border-color: transparent;
     padding: 13px 15px;
     min-width: 75px;

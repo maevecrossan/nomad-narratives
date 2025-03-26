@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../../styles/ContactForm.module.css";
+import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import axios from "axios";
 
@@ -47,7 +48,10 @@ const ContactForm = () => {
         >
             <Row>
                 <Col>
-                    <h1 className={styles.Header}>Contact Us</h1>
+                    <h1 className={`${styles.Header}`}>Contact Us</h1>
+                    <p className={`${styles.InfoText} mb-4`}>
+                        See a bug? Have a question or suggestion? Get in touch with us below!
+                    </p>
                 </Col>
             </Row>
 
