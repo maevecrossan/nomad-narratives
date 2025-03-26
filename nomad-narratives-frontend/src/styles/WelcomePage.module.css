@@ -62,12 +62,22 @@
 }
 
 .DecorImage {
-    height: 70vh;
+    max-height: 70vh;
     background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
     padding: 0;
     border-radius: 10px;
+}
+
+.SmallDecorImage{
+    max-height: 30vh;
+    background-position: bottom center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    padding: 0;
+    border-radius: 10px;
+    margin: 2.5vh;
 }
 
 .TextCol {

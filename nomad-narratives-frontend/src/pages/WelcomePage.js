@@ -69,25 +69,42 @@ const WelcomePage = () => {
                         Ready to get started?
                     </p>
 
-                    <Link
-                        className={`${btnStyles.Button} 
-                        ${btnStyles.Wide} 
-                        ${btnStyles.Bright}`}
-                        to="/sign-up"
-                    >
-                        Sign up here!
-                    </Link>
+                    <div className="d-flex justify-content-center">
+                        <Link
+                            className={`${btnStyles.Button} 
+                            ${btnStyles.Brown} py-2 px-3`}
+                            to="/sign-up"
+                        >
+                            Sign up here!
+                        </Link>
+                    </div>
                 </Col>
             </Row>
 
             {/* Gallery Row */}
             <Row> 
-                <Col className={styles.ImageCol}>
+                <Col className={`${styles.ImageCol} d-flex justify-content-center`}>
                     <img
                         className={styles.DecorImage}
                         src="https://res.cloudinary.com/dimeyes2b/image/upload/v1741679079/home-image-1_qcmr5e.jpg"
                         alt="Waves crashing again rough, black volcanic rocks."
                     ></img>
+                </Col>
+                <Col className={`${styles.ImageCol} d-flex flex-column align-items-center gap-3`}>
+                    <row>
+                        <img
+                            className={styles.SmallDecorImage}
+                            src="https://res.cloudinary.com/dimeyes2b/image/upload/v1742650021/media/images/126A8938_ovinq2.jpg"
+                            alt="Waves crashing again rough, black volcanic rocks."
+                        ></img>
+                    </row>
+                    <row>
+                        <img
+                            className={styles.SmallDecorImage}
+                            src="https://res.cloudinary.com/dimeyes2b/image/upload/v1742974713/hero-image_o33wbu.jpg"
+                            alt="Waves crashing again rough, black volcanic rocks."
+                        ></img>
+                    </row>
                 </Col>
             </Row>
 
