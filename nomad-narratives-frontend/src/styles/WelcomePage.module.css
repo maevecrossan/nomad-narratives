@@ -73,12 +73,13 @@
 
 .SmallDecorImage{
     max-height: 30vh;
+    max-width: 100%;
     background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
     padding: 0;
     border-radius: 10px;
-    margin: 2.5vh;
+    margin: 2.5vh 0;
 }
 
 .TextCol {
