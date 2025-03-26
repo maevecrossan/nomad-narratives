@@ -1,7 +1,7 @@
 .PopularProfilesHeading {
-    font-size: larger;
+    font-size: 1.4em;
     text-align: center;
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 .MostFollowedContainer {
