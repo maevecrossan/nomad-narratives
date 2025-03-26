@@ -212,6 +212,13 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="countrySelect">
+            <p>
+                <strong>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    Don't see the country or city option you need? Select a temporary one for now and message us{" "}
+                    <a href="/contact" target="_blank" rel="noopener noreferrer">here</a> so we can update our options!
+                </strong>
+            </p>
                 <Form.Label>Select Country</Form.Label>
                 <Form.Control
                     as="select"
