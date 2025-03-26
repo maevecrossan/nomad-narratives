@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/ContactForm.module.css"; // Adjusted CSS import for the contact form
-import btnStyles from "../../styles/Button.module.css"; // Assuming you want to use button styles like in the other form
+import styles from "../../styles/ContactForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import axios from "axios";
 
 const ContactForm = () => {
@@ -13,8 +13,8 @@ const ContactForm = () => {
     });
 
     const [errors, setErrors] = useState({});
-    const [status, setStatus] = useState(""); // For success/error status message
-    const history = useHistory(); // For redirect if needed (not used here, but you can)
+    const [status, setStatus] = useState("");
+    const history = useHistory();
 
     const { sender_name, email, message } = formData;
 
@@ -30,9 +30,12 @@ const ContactForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await axios.post("/api/contact/", formData); // Adjusted the URL to match your API endpoint
+            const { data } = await axios.post("/api/contact/", formData);
             setStatus("Message sent successfully!");
-            setFormData({ sender_name: "", email: "", message: "" }); // Clear form fields
+            setFormData({ 
+                sender_name: "", 
+                email: "", 
+                message: "" });
         } catch (err) {
             setErrors(err.response?.data || {});
             setStatus(""); // Clear success status if there's an error
@@ -134,7 +137,7 @@ const ContactForm = () => {
                 </Row>
             )}
 
-            {/* Link to another page if needed */}
+            {/* Link back to welcome page */}
             <Row>
                 <Col>
                     <Link className={styles.Link} to="/">
