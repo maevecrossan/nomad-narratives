@@ -15,8 +15,11 @@ import NotFound from '../../assets/not-found.png';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function TripPostFeed({message, filter=""}) {
+    useRedirect('loggedOut');
+    
     const [tripPosts, setTripPosts] = useState({results: [] })
     const [hasLoaded, setHasLoaded] = useState(false);
     const {pathname} = useLocation();
