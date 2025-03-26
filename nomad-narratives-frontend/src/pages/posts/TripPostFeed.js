@@ -52,9 +52,11 @@ function TripPostFeed({message, filter=""}) {
                 <PopularProfiles mobile />
 
                 <i className={`fas fa-search ${styles.SearchIcon}`}/>
+                <Form.Label className="d-none">Search</Form.Label>
                 <Form 
                     className={styles.SearchBar}
                     onSubmit={(event) => event.preventDefault()}
+                    aria-label="search bar"       
                 >
                     <Form.Control
                         value={query}
