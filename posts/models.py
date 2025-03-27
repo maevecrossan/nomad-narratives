@@ -1,4 +1,9 @@
+'''
+Models for the TripPost application.
 
+This module defines the 'TripPost' and 'TripDetails' models, which handles
+content posted by users.
+'''
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -143,9 +148,9 @@ class TripDetails(models.Model):
         super().clean()
 
     def save(self, *args, **kwargs):
-        """
+        '''
         Automatically set the continent based on the selected country.
-        """
+        '''
         if self.country:
             self.continent = get_continent_by_country(self.country.name)
         super().save(*args, **kwargs)
