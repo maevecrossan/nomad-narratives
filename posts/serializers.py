@@ -26,6 +26,9 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         return f"{obj.duration_value} {obj.get_duration_unit_display()}"
 
     def validate_duration_value(self, value):
+        '''
+        Validate that the duration value is positive number greater than zero.
+        '''
         if value <= 0:
             raise serializers.ValidationError(
                 "Duration value must be positive."
@@ -33,6 +36,9 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         return value
 
     def validate_duration_unit(self, value):
+        '''
+        Validate that the duration unit is one of the given options.
+        '''
         valid_units = ['days', 'weeks', 'months', 'years']
         if value not in valid_units:
             raise serializers.ValidationError(
@@ -43,6 +49,10 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         return value
 
     def validate_relevant_for(self, value):
+        '''
+        Ensures that the relevant_for field is one of the predefined
+        categories.
+        '''
         valid_values = ['all', 'women', 'men', 'nonbinary', 'lgbtq']
         if value not in valid_values:
             raise serializers.ValidationError(
@@ -122,7 +132,7 @@ class TripPostSerializer(serializers.ModelSerializer):
         '''
         user = self.context['request'].user
         if user.is_authenticated:
-            like = Like.objects.filter(
+            like = Like.objects.filter(  # pylint: disable=no-member
                 owner=user, post=obj
             ).first()
             return like.id if like else None
@@ -136,9 +146,11 @@ class TripPostSerializer(serializers.ModelSerializer):
 
         validated_data['owner'] = self.context['request'].user
 
-        trip_post = TripPost.objects.create(**validated_data)
+        trip_post = TripPost.objects.create(  # pylint: disable=no-member
+            **validated_data
+            )
 
-        TripDetails.objects.create(
+        TripDetails.objects.create(  # pylint: disable=no-member
             trip_post=trip_post, **details_data
         )
 
