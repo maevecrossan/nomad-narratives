@@ -82,7 +82,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TripPostSerializer
-    queryset = TripPost.objects.annotate(
+    queryset = TripPost.objects.annotate(  # pylint: disable=no-member
         comments_count=Count(
             'comment',
             distinct=True),
