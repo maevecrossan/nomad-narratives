@@ -2,3 +2,8 @@
     min-height: 343px;
     border-radius: 10px;
 }
+
+.InlineLink {
+    text-decoration: underline;
+    color: #5a473a;
+}
