@@ -190,6 +190,7 @@ function PostCreateForm() {
                     id="title"
                     value={title}
                     onChange={handleChange}
+                    aria-label="Enter a title for your post"
                 />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
@@ -207,6 +208,7 @@ function PostCreateForm() {
                     rows={10}
                     value={content}
                     onChange={handleChange}
+                    aria-label="Add your post content"
                 />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
@@ -238,6 +240,7 @@ function PostCreateForm() {
                     id="countrySelect"
                     value={selectedCountry || ""}
                     onChange={handleCountryChange}
+                    aria-label="Select a country"
                 >
                     <option value="">Select a country</option>
                     {countries.map((country) => (
@@ -261,6 +264,7 @@ function PostCreateForm() {
                     id="citySelect"
                     onChange={handleCityChange}
                     disabled={!selectedCountry}
+                    aria-label="Select a city"
                 >
                     <option value="">Select a city</option>
                     {cities.map((city) => (
@@ -284,6 +288,7 @@ function PostCreateForm() {
                     id="traveller_number"
                     value={tripPostData.traveller_number || ""}
                     onChange={handleChange}
+                    aria-label="Select a number of travellers your story features or is suitable for."
                 />
             </Form.Group>
             {errors?.traveller_number?.map((message, idx) => (
@@ -300,6 +305,7 @@ function PostCreateForm() {
                     id="relevantForSelect"
                     value={tripPostData.relevant_for || ""}
                     onChange={handleChange}
+                    aria-label="Select a group who this post is relevant for."
                 >
                     <option value="">Select a group</option>
                     <option value="all">All Genders & Orientations</option>
@@ -327,6 +333,7 @@ function PostCreateForm() {
                             value={tripPostData.duration_value || ""}
                             onChange={handleChange}
                             placeholder="Enter number"
+                            aria-label="Enter the trip duration value (number)."
                         />
                     </Col>
                 </Form.Group>
@@ -345,6 +352,7 @@ function PostCreateForm() {
                             id="duration_unit"
                             value={tripPostData.duration_unit}
                             onChange={handleChange}
+                            aria-label="Enter the trip duration unit (unit of time)."
                         >
                             <option value="days">Day(s)</option>
                             <option value="weeks">Week(s)</option>
@@ -360,15 +368,16 @@ function PostCreateForm() {
                 ))}
             </Row>
 
-            <Form.Group controlId="duration_value">
-                <Form.Label htmlFor="duration_value">Image Description:</Form.Label>
+            <Form.Group controlId="image_alt_text">
+                <Form.Label htmlFor="image_alt_text">Image Description:</Form.Label>
                 <Form.Control
                     type="text"
                     name="image_alt_text"
-                    id="duration_value"
+                    id="image_alt_text"
                     value={image_alt_text || ""}
                     onChange={handleChange}
                     placeholder="Enter a brief description of your image."
+                    aria-label="Enter a brief description of your image."
                 />
             </Form.Group>
             {errors?.image_alt_text?.map((message, idx) => (
@@ -422,6 +431,7 @@ function PostCreateForm() {
                                 <Form.Label
                                     className="d-flex justify-content-center"
                                     htmlFor="image-upload"
+                                    aria-label="Click or tap here to upload an image."
                                 >
                                     <Asset
                                         src={Upload}
