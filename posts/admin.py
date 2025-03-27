@@ -1,10 +1,15 @@
+'''
+Admin configuration for the TripPost and TripDetails models.
+- Manages trip-related data, including inline editing of TripDetails
+within TripPost.
+'''
 from django.contrib import admin
 from .models import TripPost, TripDetails
 
 
 class TripDetailsInline(admin.StackedInline):
     '''
-    TripDetails Inline Admin: Allow editing TripDetails 
+    TripDetails Inline Admin: Allow editing TripDetails
     directly within TripPost.
     '''
     model = TripDetails
