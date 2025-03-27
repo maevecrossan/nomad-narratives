@@ -272,7 +272,9 @@ const TripPost = (props) => {
                         </OverlayTrigger>
                     )}
                     {likes_count}
-                    <Link to={`/posts/${id}`}>
+                    <Link 
+                        to={`/posts/${id}`}
+                        aria-label="Link to comments for this post.">
                         <i className="fa-solid fa-comments" />
                     </Link>
                     {comments_count}
