@@ -41,7 +41,7 @@ def create_profile(sender, instance, created, **kwargs):
     Creates a new profile every time a user is created.
     '''
     if created:
-        Profile.objects.create(owner=instance)
+        Profile.objects.create(owner=instance)  # pylint: disable=no-member
 
 
 post_save.connect(create_profile, sender=User)
