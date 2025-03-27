@@ -1,3 +1,6 @@
+'''
+Defines the Contact model for storing user-submitted contact form data.
+'''
 from django.db import models
 
 
