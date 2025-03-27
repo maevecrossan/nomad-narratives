@@ -65,6 +65,7 @@ const SignInForm = () => {
                                 name="username"
                                 value={username}
                                 onChange={handleChange}
+                                aria-label="Enter your username"
                             />
                         </Form.Group>
                         {errors.username?.map((message, idx) => (
@@ -82,6 +83,7 @@ const SignInForm = () => {
                                 name="password"
                                 value={password}
                                 onChange={handleChange}
+                                aria-label="Enter your password"
                             />
                         </Form.Group>
                         {errors.password?.map((message, idx) => (
