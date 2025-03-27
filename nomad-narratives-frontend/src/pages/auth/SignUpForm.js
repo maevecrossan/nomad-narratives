@@ -64,6 +64,7 @@ const SignUpForm = () => {
 						name="username"
 						value={username}
 						onChange={handleChange}
+						aria-label="Enter your username"
 					/>
 					</Form.Group>
 					{errors.username?.map((message, idx) => (
@@ -81,6 +82,7 @@ const SignUpForm = () => {
 						name="password1"
 						value={password1}
 						onChange={handleChange}
+						aria-label="Enter your password"
 					/>
 					</Form.Group>
 					{errors.password1?.map((message, idx) => (
@@ -98,6 +100,7 @@ const SignUpForm = () => {
 						name="password2"
 						value={password2}
 						onChange={handleChange}
+						aria-label="Enter your password again"
 					/>
 					</Form.Group>
 					{errors.password2?.map((message, idx) => (
@@ -112,6 +115,7 @@ const SignUpForm = () => {
 							label="I have read and agree to adhere to the community guidelines."
 							checked={isChecked}
 							onChange={handleCheckboxChange}
+							aria-label="Check the box to agree to adhere to the community guidelines"
 						/>
 						<div className="d-flex justify-content-center">
 							<Link to="/welcome#community-guidelines">
