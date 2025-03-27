@@ -228,10 +228,11 @@ function PostCreateForm() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Go to the contact page to message us. Opens in new tab."
+                            className={styles.InlineLink}
                         >
-                            here&nbsp;
+                            here
                         </a>
-                        so we can update our options!
+                        &nbsp;so we can update our options!
                     </strong>
                 </p>
                 <Form.Label htmlFor="countrySelect">Select Country</Form.Label>
