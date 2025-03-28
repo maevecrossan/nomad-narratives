@@ -7,13 +7,13 @@ import axios from 'axios';
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
-	useRedirect('loggedIn') //redirect away from this page if they are already logged in.
+	useRedirect('loggedIn'); //redirect away from this page if they are already logged in.
 	const [signUpData, setSignUpData] = useState({
 		username: '',
 		password1: '',
 		password2: '',
 	});
-	const { username, password1, password2} = signUpData;
+	const { username, password1, password2 } = signUpData;
 
 	const [errors, setErrors] = useState({});
 
@@ -23,8 +23,8 @@ const SignUpForm = () => {
 		setSignUpData({
 			...signUpData,
 			[event.target.name]: event.target.value,
-		})
-	}
+		});
+	};
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();

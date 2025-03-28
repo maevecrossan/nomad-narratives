@@ -9,7 +9,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 const SignInForm = () => {
     const setCurrentUser = useSetCurrentUser();
-    useRedirect('loggedIn') //redirect away from this page if they are already logged in.
+    useRedirect("loggedIn"); //redirect away from this page if they are already logged in.
 
     const [signInData, setSignInData] = useState({
         username: "",
