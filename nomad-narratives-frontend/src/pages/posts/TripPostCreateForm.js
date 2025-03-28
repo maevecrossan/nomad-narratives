@@ -182,12 +182,15 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
+            <p>
+                <strong>Enter a title for your post:</strong>
+            </p>
             <Form.Group controlId="title">
-                <Form.Label htmlFor="title">Title:</Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
                     id="title"
+                    placeholder="Post title"
                     value={title}
                     onChange={handleChange}
                     aria-label="Enter a title for your post"
@@ -200,11 +203,14 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="content">
-                <Form.Label htmlFor="content">Your Content:</Form.Label>
+                <p>
+                    <strong>Your post content:</strong>
+                </p>
                 <Form.Control
                     as="textarea"
                     name="content"
                     id="content"
+                    placeholder="Enter your article here"
                     rows={10}
                     value={content}
                     onChange={handleChange}
@@ -220,22 +226,26 @@ function PostCreateForm() {
             <Form.Group controlId="countrySelect">
                 <p>
                     <strong>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                        Don't see the country or city option you need? Select a
-                        temporary one for now and message us&nbsp;
-                        <a
-                            href="/contact"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Go to the contact page to message us. Opens in new tab."
-                            className={styles.InlineLink}
-                        >
-                            here
-                        </a>
-                        &nbsp;so we can update our options!
+                        <em>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Don't see the country or city option you need?
+                            Select a temporary one for now and message us&nbsp;
+                            <a
+                                href="/contact"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Go to the contact page to message us. Opens in new tab."
+                                className={styles.InlineLink}
+                            >
+                                here
+                            </a>
+                            &nbsp;so we can update our options!
+                        </em>
                     </strong>
                 </p>
-                <Form.Label htmlFor="countrySelect">Select Country</Form.Label>
+                <p>
+                    <strong>Select a country:</strong>
+                </p>
                 <Form.Control
                     as="select"
                     id="countrySelect"
@@ -258,7 +268,9 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="citySelect">
-                <Form.Label htmlFor="citySelect">Select City</Form.Label>
+                <p>
+                    <strong>Select city:</strong>
+                </p>
                 <Form.Control
                     as="select"
                     value={selectedCity || ""}
@@ -282,7 +294,9 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="traveller_number">
-                <Form.Label htmlFor="traveller_number">Traveller Number:</Form.Label>
+                <p>
+                    <strong>Traveller number:</strong>
+                </p>
                 <Form.Control
                     type="number"
                     name="traveller_number"
@@ -299,7 +313,9 @@ function PostCreateForm() {
             ))}
 
             <Form.Group controlId="relevantForSelect">
-                <Form.Label htmlFor="relevant_for">Relevant For:</Form.Label>
+                <p>
+                    <strong>Relevant for:</strong>
+                </p>
                 <Form.Control
                     as="select"
                     name="relevant_for"
@@ -324,7 +340,9 @@ function PostCreateForm() {
 
             <Row>
                 <Form.Group controlId="duration_value">
-                    <Form.Label htmlFor="duration_value">Duration Value:</Form.Label>
+                    <p>
+                        <strong>Duration value:</strong>
+                    </p>
 
                     <Col>
                         <Form.Control
@@ -345,7 +363,9 @@ function PostCreateForm() {
                 ))}
 
                 <Form.Group controlId="duration_unit">
-                    <Form.Label htmlFor="duration_unit">Duration Unit:</Form.Label>
+                    <p>
+                        <strong>Duration unit:</strong>
+                    </p>
                     <Col>
                         <Form.Control
                             as="select"
@@ -370,7 +390,9 @@ function PostCreateForm() {
             </Row>
 
             <Form.Group controlId="image_alt_text">
-                <Form.Label htmlFor="image_alt_text">Image Description:</Form.Label>
+                <p>
+                    <strong>Image description:</strong>
+                </p>
                 <Form.Control
                     type="text"
                     name="image_alt_text"
