@@ -182,6 +182,8 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
+            <h2>New Post</h2>
+
             <p>
                 <strong>Enter a title for your post:</strong>
             </p>
