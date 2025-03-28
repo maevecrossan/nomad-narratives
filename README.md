@@ -61,4 +61,11 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 #### Administrator 
 |  | User Story |
 | :-- | :-- |
-| . | |
+| 1. | As an admin user, I can receive messages from both logged in and logged out users so that I can address their inquiries or concerns. |
+| 2. | As an admin I can control what cities and countries are available to users. |
+| 3. | As an admin user, I can add cities and countries to the database to fill in any gaps. |
+| 4. | As an admin user, I can edit, delete and create posts. |
+| 5. | As an admin user, I can edit, delete and create comments. |
+| 6. | As an admin user, I can delete and create likes. |
+| 7. | As an admin user, I can see all registered users. |
+| 7. | As an admin user, I can see, edit, delete and create user profiles. |
