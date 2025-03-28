@@ -118,7 +118,7 @@ const SignUpForm = () => {
 							aria-label="Check the box to agree to adhere to the community guidelines"
 						/>
 						<div className="d-flex justify-content-center">
-							<Link to="/welcome#community-guidelines">
+							<Link className={styles.Link} to="/welcome#community-guidelines">
 								<strong>
 									Read our community guidelines
 								</strong>	
