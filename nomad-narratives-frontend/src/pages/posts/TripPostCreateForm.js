@@ -445,7 +445,7 @@ function PostCreateForm() {
                                 </>
                             ) : (
                                 <Form.Label
-                                    className="d-flex justify-content-center"
+                                    className="d-flex flex-column align-items-center justify-content-center"
                                     htmlFor="image-upload"
                                     aria-label="Click or tap here to upload an image."
                                 >
