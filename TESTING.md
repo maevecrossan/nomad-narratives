@@ -118,7 +118,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 The following report contains the lighthouse scores for the respective pages users can visit.
 
 [Lighthouse Validation Report](nomad-narratives/documentation/validation/nn-lighthouse-validation.pdf)
-[Lighthouse Validation Report (alt link)](nomad-narratives/documentation/validation/nn-lighthouse-validation.pdf)
+[Lighthouse Validation Report (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-lighthouse-validation.pdf)
 
 ### HTML W3C Validation
 
