@@ -80,11 +80,11 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Logged in users can update their own profile picture. | Yes | ✔ |
 | Users (logged in or out) can edit profile picture of other users | No | ✔ |
 | Logged in users can add a profile description | Yes | ✔ |
-| Logged in users can edit/update their own profile description | Yes | ✔ |
+| Logged in users can edit and update their own profile description | Yes | ✔ |
 | Users (logged in or out) can edit the profile descriptions of other users | No | ✔ |
-| Users can see their own followers (who follows them). | Yes |  |
-| Users can see other users' followers (who follows another user). | Yes |  |
-| Users appear in searches if their username is a match. | Yes |  |
+| Users can see their own followers (who follows them). | Yes | ✔ |
+| Users can see other users' followers (who follows another user). | Yes | ✔ |
+| Users appear in searches if their username is a match. | Yes | ✔ |
 
 
 ## Bugs and Fixes
