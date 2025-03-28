@@ -8,6 +8,21 @@
 	border-radius: 6px;
 }
 
+.InputLabel {
+    color: #fff8ed;
+    font-weight: 600;
+    font-size: 1.2em;
+    display: block;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 10px; /* Smooth edges */
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, /* Fully transparent at start */
+        rgba(0, 0, 0, 0.3) 50%, /* Darkest in the middle */
+        rgba(0, 0, 0, 0) 100% /* Fully transparent at end */
+    );
+}
 
 .Input {
     background: #ffffff;
