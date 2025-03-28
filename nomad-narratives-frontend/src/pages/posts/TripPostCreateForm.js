@@ -187,11 +187,10 @@ function PostCreateForm() {
             <p>
                 <strong>Enter a title for your post:</strong>
             </p>
-            <Form.Group controlId="title">
+            <Form.Group>
                 <Form.Control
                     type="text"
                     name="title"
-                    id="title"
                     placeholder="Post title"
                     value={title}
                     onChange={handleChange}
@@ -204,14 +203,13 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group controlId="content">
+            <Form.Group>
                 <p>
                     <strong>Your post content:</strong>
                 </p>
                 <Form.Control
                     as="textarea"
                     name="content"
-                    id="content"
                     placeholder="Enter your article here"
                     rows={10}
                     value={content}
@@ -225,7 +223,7 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group controlId="countrySelect">
+            <Form.Group>
                 <p>
                     <strong>
                         <em>
@@ -250,7 +248,6 @@ function PostCreateForm() {
                 </p>
                 <Form.Control
                     as="select"
-                    id="countrySelect"
                     value={selectedCountry || ""}
                     onChange={handleCountryChange}
                     aria-label="Select a country"
@@ -269,14 +266,13 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group controlId="citySelect">
+            <Form.Group>
                 <p>
                     <strong>Select city:</strong>
                 </p>
                 <Form.Control
                     as="select"
                     value={selectedCity || ""}
-                    id="citySelect"
                     onChange={handleCityChange}
                     disabled={!selectedCountry}
                     aria-label="Select a city"
@@ -295,14 +291,13 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group controlId="traveller_number">
+            <Form.Group>
                 <p>
                     <strong>Traveller number:</strong>
                 </p>
                 <Form.Control
                     type="number"
                     name="traveller_number"
-                    id="traveller_number"
                     value={tripPostData.traveller_number || ""}
                     onChange={handleChange}
                     aria-label="Select a number of travellers your story features or is suitable for."
@@ -314,14 +309,13 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Form.Group controlId="relevantForSelect">
+            <Form.Group>
                 <p>
                     <strong>Relevant for:</strong>
                 </p>
                 <Form.Control
                     as="select"
                     name="relevant_for"
-                    id="relevantForSelect"
                     value={tripPostData.relevant_for || ""}
                     onChange={handleChange}
                     aria-label="Select a group who this post is relevant for."
@@ -341,7 +335,7 @@ function PostCreateForm() {
             ))}
 
             <Row>
-                <Form.Group controlId="duration_value">
+                <Form.Group>
                     <p>
                         <strong>Duration value:</strong>
                     </p>
@@ -350,7 +344,6 @@ function PostCreateForm() {
                         <Form.Control
                             type="number"
                             name="duration_value"
-                            id="duration_value"
                             value={tripPostData.duration_value || ""}
                             onChange={handleChange}
                             placeholder="Enter number"
@@ -364,7 +357,7 @@ function PostCreateForm() {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="duration_unit">
+                <Form.Group>
                     <p>
                         <strong>Duration unit:</strong>
                     </p>
@@ -372,7 +365,6 @@ function PostCreateForm() {
                         <Form.Control
                             as="select"
                             name="duration_unit"
-                            id="duration_unit"
                             value={tripPostData.duration_unit}
                             onChange={handleChange}
                             aria-label="Enter the trip duration unit (unit of time)."
@@ -391,14 +383,13 @@ function PostCreateForm() {
                 ))}
             </Row>
 
-            <Form.Group controlId="image_alt_text">
+            <Form.Group>
                 <p>
                     <strong>Image description:</strong>
                 </p>
                 <Form.Control
                     type="text"
                     name="image_alt_text"
-                    id="image_alt_text"
                     value={image_alt_text || ""}
                     onChange={handleChange}
                     placeholder="Enter a brief description of your image."
