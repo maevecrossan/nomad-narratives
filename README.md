@@ -17,7 +17,7 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 ### User Stories
 
 #### Nomad Narratives User
-|  | User Story |
+| # | User Story |
 | :-- | :-- |
 | 1. | As a logged in user, I can see comments under a post so that I can engage with the content and see others’ opinions. |
 | 2. | As a logged in user, I can add a comment to a post so that I can participate in the discussion. |
@@ -59,7 +59,7 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 | 38. | As a logged in user, I can find posts in search results if their city matches my query so that I can find city-specific content.|
 
 #### Administrator 
-|  | User Story |
+| # | User Story |
 | :-- | :-- |
 | 1. | As an admin user, I can receive messages from both logged in and logged out users so that I can address their inquiries or concerns. |
 | 2. | As an admin I can control what cities and countries are available to users. |
@@ -69,3 +69,11 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 | 6. | As an admin user, I can delete and create likes. |
 | 7. | As an admin user, I can see all registered users. |
 | 7. | As an admin user, I can see, edit, delete and create user profiles. |
+
+#### User Redirection 
+| # | User Story |
+| :-- | :-- |
+| 1. | As a logged out user, I can view the welcome page, sign in, sign up, and contact forms so that I can start engaging with the platform. |
+| 2. | As a logged in user, I can view the welcome page, sign in, sign up, and contact forms so that I can interact with the platform easily. |
+| 3. | As a logged in user, once loged in, I cannot view the sign in and sign up so that I can stay signed in. |
+| 4. | As a logged out user, I am redirected to the homepage when trying to access user-exclusive pages (e.g. new post, feed, likes, comments) so that content is restricted to logged in users. |
