@@ -126,7 +126,10 @@ The following is a consolidated report of screenshots from W3C CSS validator.
 
 For my JavaScript testing, I chose to use ESLint rather JsHint due to it's JSX support. When trying to use JsHint initially, it was throwing syntax errors. 
 
-ESLint was installed as a VSCODE extension. Any issues it identified would show in the 'problems' tab below the code for the relevant file.
+ESLint was installed as a VSCODE extension. Any issues it identified would show in the 'problems' tab below the code for the relevant file. JsHInt was used as a reference tool, but the warnings it rose were caused by the JSX. Other warnings were the `only available` ones.
+
+[ESLint Validation Report](nomad-narratives/documentation/validation/nn-eslint-validation.pdf)
+[ESLint Validation Report (alt link)]()
 
 ### Python Validation
 
