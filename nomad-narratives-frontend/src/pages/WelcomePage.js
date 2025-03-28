@@ -93,20 +93,20 @@ const WelcomePage = () => {
                     ></img>
                 </Col>
                 <Col className={`${styles.ImageCol} d-flex flex-column align-items-center gap-3`}>
-                    <row>
+                    <Row>
                         <img
                             className={styles.SmallDecorImage}
                             src="https://res.cloudinary.com/dimeyes2b/image/upload/v1742650021/media/images/126A8938_ovinq2.jpg"
                             alt="A view of a lake from a driving car."
                         ></img>
-                    </row>
-                    <row>
+                    </Row>
+                    <Row>
                         <img
                             className={styles.SmallDecorImage}
                             src="https://res.cloudinary.com/dimeyes2b/image/upload/v1742974713/hero-image_o33wbu.jpg"
                             alt="A view of mountains and a lake from a road."
                         ></img>
-                    </row>
+                    </Row>
                 </Col>
             </Row>
 
