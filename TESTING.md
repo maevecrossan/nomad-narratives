@@ -122,9 +122,11 @@ The following is a consolidated report of screenshots from W3C CSS validator.
 [CSS W3C Validation (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-css-validation.pdf)
 
 
-### JS Validation
+### JS Validation (ESLint)
 
-<!-- JS Testing -->
+For my JavaScript testing, I chose to use ESLint rather JsHint due to it's JSX support. When trying to use JsHint initially, it was throwing syntax errors. 
+
+ESLint was installed as a VSCODE extension. Any issues it identified would show in the 'problems' tab below the code for the relevant file.
 
 ### Python Validation
 
