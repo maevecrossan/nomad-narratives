@@ -129,6 +129,8 @@ The below results are from the CI Python Linter into which I copied and pasted m
 
 [Python Validation Report](nomad-narratives/documentation/validation/nn-pep8.pdf)
 
+[Python Validation Report (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-pep8.pdf)
+
 
 ## Bugs and Fixes
 
