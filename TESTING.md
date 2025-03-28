@@ -98,6 +98,16 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | A user I can get a message indicating invalid/empty fields. | Yes | ✔ |
 
 
+### User Redirection Tests
+
+| Test Case | Expected Outcome | Passed |
+| :--- | :---: | :---: |
+| A logged out user I can view the welcome page, sign in, sign up and contact forms. | Yes | ✔ |
+| A logged in user I can view the welcome page, sign in, sign up and contact forms. | Yes | ✔ |
+| If their token expires, a logged in user can be redirected to the page they were on when logging in again. | Yes | ✔ |
+| A logged out user will be redirected to the homepage when trying to access user exclusive pages (new post, feed, likes, comments, etc). | Yes | ✔ |
+
+
 ## Bugs and Fixes
 
 | Bug | Fix |
