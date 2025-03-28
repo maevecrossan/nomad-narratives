@@ -88,7 +88,7 @@ function TripPostFeed({message, filter=""}) {
                         )}
                     </>
                 ) : (
-                    <Container className={appStyles.Content}>
+                    <Container className={`${appStyles.Content} d-flex justify-content-center align-items-center`}>
                         <Asset spinner/>
                     </Container>
                 )}
