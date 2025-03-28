@@ -3,6 +3,11 @@
     border-radius: 10px;
 }
 
+.FormHeader {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
 .InlineLink {
     text-decoration: underline;
     color: #5a473a;
