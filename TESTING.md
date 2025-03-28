@@ -10,10 +10,12 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
+| Logged in users can see comments under a post. | Yes | ✔ |
 | Logged in users can add a comment to a post. | Yes | ✔ |
 | Logged in users can edit/update their comment. | Yes | ✔ |
 | Logged in users can delete their comment. | Yes | ✔ |
 | Logged out users can add a comment to a post. | No | ✔ |
+| Logged out users can see comments under a post. | No | ✔ |
 | Logged out users can edit other users comments. | No | ✔ |
 | Logged in users can edit other users comments. | No | ✔ |
 | Users can see the username and profile image belonging to the comment writer. | Yes | ✔ |
