@@ -20,7 +20,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 function TripPostFeed({message, filter=""}) {
     useRedirect('loggedOut');
     
-    const [tripPosts, setTripPosts] = useState({results: [] })
+    const [tripPosts, setTripPosts] = useState({results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const {pathname} = useLocation();
 
@@ -40,10 +40,10 @@ function TripPostFeed({message, filter=""}) {
         setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchTripPosts();
-        }, 1000)
+        }, 1000);
         return () => {
-            clearTimeout(timer)
-        }
+            clearTimeout(timer);
+        };
       }, [filter, query, pathname]);
 
     return (
