@@ -39,10 +39,10 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| Logged in users can like a post by another user | Yes |  |
-| Logged in users can unlike a post they previously liked | Yes |  |
-| Logged in users can like a post they previously liked | No |  |
-| Logged out users can like/unlike posts | No |  |
+| Logged in users can like a post by another user | Yes | ✔ |
+| Logged in users can unlike a post they previously liked | Yes | ✔ |
+| Logged in users can like a post they previously liked | No | ✔ |
+| Logged out users can like/unlike posts | No | ✔ |
 
 
 ### Posts Tests
@@ -51,25 +51,24 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | :--- | :---: | :---: |
 | Posts can be retrieved with a valid ID. | Yes | ✔ |
 | Posts can be retrieved with an invalid ID. | No | ✔ |
-| A logged out user see all posts | Yes |  |
-| A logged in user see all posts | Yes |  |
-| A logged out user can create a post | No |  |
-| A logged in user can create a post | Yes |  |
-| A logged out user can edit a post | No |  |
-| A logged in user can edit a post they own | Yes |  |
-| A logged in user can edit a post they DON'T own. | No |  |
-| A logged out user can delete a post | No |  |
-| A logged in user can delete a post they own | Yes |  |
-| A logged in user can delete a post they DON'T own. | No |  |
-| A logged in user can add an image meeting the sizing criteria. | Yes |  |
-| A logged in user can add an image exceeding the sizing criteria. | No |  |
-| A logged in user can see an error message when attempting to upload an image exceeding the sizing criteria. | Yes |  |
-| A logged in user can add trip details (location, number of travellers, etc) | Yes |  |
-| Users can see comments made under posts. | Yes |  |
-| Posts appear in searches if their title is a match. | Yes |  |
-| Posts appear in searches if their continent is a match. | Yes |  |
-| Posts appear in searches if their country is a match. | Yes |  |
-| Posts appear in searches if their city is a match. | Yes |  |
+| A logged out user see all posts | No | ✔ |
+| A logged in user see all posts | Yes | ✔ |
+| A logged out user can create a post | No | ✔ |
+| A logged in user can create a post | Yes | ✔ |
+| A logged out user can edit a post | No | ✔ |
+| A logged in user can edit a post they own | Yes | ✔ |
+| A logged in user can edit a post they DON'T own. | No | ✔ |
+| A logged out user can delete a post | No | ✔ |
+| A logged in user can delete a post they own | Yes | ✔ |
+| A logged in user can delete a post they DON'T own. | No | ✔ |
+| A logged in user can add an image meeting the sizing criteria. | Yes | ✔ |
+| A logged in user can add an image exceeding the sizing criteria. | No | ✔ |
+| A logged in user can see an error message when attempting to upload an image exceeding the sizing criteria. | Yes | ✔ |
+| A logged in user can add trip details (location, number of travellers, etc) | Yes | ✔ |
+| Users can see comments made under posts. | Yes | ✔ |
+| Posts appear in searches if their title is a match. | Yes | ✔ |
+| Posts appear in searches if their country is a match. | Yes | ✔ |
+| Posts appear in searches if their city is a match. | Yes | ✔ |
 
 
 ### Profiles Tests
