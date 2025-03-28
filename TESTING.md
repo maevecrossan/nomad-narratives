@@ -122,6 +122,10 @@ The following report contains the lighthouse scores for the respective pages use
 
 ### HTML W3C Validation
 
+The following HMTL validation was copied from the rendered HTML in devtools. Each page was copied and pasted in individually.
+
+[W3C HTML Validation](nomad-narratives/documentation/validation/nn-html-validation.pdf)
+
 
 ### CSS W3C Validation
 
