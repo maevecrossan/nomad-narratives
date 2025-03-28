@@ -56,9 +56,9 @@ function TripPostFeed({message, filter=""}) {
                 <Form 
                     className={styles.SearchBar}
                     onSubmit={(event) => event.preventDefault()}
-                    aria-label="search bar"       
                 >
                     <Form.Control
+                        aria-label="Search"
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
                         type="text" 
