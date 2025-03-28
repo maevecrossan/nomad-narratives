@@ -71,6 +71,7 @@ function UserProfilePage() {
                         src={profile?.image}
                         roundedCircle
                         aria-label="User avatar"
+                        alt="User avatar"
                     />
                 </Col>
                 <Col lg={6}>
