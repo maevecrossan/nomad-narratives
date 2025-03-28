@@ -61,7 +61,7 @@ const ContactForm = () => {
                     <Form onSubmit={handleSubmit}>
 
                         <Form.Group controlId="sender_name">
-                            <Form.Label className="d-none">Name</Form.Label>
+                            <Form.Label>Your name:</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="text"
@@ -78,7 +78,7 @@ const ContactForm = () => {
                         ))}
 
                         <Form.Group controlId="email">
-                            <Form.Label className="d-none">Email</Form.Label>
+                            <Form.Label>Your email:</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="email"
@@ -95,7 +95,7 @@ const ContactForm = () => {
                         ))}
 
                         <Form.Group controlId="message">
-                            <Form.Label className="d-none">Message</Form.Label>
+                            <Form.Label>Your message:</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 as="textarea"
