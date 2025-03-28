@@ -182,7 +182,7 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
-            <h2 className={`${appStyles.DmSerifFont} ${appStyles.BrownText} ${styles.FormHeader}`}>New Post</h2>
+            <h1 className={`${appStyles.DmSerifFont} ${appStyles.BrownText} ${styles.FormHeader}`}>New Post</h1>
 
             <p>
                 <strong>Enter a title for your post:</strong>
