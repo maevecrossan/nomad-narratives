@@ -127,7 +127,7 @@ Pylint and Flake8 were used throughout development.
 
 The below results are from the CI Python Linter into which I copied and pasted my code.
 
-<!-- Python Testing -->
+[Python Validation Report](nomad-narratives/documentation/validation/nn-pep8.pdf)
 
 
 ## Bugs and Fixes
