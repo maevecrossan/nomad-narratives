@@ -61,7 +61,7 @@ const ContactForm = () => {
                     <Form onSubmit={handleSubmit}>
 
                         <Form.Group controlId="sender_name">
-                            <Form.Label className={styles.InputLabel}>Your name</Form.Label>
+                            <Form.Label className="d-none">Your name</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="text"
@@ -69,6 +69,7 @@ const ContactForm = () => {
                                 name="sender_name"
                                 value={sender_name}
                                 onChange={handleChange}
+                                aria-label="Enter your name"
                             />
                         </Form.Group>
                         {errors.sender_name?.map((message, idx) => (
@@ -78,7 +79,7 @@ const ContactForm = () => {
                         ))}
 
                         <Form.Group controlId="email">
-                            <Form.Label className={styles.InputLabel}>Your email</Form.Label>
+                            <Form.Label  className="d-none">Your email</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="email"
@@ -86,6 +87,7 @@ const ContactForm = () => {
                                 name="email"
                                 value={email}
                                 onChange={handleChange}
+                                aria-label="Enter your email"
                             />
                         </Form.Group>
                         {errors.email?.map((message, idx) => (
@@ -95,7 +97,7 @@ const ContactForm = () => {
                         ))}
 
                         <Form.Group controlId="message">
-                            <Form.Label className={styles.InputLabel}>Your message</Form.Label>
+                            <Form.Label className="d-none">Your message</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 as="textarea"
@@ -104,6 +106,7 @@ const ContactForm = () => {
                                 value={message}
                                 onChange={handleChange}
                                 rows={4}
+                                aria-label="Enter your name"
                             />
                         </Form.Group>
                         {errors.message?.map((message, idx) => (
