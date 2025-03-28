@@ -49,8 +49,8 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| Posts can be retrieved with a valid ID. | Yes |  |
-| Posts can be retrieved with an invalid ID. | No |  |
+| Posts can be retrieved with a valid ID. | Yes | ✔ |
+| Posts can be retrieved with an invalid ID. | No | ✔ |
 | A logged out user see all posts | Yes |  |
 | A logged in user see all posts | Yes |  |
 | A logged out user can create a post | No |  |
