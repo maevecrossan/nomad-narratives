@@ -110,6 +110,12 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 ## Validator Testing
 
+### WAVE Validation
+
+
+### Lighthouse Validation
+
+
 ### HTML W3C Validation
 
 
