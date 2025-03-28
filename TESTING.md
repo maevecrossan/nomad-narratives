@@ -10,27 +10,27 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| Logged in users can add a comment to a post. | Yes |  |
-| Logged in users can edit/update their comment. | Yes |  |
-| Logged in users can delete their comment. | Yes |  |
-| Logged out users can add a comment to a post. | No |  |
-| Logged out users can edit other users comments. | No |  |
-| Logged in users can edit other users comments. | No |  |
-| Users can see the username and profile image belonging to the comment writer. | Yes |  |
+| Logged in users can add a comment to a post. | Yes | ✔ |
+| Logged in users can edit/update their comment. | Yes | ✔ |
+| Logged in users can delete their comment. | Yes | ✔ |
+| Logged out users can add a comment to a post. | No | ✔ |
+| Logged out users can edit other users comments. | No | ✔ |
+| Logged in users can edit other users comments. | No | ✔ |
+| Users can see the username and profile image belonging to the comment writer. | Yes | ✔ |
 
 
 ### Followers Tests
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| Logged in users can follow another user | Yes |  |
-| Logged in users can unfollow a user they are following | Yes |  |
-| Logged out users can follow another user | No |  |
-| Logged out users can unfollow another user | No |  |
-| Logged in users can follow themselves | No |  |
-| Logged in users can see how many followers they have | Yes |  |
-| Logged in users can see how many followers another user has | Yes |  |
-| A user's follower and following count is instantly reflected if a change is made (i.e. someone is followed/unfollowed) | Yes |  |
+| Logged in users can follow another user | Yes | ✔ |
+| Logged in users can unfollow a user they are following | Yes | ✔ |
+| Logged out users can follow another user | No | ✔ |
+| Logged out users can unfollow another user | No | ✔ |
+| Logged in users can follow themselves | No | ✔ |
+| Logged in users can see how many followers they have | Yes | ✔ |
+| Logged in users can see how many followers another user has | Yes | ✔ |
+| A user's follower and following count is instantly updated if a change is made (i.e. someone is followed/unfollowed) | Yes | ✔ |
 
 
 ### Likes Tests
