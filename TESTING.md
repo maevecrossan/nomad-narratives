@@ -115,6 +115,12 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 ### CSS W3C Validation
 
+The following is a consolidated report of screenshots from W3C CSS validator.
+
+[CSS W3C Validation](nomad-narratives/documentation/validation/nn-css-validation.pdf)
+
+[CSS W3C Validation (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-css-validation.pdf)
+
 
 ### JS Validation
 
