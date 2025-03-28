@@ -87,6 +87,17 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | Users appear in searches if their username is a match. | Yes | ✔ |
 
 
+### Contact Tests
+
+| Test Case | Expected Outcome | Passed |
+| :--- | :---: | :---: |
+| A logged out user I can send a message to admin. | Yes | ✔ |
+| A logged in user I can send a message to admin. | Yes | ✔ |
+| A user I can send a message to admin with missing fields. | No | ✔ |
+| A user I can send a message to admin with invalid fields. | No | ✔ |
+| A user I can get a message indicating invalid/empty fields. | Yes | ✔ |
+
+
 ## Bugs and Fixes
 
 | Bug | Fix |
