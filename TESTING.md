@@ -75,7 +75,7 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 
 | Test Case | Expected Outcome | Passed |
 | :--- | :---: | :---: |
-| A logged out user can create a profile | Yes |  |
+| A logged out user can create a profile by signing up. | Yes |  |
 | Users can upload a personal profile picture | Yes |  |
 | Logged in users can edit their own profile picture | Yes |  |
 | Users (logged in or out) can edit profile picture of other users | No |  |
