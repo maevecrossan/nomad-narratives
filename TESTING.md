@@ -108,6 +108,28 @@ Below is a breakdown of the tests performed to ensure that users can see and int
 | A logged out user will be redirected to the homepage when trying to access user exclusive pages (new post, feed, likes, comments, etc). | Yes | ✔ |
 
 
+## Validator Testing
+
+### HTML W3C Validation
+
+
+### CSS W3C Validation
+
+
+### JS Validation
+
+<!-- JS Testing -->
+
+### Python Validation
+
+Pylint and Flake8 were used throughout development. 
+ - Only one error occured which required a pylint comment (`# pylint: disable=no-member`) to be added when `.objects` was used to prevent the false positive.
+
+The below results are from the CI Python Linter into which I copied and pasted my code.
+
+<!-- Python Testing -->
+
+
 ## Bugs and Fixes
 
 | Bug | Fix |
