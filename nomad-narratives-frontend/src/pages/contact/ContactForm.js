@@ -41,7 +41,7 @@ const ContactForm = () => {
 
     return (
         <Container
-            className={`d-flex flex-column align-items-center justify-content-center ${styles.ContactBgImage}`}
+            className={`d-flex flex-column align-items-center justify-content-center text-align-center ${styles.ContactBgImage}`}
         >
             <Row>
                 <Col>
@@ -61,11 +61,11 @@ const ContactForm = () => {
                     <Form onSubmit={handleSubmit}>
 
                         <Form.Group controlId="sender_name">
-                            <Form.Label>Your name:</Form.Label>
+                            <Form.Label className={styles.InputLabel}>Your name</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="text"
-                                placeholder="Your Name"
+                                placeholder="Name"
                                 name="sender_name"
                                 value={sender_name}
                                 onChange={handleChange}
@@ -78,11 +78,11 @@ const ContactForm = () => {
                         ))}
 
                         <Form.Group controlId="email">
-                            <Form.Label>Your email:</Form.Label>
+                            <Form.Label className={styles.InputLabel}>Your email</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="email"
-                                placeholder="Your Email"
+                                placeholder="Email"
                                 name="email"
                                 value={email}
                                 onChange={handleChange}
@@ -95,11 +95,11 @@ const ContactForm = () => {
                         ))}
 
                         <Form.Group controlId="message">
-                            <Form.Label>Your message:</Form.Label>
+                            <Form.Label className={styles.InputLabel}>Your message</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 as="textarea"
-                                placeholder="Your Message"
+                                placeholder="Message"
                                 name="message"
                                 value={message}
                                 onChange={handleChange}
