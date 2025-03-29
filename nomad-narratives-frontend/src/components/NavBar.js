@@ -7,6 +7,7 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import Avatar from './Avatar';
 import axios from 'axios';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import { removeTokenTimestamp } from '../utils/utils';
 
 
 const NavBar = () => {
@@ -26,6 +27,7 @@ const NavBar = () => {
     const handleConfirmSignOut = async () => {
         try {
             await axios.post('dj-rest-auth/logout/');
+            removeTokenTimestamp();
             setCurrentUser(null);
             setShowModal(false);
             history.push('/');
