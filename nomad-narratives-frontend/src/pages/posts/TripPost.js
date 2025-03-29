@@ -190,7 +190,7 @@ const TripPost = (props) => {
                 <div className="text-center">
                     <p>
                         <strong>
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i className="fa-solid fa-location-dot"></i>
                         </strong>{" "}
                         {cityName ? `${cityName}, ` : ""}
                         {countryName}
