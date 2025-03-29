@@ -87,7 +87,7 @@ function TripPostEditForm() {
                     history.push("/explore");
                 }
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         handleMount(); // Call the function properly
