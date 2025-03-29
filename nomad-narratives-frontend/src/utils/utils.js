@@ -44,3 +44,9 @@ export const unfollowHelper = (profile, clickedProfile) => {
         ? { ...profile, following_count: profile.following_count - 1 }
         : profile;
 };
+
+
+export const setTokenTimestamp = (data) => {
+    const refreshTokenTimestap = jwtDecode(data?.refresh_token).exp
+    localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestap)
+}
