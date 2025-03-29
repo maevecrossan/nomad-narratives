@@ -23,6 +23,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ContactForm from "./pages/contact/ContactForm";
+import PageNotFound from './components/PageNotFound';
 
 function App() {
     const currentUser = useCurrentUser();
@@ -135,6 +136,10 @@ function App() {
                         path="/contact"
                         render={() => <ContactForm />}
                     />
+
+                    <Route 
+                        path="*"
+                        render={() => <PageNotFound />} />
                 </Switch>
             </Container>
         </div>
