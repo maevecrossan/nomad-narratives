@@ -165,8 +165,6 @@ if os.environ.get('DEV') == '1':
         },
     }
 else:
-
-    # Uncomment import at the top of this file for production
     # Use Postgres or another database for production (e.g., Heroku)
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
