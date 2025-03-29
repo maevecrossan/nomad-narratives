@@ -5,6 +5,8 @@ The following is a breakdown of the testing done to ensure that the 'nomadnarrat
 ## Manual Testing
 Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API apps were executed through the default interface created by the Django Rest Framework. These tests were based on the user stories and acceptance criteria [here](https://github.com/users/maevecrossan/projects/5).
 
+These tests are broken down by app.
+
 
 ### Comments Tests
 
