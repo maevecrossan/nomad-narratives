@@ -1,9 +1,9 @@
 # **Agile Development Process**
 ## **Overview** 
 
-To stay on track throughout development, I followed agile methodologies and made use of sprints and epics. This project was based of the 'Moments' walkthrough project by the Code Institute, and so I decided to follow the pathway of that project's development. I set out a time frame for what I wanted to complete and when. 
+To stay on track throughout development, I followed agile methodologies and made use of sprints and epics. This project was based of the 'Moments' walkthrough project by the Code Institute, and so I decided to follow the pathway of that project's development and make adjustments to suit my needs.
 
-Below is an outline of the spint timelines that I outlined during my planning. The end column shows whether the sprints were completed by the outlined date or not.
+Below is an outline of the spint timelines that I outlined during my planning stage. The end column shows whether the sprints were completed by the outlined date or not.
 
 | Sprint Number | Duration | Completed |
 | :--------: | :-------: | :-------: |
@@ -15,9 +15,95 @@ Below is an outline of the spint timelines that I outlined during my planning. T
 | 5 | 08/03/2025 - 13/03/2025 | On Time |
 | 6 | 14/03/2025 - 19/03/2025 | Late |
 | 7 | 21/03/2025 - 27/03/2025 | On Time |
-| 8 | 28/03/2025 - 01/03/2025 | On Time |
+| 8 | 28/03/2025 - 01/04/2025 | On Time |
 
 *Any errors spoken about below will be included in the 'Bugs and Fixes' section of the TESTING.md file*
+
+## **Epics**
+
+Below are the epics I used to break down my development.
+
+### *Epic 1: Backend Setup & Authentication*
+This epic includes setting up the Django backend, authentication, and database connections.
+
+- Set up Django project and install necessary packages (DRF, Cloudinary, CORS, AllAuth).
+
+- Configure user authentication system with Django AllAuth.
+
+- Implement basic CRUD functionality for user profiles.
+
+### **Epic 2: Core API Development (Posts, Comments, Likes)**
+This epic focuses on building the main backend logic and API endpoints.
+
+- Create Post model and API endpoints for CRUD operations.
+
+- Implement Comments model and allow users to comment on posts.
+
+- Add Likes functionality to track user interactions with posts.
+
+- Enable filtering, pagination, and search for posts.
+
+- Outline pagination a search functionality parameters.
+
+### **Epic 3: User Interaction & Social Features**
+
+This epic focuses on the Followers system and user engagement.
+
+- Implement the Followers system to allow users to follow/unfollow.
+
+- Display a personalized feed based on followed users.
+
+- Show follower/following counts on user profiles.
+
+### **Epic 4: Frontend Development & Integration**
+This epic focuses on setting up the React frontend and connecting it to the API.
+
+- Set up React app and configure API connection with Axios.
+
+- Implement authentication (login, logout, register).
+
+- Create Post feed with dynamic content fetching.
+
+- Implement infinite scrolling for posts.
+
+- Ensure mobile responsiveness and basic styling.
+
+### **Epic 5: User Profiles & Post Management**
+This epic involves profile customization and post management features.
+
+- Build user profile pages displaying personal posts and details.
+
+- Allow users to edit/update profile information (bio, profile picture).
+
+- Implement Post creation form (TripPostCreateForm) with validation.
+
+- Allow users to edit/update posts.
+
+- Enable users to edit and delete their own posts.
+
+### **Epic 6: UI/UX Enhancements & Error Handling**
+This epic focuses on improving the UI/UX and refining the user experience.
+
+- Add loading indicators and error handling to API requests.
+
+- Improve form validation and user feedback messages.
+
+- Refine navigation and layout for a smoother user experience.
+
+- Conduct manual testing and bug fixes before final deployment.
+
+### **Epic 7: Deployment & Final Testing**
+This epic covers deployment and final quality assurance.
+
+- Optimize performance for deployment.
+
+- Set up production environment and deploy the app on Heroku.
+
+- Conduct final integration testing between backend and frontend.
+
+- Write final project documentation.
+
+-----
 
 ## **Sprints: The Finer Details**
 
@@ -30,6 +116,7 @@ During this sprint, I:
 * Set up User authentication models (if not already handled).
 * Configured CORS headers for API accessibility.
 * Initialized project settings (database setup, installed apps, middleware configuration).
+* Setup Django admin panel.
 
 *This sprint was completed on time.*
 
@@ -133,4 +220,3 @@ During this sprint, I:
 *This sprint was completed on time.*
 
 ----
-
