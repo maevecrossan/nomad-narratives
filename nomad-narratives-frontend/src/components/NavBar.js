@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Modal, Button } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import logo from '../assets/nn-logo-brown-transparent.png';
 import styles from '../styles/NavBar.module.css';
 import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
