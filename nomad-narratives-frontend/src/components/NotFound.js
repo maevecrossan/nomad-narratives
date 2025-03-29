@@ -1,1 +1,0 @@
-import NotFound from '../../src/assets/not-found.png'
