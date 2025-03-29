@@ -37,7 +37,7 @@ function TripPostPage() {
                 setTripPost({ results: [tripPost] });
                 setComments(comments);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         handleMount();
