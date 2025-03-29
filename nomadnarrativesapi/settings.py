@@ -156,7 +156,7 @@ WSGI_APPLICATION = 'nomadnarrativesapi.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if os.environ.get('DEV') == '1':
-    # Uncomment the following lines to use sqlite3 for testing
+    # Uncomment the 'dev' in env.py to use sqlite3 for testing
     # Use SQLite for development or testing
     DATABASES = {
         'default': {
