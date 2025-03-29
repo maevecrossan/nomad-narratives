@@ -46,7 +46,7 @@ const TripPost = (props) => {
             await axiosRes.delete(`/posts/${id}/`);
             history.goBack();
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -116,7 +116,7 @@ const TripPost = (props) => {
                 }));
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
         return () => {
             isMounted = false;
@@ -139,7 +139,7 @@ const TripPost = (props) => {
                 }),
             }));
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
