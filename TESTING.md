@@ -119,24 +119,24 @@ These tests are broken down by app.
 
 The following report contains the lighthouse scores for the respective pages users can visit.
 
-[Lighthouse Validation Report](nomad-narratives/documentation/validation/nn-lighthouse-validation.pdf)
-[Lighthouse Validation Report (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-lighthouse-validation.pdf)
+[Lighthouse Validation Report]()
+[Lighthouse Validation Report (alt link)]()
 
 ### HTML W3C Validation
 
 The following HMTL validation was copied from the rendered HTML in devtools. Each page was copied and pasted in individually.
 
-[W3C HTML Validation](nomad-narratives/documentation/validation/nn-html-validation.pdf)
-[W3C HTML Validation (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-html-validation.pdf)
+[W3C HTML Validation]()
+[W3C HTML Validation (alt link)]()
 
 
 ### CSS W3C Validation
 
 The following is a consolidated report of screenshots from W3C CSS validator.
 
-[CSS W3C Validation](nomad-narratives/documentation/validation/nn-css-validation.pdf)
+[CSS W3C Validation]()
 
-[CSS W3C Validation (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-css-validation.pdf)
+[CSS W3C Validation (alt link)]()
 
 
 ### JS Validation (ESLint)
@@ -145,8 +145,8 @@ For my JavaScript testing, I chose to use ESLint rather JsHint due to it's JSX s
 
 ESLint was installed as a VSCODE extension. Any issues it identified would show in the 'problems' tab below the code for the relevant file. JsHInt was used as a reference tool, but the warnings it rose were caused by the JSX. Other warnings were the `only available` ones.
 
-[ESLint Validation Report](nomad-narratives/documentation/validation/nn-eslint-validation.pdf)
-[ESLint Validation Report (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-eslint-validation.pdf)
+[ESLint Validation Report]()
+[ESLint Validation Report (alt link)]()
 
 ### Python Validation
 
@@ -155,9 +155,9 @@ Pylint and Flake8 were used throughout development.
 
 The below results are from the CI Python Linter into which I copied and pasted my code.
 
-[Python Validation Report](nomad-narratives/documentation/validation/nn-pep8.pdf)
+[Python Validation Report]()
 
-[Python Validation Report (alt link)](https://github.com/maevecrossan/nomad-narratives/blob/main/documentation/validation/nn-pep8.pdf)
+[Python Validation Report (alt link)]()
 
 
 ## Bugs and Fixes
