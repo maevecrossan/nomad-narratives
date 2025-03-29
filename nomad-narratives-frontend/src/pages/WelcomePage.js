@@ -78,7 +78,7 @@ const WelcomePage = () => {
                             ${btnStyles.Brown} py-2 px-3`}
                             to="/sign-up"
                         >
-                            <i class="fa-solid fa-users"></i> 
+                            <i className="fa-solid fa-users"></i> 
                             Sign up here!
                         </Link>
                     </div>
