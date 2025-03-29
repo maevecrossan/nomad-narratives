@@ -1,7 +1,7 @@
 # **Agile Development Process**
 ## **Overview** 
 
-To stay on track throughout development, I followed agile methodologies and made use of sprints and epics.
+To stay on track throughout development, I followed agile methodologies and made use of sprints and epics. This project was based of the 'Moments' walkthrough project by the Code Institute, and so I decided to follow the pathway of that project's development. I set out a time frame for what I wanted to complete and when. 
 
 Below is an outline of the spint timelines that I outlined during my planning. The end column shows whether the sprints were completed by the outlined date or not.
 
@@ -113,9 +113,10 @@ During this sprint, I:
 * Added follow/unfollow functionality with API integration.
 * Conducted UI refinements based on feedback.
 * Fixed bugs identified during testing and refined overall performance.
+* Implemented an admin contact form.
 
 
-*This sprint was completed on time.*
+*This sprint was completed early so I decided to add a contact form.*
 
 ----
 
@@ -132,3 +133,4 @@ During this sprint, I:
 *This sprint was completed on time.*
 
 ----
+
