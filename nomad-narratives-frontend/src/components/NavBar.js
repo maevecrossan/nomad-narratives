@@ -128,7 +128,7 @@ const NavBar = () => {
 
                 >
                 {/* Contact form */}
-                <i class="fa-solid fa-circle-question"></i>
+                <i className="fa-solid fa-circle-question"></i>
             </NavLink>
 
         </>
