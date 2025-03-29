@@ -50,3 +50,8 @@ export const setTokenTimestamp = (data) => {
     const refreshTokenTimestap = jwtDecode(data?.refresh_token).exp
     localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestap)
 }
+
+
+export const shouldRefreshToken = () => {
+    return !!localStorage.getItem("refreshTokenTimestamp")
+}
