@@ -10,9 +10,25 @@ At Nomad Narratives, we believe that every journey is special, and each story ho
 
 Sign up to gain full access to this community-driven space. Once you’re a member, you can contribute your travel stories, engage with others through comments and interact with other users!
 
+## Planning
+
+### Agile Development
+
+### Strategy
+#### Site aims
+
+#### Opportunities
+
+### Scope
+
+### Structure
+
+### Skeleton
+
+### Surface
+
 ## UX
 ### Target Audience
-
 
 ### User Stories
 
@@ -77,3 +93,17 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 | 2. | As a logged in user, I can view the welcome page, sign in, sign up, and contact forms so that I can interact with the platform easily. |
 | 3. | As a logged in user, once loged in, I cannot view the sign in and sign up so that I can stay signed in. |
 | 4. | As a logged out user, I am redirected to the homepage when trying to access user-exclusive pages (e.g. new post, feed, likes, comments) so that content is restricted to logged in users. |
+
+
+## Testing
+
+## Features
+
+## Deployment
+## Future Developments
+
+## Credits
+
+### Tech Used
+
+### Resources
