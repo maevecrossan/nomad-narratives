@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/container";
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
 
