@@ -187,7 +187,7 @@ const NavBar = () => {
                 to="/contact" 
                 className={styles.NavLink}
                 >
-                <i class="fa-solid fa-circle-question"></i>
+                <i className="fa-solid fa-circle-question"></i>
                 Contact Us
             </NavLink>
     </>
