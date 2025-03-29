@@ -42,7 +42,7 @@ ALLOWED_HOSTS = [
     # os.environ.get('ALLOWED_HOST'),
     'localhost',
     '127.0.0.1',
-    'https://nomad-narratives-05968209a16d.herokuapp.com',
+    'nomad-narratives-05968209a16d.herokuapp.com',
 ]
 
 # Application definition
