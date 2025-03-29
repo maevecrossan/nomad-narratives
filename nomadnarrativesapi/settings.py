@@ -156,7 +156,6 @@ WSGI_APPLICATION = 'nomadnarrativesapi.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if os.environ.get('DEV') == '1':
-    print('Development environment')
     # Uncomment the following lines to use sqlite3 for testing
     # Use SQLite for development or testing
     DATABASES = {
@@ -166,7 +165,6 @@ if os.environ.get('DEV') == '1':
         },
     }
 else:
-    print('Production environment')
 
     # Uncomment import at the top of this file for production
     # Use Postgres or another database for production (e.g., Heroku)
