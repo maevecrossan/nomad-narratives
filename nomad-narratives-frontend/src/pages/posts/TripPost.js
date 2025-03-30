@@ -297,9 +297,9 @@ const TripPost = (props) => {
                     {comments_count}
                 </div>
             </Card.Body>
-            
+
             {/* Delete Confirmation Modal */}
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal show={showModal} onHide={handleCloseModal} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Confirm Delete</Modal.Title>
                 </Modal.Header>
