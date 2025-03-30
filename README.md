@@ -138,7 +138,23 @@ The sign in page looks like the sign up page but the image is different. There i
 The contact page is in the same style as the sign in and sign up pages. It is accessible for all users (logged in or out) and requires users to enter in their name, email and a message. The valid submitted data will be sent to and visible in the admin panel by staff users. 
 
 ### New Post Page
+The new post page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page.
 
+The new post page houses a form through which users can create their own posts. This form has several fields, all of which are required. The form inputs are:
+    - image upload: a clickable icon housed to the left of the main form where users can upload a valid image. An error message will appear should they try to upload an image that is too big.
+    - title: A small text field.
+    - content: a larger text field.
+    - Country: a dropdown list of countries.
+    - City: a dropdown list of cities.
+    - Traveller number: a field that accepts postive numbers above zero.
+    - Relevant for: a dropdown list of predetermined options.
+    - Duration value: a field that accepts postive numbers above zero.
+    - Duration Unit: a dropdown list of predetermined options.
+    - Image description: A small text field.
+
+Above the country select field is a message in which is a link to the contact us page. Users are asked to send admin a message if they notice a missing country, city, or experience another error.
+
+Should the user choose to not create a post, they can click 'cancel' to be redirected to the previous page they were on. If users submit a post form with valid details, they will be redirected to the post page where they can see their full published post.
 
 ### Explore
 
