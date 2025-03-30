@@ -112,9 +112,20 @@ The navigation bar links render conditionally based on the users authentication 
 However, if a user is logged in, they can view all of these links (bar the sign in and sign up pages) as well as the new post, explore, my feed, my likes and sign out links. If a logged out user tried to access these pages, they would be redirected to the homepage.
 
 ### Welcome Page
+The welcome page is effectively split into four sections: the hero, about us, gallery row, and community guidelines.
 
+The hero welcomes to user to the website and hooks them in with the 'Where will your next story take you?' question. The background image is of a dark, foggy forest.
+
+The 'about us' section gives a brief but concise explanation of the website's purpose. It also houses a link to the sign up page should the user choose to do so.
+
+Next is the gallery row which, on larger screens, houses three images (one vertical, two stacked horizontally). On smaller screens, the larger vertical image is hidden so users can easily access the community guidelines section without needing to scroll too long.
+
+The community guidelines section outlines the community values and expectations for users.
+
+The about us and community guidelines sections are accessible via the navbar for logged out users. When users click the link, they will be automatically brought to that section.
 
 ### Sign In Page
+
 
 
 ### Sign Up Page
