@@ -189,7 +189,7 @@ The features of this page remain exactly the same, however on this page are the 
 See 'explore page' for a full list of features.
 
 ### Sign Out
-
+This is not a page but a model that appears when the user clicks the sign out nav link. The user can dismiss the model by clicking the 'x', the 'cancel' button, or by clickin outside the modal. If the user confirms they want to sign out, they will be redirected to the welcome page.
 
 ## Deployment
 ## Future Developments
