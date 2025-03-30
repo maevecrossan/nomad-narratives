@@ -124,14 +124,14 @@ The community guidelines section outlines the community values and expectations 
 
 The about us and community guidelines sections are accessible via the navbar for logged out users. When users click the link, they will be automatically brought to that section.
 
-### Sign In Page
-The sign in page is very minimal in order to not visually overload the user. The for fields are positioned over a photograph. 
-
-Users are expected to enter a username and a password (twice). They will receive an error if any of the three fields are contain no or invalid information. Users are also expected to agree to adhere to the community guidelines and can only submit the form if they agree by checking the box. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress.
-
-
 ### Sign Up Page
+The sign up page is very minimal in order to not visually overload the user. The for fields are positioned over a photograph. 
 
+Users are expected to enter a username and a password (twice). They will receive an error if any of the three fields are contain no or invalid information. Users are also expected to agree to adhere to the community guidelines and can only submit the form if they agree by checking the box. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress. Once the submit button is pressed (and the form contains valid information), users will be redirected to the sign in page.
+
+This page is not accessible by authorised/logged in users.
+
+### Sign In Page
 
 
 ### Contact Us Page
