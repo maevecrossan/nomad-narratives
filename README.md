@@ -24,6 +24,9 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 ### Structure
 
 ### Skeleton
+#### Wireframes
+
+#### Database
 
 ### Surface
 
