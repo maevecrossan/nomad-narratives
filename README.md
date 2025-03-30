@@ -102,7 +102,11 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 The following is a breakdown of the features of each page of the project.
 
 ### NavBar
+The navigation bar component sits at the top of the window for each page. It is fully responsive and collapses to a burger menu on smaller screens where the links will stack vertically. 
 
+The navigation bar links render conditionally based on the users authentication status. If they are logged out, they cannot make or view posts, comments or likes. The will only see links for the welcome page, about us and community guidelines sections, sign in and sign up links, and the contact us form.
+
+However, if a user is logged in, they can view all of these links (bar the sign in and sign up pages) as well as the new post, explore, my feed, my likes and sign out links. If a logged out user tried to access these pages, they would be redirected to the homepage.
 
 ### Welcome Page
 
