@@ -132,7 +132,7 @@ Users are expected to enter a username and a password (twice). They will receive
 This page is not accessible by authorised/logged in users.
 
 ### Sign In Page
-
+The sign in page looks like the sign up page but the image is different. There is a username and password field which will only accept valid inputs. There is a sign in button below which is a prompt to sign up if the user has not created an account.
 
 ### Contact Us Page
 
