@@ -188,6 +188,13 @@ The features of this page remain exactly the same, however on this page are the 
 
 See 'explore page' for a full list of features.
 
+### Post Page
+The post page is visible when clicking a 'read more' link. If the user is the owner of the post, they will be able to see a three-dot dropdown menu where they can edit or delete a post. 
+If they chose to edit a post, it will redirect them to the post creation page where they form will be prepopulated with their post content. 
+If they chose to delete their post, a modal will appear so the user can confirm they want to delete it in case the click was a mistake.
+
+All users will be able to see comments made by other users too.
+
 ### Sign Out
 This is not a page but a model that appears when the user clicks the sign out nav link. The user can dismiss the model by clicking the 'x', the 'cancel' button, or by clickin outside the modal. If the user confirms they want to sign out, they will be redirected to the welcome page.
 
