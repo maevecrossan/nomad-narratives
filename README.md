@@ -157,7 +157,24 @@ Above the country select field is a message in which is a link to the contact us
 Should the user choose to not create a post, they can click 'cancel' to be redirected to the previous page they were on. If users submit a post form with valid details, they will be redirected to the post page where they can see their full published post.
 
 ### Explore
+The explore page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page.
 
+The explore page shows articles by all users, with the most recent at the top. Above the articles is a search bar that users can make use of if they are looking for a certain post, user or destination.
+
+Only a preview of the articles are shown on this page for a smoother user experience. The users can scroll infinitely and see all the details about a post at a glance:
+    - User/author
+    - Post title
+    - Location
+    - Date published
+    - Traveller number
+    - Relevant for
+    - Duration
+    - Content preview.
+
+Should a user choose to read the full blog post, they can click the 'read more' link under the preview. 
+To the right of the posts is a popular profiles section. This shows the top 10 users by follower-based popularity.
+
+These styles remain the same across the explore, my feed and my likes page.
 
 ### My Feed
 
