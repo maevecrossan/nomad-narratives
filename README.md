@@ -99,6 +99,38 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 
 ## Features
 
+The following is a breakdown of the features of each page of the project.
+
+### NavBar
+
+
+### Welcome Page
+
+
+### Sign In Page
+
+
+### Sign Up Page
+
+
+### Contact Us Page
+
+
+### New Post Page
+
+
+### Explore
+
+
+### My Feed
+
+
+### My Likes
+
+
+### Sign Out
+
+
 ## Deployment
 ## Future Developments
 
