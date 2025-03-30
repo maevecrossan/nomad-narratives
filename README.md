@@ -135,7 +135,7 @@ This page is not accessible by authorised/logged in users.
 The sign in page looks like the sign up page but the image is different. There is a username and password field which will only accept valid inputs. There is a sign in button below which is a prompt to sign up if the user has not created an account.
 
 ### Contact Us Page
-
+The contact page is in the same style as the sign in and sign up pages. It is accessible for all users (logged in or out) and requires users to enter in their name, email and a message. The valid submitted data will be sent to and visible in the admin panel by staff users. 
 
 ### New Post Page
 
