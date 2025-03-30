@@ -5,6 +5,8 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -33,6 +35,7 @@ const TripPost = (props) => {
         details,
     } = props;
 
+    const [showModal, setShowModal] = useState(false);
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
@@ -41,13 +44,21 @@ const TripPost = (props) => {
         history.push(`/posts/${id}/edit`);
     };
 
-    const handleDelete = async () => {
+    const handleDeleteClick = async () => {
+        setShowModal(true);
+    };
+    const handleConfirmDelete = async () => {
         try {
             await axiosRes.delete(`/posts/${id}/`);
+            setShowModal(false);
             history.goBack();
         } catch (err) {
             // console.log(err);
         }
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
     };
 
     const countryId = details?.country;
@@ -170,7 +181,7 @@ const TripPost = (props) => {
                         {is_owner && TripPostPage && (
                             <OptionsDropdown
                                 handleEdit={handleEdit}
-                                handleDelete={handleDelete}
+                                handleDelete={handleDeleteClick}
                             />
                         )}
                     </div>
@@ -243,7 +254,9 @@ const TripPost = (props) => {
                 )}
                 {/* Show full content on the post page */}
                 {TripPostPage && (
-                    <Card.Text className={appStyles.TextLeft}>{renderContentWithBreaks(content)}</Card.Text>
+                    <Card.Text className={appStyles.TextLeft}>
+                        {renderContentWithBreaks(content)}
+                    </Card.Text>
                 )}{" "}
                 {/* Render full content with line breaks */}
                 <div className={styles.PostBar}>
@@ -275,14 +288,34 @@ const TripPost = (props) => {
                         </OverlayTrigger>
                     )}
                     {likes_count}
-                    <Link 
+                    <Link
                         to={`/posts/${id}`}
-                        aria-label="Link to comments for this post.">
+                        aria-label="Link to comments for this post."
+                    >
                         <i className="fa-solid fa-comments" />
                     </Link>
                     {comments_count}
                 </div>
             </Card.Body>
+            
+            {/* Delete Confirmation Modal */}
+            <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Are you sure you want to delete this post? 
+                    This action cannot be undone.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseModal}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger" onClick={handleConfirmDelete}>
+                        Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Card>
     );
 };
