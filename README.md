@@ -170,17 +170,23 @@ Only a preview of the articles are shown on this page for a smoother user experi
     - Relevant for
     - Duration
     - Content preview.
+    - Likes count
+    - Comments count
 
-Should a user choose to read the full blog post, they can click the 'read more' link under the preview. 
+Should a user choose to read the full blog post, they can click the 'read more' link under the preview. The user can see if they have liked the post as the heart will be red if they have liked it, or grey and white if they haven't. By clicking on the comment bubbles, the user will be brought to the comments section for that particular post.
 To the right of the posts is a popular profiles section. This shows the top 10 users by follower-based popularity.
 
 These styles remain the same across the explore, my feed and my likes page.
 
 ### My Feed
+The features of this page remain exactly the same, however on this page is only posts created by the users the (currently logged in) user follows.
 
+See 'explore page' for a full list of features.
 
 ### My Likes
+The features of this page remain exactly the same, however on this page are the posts the (currently logged in) user has liked.
 
+See 'explore page' for a full list of features.
 
 ### Sign Out
 
