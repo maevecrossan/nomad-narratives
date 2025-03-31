@@ -62,7 +62,10 @@ const SignInForm = () => {
 
             <Row>
                 <Col>
-                    <Form onSubmit={handleSubmit}>
+                    <Form
+                        onSubmit={handleSubmit}
+                        className={styles.FormWrapper}
+                    >
                         <Form.Group controlId="username">
                             <Form.Label className="d-none">username</Form.Label>
                             <Form.Control
