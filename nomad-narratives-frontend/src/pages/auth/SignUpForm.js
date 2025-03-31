@@ -70,6 +70,7 @@ const SignUpForm = () => {
 						value={username}
 						onChange={handleChange}
 						aria-label="Enter your username"
+						required
 					/>
 					</Form.Group>
 					{errors.username?.map((message, idx) => (
@@ -88,6 +89,7 @@ const SignUpForm = () => {
 						value={password1}
 						onChange={handleChange}
 						aria-label="Enter your password"
+						required
 					/>
 					</Form.Group>
 					{errors.password1?.map((message, idx) => (
@@ -106,6 +108,7 @@ const SignUpForm = () => {
 						value={password2}
 						onChange={handleChange}
 						aria-label="Enter your password again"
+						required
 					/>
 					</Form.Group>
 					{errors.password2?.map((message, idx) => (
@@ -121,6 +124,7 @@ const SignUpForm = () => {
 							checked={isChecked}
 							onChange={handleCheckboxChange}
 							aria-label="Check the box to agree to adhere to the community guidelines"
+							required
 						/>
 						<div className="d-flex justify-content-center">
 							<Link className={styles.Link} to="/welcome#community-guidelines">
