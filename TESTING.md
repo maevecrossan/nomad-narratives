@@ -1,9 +1,9 @@
-# Testing: API
+# Testing
 
-The following is a breakdown of the testing done to ensure that the 'nomadnarrativesapi' behaves as intended and without any errors.
+The following is a breakdown of the testing done to ensure that the Nomad Narratives app behaves as intended and without any errors.
 
 ## Manual Testing
-Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API apps were executed through the default interface created by the Django Rest Framework. These tests were based on the user stories and acceptance criteria [here](https://github.com/users/maevecrossan/projects/5).
+Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API apps were executed through the default interface created by the Django Rest Framework. The apps were retested once the front end functionality was implemented. The front end functionality was also tested. These tests were based on the user stories and acceptance criteria [here](https://github.com/users/maevecrossan/projects/5).
 
 These tests are broken down by app.
 
