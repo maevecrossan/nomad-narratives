@@ -75,6 +75,7 @@ const ContactForm = () => {
                                 value={sender_name}
                                 onChange={handleChange}
                                 aria-label="Enter your name"
+                                required
                             />
                         </Form.Group>
                         {errors.sender_name?.map((message, idx) => (
@@ -93,6 +94,7 @@ const ContactForm = () => {
                                 value={email}
                                 onChange={handleChange}
                                 aria-label="Enter your email"
+                                required
                             />
                         </Form.Group>
                         {errors.email?.map((message, idx) => (
@@ -112,6 +114,7 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 rows={4}
                                 aria-label="Enter your name"
+                                required
                             />
                         </Form.Group>
                         {errors.message?.map((message, idx) => (
