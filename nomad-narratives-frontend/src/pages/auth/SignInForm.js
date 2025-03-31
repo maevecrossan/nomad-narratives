@@ -52,16 +52,12 @@ const SignInForm = () => {
 
     return (
         <Container
-            className={`d-flex flex-column align-items-center justify-content-center ${styles.SignInBgImage}`}
+            className={`d-flex flex-column align-items-center justify-content-center text-align-center ${styles.SignInBgImage}`}
         >
             <Row>
                 <Col>
                     <h1 className={`${styles.Header}`}>Sign In</h1>
-                </Col>
-            </Row>
 
-            <Row>
-                <Col>
                     <Form
                         onSubmit={handleSubmit}
                         className={styles.FormWrapper}

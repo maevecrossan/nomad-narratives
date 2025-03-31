@@ -49,7 +49,7 @@ const ContactForm = () => {
             className={`d-flex flex-column align-items-center justify-content-center text-align-center ${styles.ContactBgImage}`}
         >
             <Row>
-                <Col>
+                <Col className="d-flex flex-column align-items-center justify-content-center text-align-center">
                     <h1 className={`${styles.Header}`}>
                         <strong>
                             Contact Us
@@ -58,12 +58,8 @@ const ContactForm = () => {
                     <p className={`${styles.InfoText} mb-4`}>
                         See a bug? Have a question or suggestion? Get in touch with us below!
                     </p>
-                </Col>
-            </Row>
 
-            <Row>
-                <Col>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} className={styles.FormWrapper}>
 
                         <Form.Group controlId="sender_name">
                             <Form.Label className="d-none">Your name</Form.Label>

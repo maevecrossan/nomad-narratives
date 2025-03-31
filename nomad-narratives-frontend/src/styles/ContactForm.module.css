@@ -8,6 +8,11 @@
 	border-radius: 6px;
 }
 
+.FormWrapper {
+    min-width: 280px;
+    max-width: 410px;
+}
+
 .InputLabel {
     color: #fff8ed;
     font-weight: 600;
@@ -32,15 +37,14 @@
     color: #797979;
     text-align: center;
     padding: 10px;
-	width: 395px;
-    min-width: 220px;
+	width: 100%;
     display: block;
 }
   
 .Header {
     font-style: normal;
     font-weight: bold;
-    line-height: 19px;
+    line-height: 40px;
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -65,7 +69,9 @@
     border-color: transparent;
     padding: 13px 15px;
     min-width: 75px;
+    max-width: 85%;
     color: #5a473a;
     background-color: #fff8ed;
     flex-wrap: wrap;
+    text-align: center;
 }
