@@ -195,6 +195,7 @@ function PostCreateForm() {
                     value={title}
                     onChange={handleChange}
                     aria-label="Enter a title for your post"
+                    required
                 />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
@@ -215,6 +216,7 @@ function PostCreateForm() {
                     value={content}
                     onChange={handleChange}
                     aria-label="Add your post content"
+                    required
                 />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
@@ -251,6 +253,7 @@ function PostCreateForm() {
                     value={selectedCountry || ""}
                     onChange={handleCountryChange}
                     aria-label="Select a country"
+                    required
                 >
                     <option value="">Select a country</option>
                     {countries.map((country) => (
@@ -276,6 +279,7 @@ function PostCreateForm() {
                     onChange={handleCityChange}
                     disabled={!selectedCountry}
                     aria-label="Select a city"
+                    required
                 >
                     <option value="">Select a city</option>
                     {cities.map((city) => (
@@ -301,6 +305,7 @@ function PostCreateForm() {
                     value={tripPostData.traveller_number || ""}
                     onChange={handleChange}
                     aria-label="Select a number of travellers your story features or is suitable for."
+                    required
                 />
             </Form.Group>
             {errors?.traveller_number?.map((message, idx) => (
@@ -319,6 +324,7 @@ function PostCreateForm() {
                     value={tripPostData.relevant_for || ""}
                     onChange={handleChange}
                     aria-label="Select a group who this post is relevant for."
+                    required
                 >
                     <option value="">Select a group</option>
                     <option value="all">All Genders & Orientations</option>
@@ -348,6 +354,7 @@ function PostCreateForm() {
                             onChange={handleChange}
                             placeholder="Enter number"
                             aria-label="Enter the trip duration value (number)."
+                            required
                         />
                     </Col>
                 </Form.Group>
@@ -368,6 +375,7 @@ function PostCreateForm() {
                             value={tripPostData.duration_unit}
                             onChange={handleChange}
                             aria-label="Enter the trip duration unit (unit of time)."
+                            required
                         >
                             <option value="days">Day(s)</option>
                             <option value="weeks">Week(s)</option>
@@ -394,6 +402,7 @@ function PostCreateForm() {
                     onChange={handleChange}
                     placeholder="Enter a brief description of your image."
                     aria-label="Enter a brief description of your image."
+                    required
                 />
             </Form.Group>
             {errors?.image_alt_text?.map((message, idx) => (
@@ -463,6 +472,7 @@ function PostCreateForm() {
                                 onChange={handleChangeImage}
                                 style={{ display: "none" }}
                                 ref={imageInput}
+                                required
                             />
                         </Form.Group>
                         {errors?.image?.map((message, idx) => (
