@@ -100,6 +100,7 @@ The details of my agile development can be found [here](AGILE.md).
 
 
 ## Testing
+The details for my testing can be found [here](TESTING.md).
 
 ## Features
 
