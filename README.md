@@ -13,6 +13,7 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 ## Planning
 
 ### Agile Development
+The details of my agile development can be found [here](AGILE.md).
 
 ### Strategy
 #### Site aims
@@ -199,6 +200,7 @@ All users will be able to see comments made by other users too.
 This is not a page but a model that appears when the user clicks the sign out nav link. The user can dismiss the model by clicking the 'x', the 'cancel' button, or by clickin outside the modal. If the user confirms they want to sign out, they will be redirected to the welcome page.
 
 ## Deployment
+
 ## Future Developments
 
 ## Credits
