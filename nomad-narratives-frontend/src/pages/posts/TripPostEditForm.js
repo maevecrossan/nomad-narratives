@@ -226,6 +226,7 @@ function TripPostEditForm() {
                     name="title"
                     value={title}
                     onChange={handleChange}
+                    required
                 />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
@@ -242,6 +243,7 @@ function TripPostEditForm() {
                     rows={10}
                     value={content}
                     onChange={handleChange}
+                    required
                 />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
@@ -256,6 +258,7 @@ function TripPostEditForm() {
                     as="select"
                     value={selectedCountry || ""}
                     onChange={handleCountryChange}
+                    required
                 >
                     <option value="">Select a country</option>
                     {countries.map((country) => (
@@ -278,6 +281,7 @@ function TripPostEditForm() {
                     value={selectedCity || ""}
                     onChange={handleCityChange}
                     disabled={!selectedCountry}
+                    required
                 >
                     <option value="">Select a city</option>
                     {cities.map((city) => (
@@ -300,6 +304,7 @@ function TripPostEditForm() {
                     name="traveller_number"
                     value={tripPostData.traveller_number || ""}
                     onChange={handleChange}
+                    required
                 />
             </Form.Group>
             {errors?.traveller_number?.map((message, idx) => (
@@ -315,6 +320,7 @@ function TripPostEditForm() {
                     name="relevant_for"
                     value={tripPostData.relevant_for || ""}
                     onChange={handleChange}
+                    required
                 >
                     <option value="">Select a group</option>
                     <option value="all">All Genders & Orientations</option>
@@ -340,6 +346,7 @@ function TripPostEditForm() {
                             value={tripPostData.duration_value || ""}
                             onChange={handleChange}
                             placeholder="Enter number"
+                            required
                         />
                     </Col>
                     <Col>
@@ -348,6 +355,7 @@ function TripPostEditForm() {
                             name="duration_unit"
                             value={tripPostData.duration_unit}
                             onChange={handleChange}
+                            required
                         >
                             <option value="days">Day(s)</option>
                             <option value="weeks">Week(s)</option>
@@ -376,6 +384,7 @@ function TripPostEditForm() {
                     value={image_alt_text || ""}
                     onChange={handleChange}
                     placeholder="Enter a brief description of your image."
+                    required
                 />
             </Form.Group>
             {errors?.image_alt_text?.map((message, idx) => (
