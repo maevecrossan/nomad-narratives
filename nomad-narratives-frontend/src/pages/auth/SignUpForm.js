@@ -127,7 +127,7 @@ const SignUpForm = () => {
 							required
 						/>
 						<div className="d-flex justify-content-center">
-							<Link className={styles.Link} to="/welcome#community-guidelines">
+							<Link className={styles.InlineLink} to="/welcome#community-guidelines">
 								<strong>
 									Read our community guidelines
 								</strong>	
