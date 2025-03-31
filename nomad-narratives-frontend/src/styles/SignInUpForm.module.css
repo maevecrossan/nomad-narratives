@@ -57,6 +57,7 @@
     color: #5a473a;
     background-color: #fff8ed;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .InlineLink {
