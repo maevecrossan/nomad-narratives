@@ -4,6 +4,9 @@
     min-height: 100vh;
 }
 
+html {
+    scroll-padding-top: 80px;
+}
 
 body {
     height: 100vh;
