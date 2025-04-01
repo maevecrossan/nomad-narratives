@@ -28,14 +28,15 @@ import { useRedirect } from "../../hooks/useRedirect";
 import { UserProfileEditDropdown } from "../../components/OptionsDropdown";
 
 function UserProfilePage() {
-    useRedirect('loggedOut');
+    useRedirect("loggedOut");
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams();
 
-    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+    const { setProfileData, handleFollow, handleUnfollow } =
+        useSetProfileData();
     const { profilePage } = useProfileData();
-    
+
     const [profile] = profilePage.results;
     const is_owner = currentUser?.username === profile?.owner;
     const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -75,8 +76,14 @@ function UserProfilePage() {
                     />
                 </Col>
                 <Col lg={6}>
-                    <h3 className={`${styles.ProfilePageUsername} ${appStyles.DmSerifFont} m-2`}>{profile?.owner}</h3>
-                    <Row className={`${styles.UserStatsContainer} justify-content-center no-gutters`}>
+                    <h3
+                        className={`${styles.ProfilePageUsername} ${appStyles.DmSerifFont} m-2`}
+                    >
+                        {profile?.owner}
+                    </h3>
+                    <Row
+                        className={`${styles.UserStatsContainer} justify-content-center no-gutters`}
+                    >
                         <Col xs={3} className="my-2">
                             <div>{profile?.posts_count ?? 0}</div>
                             <div>posts</div>
@@ -110,7 +117,11 @@ function UserProfilePage() {
                             </Button>
                         ))}
                 </Col>
-                <Col className="p-3"><strong><em>{profile?.content}</em></strong></Col>
+                <Col className="p-3">
+                    <strong>
+                        <em>{profile?.content}</em>
+                    </strong>
+                </Col>
             </Row>
         </>
     );
@@ -137,7 +148,11 @@ function UserProfilePage() {
             ) : (
                 <Asset
                     src={NotFound}
-                    message={`No results found, ${profile?.owner} hasn't posted yet.`}
+                    message={
+                        is_owner
+                            ? "You have no posts yet. Try creating one to see it here!"
+                            : `Nothing to see here! ${profile?.owner} hasn't posted yet.`
+                    }
                 />
             )}
         </>
@@ -147,7 +162,9 @@ function UserProfilePage() {
         <Row>
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
-                <Container className={`${appStyles.Content} ${styles.profileContainer}`}>
+                <Container
+                    className={`${appStyles.Content} ${styles.profileContainer}`}
+                >
                     {hasLoaded ? (
                         <>
                             {mainProfile}
