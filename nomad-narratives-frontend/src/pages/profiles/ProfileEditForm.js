@@ -113,7 +113,7 @@ const ProfileEditForm = () => {
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
                 type="submit"
             >
-                save bio
+                save changes
             </Button>
         </>
     );
