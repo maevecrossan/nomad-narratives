@@ -77,7 +77,7 @@ function TripPostFeed({message, filter=""}) {
                                     ))
                                 }
                                 dataLength={tripPosts.results.length}
-                                loader={<Asset spinenr/>}
+                                loader={<Asset spinner/>}
                                 hasMore={!!tripPosts.next}
                                 next={() => fetchMoreData(tripPosts, setTripPosts)}
                             />
