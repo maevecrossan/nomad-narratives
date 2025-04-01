@@ -218,19 +218,19 @@ const TripPost = (props) => {
             </Link>
 
             <Card.Body>
-                <div className="d-flex align-items-center justify-content-around">
-                    <p>
+                <div className="align-items-center">
+                    <div>
                         <strong>Traveller Number:</strong>{" "}
                         {details?.traveller_number}
-                    </p>
+                    </div>
 
-                    <p>
+                    <div>
                         <strong>Relevant for:</strong> {details?.relevant_for}
-                    </p>
+                    </div>
 
-                    <p>
+                    <div>
                         <strong>Duration:</strong> {details?.duration_display}
-                    </p>
+                    </div>
                 </div>
             </Card.Body>
 
