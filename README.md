@@ -538,6 +538,12 @@ Now that all the settings are in place, we can test whether both parts of the pr
         git commit -m "Final deployment setup"
         git push origin main
 
+---
+
+##### 3. Deploy to Heroku
+1. Open the **Deploy tab** in your Heroku dashboard.
+2. Deploy your application either manually or by enabling Automatic Deploys.
+
 ## Future Developments
 
 ## Credits
