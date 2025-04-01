@@ -155,7 +155,7 @@ const SignUpForm = () => {
 		<Row>
 			<Col>
 				<Link className={styles.Link} to="/sign-in">
-					Already have an account? Sign in here.
+					Already have an account? <span className={styles.InlineLink}>Sign in here.</span>
 				</Link>
 			</Col>
 		</Row>
