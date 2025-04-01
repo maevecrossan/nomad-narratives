@@ -633,6 +633,7 @@ Below is a list of the tech used in this project.
 
 | **Name**                | **Description**                                                                 |
 | -------------------------- | ------------------------------------------------------------------------------- |
+| [`React Boostrap`]()| Used to assist in styling JSX components. |
 | [`Cloudinary`](https://cloudinary.com/)| Used to host and store static files. |
 | [`Heroku`](https://www.heroku.com/)| Used to deploy and host the project. |
 | [`Adobe Lightroom`](https://www.adobe.com/ie/products/photoshop-lightroom/campaign/pricing.html?mv=search&mv=search&mv2=paidsearch&sdid=3JZYB8N8&ef_id=Cj0KCQjwna6_BhCbARIsALId2Z3boddrAwUQvguSmILX8mpbmnSCVW2KXhg_UX2wdzpJLmAZr0_0jbIaAukKEALw_wcB:G:s&s_kwcid=AL!3085!3!700425653223!e!!g!!adobe%20lightroom!1423511177!58810487274&gad_source=1&gclid=Cj0KCQjwna6_BhCbARIsALId2Z3boddrAwUQvguSmILX8mpbmnSCVW2KXhg_UX2wdzpJLmAZr0_0jbIaAukKEALw_wcB)| Used to reduce the size of images and export them. |
@@ -641,4 +642,11 @@ Below is a list of the tech used in this project.
 | [`WAVE Evaluation Tool`](https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-GB&utm_source=ext_sidebar)| A chrome extensions used to evaluate the functionality and accessibilty of the app.|
 | [`Google Fonts`](https://fonts.google.com/) | Used to source the two fonts used in this project: [`DM Serif Display`](https://fonts.google.com/specimen/DM+Serif+Display) and [`Roboto`](https://fonts.google.com/specimen/Roboto). |
 
-#### 
+#### Miscellaneous Resources
+
+| **Name** | **Description**   |
+| -------------------------- | ---------------------------------------------- |
+| **Project Inspiration** | This project was heavily inspired and used the boilerplate code from the Code Institute [Moments Walkthrough Project](https://github.com/Code-Institute-Solutions/moments). |
+| **Post Images** | The images used in this project are my own personal images. |
+| **User Avatars** | The user avatars were sourced from google and saved locally in order to replicated a realistic user experience. |
+| **Post Content** | ChatGPT was used to generate the post content. |
