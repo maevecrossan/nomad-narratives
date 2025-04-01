@@ -306,12 +306,89 @@ The steps I followed to deploy a combined React front-end and a Django API back-
 
 The React portion of the project contains static files, so we need to configure WhiteNoise to manage them. WhiteNoise will also handle static files for the Django Admin panel, ensuring they are accessible from the deployed URL.  
 
-### Installing WhiteNoise  
+##### Installing WhiteNoise  
 
-Ensure your terminal is in the project’s root directory, then run:  
+1. Ensure your terminal is in the project’s root directory, then run:  
 
         pip3 install whitenoise==6.4.0
 
+2. Add this dependency to requirements.txt:
+
+        pip3 freeze > requirements.txt
+
+3. Create an empty staticfiles folder in the root directory:
+
+    mkdir staticfiles
+
+##### Updating `settings.py`
+
+1. Modify `INSTALLED_APPS`:
+
+    Ensure that `'cloudinary_storage'` is listed below `'django.contrib.staticfiles'` to allow WhiteNoise to manage static files.
+
+2. Modify `MIDDLEWARE`:
+
+    Add WhiteNoise below `SecurityMiddleware` and above `SessionMiddleware`:
+    `'whitenoise.middleware.WhiteNoiseMiddleware',`
+
+3. Update `TEMPLATES`  
+
+    In the `TEMPLATES` section, update the `DIRS` key to tell Django and WhiteNoise where to locate React’s `index.html` file during deployment:  
+        
+        DIRS: [os.path.join(BASE_DIR, 'staticfiles', 'build')],
+
+4. Configure Static Files
+
+    In the static files section of `settings.py`, add the following variables to define where Django and WhiteNoise should look for static files:
+
+        STATIC_ROOT = BASE_DIR / 'staticfiles'
+        WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
+
+These settings ensure that both the React app and Django’s admin panel can correctly serve static files in production.
+
+#### Configuring Routes for React and Django API  
+
+To ensure the React front end is served correctly while keeping the Django API functional, we need to:  
+- Serve the React app from the root URL.  
+- Redirect 404 errors to React for handling via `react-router-dom`.  
+- Prefix all API routes with `/api/` to avoid conflicts with React routes.  
+
+##### Updating `urls.py` in Django  
+
+1. Remove the `root_route` import from `.views`.  
+
+2. Import `TemplateView` from Django’s generic views:  
+        
+        from django.views.generic import TemplateView
+
+3. Update `urlpatterns` to serve the React app from the root URL:
+
+        path('', TemplateView.as_view(template_name='index.html')),
+    
+    Before:
+
+        path('', root_route),
+
+    After:
+
+        path('', TemplateView.as_view(template_name='index.html')),
+
+4. Handle 404 errors by redirecting them to React:
+
+        handler404 = TemplateView.as_view(template_name='index.html')
+
+5. Prefix API routes with `/api/`, excluding the home page and admin panel.
+
+##### Updating axiosDefaults.js in React
+1. Since the API now resides under `/api/`, update the `axios.defaults.baseURL` in `axiosDefaults.js`:
+
+        axios.defaults.baseURL = "/api";
+
+2. Commit and push these changes to GitHub:
+
+        git add .
+        git commit -m "Updated routing for React and Django API"
+        git push origin main
 
 ## Future Developments
 
