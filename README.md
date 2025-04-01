@@ -296,6 +296,23 @@ To ensure compatibility with the React project, we need to set `ALLOWED_HOST` as
 4. Scroll to **Manual Deploy** and click **Deploy Branch**.
 
 
+### Unified Project Deployment (front and back end)
+
+The steps I followed to deploy a combined React front-end and a Django API back-end were outlined by the Code Institute and can be found in the file below. These steps work off the assumption you have completed the deployment steps above. I have included both a link to the original file I used, as well as a summary of the steps I followed.
+
+[Advanced Front End: Deployment of both applications by the Code Institute](https://code-institute-students.github.io/advfe-unified-workspace/deployment/00-deployment)
+
+#### Setting up WhiteNoise for Static Files 
+
+The React portion of the project contains static files, so we need to configure WhiteNoise to manage them. WhiteNoise will also handle static files for the Django Admin panel, ensuring they are accessible from the deployed URL.  
+
+### Installing WhiteNoise  
+
+Ensure your terminal is in the project’s root directory, then run:  
+
+        pip3 install whitenoise==6.4.0
+
+
 ## Future Developments
 
 ## Credits
