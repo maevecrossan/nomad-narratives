@@ -569,4 +569,70 @@ Below is a list of future developments I noted down during planning and over the
 
 ### Tech Used
 
+#### Requirements
+
+Below is a list of the tech used in this project.
+
+| **Package**                | **Description**                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| `asgiref`                  | Provides support for ASGI (Asynchronous Server Gateway Interface) applications, handling the interface between web servers and Django apps. |
+| `astroid`                  | A library that provides static code analysis of Python code and is used by tools like pylint for linting. |
+| `bleach`                   | A library for sanitizing and cleaning HTML, ensuring that content is safe to display on a webpage. |
+| `certifi`                  | A collection of Root Certificates for validating the trustworthiness of SSL certificates, used in HTTP requests. |
+| `cffi`                     | Provides a Foreign Function Interface for Python to interact with C libraries. |
+| `charset-normalizer`       | Helps in detecting and normalizing the character encoding of text to ensure compatibility across different platforms. |
+| `cloudinary`               | A cloud-based service for managing and delivering images, videos, and other media files. |
+| `cryptography`             | Provides cryptographic recipes and primitives to encrypt and secure data in Python applications. |
+| `defusedxml`               | Helps protect against XML vulnerabilities, like XML External Entity (XXE) attacks, by safely parsing XML. |
+| `dill`                     | Extends Python's `pickle` module to allow more complex objects to be serialized and deserialized. |
+| `dj-database-url`         | A utility to help configure the database URL in Django projects, typically used for deployment in cloud environments. |
+| `dj-rest-auth`             | Provides authentication and registration endpoints for Django REST Framework APIs, enabling user login, registration, and password reset functionality. |
+| `Django`                   | A high-level Python web framework that enables rapid development of secure and maintainable websites. |
+| `django-allauth`           | A Django app for handling authentication, registration, and account management (including social login). |
+| `django-autoslug`          | Generates URL slugs automatically for Django models based on their fields. |
+| `django-cities-light`      | A Django app that provides geographical data like cities, countries, and time zones. |
+| `django-cloudinary-storage`| Integrates Cloudinary with Django for managing media files with Cloudinary's cloud storage service. |
+| `django-cors-headers`      | Handles Cross-Origin Resource Sharing (CORS) headers in Django applications, allowing resources to be shared across different origins. |
+| `django-filter`            | A Django app for simplifying filtering in Django REST Framework API views. |
+| `djangorestframework`      | A powerful and flexible toolkit for building Web APIs in Django. |
+| `djangorestframework-simplejwt` | A simple JWT authentication system for Django REST Framework, used for token-based authentication. |
+| `gunicorn`                 | A Python WSGI HTTP server for deploying Django applications in production. |
+| `idna`                     | A library for Internationalized Domain Names (IDN), supporting domain names with non-ASCII characters. |
+| `isort`                    | A Python utility for sorting imports in a consistent and clean manner in your code. |
+| `mccabe`                   | A complexity checker for Python programs, used by pylint to measure the complexity of Python functions. |
+| `oauthlib`                 | A library for implementing OAuth1 and OAuth2 protocols, commonly used for integrating with third-party authentication providers. |
+| `packaging`                | Provides tools for dealing with Python package versioning and distribution. |
+| `Pillow`                   | A Python Imaging Library (PIL) fork, used for opening, manipulating, and saving image files in various formats. |
+| `platformdirs`             | A small utility to return platform-specific directories, such as user data directories. |
+| `progressbar2`             | A simple library for creating progress bars in Python applications, often used in long-running operations. |
+| `psycopg2`                 | A PostgreSQL database adapter for Python, enabling communication with PostgreSQL databases. |
+| `pycparser`                | A library that parses C code into an Abstract Syntax Tree (AST), commonly used in tools that analyze C code. |
+| `PyJWT`                    | A library for encoding and decoding JSON Web Tokens (JWT), typically used for authentication in APIs. |
+| `pylint`                   | A static code analysis tool for Python, used to enforce coding standards and find errors in code. |
+| `pylint-django`            | A plugin for pylint to check Django-specific code issues. |
+| `pylint-plugin-utils`      | A set of utilities for developing pylint plugins. |
+| `python-dotenv`            | A library for reading environment variables from `.env` files, commonly used to manage secret keys and configuration settings. |
+| `python-utils`             | A collection of useful utility functions for Python development. |
+| `python3-openid`           | A library that implements OpenID authentication, enabling users to sign in with their OpenID credentials. |
+| `pytz`                     | A library for working with time zones in Python, used to handle date and time in different time zones correctly. |
+| `requests`                 | A simple HTTP library for Python, commonly used to send HTTP requests and interact with APIs. |
+| `requests-oauthlib`        | OAuth support for the `requests` library, allowing easy integration with OAuth2 for authentication. |
+| `setuptools`               | A package development and distribution library for Python, used to package and distribute Python projects. |
+| `six`                      | A Python 2 and 3 compatibility library, helping you write code that works across both versions of Python. |
+| `sqlparse`                 | A library for parsing SQL queries, often used to format SQL strings in a readable way. |
+| `tomlkit`                  | A library for parsing and writing TOML files, often used in configuration files. |
+| `typing_extensions`        | Backports of type hinting extensions for earlier Python versions that don't natively support them. |
+| `Unidecode`                | A library for converting Unicode text into ASCII, removing accents and special characters. |
+| `urllib3`                  | A powerful HTTP library used for making HTTP requests and handling various network issues. |
+| `webencodings`             | A library for encoding/decoding text in web-safe encodings like UTF-8, ISO-8859-1, etc. |
+| `whitenoise`               | A Django app that serves static files directly from the application, simplifying static file management in production environments. |
+
+#### Other Tech
+
+| **Name**                | **Description**                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| `Cloudinary`               | Used to host and store static files. |
+| `Heroku`                   | Used to deploy and host the project. |
+
+
 ### Resources
