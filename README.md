@@ -647,6 +647,7 @@ Below is a list of the tech used in this project.
 | [`FontAwesome`](https://fontawesome.com/search?q=x&o=r)| Provided the icons used throughout this project. |
 | [`WAVE Evaluation Tool`](https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-GB&utm_source=ext_sidebar)| A chrome extensions used to evaluate the functionality and accessibilty of the app.|
 | [`Google Fonts`](https://fonts.google.com/) | Used to source the two fonts used in this project: [`DM Serif Display`](https://fonts.google.com/specimen/DM+Serif+Display) and [`Roboto`](https://fonts.google.com/specimen/Roboto). |
+| [`Code Institute Template`](https://github.com/Code-Institute-Org/gitpod-full-template) | - |
 
 #### Miscellaneous Resources
 
