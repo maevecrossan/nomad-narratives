@@ -390,6 +390,154 @@ To ensure the React front end is served correctly while keeping the Django API f
         git commit -m "Updated routing for React and Django API"
         git push origin main
 
+----
+
+
+
+#### Compiling Static Files
+
+Once the static file settings are configured, we need to compile all the static files from both Django and React into the staticfiles folder for deployment.
+
+##### Collecting Django Admin and DRF Static Files
+Run the following command in the terminal:
+
+        python3 manage.py collectstatic
+
+##### Compiling React Static Files
+1. Navigate to the frontend directory:
+
+        cd frontend
+
+2. Ensure Node.js v16 is installed and selected.
+
+3. Build and move React files:
+
+    If using PowerShell in VS Code:
+
+        npm run build
+        mv build ../staticfiles/.
+    
+    Otherwise, run a single command:
+
+        npm run build && mv build ../staticfiles/.
+
+4. ***Re-run these steps whenever deploying changes to static files, including React updates.***
+
+##### Replacing Old Build Files
+
+If changes are made to the React front end, delete the old build folder and replace it with the new one:
+
+    PowerShell Users:
+
+        npm run build
+        rm "../staticfiles/build" -Recurse -Force
+        mv build ../staticfiles/.
+
+Other Terminals:
+
+        npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.
+
+Now, your staticfiles directory should contain all required files for deployment.
+
+##### Adding runtime.txt
+
+To ensure Heroku uses the correct Python version, create a `runtime.txt` file in the root directory:
+        
+        echo "python-3.12.8" > runtime.txt
+
+Alternatively, as I did, you can create a `.python-version` file which Heroku advised using instead.
+
+##### Reverting psycopg2-binary to psycopg2
+
+Since psycopg2-binary is used for development but not recommended for production, update requirements.txt before final deployment:
+
+1. Locate the following line in requirements.txt:
+
+        psycopg2-binary==2.x.x
+
+2. Manually change it to:
+
+        psycopg2==2.x.x
+
+3. Save the file.
+
+
+##### Final Steps
+
+Commit and push these changes to GitHub:
+
+        git add .
+        git commit -m "Configured WhiteNoise, compiled static files, updated psycopg2"
+        git push origin main
+
+
+#### Testing the Build  
+
+Now that all the settings are in place, we can test whether both parts of the project—Django and React—are running together on the same server port.  
+
+1. Stop Any Running Servers  
+
+    Ensure that all running servers are terminated by pressing **Ctrl+C** in any active terminal.  
+
+2. Update `env.py`  
+
+    In your `env.py` file, **comment out** both the `DEBUG` and `DEV` environment variables:  
+
+            # DEBUG = True
+            # DEV = True
+
+3. Start the Django Server
+    
+    Run the following command in the terminal:
+
+        python3 manage.py runserver
+
+4. Verify the Application
+    
+    To check that the application is running, open it in a browser by **CTRL+clicking (Windows)** or **CMD+clicking (MacOS)** on the localhost URL displayed in the terminal.
+
+    At this stage, the React server should **not be running** - this test ensures that Django is correctly serving the React static files.
+
+5. Final Commit Before Deployment
+    
+    Once confirmed, commit and push your changes to GitHub:
+
+        git add .
+        git commit -m "Tested build, ready for deployment"
+        git push origin main
+
+#### Preparing Your Existing Heroku App for Deployment  
+
+
+##### 1. Update Heroku Config Vars  
+
+1. Log in to [Heroku](https://www.heroku.com) and open the **dashboard** for your Django REST Framework (DRF) application.  
+2. Navigate to the **Settings** tab and click **Reveal Config Vars**.  
+3. Ensure the following environment variables are correctly set:  
+
+   - **`ALLOWED_HOST`** → Set this to the **URL of your combined project**  
+     - _Remove_ `https://` at the beginning.  
+     - _Remove_ the trailing `/` at the end.  
+
+   - **`CLIENT_ORIGIN`** → Set this to the **URL of your combined project**  
+     - _Keep_ `https://` at the beginning.  
+     - _Remove_ the trailing `/` at the end.  
+
+4. If you previously had a `CLIENT_ORIGIN` value for your separate React deployment, **update** it to reflect the new combined project URL.  
+5. If `CLIENT_ORIGIN_DEV` is present, **delete it** by clicking the **"X"** icon next to it.  
+   - This was previously used for connecting the local React app to a separately deployed DRF API. Since React and the API are now combined, it is no longer needed.  
+
+---
+
+##### 2. Ensure Your Code is Ready  
+
+- **Double-check** that all required settings from the **Deployment** section of the Django REST Framework module are in place.  
+- **Commit and push** any recent changes to GitHub:  
+
+        git add .
+        git commit -m "Final deployment setup"
+        git push origin main
+
 ## Future Developments
 
 ## Credits
