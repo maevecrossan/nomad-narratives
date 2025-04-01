@@ -146,14 +146,16 @@ function UserProfilePage() {
                     next={() => fetchMoreData(profilePosts, setProfilePosts)}
                 />
             ) : (
-                <Asset
-                    src={NotFound}
-                    message={
-                        is_owner
-                            ? "You have no posts yet. Try creating one to see it here!"
-                            : `Nothing to see here! ${profile?.owner} hasn't posted yet.`
-                    }
-                />
+                <Container className="d-flex flex-column justify-content-center align-items-center">
+                    <Asset
+                        src={NotFound}
+                        message={
+                            is_owner
+                                ? "You have no posts. Try creating one to see it here!"
+                                : `Nothing to see here! ${profile?.owner} hasn't posted yet.`
+                        }
+                    />
+                </Container>
             )}
         </>
     );
