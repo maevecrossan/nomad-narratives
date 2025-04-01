@@ -1,3 +1,15 @@
 .WordBreak {
     word-break: break-all;
 }
+
+.Username {
+    color: black;
+    transition: color 0.3s ease;
+    margin-left: 5px;
+}
+
+/* Hover state */
+.Username:hover {
+    color: black;
+    text-decoration: underline;
+}

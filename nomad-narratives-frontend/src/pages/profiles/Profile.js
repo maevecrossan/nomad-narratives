@@ -25,11 +25,12 @@ const Profile = (props) => {
             <div>
                 <Link className="align-self-center" to={`/profiles/${id}`}>
                     <Avatar src={image} height={imageSize} />
+                    <strong className={`${styles.Username} align-self-center`}>{owner}</strong>
                 </Link>
             </div>
 
-            <div className={`mx-2 ${styles.Wordbreak}`}>
-                <strong>{owner}</strong>
+            <div>
+                
             </div>
 
             <div className={`text-right ${!mobile && "ml-auto"}`}>
