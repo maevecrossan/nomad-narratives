@@ -346,7 +346,7 @@ function PostCreateForm() {
                 </Alert>
             ))}
 
-            <Row>
+            <Row className="d-flex justify-content-center align-items-center">
                 <Form.Group>
                     <p>
                         <OverlayTrigger
