@@ -202,6 +202,100 @@ This is not a page but a model that appears when the user clicks the sign out na
 
 ## Deployment
 
+### API Heroku Deployment
+
+#### Configuring Heroku
+
+1. Navigate to your app's Settings tab on the Heroku dashboard.
+
+2. Under Config Vars, add the following variables:
+
+
+    `SECRET_KEY`: Create a new secret key (do not reuse the one from settings.py).
+
+
+    `CLOUDINARY_URL`: Copy your Cloudinary URL from env.py (without quotation marks).
+
+
+3. Ensure you have four config vars set up in total.
+
+#### Deploying to Heroku
+
+1. Open the **Deploy** tab in Heroku.
+
+2. In the **Deployment method** section, select **Connect to GitHub**.
+
+3. Search for your repository and click **Connect**.
+
+4. (Optional) Enable **Automatic Deploys** to redeploy whenever new code is pushed. I personally opted for manual deploys.
+
+5. Since all changes are already in GitHub, scroll to the **Manual Deploy** section and click **Deploy Branch** to start the build process.
+
+6. Once deployment is complete, click **Open App** to verify it is running.
+
+#### Verifying Deployment
+* Your app should display a JSON welcome message on the home screen.
+
+* To check the superuser profile, append `/profiles/` to your root URL.
+
+* If the JSON response is not formatted properly, consider using a Chrome extension like JSON Formatter.
+
+#### Removing Unused Postgres Add-on
+
+Heroku may automatically assign a paid Postgres database add-on. To avoid charges:
+
+1. Go to the **Resources** tab in your Heroku dashboard.
+
+2. Locate **Heroku Postgres** and click the chevron icon on the right.
+
+3. Select **Delete Add-on** and confirm by entering your app name, then click **Remove Add-on**.
+
+
+#### Updating ALLOWED_HOST for Deployment
+
+To ensure compatibility with the React project, we need to set `ALLOWED_HOST` as an environment variable instead of hardcoding it. This allows multiple API instances to be deployed to different URLs.
+
+##### Part 1: Adding `ALLOWED_HOST`
+
+1. In settings.py, locate the `ALLOWED_HOSTS` list and copy your Heroku app URL.
+
+    ALLOWED_HOSTS = [
+        '... .herokuapp.com',
+        'localhost',
+        '127.0.0.1',
+    ]
+
+2. Log in to Heroku and select your API application.
+
+3. Navigate to the Settings tab and click Reveal Config Vars.
+
+4. Add a new key:
+    * Key: `ALLOWED_HOST`
+    * Value: Your Heroku app URL (without quotes).
+
+5. Back in `settings.py`, update `ALLOWED_HOSTS` to reference the environment variable:
+
+    ALLOWED_HOSTS = [
+        os.environ.get('ALLOWED_HOST'),
+        'localhost',
+        '127.0.0.1'
+    ]
+
+##### Part 2: Pushing Changes and Redeploying
+
+1. Add, commit, and push the changes to GitHub:
+
+        git add settings.py  
+        git commit -m "Set ALLOWED_HOST as environment variable"  
+        git push origin main  
+
+2. In your Heroku dashboard, go to your API project.
+
+3. Open the **Deploy** tab.
+
+4. Scroll to **Manual Deploy** and click **Deploy Branch**.
+
+
 ## Future Developments
 
 ## Credits
