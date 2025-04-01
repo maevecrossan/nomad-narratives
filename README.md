@@ -12,6 +12,12 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 
 ## Planning
 
+### Project Inspiration
+
+The idea for this project was born from my own experience while searching for information on multiple locations at once. Just before COVID hit, I decided to travel and live abroad for a year or two. With no specific destination in mind, I began my research. However, I quickly realized that travel content was scattered across various individual websites, making the process incredibly time-consuming.
+
+This challenge was a major factor in my decision to start coding. As someone with a passion for travel who couldn’t justify creating a personal website, I saw a real need for a platform that centralized this type of information created by casual content creators.
+
 ### Agile Development
 The details of my agile development can be found [here](AGILE.md).
 
