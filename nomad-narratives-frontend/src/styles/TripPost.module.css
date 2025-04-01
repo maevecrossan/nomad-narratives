@@ -8,11 +8,13 @@
 }
 
 .TripPostImage {
-    height: 50vh;
-    width: auto;
     display: block;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 90%;
+    max-height: 742px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .TripPostTitle {
