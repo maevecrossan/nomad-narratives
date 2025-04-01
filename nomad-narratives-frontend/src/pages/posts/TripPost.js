@@ -17,7 +17,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
-const TripPost = (props) => {
+const TripPost = ({ setTripPost, ...props }) => {
     const {
         id,
         owner,
@@ -30,15 +30,17 @@ const TripPost = (props) => {
         comments_count,
         likes_count,
         like_id,
-        TripPostPage,
+        // TripPostPage,
         setTripPosts,
         details,
+        isTripPostPage,
     } = props;
 
     const [showModal, setShowModal] = useState(false);
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+    const isSinglePostPage = isTripPostPage || false;
 
     const handleEdit = () => {
         history.push(`/posts/${id}/edit`);
@@ -107,12 +109,11 @@ const TripPost = (props) => {
         countries.find((c) => c.id === countryId)?.name || "Unknown Country";
 
     const handleLike = async () => {
-        let isMounted = true;
-
         try {
             const { data } = await axiosRes.post("/likes/", { post: id });
-            if (isMounted) {
-                // Only update state if still mounted
+
+            if (setTripPosts) {
+                // Update state for the feed page
                 setTripPosts((prevPosts) => ({
                     ...prevPosts,
                     results: prevPosts.results.map((post) =>
@@ -125,32 +126,53 @@ const TripPost = (props) => {
                             : post
                     ),
                 }));
+            } else if (props.setTripPost) {
+                // Update state for the single post page
+                props.setTripPost((prevPost) => ({
+                    results: [
+                        {
+                            ...prevPost.results[0],
+                            likes_count: prevPost.results[0].likes_count + 1,
+                            like_id: data.id,
+                        },
+                    ],
+                }));
             }
         } catch (err) {
             console.log(err);
         }
-        return () => {
-            isMounted = false;
-        };
     };
 
     const handleUnlike = async () => {
         try {
             await axiosRes.delete(`/likes/${like_id}/`);
-            setTripPosts((prevPosts) => ({
-                ...prevPosts,
-                results: prevPosts.results.map((post) => {
-                    return post.id === id
-                        ? {
-                              ...post,
-                              likes_count: post.likes_count - 1,
-                              like_id: null,
-                          }
-                        : post;
-                }),
-            }));
+
+            if (setTripPosts) {
+                setTripPosts((prevPosts) => ({
+                    ...prevPosts,
+                    results: prevPosts.results.map((post) =>
+                        post.id === id
+                            ? {
+                                  ...post,
+                                  likes_count: post.likes_count - 1,
+                                  like_id: null,
+                              }
+                            : post
+                    ),
+                }));
+            } else if (props.setTripPost) {
+                props.setTripPost((prevPost) => ({
+                    results: [
+                        {
+                            ...prevPost.results[0],
+                            likes_count: prevPost.results[0].likes_count - 1,
+                            like_id: null,
+                        },
+                    ],
+                }));
+            }
         } catch (err) {
-            // console.log(err);
+            console.log(err);
         }
     };
 
@@ -178,7 +200,7 @@ const TripPost = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && TripPostPage && (
+                        {is_owner && isSinglePostPage && (
                             <OptionsDropdown
                                 handleEdit={handleEdit}
                                 handleDelete={handleDeleteClick}
@@ -236,7 +258,7 @@ const TripPost = (props) => {
 
             <Card.Body>
                 {/* Show truncated content in the feed */}
-                {!TripPostPage && (
+                {!isSinglePostPage && (
                     <>
                         <Card.Text className={appStyles.TextLeft}>
                             {renderContentWithBreaks(truncatedContent)}{" "}
@@ -253,7 +275,7 @@ const TripPost = (props) => {
                     </>
                 )}
                 {/* Show full content on the post page */}
-                {TripPostPage && (
+                {isSinglePostPage && (
                     <Card.Text className={appStyles.TextLeft}>
                         {renderContentWithBreaks(content)}
                     </Card.Text>
@@ -304,8 +326,8 @@ const TripPost = (props) => {
                     <Modal.Title>Confirm Delete</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Are you sure you want to delete this post? 
-                    This action cannot be undone.
+                    Are you sure you want to delete this post? This action
+                    cannot be undone.
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>

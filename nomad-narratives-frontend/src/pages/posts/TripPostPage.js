@@ -50,7 +50,7 @@ function TripPostPage() {
                 <TripPost
                     {...tripPost.results[0]}
                     setTripPost={setTripPost}
-                    TripPostPage
+                    isTripPostPage={true}
                 />
                 <Container className={appStyles.Content}>
                     Comments
