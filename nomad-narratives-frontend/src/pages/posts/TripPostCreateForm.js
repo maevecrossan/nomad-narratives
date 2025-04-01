@@ -6,6 +6,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
 import Upload from "../../assets/upload.png";
 
@@ -182,7 +184,11 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
-            <h1 className={`${appStyles.DmSerifFont} ${appStyles.BrownText} ${styles.FormHeader}`}>New Post</h1>
+            <h1
+                className={`${appStyles.DmSerifFont} ${appStyles.BrownText} ${styles.FormHeader}`}
+            >
+                New Post
+            </h1>
 
             <p>
                 <strong>Enter a title for your post:</strong>
@@ -343,6 +349,17 @@ function PostCreateForm() {
             <Row>
                 <Form.Group>
                     <p>
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={
+                                <Tooltip>
+                                    Choose a numeric value for how long your
+                                    trip was e.g. '4'.
+                                </Tooltip>
+                            }
+                        >
+                            <i className="fa-solid fa-circle-exclamation" />
+                        </OverlayTrigger>
                         <strong>Duration value:</strong>
                     </p>
 
@@ -366,6 +383,17 @@ function PostCreateForm() {
 
                 <Form.Group>
                     <p>
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={
+                                <Tooltip>
+                                    Choose a unit of measurement for how long your
+                                    trip was e.g. 'days'.
+                                </Tooltip>
+                            }
+                        >
+                            <i className="fa-solid fa-circle-exclamation" />
+                        </OverlayTrigger>
                         <strong>Duration unit:</strong>
                     </p>
                     <Col>
