@@ -546,6 +546,25 @@ Now that all the settings are in place, we can test whether both parts of the pr
 
 ## Future Developments
 
+Below is a list of future developments I noted down during planning and over the course of development.
+
+| **Future Developments** |
+| :----------------------------------------------------------------------------- |
+| **Rich text editor** to allow users to have more control over how their content looks. Allow them to select a blog post cover photo and then add additional photos throughout the article for visual aids. |
+| **Clickable links** on details to allow users to filter content based on the number of travellers, 'relevant for' group, location, etc. |
+| **Tags** to help users further identify what categories, locations, etc. are associated with their blog post. |
+| **Create a new detail category** to allow users to quickly demonstrate to readers what type of holiday it is. For example, a city break, backpacking, family trip, girls trip, wedding, etc. |
+| **Allow users to save a post** to a folder. This would allow users to organise their favourite posts so that they can refer to them again at a later date. |
+| **Create a dropdown in the nav menu** that displays predefined categories through which users can find content. For example, continent, country, city, number of travellers, etc. |
+| Create a library of profile images that a user can choose from if they don't have one of their own. |
+| **Create a 'helpful tips' page** that gives users guidance on how to write a good, helpful article. |
+| **Enable post collaborations** so multiple users can contribute to the same blog post, sharing insights from different perspectives. |
+| **Add social media sharing buttons** so users can easily share posts on platforms like Facebook, Twitter, Instagram, etc. |
+| **Implement a comment moderation system** so users can report inappropriate comments and ensure a friendly, respectful community. |
+| **Add a multi-language option** so users can view content in various languages, making the platform accessible to a global audience. |
+| **Add a dark-mode colour scheme** so that users reading in low light can continue to enjoy content. |
+
+
 ## Credits
 
 ### Tech Used
