@@ -31,8 +31,8 @@
 }
 
 .Wide {
-padding: 10px 50px;
-width: 100%;
+    padding: 10px 50px;
+    width: 100%;
 }
 
 .Brown,
@@ -46,7 +46,6 @@ width: 100%;
 .Brown:hover {
     background-color: #fff8ed;
     color: #5a473a;
-    border: 1px solid #5a473a;
 }
 
 
