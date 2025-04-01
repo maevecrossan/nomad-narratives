@@ -57,7 +57,7 @@ function App() {
                         exact
                         path="/explore"
                         render={() => (
-                            <TripPostFeed message="No results found. Please try another search term." />
+                            <TripPostFeed message="Hmm... no results for that. Please try another search term." />
                         )}
                     />
 
@@ -66,7 +66,7 @@ function App() {
                         path="/my-feed"
                         render={() => (
                             <TripPostFeed
-                                message="No results found. Please try another search term or follow a user."
+                                message="Hmm... no results for that. Please try another search term, or try following a user and refresh this page!"
                                 filter={`owner__followed__owner__profile=${profile_id}&`}
                             />
                         )}
@@ -77,7 +77,7 @@ function App() {
                         path="/liked"
                         render={() => (
                             <TripPostFeed
-                                message="No results found. Please try another search term or like a post."
+                                message="Hmm... no results for that. Please try another search term or try liking a post."
                                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
                             />
                         )}
