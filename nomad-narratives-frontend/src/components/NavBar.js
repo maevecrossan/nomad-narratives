@@ -116,8 +116,8 @@ const NavBar = () => {
                 activeClassName={styles.Active}
                 aria-label="Welcome Page"
                 > 
-                {/* Homepage */}
                 <i className='fas fa-home'></i>
+                Welcome
             </NavLink>
 
             <NavLink 
@@ -127,8 +127,8 @@ const NavBar = () => {
                 aria-label="Contact form"
 
                 >
-                {/* Contact form */}
                 <i className="fa-solid fa-circle-question"></i>
+                {/* Contact us */}
             </NavLink>
 
         </>
@@ -194,7 +194,7 @@ const NavBar = () => {
 
     return (
         <>
-            <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+            <Navbar expanded={expanded} className={styles.NavBar} expand="xl" fixed="top">
                 <NavLink exact to="/">
                     <Navbar.Brand>
                         <img src={logo} alt="Nomand Narratives Logo" className={styles.navbarLogo} />
