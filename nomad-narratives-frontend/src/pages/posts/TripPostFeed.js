@@ -82,7 +82,7 @@ function TripPostFeed({message, filter=""}) {
                                 next={() => fetchMoreData(tripPosts, setTripPosts)}
                             />
                         ) : (
-                            <Container className={appStyles.Content}>
+                            <Container className={`${appStyles.Content} d-flex flex-column justify-content-center align-items-center`}>
                                 <Asset src={NotFound} message={message}/>
                             </Container>
                         )}
