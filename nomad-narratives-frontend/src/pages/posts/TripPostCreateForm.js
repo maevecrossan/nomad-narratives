@@ -54,7 +54,7 @@ function PostCreateForm() {
     const [cities, setCities] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [selectedCity, setSelectedCity] = useState(null);
-    const [travellerChoices, setTravellerChoices] = useState([
+    const travellerChoices= [
         { value: "1", label: "1" },
         { value: "2", label: "2" },
         { value: "3", label: "3" },
@@ -66,7 +66,21 @@ function PostCreateForm() {
         { value: "9", label: "9" },
         { value: "10", label: "10" },
         { value: "10+", label: "10+" },
-    ]);
+    ];
+
+    const durationValueChoices = [
+        { value: "1", label: "1" },
+        { value: "2", label: "2" },
+        { value: "3", label: "3" },
+        { value: "4", label: "4" },
+        { value: "5", label: "5" },
+        { value: "6", label: "6" },
+        { value: "7", label: "7" },
+        { value: "8", label: "8" },
+        { value: "9", label: "9" },
+        { value: "10", label: "10" },
+        { value: "10+", label: "10+" },
+    ];
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -385,14 +399,20 @@ function PostCreateForm() {
 
                     <Col>
                         <Form.Control
-                            type="number"
+                            as="select"
                             name="duration_value"
                             value={tripPostData.duration_value || ""}
                             onChange={handleChange}
-                            placeholder="Enter number"
-                            aria-label="Enter the trip duration value (number)."
+                            aria-label="Select the trip duration value"
                             required
-                        />
+                        >
+                            <option value="">Select</option>
+                            {durationValueChoices.map((choice) => (
+                                <option key={choice.value} value={choice.value}>
+                                    {choice.label}
+                                </option>
+                            ))}
+                        </Form.Control>
                     </Col>
                 </Form.Group>
                 {errors?.duration_value?.map((message, idx) => (
