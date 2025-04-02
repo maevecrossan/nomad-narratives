@@ -226,18 +226,18 @@ For those interested in reading a full article, a "Read More" link is provided b
 To the right of the posts, a Popular Profiles section showcases the top 10 most-followed users, offering a way to discover influential contributors. These design and interaction elements remain consistent across the Explore, My Feed, and My Likes pages, ensuring a seamless browsing experience across the platform.
 
 ### My Feed
-The features of this page remain exactly the same, however on this page is only posts created by the users the (currently logged in) user follows. Below the search bar, it has a message detailing what posts are being displayed.
+The My Feed page functions similarly to the Explore page but exclusively displays posts created by users that the currently logged-in user follows. Below the search bar, a message provides context on the displayed posts.
 
-If the user is following no users, the will see the 'no results' asset which says 'Hmm... no results for that. Please try another search term, or try following a user and refresh this page!'.
+If the user is not following anyone, they will see a "No Results" message, which states: "Hmm... no results for that. Please try another search term, or try following a user and refresh this page!" This ensures clarity on why no posts are visible and encourages engagement with other users.
 
-See 'explore page' for a full list of features.
+For a full breakdown of features, refer to the Explore page.
 
 ### My Likes
-The features of this page remain exactly the same, however on this page are the posts the (currently logged in) user has liked. Below the search bar, it has a message detailing what posts are being displayed. 
+The My Likes page also mirrors the Explore page but exclusively features posts that the currently logged-in user has liked. Below the search bar, a message provides context on the displayed posts.
 
-If the user has not yet liked any posts, the will see the 'no results' asset which says 'Hmm... no results for that. Please try another search term or try liking a post.'.
+If the user has not yet liked any posts, they will see a "No Results" message, which states: "Hmm... no results for that. Please try another search term or try liking a post." This serves as a prompt to encourage interaction with content on the platform.
 
-See 'explore page' for a full list of features.
+For a complete list of features, refer to the Explore page.
 
 ### Post Page
 The post page is visible when clicking a 'read more' link. If the user is the owner of the post, they will be able to see a three-dot dropdown menu where they can edit or delete a post. The three dots are only visible here intentionally. My thought process was the user should view the full article before they edit it. This also means the user will be redirected to the article so they can see the changes they make in full, rather than having to access the post and scroll down to view the update.
