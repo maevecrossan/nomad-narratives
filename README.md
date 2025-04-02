@@ -180,7 +180,11 @@ Below the sign-in button, there is a prompt encouraging users to sign up if they
 If a logged-in user tries to access this page, they will be redirected.
 
 ### Contact Us Page
-The contact page is in the same style as the sign in and sign up pages. It is accessible for all users (logged in or out) and requires users to enter in their name, email and a message. The valid submitted data will be sent to and visible in the admin panel by staff users. A success message will appear when a form is successfully submitted.
+The contact page follows the same style as the sign-in and sign-up pages, featuring a clean and minimal design. It is accessible to all users, whether they are logged in or not.
+
+Users must enter their name, email, and a message. If any of these fields contain invalid or missing information, an error message will be displayed under the relevant field(s).
+
+Upon successful submission, a confirmation message will appear to inform the user that their message has been sent. The submitted data will be stored and made visible in the admin panel for staff users to review.
 
 ### New Post Page
 The new post page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page.
