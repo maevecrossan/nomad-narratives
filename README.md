@@ -141,26 +141,27 @@ The details for my testing can be found [here](TESTING.md).
 The following is a breakdown of the features of each page of the project.
 
 ### NavBar Component
-The navigation bar component sits at the top of the window for each page. It is fully responsive and collapses to a burger menu on smaller screens where the links will stack vertically. The logo remains in the top left for all screens and acts as a route back to the welcome page.
+The navigation bar component sits at the top of the window on every page of the application. It is fully responsive and collapses to a burger menu on smaller screens where navigation links stack vertically. The logo remains in the top left for all screens and acts as a route back to the welcome page.
 
-The navigation bar links render conditionally based on the users authentication status. If they are logged out, they cannot make or view posts, comments or likes. The will only see links for the welcome page, about us and community guidelines sections, sign in and sign up links, and the contact us form.
+The navigation bar links render conditionally based on the user's authentication status. If they are logged out, they cannot make or view posts, comments or likes. They will only see links for the welcome page, about us and community guidelines sections, sign in and sign up links, and the contact us form.
+However, if a user is logged in, they can view all of these links (except for the sign in and sign up pages) as well as the new post, explore, my feed, my likes and sign out links. If a logged out user tries to access these pages, they would be redirected to the homepage.
 
-However, if a user is logged in, they can view all of these links (bar the sign in and sign up pages) as well as the new post, explore, my feed, my likes and sign out links. If a logged out user tried to access these pages, they would be redirected to the homepage.
+The navlinks have hover and active styles to help users identify what page they are about to select and are currently on.
 
 ### Welcome Page
-The welcome page is effectively split into four sections: the hero, about us, gallery row, and community guidelines.
+The welcome page serves as a simple homepage, structured into four main sections: the hero, about us, gallery row, and community guidelines.
 
-The hero welcomes to user to the website and hooks them in with the 'Where will your next story take you?' question. The background image is of a dark, foggy forest.
+The hero section welcomes to user to the website and hooks them in with the 'Where will your next story take you?' question. The background image is of a dark, foggy forest.
 
 If a user clicks on the 'about us' or 'community guidelines' navlinks, they will be automatically scrolled down to that section. This action will happen if clicking those navlinks from any page.
 
-The 'about us' section gives a brief but concise explanation of the website's purpose. It also houses a link to the sign up page should the user choose to do so.
+The 'about us' section gives a concise explanation of the website's purpose. It also houses a link to the sign up page should the user choose to do so.
 
-Next is the gallery row which, on larger screens, houses three images (one vertical, two stacked horizontally). On smaller screens, the larger vertical image is hidden so users can easily access the community guidelines section without needing to scroll too long.
+Next is the gallery row which, on larger screens, houses three images (one vertical, two stacked horizontally). On smaller screens, the larger vertical image is hidden so users can access the Community Guidelines section more quickly.
 
 The community guidelines section outlines the community values and expectations for users.
 
-The about us and community guidelines sections are accessible via the navbar for logged out users. When users click the link, they will be automatically brought to that section.
+The 'About Us' and 'Community Guidelines' sections are accessible from the navbar for logged out users.
 
 ### Sign Up Page
 The sign up page is very minimal in order to not visually overload the user. The for fields are positioned over a photograph. 
