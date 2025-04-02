@@ -217,26 +217,13 @@ The Duration Value and Duration Unit fields each have tooltips that appear when 
 If the user decides not to create a post, they can click the "Cancel" button to return to the previous page they were on. If they submit a valid post form, they will be redirected to the post page, where they can view their full published post.
 
 ### Explore
-The explore page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page. Below the search bar, it has a message detailing what posts are being displayed.
+The Explore page is a dedicated space where users can browse articles from all members of the community. Accessible only to authorized users, it ensures that only logged-in members can interact with the content. If an unauthorized user attempts to access this page, they will be redirected to the welcome page.
 
-The explore page shows articles by all users, with the most recent at the top. Above the articles is a search bar that users can make use of if they are looking for a certain post, user or destination.
+At the top of the page, a search bar allows users to quickly find specific posts, authors, or destinations. Just below the search bar, a brief message provides context on the posts being displayed. Articles are arranged in descending order, with the most recent posts appearing first. To enhance user experience, only previews of articles are shown, ensuring smooth scrolling and quick access to key information. Each post preview includes the author's name, title, location, publication date, number of travelers, relevance category, trip duration, and a short excerpt of the content. Users can also see the number of likes and comments each post has received.
 
-Only a preview of the articles are shown on this page for a smoother user experience. The users can scroll infinitely and see all the details about a post at a glance:
-    - User/author
-    - Post title
-    - Location
-    - Date published
-    - Traveller number
-    - Relevant for
-    - Duration
-    - Content preview.
-    - Likes count
-    - Comments count
+For those interested in reading a full article, a "Read More" link is provided beneath each preview. Additionally, users can engage with posts directly from the preview by liking them—where a red heart indicates a liked post and a grey heart shows an unliked one. Clicking on the comment bubble will take users to the comments section for that particular post.
 
-Should a user choose to read the full blog post, they can click the 'read more' link under the preview. The user can see if they have liked the post as the heart will be red if they have liked it, or grey and white if they haven't. By clicking on the comment bubbles, the user will be brought to the comments section for that particular post.
-To the right of the posts is a popular profiles section. This shows the top 10 users by follower-based popularity.
-
-These styles remain the same across the explore, my feed and my likes page.
+To the right of the posts, a Popular Profiles section showcases the top 10 most-followed users, offering a way to discover influential contributors. These design and interaction elements remain consistent across the Explore, My Feed, and My Likes pages, ensuring a seamless browsing experience across the platform.
 
 ### My Feed
 The features of this page remain exactly the same, however on this page is only posts created by the users the (currently logged in) user follows. Below the search bar, it has a message detailing what posts are being displayed.
