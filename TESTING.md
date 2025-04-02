@@ -123,15 +123,12 @@ The following report contains the results, screenshots and explanations from the
 The following report contains the lighthouse scores for the respective pages users can visit.
 
 [Lighthouse Validation Report]()
-[Lighthouse Validation Report (alt link)]()
 
 ### HTML W3C Validation
 
 The following HMTL validation was copied from the rendered HTML in devtools. Each page was copied and pasted in individually.
 
-[W3C HTML Validation]()
-[W3C HTML Validation (alt link)]()
-
+[W3C HTML Validation](documentation/validation/nn-html-validation.pdf)
 
 ### CSS W3C Validation
 
