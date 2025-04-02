@@ -173,7 +173,7 @@ This page is not accessible by authorised/logged in users.
 The sign in page looks like the sign up page but the image is different. There is a username and password field which will only accept valid inputs. There is a sign in button below which is a prompt to sign up if the user has not created an account.
 
 ### Contact Us Page
-The contact page is in the same style as the sign in and sign up pages. It is accessible for all users (logged in or out) and requires users to enter in their name, email and a message. The valid submitted data will be sent to and visible in the admin panel by staff users. 
+The contact page is in the same style as the sign in and sign up pages. It is accessible for all users (logged in or out) and requires users to enter in their name, email and a message. The valid submitted data will be sent to and visible in the admin panel by staff users. A success message will appear when a form is successfully submitted.
 
 ### New Post Page
 The new post page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page.
@@ -184,18 +184,20 @@ The new post page houses a form through which users can create their own posts. 
     - content: a larger text field.
     - Country: a dropdown list of countries.
     - City: a dropdown list of cities.
-    - Traveller number: a field that accepts postive numbers above zero.
+    - Traveller number: a dropdown list of numbers up to 10.
     - Relevant for: a dropdown list of predetermined options.
-    - Duration value: a field that accepts postive numbers above zero.
+    - Duration value: a dropdown list of numbers up to 10.
     - Duration Unit: a dropdown list of predetermined options.
     - Image description: A small text field.
 
 Above the country select field is a message in which is a link to the contact us page. Users are asked to send admin a message if they notice a missing country, city, or experience another error.
 
+Duration value and unit both have tooltips which can be seen when hovering over the '!' icon to explain what the fields expect.
+
 Should the user choose to not create a post, they can click 'cancel' to be redirected to the previous page they were on. If users submit a post form with valid details, they will be redirected to the post page where they can see their full published post.
 
 ### Explore
-The explore page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page.
+The explore page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page. Below the search bar, it has a message detailing what posts are being displayed.
 
 The explore page shows articles by all users, with the most recent at the top. Above the articles is a search bar that users can make use of if they are looking for a certain post, user or destination.
 
@@ -217,12 +219,16 @@ To the right of the posts is a popular profiles section. This shows the top 10 u
 These styles remain the same across the explore, my feed and my likes page.
 
 ### My Feed
-The features of this page remain exactly the same, however on this page is only posts created by the users the (currently logged in) user follows.
+The features of this page remain exactly the same, however on this page is only posts created by the users the (currently logged in) user follows. Below the search bar, it has a message detailing what posts are being displayed.
+
+If the user is following no users, the will see the 'no results' asset which says 'Hmm... no results for that. Please try another search term, or try following a user and refresh this page!'.
 
 See 'explore page' for a full list of features.
 
 ### My Likes
-The features of this page remain exactly the same, however on this page are the posts the (currently logged in) user has liked.
+The features of this page remain exactly the same, however on this page are the posts the (currently logged in) user has liked. Below the search bar, it has a message detailing what posts are being displayed. 
+
+If the user has not yet liked any posts, the will see the 'no results' asset which says 'Hmm... no results for that. Please try another search term or try liking a post.'.
 
 See 'explore page' for a full list of features.
 
