@@ -240,14 +240,17 @@ If the user has not yet liked any posts, they will see a "No Results" message, w
 For a complete list of features, refer to the Explore page.
 
 ### Post Page
-The post page is visible when clicking a 'read more' link. If the user is the owner of the post, they will be able to see a three-dot dropdown menu where they can edit or delete a post. The three dots are only visible here intentionally. My thought process was the user should view the full article before they edit it. This also means the user will be redirected to the article so they can see the changes they make in full, rather than having to access the post and scroll down to view the update.
+The Trip Post Page is where users can view the full content of a specific post by clicking on the "read more" link. If the user is the author of the post, they will see a three-dot dropdown menu next to the post. This menu allows them to either edit or delete their post. The reason for showing the three dots only after the user has viewed the full post is to ensure they are aware of the content before making any changes. Clicking the "edit" option will redirect the user to the post creation page, where their post content will be prepopulated in the form. If they choose to delete the post, a confirmation modal will appear to prevent accidental deletion.
 
-If they chose to edit a post, it will redirect them to the post creation page where they form will be prepopulated with their post content. 
-If they chose to delete their post, a modal will appear so the user can confirm they want to delete it in case the click was a mistake.
+Next to the three-dot menu, the post's creation date is displayed. If the post is edited, this date will update to reflect the new updated_at timestamp.
 
-To the left of the three dots is the date at which the post was created (created_at). If a user edits it, it will update to that date (updated_at).
+All users, regardless of whether they are the author, can view the comments made on the post by others. The comments are displayed below the post content, and users can add their own comments if they are logged in. The CommentCreateForm allows authenticated users to create comments, while unauthenticated users will only be able to view the comments.
 
-All users will be able to see comments made by other users too.
+The page also includes an Infinite Scroll feature, which loads more comments as the user scrolls down. If there are no comments, a message will prompt users to be the first to comment.
+
+The right sidebar displays Popular Profiles, showing the top 10 users based on their follower count. These profiles are visible on both mobile and desktop views, ensuring consistency across different screen sizes.
+
+This page provides users with a comprehensive view of the post, comments, and interaction options.
 
 ### Sign Out
 This is not a page but a model that appears when the user clicks the sign out nav link. The user can dismiss the model by clicking the 'x', the 'cancel' button, or by clickin outside the modal. If the user confirms they want to sign out, they will be redirected to the welcome page.
