@@ -253,7 +253,9 @@ The right sidebar displays Popular Profiles, showing the top 10 users based on t
 This page provides users with a comprehensive view of the post, comments, and interaction options.
 
 ### Sign Out
-This is not a page but a model that appears when the user clicks the sign out nav link. The user can dismiss the model by clicking the 'x', the 'cancel' button, or by clickin outside the modal. If the user confirms they want to sign out, they will be redirected to the welcome page.
+The Sign Out Modal appears when the user clicks the "Sign Out" navigation link. This modal provides a confirmation message to ensure that users are certain they want to sign out. The modal can be dismissed in several ways: by clicking the 'X' in the top corner, pressing the 'Cancel' button, or by clicking anywhere outside the modal.
+
+If the user confirms their intent to sign out, they will be redirected to the welcome page. This modal ensures that users don't accidentally sign out without meaning to, providing a simple and user-friendly way to confirm their action.
 
 ## Deployment
 
