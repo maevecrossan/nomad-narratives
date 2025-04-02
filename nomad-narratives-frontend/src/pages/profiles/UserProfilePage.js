@@ -173,7 +173,11 @@ function UserProfilePage() {
                             {mainProfilePosts}
                         </>
                     ) : (
-                        <Asset spinner />
+                        <Container
+                            className={`${appStyles.Content} d-flex justify-content-center align-items-center`}
+                        >
+                            <Asset spinner />
+                        </Container>
                     )}
                 </Container>
             </Col>
