@@ -168,7 +168,7 @@ The sign up page has very minimal design to avoid visually overwhelming the user
 
 Users must enter a username and confirm their password by entering it twice. An error message appears if any of the three fields contain invalid or missing information. Users must agree to the community guidelines to proceed. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress. Upon successful submission, users are redirected to the sign-in page.
 
-This page is inaccessible to logged-in or authorized users
+This page is inaccessible to logged-in or authorised users
 
 ### Sign In Page
 The sign-in page has a similar layout to the sign-up page but features a different background image.
@@ -187,25 +187,34 @@ Users must enter their name, email, and a message. If any of these fields contai
 Upon successful submission, a confirmation message will appear to inform the user that their message has been sent. The submitted data will be stored and made visible in the admin panel for staff users to review.
 
 ### New Post Page
-The new post page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page.
+The new post page is accessible only to authorised users. If an unauthorized user attempts to access it, they will be redirected to the welcome page.
 
-The new post page houses a form through which users can create their own posts. This form has several fields, all of which are required. The form inputs are:
-    - image upload: a clickable icon housed to the left of the main form where users can upload a valid image. An error message will appear should they try to upload an image that is too big.
-    - title: A small text field.
-    - content: a larger text field.
-    - Country: a dropdown list of countries.
-    - City: a dropdown list of cities.
-    - Traveller number: a dropdown list of numbers up to 10.
-    - Relevant for: a dropdown list of predetermined options.
-    - Duration value: a dropdown list of numbers up to 10.
-    - Duration Unit: a dropdown list of predetermined options.
-    - Image description: A small text field.
+This page contains a form that allows users to create their own posts. All fields in the form are required. If any field contains invalid or missing information, an error message will be displayed under the relevant field(s).
 
-Above the country select field is a message in which is a link to the contact us page. Users are asked to send admin a message if they notice a missing country, city, or experience another error.
+Form Inputs:
+Image Upload: A clickable icon positioned to the left of the main form where users can upload a valid image. If the uploaded image exceeds the allowed size, an error message will appear.
 
-Duration value and unit both have tooltips which can be seen when hovering over the '!' icon to explain what the fields expect.
+    * Title: A small text field.
 
-Should the user choose to not create a post, they can click 'cancel' to be redirected to the previous page they were on. If users submit a post form with valid details, they will be redirected to the post page where they can see their full published post.
+    * Content: A larger text field for the main post content.
+
+    * Country: A dropdown list of countries.
+
+    * City: A dropdown list of cities, filtered based on the selected country.
+
+    * Traveller Number: A dropdown list of numbers up to 10.
+
+    * Relevant For: A dropdown list of predetermined options specifying who the post is relevant for.
+
+    * Duration Value: A dropdown list of numbers up to 10.
+    
+    * Image Description: A small text field for describing the uploaded image.
+
+Above the country select field, a message contains a link to the contact page. Users are encouraged to send a message to the admin if they notice a missing country or city or encounter any issues.
+
+The Duration Value and Duration Unit fields each have tooltips that appear when hovering over the '!' icon, explaining what type of input is expected.
+
+If the user decides not to create a post, they can click the "Cancel" button to return to the previous page they were on. If they submit a valid post form, they will be redirected to the post page, where they can view their full published post.
 
 ### Explore
 The explore page is accessible only to authorised users. Should unauthorised users attempt to access it, they will be redirected back to the welcome page. Below the search bar, it has a message detailing what posts are being displayed.
