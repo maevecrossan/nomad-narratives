@@ -135,11 +135,9 @@ The following HMTL validation was copied from the rendered HTML in devtools. Eac
 
 ### CSS W3C Validation
 
-The following is a consolidated report of screenshots from W3C CSS validator.
+The following is a consolidated report of screenshots from W3C CSS validator. All files passed with no errors.
 
-[CSS W3C Validation]()
-
-[CSS W3C Validation (alt link)]()
+[CSS W3C Validation](documentation/validation/nn-css-validation.pdf)
 
 
 ### JS Validation (ESLint)
