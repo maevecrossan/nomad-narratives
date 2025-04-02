@@ -122,7 +122,7 @@ The following report contains the results, screenshots and explanations from the
 
 The following report contains the lighthouse scores for the respective pages users can visit.
 
-[Lighthouse Validation Report]()
+[Lighthouse Validation Report](documentation/validation/nn-lighthouse-validation.pdf)
 
 ### HTML W3C Validation
 
@@ -144,7 +144,6 @@ For my JavaScript testing, I chose to use ESLint rather JsHint due to it's JSX s
 ESLint was installed as a VSCODE extension. Any issues it identified would show in the 'problems' tab below the code for the relevant file. JsHInt was used as a reference tool, but the warnings it rose were caused by the JSX. Other warnings were the `only available` ones.
 
 [ESLint Validation Report]()
-[ESLint Validation Report (alt link)]()
 
 ### Python Validation
 
@@ -154,8 +153,6 @@ Pylint and Flake8 were used throughout development.
 The below results are from the CI Python Linter into which I copied and pasted my code.
 
 [Python Validation Report]()
-
-[Python Validation Report (alt link)]()
 
 
 ## Bugs and Fixes
