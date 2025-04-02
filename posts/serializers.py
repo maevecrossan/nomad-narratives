@@ -19,6 +19,18 @@ class TripDetailsSerializer(serializers.ModelSerializer):
         )
     duration_display = serializers.SerializerMethodField()
 
+    def validate_traveller_number(self, value):
+        '''
+        Ensure traveller_number is a valid choice.
+        '''
+        valid_choices = [str(i) for i in range(1, 11)] + ['10+']
+        if value not in valid_choices:
+            raise serializers.ValidationError(
+                f"Invalid traveller number. Valid options are: {
+                    ', '.join(valid_choices)}."
+            )
+        return value
+
     def get_duration_display(self, obj):
         '''
         Returns a human-readable string representing the trip's duration.
@@ -27,12 +39,14 @@ class TripDetailsSerializer(serializers.ModelSerializer):
 
     def validate_duration_value(self, value):
         '''
-        Validate that the duration value is positive number greater than zero.
+        Ensure duration_value is a valid choice.
         '''
-        if value <= 0:
+        valid_choices = [str(i) for i in range(1, 11)] + ['10+']
+        if value not in valid_choices:
             raise serializers.ValidationError(
-                "Duration value must be positive."
-                )
+                f"Invalid duration value. Valid options are: {
+                    ', '.join(valid_choices)}."
+            )
         return value
 
     def validate_duration_unit(self, value):

@@ -100,8 +100,6 @@ class TripDetails(models.Model):
         City, on_delete=models.SET_NULL, null=True, blank=False
         )
 
-    traveller_number = models.PositiveIntegerField(blank=False)
-
     relevant_for_choices = [
             ('all', 'All Genders & Orientations'),
             ('women', 'Women'),
@@ -113,7 +111,19 @@ class TripDetails(models.Model):
         max_length=10, choices=relevant_for_choices, blank=False
         )
 
-    duration_value = models.PositiveBigIntegerField(blank=False)
+    traveller_number_choices = [
+        (str(i), str(i)) for i in range(1, 11)] + [('10+', '10+')]
+
+    traveller_number = models.CharField(
+        max_length=3, choices=traveller_number_choices, blank=False
+    )
+
+    duration_value_choices = [
+        (str(i), str(i)) for i in range(1, 11)] + [('10+', '10+')]
+
+    duration_value = models.CharField(
+        max_length=3, choices=duration_value_choices, blank=False
+    )
 
     duration_unit_choices = [
         ('days', 'Day(s)'),
@@ -130,22 +140,25 @@ class TripDetails(models.Model):
         '''
         Custom validation for TripDetails model.
         '''
-        if self.duration_value <= 0:
-            raise ValidationError("Duration value must be positive.")
-
-        if self.traveller_number <= 0:
-            raise ValidationError("Traveller number must be positive.")
-
-        relevant_valid_values = ['all', 'women', 'men', 'nonbinary', 'lgbtq']
-        if self.relevant_for not in [
-            'all', 'women', 'men', 'nonbinary', 'lgbtq'
-                ]:
-            raise ValidationError(
-                f"Invalid relevant_for value. Valid options are: {', '.join(
-                    relevant_valid_values)}."
-                    )
 
         super().clean()
+
+        if self.duration_value not in range(1, 12):  # 1 to 11 (10+)
+            raise ValidationError(
+                "Duration value must be between 1 and 10+.")
+
+        if self.traveller_number not in range(1, 12):  # 1 to 11 (10+)
+            raise ValidationError(
+                "Traveller number must be between 1 and 10+.")
+
+        # relevant_valid_values = ['all', 'women', 'men', 'nonbinary', 'lgbtq']
+        # if self.relevant_for not in [
+        #     'all', 'women', 'men', 'nonbinary', 'lgbtq'
+        #         ]:
+        #     raise ValidationError(
+        #         f"Invalid relevant_for value. Valid options are: {', '.join(
+        #             relevant_valid_values)}."
+        #             )
 
     def save(self, *args, **kwargs):
         '''
@@ -157,8 +170,8 @@ class TripDetails(models.Model):
 
     def __str__(self):
         return (
-            f"Details for "
-            f"{self.trip_post.title} - "  # pylint: disable=no-member
-            f"{self.duration_value} "
+            f"Details for {
+                self.trip_post.title} - "  # pylint: disable=no-member
+            f"{self.get_duration_value_display()} "
             f"{self.get_duration_unit_display()}"  # pylint: disable=no-member
         )
