@@ -17,7 +17,9 @@ const PopularProfiles = ({ mobile }) => {
         >
             {popularProfiles.results.length ? (
                 <>
-                    <h4 className={`${styles.PopularProfilesHeading} ${appStyles.DmSerifFont}`}>
+                    <h4
+                        className={`${styles.PopularProfilesHeading} ${appStyles.DmSerifFont}`}
+                    >
                         Most followed profiles
                     </h4>
                     {mobile ? (
@@ -25,17 +27,25 @@ const PopularProfiles = ({ mobile }) => {
                             {popularProfiles.results
                                 .slice(0, 4)
                                 .map((profile) => (
-                                    <Profile key={profile.id} profile={profile} mobile/>
+                                    <Profile
+                                        key={profile.id}
+                                        profile={profile}
+                                        mobile
+                                    />
                                 ))}
                         </div>
                     ) : (
                         popularProfiles.results.map((profile) => (
-                            <Profile key={profile.id} profile={profile}/>
+                            <Profile key={profile.id} profile={profile} />
                         ))
                     )}
                 </>
             ) : (
-                <Asset spinner />
+                <Container
+                    className={`${appStyles.Content} d-flex justify-content-center align-items-center`}
+                >
+                    <Asset spinner />
+                </Container>
             )}
         </Container>
     );
