@@ -114,6 +114,9 @@ These tests are broken down by app.
 
 ### WAVE Validation
 
+The following report contains the results, screenshots and explanations from the WAVE validation:
+
+[WAVE Validation Report](documentation/validation/nn-wave-validation.pdf)
 
 ### Lighthouse Validation
 
