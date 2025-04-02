@@ -54,6 +54,62 @@ The details of my agile development can be found [here](AGILE.md).
 
 #### Opportunities
 
+Below are the main opportunities that arose when planning my project. The scores given to each opportunity were influenced by the project timeframe, familiarity with the languages and frameworks used, and project scope. Opportunities ranked lowly are only done so within the scope of this iteration and will be rescored in future iterations.
+
+Opportunity | Importance | Viability/Feasibility
+---|:---:|:---:|
+| View comments under a post | 4 | 4 |
+| Add a comment to a post | 4 | 4 |
+| Edit or update a comment | 4 | 4 |
+| Delete a comment | 4 | 4 |
+| Restrict commenting for logged-out users | 5 | 5 |
+| Restrict viewing comments for logged-out users | 3 | 5 |
+| Prevent logged-in users from editing others' comments | 5 | 5 |
+| View username and profile image for comments | 4 | 5 |
+| Follow/unfollow another user | 2 | 4 |
+| View follower counts | 3 | 4 |
+| View other users' follower counts | 2 | 4 |
+| Real-time follower and following count updates | 3 | 4 |
+| Like/unlike a post | 4 | 4 |
+| View all posts as a logged-in user | 5 | 5 |
+| Restrict post viewing for logged-out users | 4 | 5 |
+| Create a post | 5 | 5 |
+| Restrict post creation for logged-out users | 5 | 5 |
+| Edit own posts | 4 | 5 |
+| Restrict editing for non-owners | 5 | 5 |
+| Delete own posts | 5 | 5 |
+| Restrict post deletion for non-owners | 5 | 5 |
+| Add an image to a post | 3 | 3 |
+| Prevent exceeding image size limits | 3 | 3 |
+| Display error message for oversized images | 5 | 5 |
+| Add trip details to posts | 4 | 4 |
+| Search for posts by title, country, or city | 4 | 4 |
+| Receive messages from users | 1 | 1 |
+| Control available cities and countries | 5 |5  |
+| Add cities and countries to the database (admin) | 5 | 5 |
+| View all registered users (admin) | 5 | 5 |
+| Manage user profiles (edit, delete, create) (admin) | 5 | 5 |
+| View sign in and sign up as logged-out user | 5 | 5 |
+| Restrict sign-in and sign-up pages once logged in | 5 | 5 |
+| Redirect logged-out users when accessing exclusive pages | 4 | 5 |
+| Rich text editor for posts | 2 | 1 |
+| Clickable links for content filters | 2 | 2 |
+| Tags for categorizing posts | 1 | 1 |
+| New detail category for trip types | 1 | 1 |
+| Save posts to a folder | 2 | 1 |
+| Dropdown for predefined categories | 3 | 1 |
+| Library of profile images | 1 | 1 |
+| 'Helpful tips' page for writing posts | 1 | 1 |
+| Post collaborations | 1 | 1 |
+| Social media sharing buttons | 1 | 1 |
+| Comment moderation system | 3 | 1 |
+| Multi-language support | 3 | 1 |
+| Dark mode color scheme | 1 | 1 |
+| Email validation for users | 3 | 1 |
+| My Feed page auto-refresh | 3 | 1 |
+| **TOTAL SCORES** | 127 | 130 |
+
+
 ### Scope
 
 ### Structure
