@@ -280,6 +280,8 @@ Below is a list of future developments I noted down during planning and over the
 | **Implement a comment moderation system** so users can report inappropriate comments and ensure a friendly, respectful community. |
 | **Add a multi-language option** so users can view content in various languages, making the platform accessible to a global audience. |
 | **Add a dark-mode colour scheme** so that users reading in low light can continue to enjoy content. |
+| **Email Validation** so that users can be verified. |
+| **My Feed page refresh** so that users don't have to do it manually and can begin browsing articles. |
 
 
 ## Credits
