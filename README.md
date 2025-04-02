@@ -238,6 +238,8 @@ The post page is visible when clicking a 'read more' link. If the user is the ow
 If they chose to edit a post, it will redirect them to the post creation page where they form will be prepopulated with their post content. 
 If they chose to delete their post, a modal will appear so the user can confirm they want to delete it in case the click was a mistake.
 
+To the left of the three dots is the date at which the post was created (created_at). If a user edits it, it will update to that date (updated_at).
+
 All users will be able to see comments made by other users too.
 
 ### Sign Out
