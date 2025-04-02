@@ -17,7 +17,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
-const TripPost = ({ setTripPost, ...props }) => {
+const TripPost = ( props ) => {
     const {
         id,
         owner,
@@ -30,9 +30,8 @@ const TripPost = ({ setTripPost, ...props }) => {
         comments_count,
         likes_count,
         like_id,
-        // TripPostPage,
-        setTripPosts,
         details,
+        setTripPosts,
         isTripPostPage,
     } = props;
 
@@ -108,40 +107,43 @@ const TripPost = ({ setTripPost, ...props }) => {
     const countryName =
         countries.find((c) => c.id === countryId)?.name || "Unknown Country";
 
-    const handleLike = async () => {
-        try {
-            const { data } = await axiosRes.post("/likes/", { post: id });
-
-            if (setTripPosts) {
-                // Update state for the feed page
-                setTripPosts((prevPosts) => ({
-                    ...prevPosts,
-                    results: prevPosts.results.map((post) =>
-                        post.id === id
-                            ? {
-                                  ...post,
-                                  likes_count: post.likes_count + 1,
-                                  like_id: data.id,
-                              }
-                            : post
-                    ),
-                }));
-            } else if (props.setTripPost) {
-                // Update state for the single post page
-                props.setTripPost((prevPost) => ({
-                    results: [
-                        {
-                            ...prevPost.results[0],
-                            likes_count: prevPost.results[0].likes_count + 1,
-                            like_id: data.id,
-                        },
-                    ],
-                }));
+        const handleLike = async () => {
+            const { setTripPost, setTripPosts } = props; // Destructure inside the function
+            try {
+                const { data } = await axiosRes.post("/likes/", { post: id });
+        
+                if (setTripPosts) {
+                    setTripPosts((prevPosts) => {
+                        const updatedPosts = {
+                            ...prevPosts,
+                            results: prevPosts.results.map((post) =>
+                                post.id === id
+                                    ? {
+                                          ...post,
+                                          likes_count: post.likes_count + 1,
+                                          like_id: data.id,
+                                      }
+                                    : post
+                            ),
+                        };
+                        return updatedPosts;
+                    });
+                } else if (setTripPost) {
+                    props.setTripPost((prevPost) => ({
+                        results: [
+                            {
+                                ...prevPost.results[0],
+                                likes_count: prevPost.results[0].likes_count + 1,
+                                like_id: data.id,
+                            },
+                        ],
+                    }));
+                }
+            } catch (err) {
+                // console.log("Error occurred during like request:", err);
             }
-        } catch (err) {
-            console.log(err);
-        }
-    };
+        };
+        
 
     const handleUnlike = async () => {
         try {
@@ -172,7 +174,7 @@ const TripPost = ({ setTripPost, ...props }) => {
                 }));
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
