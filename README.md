@@ -224,7 +224,7 @@ I divided these opportunities into categories under the MoSCoW headings for clar
 ### Skeleton
 #### Wireframes
 
-A pdf of my wireframes can be found [here](). Detailed schema has been included where used.
+A pdf of my wireframes can be found [here](documentation/features/nn-wireframes-schema.pdf). Detailed schema has been included where used.
 
 #### Data Architecture
 
@@ -240,7 +240,6 @@ Here is my final database ERD:
 
 ### Surface
   * **Colour Scheme**
-
 
   * **Fonts**
 
@@ -481,7 +480,7 @@ Below is a list of the tech used in this project.
 | [`Google Fonts`](https://fonts.google.com/) | Used to source the two fonts used in this project: [`DM Serif Display`](https://fonts.google.com/specimen/DM+Serif+Display) and [`Roboto`](https://fonts.google.com/specimen/Roboto). |
 | [`Code Institute Template`](https://github.com/Code-Institute-Org/gitpod-full-template) | - |
 | Code Institute Postgres Database server | - |
-| [Graphviz](https://graphviz.org/about/) | Automatic graph drawing for structural information (ERDs in this case).|
+| [Graphviz](https://dreampuf.github.io/GraphvizOnline/) | Automatic graph drawing for structural information (ERDs in this case). |
 
 #### Miscellaneous Resources
 
