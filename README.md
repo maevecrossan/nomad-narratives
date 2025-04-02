@@ -234,6 +234,7 @@ See 'explore page' for a full list of features.
 
 ### Post Page
 The post page is visible when clicking a 'read more' link. If the user is the owner of the post, they will be able to see a three-dot dropdown menu where they can edit or delete a post. The three dots are only visible here intentionally. My thought process was the user should view the full article before they edit it. This also means the user will be redirected to the article so they can see the changes they make in full, rather than having to access the post and scroll down to view the update.
+
 If they chose to edit a post, it will redirect them to the post creation page where they form will be prepopulated with their post content. 
 If they chose to delete their post, a modal will appear so the user can confirm they want to delete it in case the click was a mistake.
 
