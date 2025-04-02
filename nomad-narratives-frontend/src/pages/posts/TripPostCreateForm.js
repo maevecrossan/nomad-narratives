@@ -54,6 +54,19 @@ function PostCreateForm() {
     const [cities, setCities] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [selectedCity, setSelectedCity] = useState(null);
+    const [travellerChoices, setTravellerChoices] = useState([
+        { value: "1", label: "1" },
+        { value: "2", label: "2" },
+        { value: "3", label: "3" },
+        { value: "4", label: "4" },
+        { value: "5", label: "5" },
+        { value: "6", label: "6" },
+        { value: "7", label: "7" },
+        { value: "8", label: "8" },
+        { value: "9", label: "9" },
+        { value: "10", label: "10" },
+        { value: "10+", label: "10+" },
+    ]);
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -306,13 +319,20 @@ function PostCreateForm() {
                     <strong>Traveller number:</strong>
                 </p>
                 <Form.Control
-                    type="number"
+                    as="select"
                     name="traveller_number"
                     value={tripPostData.traveller_number || ""}
                     onChange={handleChange}
-                    aria-label="Select a number of travellers your story features or is suitable for."
+                    aria-label="Select a number of travellers"
                     required
-                />
+                >
+                    <option value="">Select</option>
+                    {travellerChoices.map((choice) => (
+                        <option key={choice.value} value={choice.value}>
+                            {choice.label}
+                        </option>
+                    ))}
+                </Form.Control>
             </Form.Group>
             {errors?.traveller_number?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -387,8 +407,8 @@ function PostCreateForm() {
                             placement="top"
                             overlay={
                                 <Tooltip>
-                                    Choose a unit of measurement for how long your
-                                    trip was e.g. 'days'.
+                                    Choose a unit of measurement for how long
+                                    your trip was e.g. 'days'.
                                 </Tooltip>
                             }
                         >
