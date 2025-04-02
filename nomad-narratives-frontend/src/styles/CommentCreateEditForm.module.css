@@ -18,3 +18,8 @@
     background-color: #fff8ed;
     color: #5a473a;
 }
+
+.Button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
