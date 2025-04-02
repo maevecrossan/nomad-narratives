@@ -220,13 +220,21 @@ I divided these opportunities into categories under the MoSCoW headings for clar
 | 3. | As a logged in user, once loged in, I cannot view the sign in and sign up so that I can stay signed in. |
 | 4. | As a logged out user, I am redirected to the homepage when trying to access user-exclusive pages (e.g. new post, feed, likes, comments) so that content is restricted to logged in users. |
 
-----------
-
 
 ### Skeleton
 #### Wireframes
 
-#### Database
+A pdf of my wireframes can be found [here](). Detailed schema has been included where used.
+
+#### Data Architecture
+
+Below is the ERD for my database schema at the beginning of my planning.
+
+![Sketch of database ERD](documentation/data-architecture/planning-erd.png)
+
+Here is my final database ERD:
+
+![image]()
 
 ### Surface
 
