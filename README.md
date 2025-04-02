@@ -74,6 +74,7 @@ Opportunity | Importance | Viability/Feasibility
 | View all posts as a logged-in user | 5 | 5 |
 | Restrict post viewing for logged-out users | 4 | 5 |
 | Create a post | 5 | 5 |
+| Filter posts | 3 | 4 | 
 | Restrict post creation for logged-out users | 5 | 5 |
 | Edit own posts | 4 | 5 |
 | Restrict editing for non-owners | 5 | 5 |
@@ -92,6 +93,9 @@ Opportunity | Importance | Viability/Feasibility
 | View sign in and sign up as logged-out user | 5 | 5 |
 | Restrict sign-in and sign-up pages once logged in | 5 | 5 |
 | Redirect logged-out users when accessing exclusive pages | 4 | 5 |
+| Contact form to allow users to chat to admin | 4 | 5 |
+| No page refresh when navigating between pages. | 3 | 4 |
+
 | Rich text editor for posts | 2 | 1 |
 | Clickable links for content filters | 2 | 2 |
 | Tags for categorizing posts | 1 | 1 |
@@ -107,10 +111,48 @@ Opportunity | Importance | Viability/Feasibility
 | Dark mode color scheme | 1 | 1 |
 | Email validation for users | 3 | 1 |
 | My Feed page auto-refresh | 3 | 1 |
-| **TOTAL SCORES** | 127 | 130 |
+| **TOTAL SCORES** | 137 | 143 |
 
 
 ### Scope
+
+I divided these opportunities into categories under the MoSCoW headings for clarity. These headings have also been linked to the user stories and acceptance criteria on my [GitHub project](https://github.com/users/maevecrossan/projects/5).
+
+*Note: Not all the above headings have been included for the sake of brevity. An extensive list of user stories and their acceptance criteria can be found [here](https://github.com/users/maevecrossan/projects/5). Each story will have a MoSCoW heading as a tag.*
+
+* **Must Have:**
+    * User sign up and sign in.
+    * See logged in-out status.
+    * View, add, edit and delete posts (logged in users).
+    * Website introduction.
+
+* **Should Have:**
+    * Users can follow and unfollow other users.
+    * View, add, edit and delete comments (logged in users).
+    * User can like/unlike a post.
+    * No page refresh when navigating pages.
+
+* **Could Have:**
+    * Contact (admin) form.
+    * Filter posts (most recent, followed users, likes, saves).
+    * View user profiles.
+
+
+* **Won't Have:**
+    * Rich text editor for posts
+    * Clickable links for content filters
+    * Tags for categorizing posts
+    * New detail category for trip types
+    * Save posts to a folder
+    * Dropdown for predefined categories
+    * Library of profile images
+    * 'Helpful tips' page for writing posts
+    * Post collaborations
+    * Social media sharing buttons
+    * Comment moderation system
+    * Email validation for users
+
+
 
 ### Structure
 
