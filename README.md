@@ -164,14 +164,20 @@ The community guidelines section outlines the community values and expectations 
 The 'About Us' and 'Community Guidelines' sections are accessible from the navbar for logged out users.
 
 ### Sign Up Page
-The sign up page is very minimal in order to not visually overload the user. The for fields are positioned over a photograph. 
+The sign up page has very minimal design to avoid visually overwhelming the user. The form fields are positioned in front of a photograph. 
 
-Users are expected to enter a username and a password (twice). They will receive an error if any of the three fields are contain no or invalid information. Users are also expected to agree to adhere to the community guidelines and can only submit the form if they agree by checking the box. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress. Once the submit button is pressed (and the form contains valid information), users will be redirected to the sign in page.
+Users must enter a username and confirm their password by entering it twice. An error message appears if any of the three fields contain invalid or missing information. Users must agree to the community guidelines to proceed. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress. Upon successful submission, users are redirected to the sign-in page.
 
-This page is not accessible by authorised/logged in users.
+This page is inaccessible to logged-in or authorized users
 
 ### Sign In Page
-The sign in page looks like the sign up page but the image is different. There is a username and password field which will only accept valid inputs. There is a sign in button below which is a prompt to sign up if the user has not created an account.
+The sign-in page has a similar layout to the sign-up page but features a different background image.
+
+The page includes fields for a username and password, which only accept valid inputs. If a user enters invalid credentials or leaves a required field empty, an error message will be displayed under the relevant field(s).
+
+Below the sign-in button, there is a prompt encouraging users to sign up if they do not have an account. Additionally, if a user forgets their password, there should be an option to reset it.
+
+If a logged-in user tries to access this page, they will be redirected.
 
 ### Contact Us Page
 The contact page is in the same style as the sign in and sign up pages. It is accessible for all users (logged in or out) and requires users to enter in their name, email and a message. The valid submitted data will be sent to and visible in the admin panel by staff users. A success message will appear when a form is successfully submitted.
