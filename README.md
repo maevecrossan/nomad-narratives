@@ -459,6 +459,49 @@ The Sign Out Modal appears when the user clicks the "Sign Out" navigation link. 
 
 If the user confirms their intent to sign out, they will be redirected to the welcome page. This modal ensures that users don't accidentally sign out without meaning to, providing a simple and user-friendly way to confirm their action.
 
+### File Organisation and Relationships
+
+This project is quite comprehensive, combining both the backend and frontend within a single repository. Below is an organized breakdown of the folder structure and how the files relate to each other.
+
+#### Backend:
+
+The backend is organized into several apps, each in its own folder. These apps handle various functionalities and data management:
+
+* `comments`: manages all comment-related functionality.
+* `contact`: handles the contact form and related functionality.
+* `followers`: manages follower relationships between users.
+* `likes`: manages likes associated with posts and other entities.
+* `nomadnarrativesapi`: core API app, which contains global settings like `settings.py`.
+* `posts`: responsible for handling posts, including creation, retrieval, and updates.
+* `profiles`: manages user profiles, including user details, images, and related data.
+
+Each of these backend apps contains relevant files for their responsibilities, such as views, models, and serializers, which define the logic and data structure.
+
+#### Frontend:
+
+The frontend code resides in the nomad-narratives-frontend folder. Within the src folder, you’ll find several key subfolders and files, which contain the logic and structure for interacting with the backend data and displaying it to the user.
+
+* `api`: contains Axios configuration for making API calls to the backend. This includes base URL setup, headers, and any necessary authentication tokens.
+
+* `assets`: stores various assets used across the project, such as images, logos, and error graphics (e.g. not found image).
+
+* `components`: contains reusable React components that handle various UI elements, such as:
+	- Loading spinner
+	- Image display components
+	- Message display components
+	- Avatar components
+	- Navigation bar
+	- Options dropdown
+
+* `contexts`: contains context providers for managing global states across the application:
+	- One context handles the current user’s state, manages the user authentication flow (loading, token refresh, logout).
+	- Another context manages profile data, handles following and unfollowing users, and tracks popular profiles.
+* `pages`: contains the logic for displaying pages, each corresponding to backend functionality (such as likes, posts, etc.). The pages are typically organized to reflect the structure of the backend apps.
+
+* `styles`: contains styles specific to the frontend, with individual CSS modules or stylesheets for each page or component.
+
+
+
 ## Deployment
 
 Steps followed for deployment can be found [here](DEPLOYMENT.md).
