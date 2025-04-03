@@ -1,8 +1,7 @@
-![Nomad Narratives Logo](./documentation/features/nn-logo-brown.png)
+![Nomad Narratives Logo](documentation/features/nn-logo-brown.png)
+![Nomad Narratives Preview](documentation/responsiveness/project-title.png)
 
-# Nomad Narratives
-
-## Project Introduction
+# Nomad Narratives Introduction
 
 Welcome to Nomad Narratives - a vibrant travel community where adventurers from around the globe can share their unique travel stories, insights, and experiences. Whether you're a seasoned traveler or just beginning to explore the world, this platform is designed for YOU to connect, inspire, and learn from fellow wanderers.
 
