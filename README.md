@@ -278,6 +278,39 @@ The details for my testing can be found here in [TESTING.md](TESTING.md).
 
 The following is a breakdown of the features of each page of the project.
 
+### Admin Panel  
+
+The admin panel can be accessed by adding `/admin` to the end of the app’s root URL. Only users with **staff** or **superuser** status can log in. Through this panel, verified admin users can manage the app’s data and settings, oversee user interactions, and maintain content integrity.  
+
+#### Categories Available in the Admin Panel  
+
+Admin users can view and interact with the following categories:  
+
+- Accounts (Email addresses)  
+- Auth Token (Tokens)  
+- Authentication and Authorization (Groups, Users)  
+- **Cities_light** (Cities, Countries, Regions/States, Subregions)  
+- **Comments**  
+- **Contacts** (Contact form submissions)  
+- **Followers**  
+- **Likes**  
+- **Trip Posts**  
+- **Profiles**  
+- Sites
+- Social Accounts (Social accounts, Social application tokens, Social applications)  
+
+> **Note:** The categories in **bold** are the ones I predict will be most frequently used by admin users.  
+
+#### Admin Capabilities  
+
+Admin users have full control over the listed categories, including the ability to:  
+
+- **Add, edit, or delete** records in any category.  
+- **Mass delete** comments, followers, likes, and posts for efficient moderation.  
+- **Customize permissions** by assigning different access levels to specific users or groups.  
+- **Monitor user activity logs** to track changes and ensure data integrity.   
+
+
 ### NavBar Component
 The navigation bar component sits at the top of the window on every page of the application. It is fully responsive and collapses to a burger menu on smaller screens where navigation links stack vertically. The logo remains in the top left for all screens and acts as a route back to the welcome page.
 
