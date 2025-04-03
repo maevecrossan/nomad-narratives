@@ -157,6 +157,8 @@ I divided these opportunities into categories under the MoSCoW headings for clar
 
 #### User Stories
 
+The user stories below were initially inspired by the opportunities outlined earlier in the project and were defined during the early stages of development. They were subsequently organized into more manageable components on [my project board here](https://github.com/users/maevecrossan/projects/5), which I used to track progress and outline test cases. Moving forward, I will adopt a more streamlined and consistent approach, closely monitoring the expansion of user stories and opportunities.
+
 ##### Nomad Narratives User
 | # | User Story |
 | :-- | :-- |
