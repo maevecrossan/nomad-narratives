@@ -24,32 +24,32 @@ The details of my agile development can be found [here](AGILE.md).
 #### Site aims
 
 - **Encourage User Engagement**  
-- Enable users to view and leave comments on posts.  
-- Allow users to like and follow other users.  
-- Provide a way for users to edit and delete their own content.  
+	- Enable users to view and leave comments on posts.  
+	- Allow users to like and follow other users.  
+	- Provide a way for users to edit and delete their own content.  
 
 - **Content Creation & Sharing**  
-- Allow logged-in users to create, edit, and delete posts.  
-- Support adding images and trip details to posts.  
-- Ensure content moderation by restricting post edits and deletions to their owners.
+	- Allow logged-in users to create, edit, and delete posts.  
+	- Support adding images and trip details to posts.  
+	- Ensure content moderation by restricting post edits and deletions to their owners.
 
 - **Search & Discovery**  
-- Enable users to find posts based on title, country, or city.
-- Provide a structured search system to enhance content discoverability.  
+	- Enable users to find posts based on title, country, or city.
+	- Provide a structured search system to enhance content discoverability.  
 
 - **User Access & Permissions**  
-- Restrict content creation and interaction (comments, likes, follows) to logged-in users.  
-- Ensure logged-out users are redirected when attempting to access exclusive pages.  
-- Prevent users from editing or deleting content that is not their own.  
+	- Restrict content creation and interaction (comments, likes, follows) to logged-in users.  
+	- Ensure logged-out users are redirected when attempting to access exclusive pages.  
+	- Prevent users from editing or deleting content that is not their own.  
 
 - **Administrator Control**  
-- Allow admin users to manage posts, comments, likes, users, and locations.  
-- Ensure admins can receive and respond to user inquiries.
+	- Allow admin users to manage posts, comments, likes, users, and locations.  
+	- Ensure admins can receive and respond to user inquiries.
 
 - **Seamless Navigation & User Experience**  
-- Provide a welcoming homepage for logged-out users.  
-- Redirect users appropriately based on their login status.
-- Instantly update follower and like counts for real-time interaction.
+	- Provide a welcoming homepage for logged-out users.  
+	- Redirect users appropriately based on their login status.
+	- Instantly update follower and like counts for real-time interaction.
 
 #### Opportunities
 
