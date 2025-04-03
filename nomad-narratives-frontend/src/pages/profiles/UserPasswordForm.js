@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -26,6 +27,7 @@ const UserPasswordForm = () => {
     const { new_password1, new_password2 } = userData;
 
     const [errors, setErrors] = useState({});
+    const [showModal, setShowModal] = useState(false);
 
     const handleChange = (event) => {
         setUserData({
@@ -45,11 +47,16 @@ const UserPasswordForm = () => {
         event.preventDefault();
         try {
             await axiosRes.post("/dj-rest-auth/password/change/", userData);
-            history.goBack();
+            setShowModal(true);
         } catch (err) {
             // console.log(err);
             setErrors(err.response?.data);
         }
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        history.push(`/profiles/${id}`); // Redirect to profile page after modal is closed
     };
 
     return (
@@ -102,6 +109,21 @@ const UserPasswordForm = () => {
                     </Form>
                 </Container>
             </Col>
+
+            {/* Success Modal */}
+            <Modal show={showModal} onHide={handleCloseModal} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Password Changed</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Your password has been successfully changed.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={handleCloseModal}>
+                        OK
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Row>
     );
 };
