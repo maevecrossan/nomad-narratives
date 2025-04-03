@@ -166,6 +166,8 @@ Devices used for testing were:
 * Macbook Pro (15-inch)
 * <!-- ADD -->
 
+[View Full Responsiveness Report](documentation/responsiveness/nn-am-i-responsive.pdf)
+
 ## Bugs and Fixes
 
 | Bug | Fix |
