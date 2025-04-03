@@ -262,7 +262,7 @@ function PostCreateForm() {
                 <p>
                     <strong>
                         <em>
-                            <i className="fa-solid fa-circle-exclamation"></i>
+                            <i className={`${styles.InfoIcon} fa-solid fa-circle-exclamation`}></i>
                             Don't see the country or city option you need?
                             Select a temporary one for now and message us&nbsp;
                             <a
