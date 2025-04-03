@@ -151,15 +151,6 @@ class TripDetails(models.Model):
             raise ValidationError(
                 "Traveller number must be between 1 and 10+.")
 
-        # relevant_valid_values = ['all', 'women', 'men', 'nonbinary', 'lgbtq']
-        # if self.relevant_for not in [
-        #     'all', 'women', 'men', 'nonbinary', 'lgbtq'
-        #         ]:
-        #     raise ValidationError(
-        #         f"Invalid relevant_for value. Valid options are: {', '.join(
-        #             relevant_valid_values)}."
-        #             )
-
     def save(self, *args, **kwargs):
         '''
         Automatically set the continent based on the selected country.
