@@ -25,32 +25,32 @@ The details of my agile development can be found [here](AGILE.md).
 #### Site aims
 
 - **Encourage User Engagement**  
-  - Enable users to view and leave comments on posts.  
-  - Allow users to like and follow other users.  
-  - Provide a way for users to edit and delete their own content.  
+- Enable users to view and leave comments on posts.  
+- Allow users to like and follow other users.  
+- Provide a way for users to edit and delete their own content.  
 
 - **Content Creation & Sharing**  
-  - Allow logged-in users to create, edit, and delete posts.  
-  - Support adding images and trip details to posts.  
-  - Ensure content moderation by restricting post edits and deletions to their owners.
+- Allow logged-in users to create, edit, and delete posts.  
+- Support adding images and trip details to posts.  
+- Ensure content moderation by restricting post edits and deletions to their owners.
 
 - **Search & Discovery**  
-  - Enable users to find posts based on title, country, or city.
-  - Provide a structured search system to enhance content discoverability.  
+- Enable users to find posts based on title, country, or city.
+- Provide a structured search system to enhance content discoverability.  
 
 - **User Access & Permissions**  
-  - Restrict content creation and interaction (comments, likes, follows) to logged-in users.  
-  - Ensure logged-out users are redirected when attempting to access exclusive pages.  
-  - Prevent users from editing or deleting content that is not their own.  
+- Restrict content creation and interaction (comments, likes, follows) to logged-in users.  
+- Ensure logged-out users are redirected when attempting to access exclusive pages.  
+- Prevent users from editing or deleting content that is not their own.  
 
 - **Administrator Control**  
-  - Allow admin users to manage posts, comments, likes, users, and locations.  
-  - Ensure admins can receive and respond to user inquiries.
+- Allow admin users to manage posts, comments, likes, users, and locations.  
+- Ensure admins can receive and respond to user inquiries.
 
 - **Seamless Navigation & User Experience**  
-  - Provide a welcoming homepage for logged-out users.  
-  - Redirect users appropriately based on their login status.
-  - Instantly update follower and like counts for real-time interaction.
+- Provide a welcoming homepage for logged-out users.  
+- Redirect users appropriately based on their login status.
+- Instantly update follower and like counts for real-time interaction.
 
 #### Opportunities
 
@@ -121,36 +121,36 @@ I divided these opportunities into categories under the MoSCoW headings for clar
 *Note: Not all the above headings have been included for the sake of brevity. An extensive list of user stories and their acceptance criteria can be found [here](https://github.com/users/maevecrossan/projects/5). Each story will have a MoSCoW heading as a tag.*
 
 * **Must Have:**
-    * User sign up and sign in.
-    * See logged in-out status.
-    * View, add, edit and delete posts (logged in users).
-    * Website introduction.
+	* User sign up and sign in.
+	* See logged in-out status.
+	* View, add, edit and delete posts (logged in users).
+	* Website introduction.
 
 * **Should Have:**
-    * Users can follow and unfollow other users.
-    * View, add, edit and delete comments (logged in users).
-    * User can like/unlike a post.
-    * No page refresh when navigating pages.
+	* Users can follow and unfollow other users.
+	* View, add, edit and delete comments (logged in users).
+	* User can like/unlike a post.
+	* No page refresh when navigating pages.
 
 * **Could Have:**
-    * Contact (admin) form.
-    * Filter posts (most recent, followed users, likes, saves).
-    * View user profiles.
+	* Contact (admin) form.
+	* Filter posts (most recent, followed users, likes, saves).
+	* View user profiles.
 
 
 * **Won't Have:**
-    * Rich text editor for posts
-    * Clickable links for content filters
-    * Tags for categorizing posts
-    * New detail category for trip types
-    * Save posts to a folder
-    * Dropdown for predefined categories
-    * Library of profile images
-    * 'Helpful tips' page for writing posts
-    * Post collaborations
-    * Social media sharing buttons
-    * Comment moderation system
-    * Email validation for users
+	* Rich text editor for posts
+	* Clickable links for content filters
+	* Tags for categorizing posts
+	* New detail category for trip types
+	* Save posts to a folder
+	* Dropdown for predefined categories
+	* Library of profile images
+	* 'Helpful tips' page for writing posts
+	* Post collaborations
+	* Social media sharing buttons
+	* Comment moderation system
+	* Email validation for users
 
 
 
@@ -239,20 +239,40 @@ Here is my final database ERD:
 
 
 ### Surface
-  * **Colour Scheme**
+#### **Colour Scheme**
 
-  * **Fonts**
+Below is a palette of the main colours used in this project. These colours were carefully selected to help define the visual identity of the brand, to ensure consistency across all elements, and to help maintain a cohesive and aesthetically pleasing look.
 
-  * **Images**
+![Nomand Narratives Colour Palette](documentation/colour-pallete.png)
 
 
+#### **Fonts**
+
+This project utilises Google Fonts, specifically [`Roboto`](https://fonts.google.com/specimen/Roboto) and [`DM Serif Display`](https://fonts.google.com/specimen/DM+Serif+Display). Roboto provides a modern, clean, and highly readable sans-serif style, ideal for body text and general content. Meanwhile, DM Serif Display adds a touch of elegance and sophistication with its classic serif design, making it perfect for headings and emphasis.
+
+#### **Images**
+
+The images used in this project are primarily my own, except for the user profile avatars. To ensure a realistic user experience, I tested the avatar functionality by using web-sourced images, simulating how a typical user might select their profile picture.
+
+My own images were exported using Adobe Lightroom.
 
 ## UX
 ### Target Audience
 
+Nomad Narratives is a platform designed for travel enthusiasts who want to share and discover travel experiences through blog-style posts. It caters to:
+
+* **Frequent travelers** who want to document their journeys and offer insights to others.
+
+* **Aspiring travelers** looking for destination inspiration and practical tips.
+
+* **Backpackers** and budget travelers seeking real-world experiences from like-minded individuals.
+
+* **Content creators** and travel bloggers who want a community-driven space to share their stories.
+
+The platform encourages interaction through comments, likes, and follows, fostering an engaged community of travelers.
 
 ## Testing
-The details for my testing can be found [here](TESTING.md).
+The details for my testing can be found here in [TESTING.md](TESTING.md).
 
 ## Features
 
@@ -312,21 +332,21 @@ This page contains a form that allows users to create their own posts. All field
 Form Inputs:
 Image Upload: A clickable icon positioned to the left of the main form where users can upload a valid image. If the uploaded image exceeds the allowed size, an error message will appear.
 
-    * Title: A small text field.
+* Title: A small text field.
 
-    * Content: A larger text field for the main post content.
+* Content: A larger text field for the main post content.
 
-    * Country: A dropdown list of countries.
+* Country: A dropdown list of countries.
 
-    * City: A dropdown list of cities, filtered based on the selected country.
+* City: A dropdown list of cities, filtered based on the selected country.
 
-    * Traveller Number: A dropdown list of numbers up to 10.
+* Traveller Number: A dropdown list of numbers up to 10.
 
-    * Relevant For: A dropdown list of predetermined options specifying who the post is relevant for.
+* Relevant For: A dropdown list of predetermined options specifying who the post is relevant for.
 
-    * Duration Value: A dropdown list of numbers up to 10.
-    
-    * Image Description: A small text field for describing the uploaded image.
+* Duration Value: A dropdown list of numbers up to 10.
+
+* Image Description: A small text field for describing the uploaded image.
 
 Above the country select field, a message contains a link to the contact page. Users are encouraged to send a message to the admin if they notice a missing country or city or encounter any issues.
 
