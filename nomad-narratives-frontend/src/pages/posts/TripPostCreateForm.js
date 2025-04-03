@@ -340,7 +340,7 @@ function PostCreateForm() {
                     aria-label="Select a number of travellers"
                     required
                 >
-                    <option value="">Select</option>
+                    <option value="">Select number of travellers</option>
                     {travellerChoices.map((choice) => (
                         <option key={choice.value} value={choice.value}>
                             {choice.label}
