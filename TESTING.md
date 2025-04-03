@@ -155,6 +155,17 @@ The below results are from the CI Python Linter into which I copied and pasted m
 [Python Validation Report]()
 
 
+### Responsiveness Testing
+
+The following is a report of the responsiveness of each page. These screenshots were taken using [Am I Responsive?](https://ui.dev/amiresponsive), but additional tests were done on real devices as well as in Chrome devtools.
+
+Devices used for testing were:
+
+* iPhone 14 Pro Max
+* iPad 12.9"
+* Macbook Pro (15-inch)
+* <!-- ADD -->
+
 ## Bugs and Fixes
 
 | Bug | Fix |
