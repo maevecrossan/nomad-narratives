@@ -35,12 +35,6 @@ i {
     padding: 7px;
     vertical-align: middle;
 }
-  
-i:hover {
-    cursor: pointer;
-    transition: color ease-in-out 0.3s;
-    color: #5a473a;
-}
 
 .Active {
     color: #5a473a;
