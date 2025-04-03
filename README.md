@@ -287,21 +287,31 @@ However, if a user is logged in, they can view all of these links (except for th
 The navlinks have hover and active styles to help users identify what page they are about to select and are currently on.
 
 ### Welcome Page
+
+![Welcome Page Screenshots](documentation/responsiveness/welcome-hero-air.png)
+
 The welcome page serves as a simple homepage, structured into four main sections: the hero, about us, gallery row, and community guidelines.
 
 The hero section welcomes to user to the website and hooks them in with the 'Where will your next story take you?' question. The background image is of a dark, foggy forest.
 
 If a user clicks on the 'about us' or 'community guidelines' navlinks, they will be automatically scrolled down to that section. This action will happen if clicking those navlinks from any page.
 
+![Welcome Page Screenshots](documentation/responsiveness/welcome-about-gallery-air.png)
+
 The 'about us' section gives a concise explanation of the website's purpose. It also houses a link to the sign up page should the user choose to do so.
 
 Next is the gallery row which, on larger screens, houses three images (one vertical, two stacked horizontally). On smaller screens, the larger vertical image is hidden so users can access the Community Guidelines section more quickly.
+
+![Welcome Page Screenshots](documentation/responsiveness/welcome-comm-guidelines-air.png)
 
 The community guidelines section outlines the community values and expectations for users.
 
 The 'About Us' and 'Community Guidelines' sections are accessible from the navbar for logged out users.
 
 ### Sign Up Page
+
+![Welcome Page Screenshots](documentation/responsiveness/sign-up-air.png)
+
 The sign up page has very minimal design to avoid visually overwhelming the user. The form fields are positioned in front of a photograph. 
 
 Users must enter a username and confirm their password by entering it twice. An error message appears if any of the three fields contain invalid or missing information. Users must agree to the community guidelines to proceed. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress. Upon successful submission, users are redirected to the sign-in page.
@@ -309,6 +319,9 @@ Users must enter a username and confirm their password by entering it twice. An 
 This page is inaccessible to logged-in or authorised users
 
 ### Sign In Page
+
+![Welcome Page Screenshots](documentation/responsiveness/sign-in-air.png)
+
 The sign-in page has a similar layout to the sign-up page but features a different background image.
 
 The page includes fields for a username and password, which only accept valid inputs. If a user enters invalid credentials or leaves a required field empty, an error message will be displayed under the relevant field(s).
@@ -318,6 +331,9 @@ Below the sign-in button, there is a prompt encouraging users to sign up if they
 If a logged-in user tries to access this page, they will be redirected.
 
 ### Contact Us Page
+
+![Welcome Page Screenshots](documentation/responsiveness/contact-form-air.png)
+
 The contact page follows the same style as the sign-in and sign-up pages, featuring a clean and minimal design. It is accessible to all users, whether they are logged in or not.
 
 Users must enter their name, email, and a message. If any of these fields contain invalid or missing information, an error message will be displayed under the relevant field(s).
@@ -325,6 +341,8 @@ Users must enter their name, email, and a message. If any of these fields contai
 Upon successful submission, a confirmation message will appear to inform the user that their message has been sent. The submitted data will be stored and made visible in the admin panel for staff users to review.
 
 ### New Post Page
+![Welcome Page Screenshots](documentation/responsiveness/new-post-air.png)
+
 The new post page is accessible only to authorised users. If an unauthorized user attempts to access it, they will be redirected to the welcome page.
 
 This page contains a form that allows users to create their own posts. All fields in the form are required. If any field contains invalid or missing information, an error message will be displayed under the relevant field(s).
@@ -355,6 +373,8 @@ The Duration Value and Duration Unit fields each have tooltips that appear when 
 If the user decides not to create a post, they can click the "Cancel" button to return to the previous page they were on. If they submit a valid post form, they will be redirected to the post page, where they can view their full published post.
 
 ### Explore
+![Welcome Page Screenshots](documentation/responsiveness/explore-air.png)
+
 The Explore page is a dedicated space where users can browse articles from all members of the community. Accessible only to authorized users, it ensures that only logged-in members can interact with the content. If an unauthorized user attempts to access this page, they will be redirected to the welcome page.
 
 At the top of the page, a search bar allows users to quickly find specific posts, authors, or destinations. Just below the search bar, a brief message provides context on the posts being displayed. Articles are arranged in descending order, with the most recent posts appearing first. To enhance user experience, only previews of articles are shown, ensuring smooth scrolling and quick access to key information. Each post preview includes the author's name, title, location, publication date, number of travelers, relevance category, trip duration, and a short excerpt of the content. Users can also see the number of likes and comments each post has received.
@@ -364,6 +384,8 @@ For those interested in reading a full article, a "Read More" link is provided b
 To the right of the posts, a Popular Profiles section showcases the top 10 most-followed users, offering a way to discover influential contributors. These design and interaction elements remain consistent across the Explore, My Feed, and My Likes pages, ensuring a seamless browsing experience across the platform.
 
 ### My Feed
+![Welcome Page Screenshots](documentation/responsiveness/my-feed-air.png)
+
 The My Feed page functions similarly to the Explore page but exclusively displays posts created by users that the currently logged-in user follows. Below the search bar, a message provides context on the displayed posts.
 
 If the user is not following anyone, they will see a "No Results" message, which states: "Hmm... no results for that. Please try another search term, or try following a user and refresh this page!" This ensures clarity on why no posts are visible and encourages engagement with other users.
@@ -371,6 +393,8 @@ If the user is not following anyone, they will see a "No Results" message, which
 For a full breakdown of features, refer to the Explore page.
 
 ### My Likes
+![Welcome Page Screenshots](documentation/responsiveness/my-likes-air.png)
+
 The My Likes page also mirrors the Explore page but exclusively features posts that the currently logged-in user has liked. Below the search bar, a message provides context on the displayed posts.
 
 If the user has not yet liked any posts, they will see a "No Results" message, which states: "Hmm... no results for that. Please try another search term or try liking a post." This serves as a prompt to encourage interaction with content on the platform.
@@ -378,6 +402,8 @@ If the user has not yet liked any posts, they will see a "No Results" message, w
 For a complete list of features, refer to the Explore page.
 
 ### Post Page
+![Welcome Page Screenshots](documentation/responsiveness/post-air.png)
+
 The Trip Post Page is where users can view the full content of a specific post by clicking on the "read more" link. If the user is the author of the post, they will see a three-dot dropdown menu next to the post. This menu allows them to either edit or delete their post. The reason for showing the three dots only after the user has viewed the full post is to ensure they are aware of the content before making any changes. Clicking the "edit" option will redirect the user to the post creation page, where their post content will be prepopulated in the form. If they choose to delete the post, a confirmation modal will appear to prevent accidental deletion.
 
 Next to the three-dot menu, the post's creation date is displayed. If the post is edited, this date will update to reflect the new updated_at timestamp.
@@ -391,6 +417,8 @@ The right sidebar displays Popular Profiles, showing the top 10 users based on t
 This page provides users with a comprehensive view of the post, comments, and interaction options.
 
 ### Sign Out
+![Welcome Page Screenshots](documentation/responsiveness/sign-out.png)
+
 The Sign Out Modal appears when the user clicks the "Sign Out" navigation link. This modal provides a confirmation message to ensure that users are certain they want to sign out. The modal can be dismissed in several ways: by clicking the 'X' in the top corner, pressing the 'Cancel' button, or by clicking anywhere outside the modal.
 
 If the user confirms their intent to sign out, they will be redirected to the welcome page. This modal ensures that users don't accidentally sign out without meaning to, providing a simple and user-friendly way to confirm their action.
