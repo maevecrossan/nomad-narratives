@@ -262,7 +262,7 @@ My own images were exported using Adobe Lightroom.
 ## UX
 ### Target Audience
 
-Nomad Narratives is a platform designed for travel enthusiasts who want to share and discover travel experiences through blog-style posts. It caters to:
+As previously mentioned, this project came from a gap in the travel blog market that I felt was unfilled. I wanted to create a place where people could create and share together. Nomad Narratives is a platform designed for travel enthusiasts who want to share and discover travel experiences through blog-style posts. It caters to:
 
 * **Frequent travelers** who want to document their journeys and offer insights to others.
 
