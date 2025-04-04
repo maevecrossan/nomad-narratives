@@ -642,6 +642,7 @@ Below is a list of the tech used in this project.
 | [`Code Institute Template`](https://github.com/Code-Institute-Org/gitpod-full-template) | - |
 | Code Institute Postgres Database server | - |
 | [`Graphviz`](https://dreampuf.github.io/GraphvizOnline/) | Automatic graph drawing for structural information (ERDs in this case). |
+| [`VSCode`](https://code.visualstudio.com/) | Editing and creating code. |
 
 #### Miscellaneous Resources
 
