@@ -139,7 +139,6 @@ I divided these opportunities into categories under the MoSCoW headings for clar
 	* Filter posts (most recent, followed users, likes, saves).
 	* View user profiles.
 
-
 * **Won't Have:**
 	* Rich text editor for posts
 	* Clickable links for content filters
