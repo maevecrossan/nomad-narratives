@@ -424,7 +424,7 @@ Above the country select field, a message contains a link to the contact page. U
 
 The Duration Value and Duration Unit fields each have tooltips that appear when hovering over the '!' icon, explaining what type of input is expected.
 
-If the user decides not to create a post, they can click the "Cancel" button to return to the previous page they were on. If they submit a valid post form, they will be redirected to the post page, where they can view their full published post.
+If the user decides not to create a post, they can click the "Cancel" button to return to the previous page they were on. If they submit a valid post form, they will see a loading spinner and then be redirected to the post page, where they can view their full published post.
 
 --- 
 
