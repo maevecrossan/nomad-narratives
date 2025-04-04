@@ -8,6 +8,7 @@ import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Spinner from "react-bootstrap/Spinner";
 
 import Upload from "../../assets/upload.png";
 
@@ -54,7 +55,7 @@ function PostCreateForm() {
     const [cities, setCities] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [selectedCity, setSelectedCity] = useState(null);
-    const travellerChoices= [
+    const travellerChoices = [
         { value: "1", label: "1" },
         { value: "2", label: "2" },
         { value: "3", label: "3" },
@@ -84,6 +85,7 @@ function PostCreateForm() {
 
     const imageInput = useRef(null);
     const history = useHistory();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (event) => {
         setTripPostData({
@@ -179,6 +181,8 @@ function PostCreateForm() {
         event.preventDefault();
         if (!validateForm()) return;
 
+        setIsSubmitting(true);
+
         const formData = new FormData();
         const countryID = selectedCountry;
         const cityID = selectedCity;
@@ -206,6 +210,8 @@ function PostCreateForm() {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -262,7 +268,9 @@ function PostCreateForm() {
                 <p>
                     <strong>
                         <em>
-                            <i className={`${styles.InfoIcon} fa-solid fa-circle-question`}></i>
+                            <i
+                                className={`${styles.InfoIcon} fa-solid fa-circle-question`}
+                            ></i>
                             Don't see the country or city option you need?
                             Select a temporary one for now and message us&nbsp;
                             <a
@@ -490,8 +498,22 @@ function PostCreateForm() {
                 className={`${btnStyles.Button} ${btnStyles.Brown}`}
                 onClick={handleSubmit}
                 type="submit"
+                disabled={isSubmitting}
             >
-                create
+                {isSubmitting ? (
+                    <>
+                        <Spinner
+                            as="span"
+                            animation="border"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                        />
+                        &nbsp;Posting...
+                    </>
+                ) : (
+                    "create"
+                )}
             </Button>
         </div>
     );
