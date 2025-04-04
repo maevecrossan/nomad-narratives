@@ -237,7 +237,6 @@ Below is the ERD for my database schema at the beginning of my planning.
 
 Here is my final database ERD:
 
-[Link Final ERD File (zoomable)](documentation/data-architecture/final-erd-graphviz.png)
 ![Final ERD (not zoomable)](documentation/data-architecture/final-erd-graphviz.png)
 
 
