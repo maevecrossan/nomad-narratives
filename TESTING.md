@@ -178,8 +178,8 @@ Devices used for testing were:
 
 * iPhone 14 Pro Max
 * iPad 12.9"
-* Macbook Pro (15-inch)
-* <!-- ADD -->
+* Macbook Pro 15"
+* BenQ EL287OU 28"
 
 [View Full Responsiveness Report](documentation/responsiveness/nn-am-i-responsive.pdf)
 
