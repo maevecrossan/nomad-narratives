@@ -98,7 +98,6 @@ Opportunity | Importance | Viability/Feasibility
 | Redirect logged-out users when accessing exclusive pages | 4 | 5 |
 | Contact form to allow users to chat to admin | 4 | 5 |
 | No page refresh when navigating between pages. | 3 | 4 |
-
 | Rich text editor for posts | 2 | 1 |
 | Clickable links for content filters | 2 | 2 |
 | Tags for categorizing posts | 1 | 1 |
