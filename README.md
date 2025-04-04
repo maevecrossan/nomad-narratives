@@ -13,6 +13,8 @@ Sign up to gain full access to this community-driven space. Once you’re a memb
 
 **[Nomad Narratives Deployed App Link](https://nomad-narratives-05968209a16d.herokuapp.com/)**
 
+--- 
+
 ## Planning
 
 ### Project Inspiration
@@ -258,6 +260,8 @@ The images used in this project are primarily my own, except for the user profil
 
 My own images were exported using Adobe Lightroom.
 
+--- 
+
 ## UX
 ### Target Audience
 
@@ -273,8 +277,12 @@ As previously mentioned, this project came from a gap in the travel blog market 
 
 The platform encourages interaction through comments, likes, and follows, fostering an engaged community of travelers.
 
+--- 
+
 ## Testing
 The details for my testing can be found here in [TESTING.md](TESTING.md).
+
+--- 
 
 ## Features
 
@@ -312,6 +320,7 @@ Admin users have full control over the listed categories, including the ability 
 - **Customize permissions** by assigning different access levels to specific users or groups.  
 - **Monitor user activity logs** to track changes and ensure data integrity.   
 
+--- 
 
 ### NavBar Component
 The navigation bar component sits at the top of the window on every page of the application. It is fully responsive and collapses to a burger menu on smaller screens where navigation links stack vertically. The logo remains in the top left for all screens and acts as a route back to the welcome page.
@@ -320,6 +329,8 @@ The navigation bar links render conditionally based on the user's authentication
 However, if a user is logged in, they can view all of these links (except for the sign in and sign up pages) as well as the new post, explore, my feed, my likes and sign out links. If a logged out user tries to access these pages, they would be redirected to the homepage.
 
 The navlinks have hover and active styles to help users identify what page they are about to select and are currently on.
+
+--- 
 
 ### Welcome Page
 
@@ -343,6 +354,8 @@ The community guidelines section outlines the community values and expectations 
 
 The 'About Us' and 'Community Guidelines' sections are accessible from the navbar for logged out users.
 
+--- 
+
 ### Sign Up Page
 
 ![Welcome Page Screenshots](documentation/responsiveness/sign-up-air.png)
@@ -352,6 +365,8 @@ The sign up page has very minimal design to avoid visually overwhelming the user
 Users must enter a username and confirm their password by entering it twice. An error message appears if any of the three fields contain invalid or missing information. Users must agree to the community guidelines to proceed. There is a link below the agreement that users can visit to view the community guidelines. It opens in a new tab so users don't lose progress. Upon successful submission, users are redirected to the sign-in page.
 
 This page is inaccessible to logged-in or authorised users
+
+--- 
 
 ### Sign In Page
 
@@ -365,6 +380,8 @@ Below the sign-in button, there is a prompt encouraging users to sign up if they
 
 If a logged-in user tries to access this page, they will be redirected.
 
+--- 
+
 ### Contact Us Page
 
 ![Welcome Page Screenshots](documentation/responsiveness/contact-form-air.png)
@@ -374,6 +391,8 @@ The contact page follows the same style as the sign-in and sign-up pages, featur
 Users must enter their name, email, and a message. If any of these fields contain invalid or missing information, an error message will be displayed under the relevant field(s).
 
 Upon successful submission, a confirmation message will appear to inform the user that their message has been sent. The submitted data will be stored and made visible in the admin panel for staff users to review.
+
+--- 
 
 ### New Post Page
 ![Welcome Page Screenshots](documentation/responsiveness/new-post-air.png)
@@ -407,6 +426,8 @@ The Duration Value and Duration Unit fields each have tooltips that appear when 
 
 If the user decides not to create a post, they can click the "Cancel" button to return to the previous page they were on. If they submit a valid post form, they will be redirected to the post page, where they can view their full published post.
 
+--- 
+
 ### Explore
 ![Welcome Page Screenshots](documentation/responsiveness/explore-air.png)
 
@@ -418,6 +439,8 @@ For those interested in reading a full article, a "Read More" link is provided b
 
 To the right of the posts, a Popular Profiles section showcases the top 10 most-followed users, offering a way to discover influential contributors. These design and interaction elements remain consistent across the Explore, My Feed, and My Likes pages, ensuring a seamless browsing experience across the platform.
 
+--- 
+
 ### My Feed
 ![Welcome Page Screenshots](documentation/responsiveness/my-feed-air.png)
 
@@ -427,6 +450,8 @@ If the user is not following anyone, they will see a "No Results" message, which
 
 For a full breakdown of features, refer to the Explore page.
 
+--- 
+
 ### My Likes
 ![Welcome Page Screenshots](documentation/responsiveness/my-likes-air.png)
 
@@ -435,6 +460,8 @@ The My Likes page also mirrors the Explore page but exclusively features posts t
 If the user has not yet liked any posts, they will see a "No Results" message, which states: "Hmm... no results for that. Please try another search term or try liking a post." This serves as a prompt to encourage interaction with content on the platform.
 
 For a complete list of features, refer to the Explore page.
+
+--- 
 
 ### Post Page
 ![Welcome Page Screenshots](documentation/responsiveness/post-air.png)
@@ -451,12 +478,16 @@ The right sidebar displays Popular Profiles, showing the top 10 users based on t
 
 This page provides users with a comprehensive view of the post, comments, and interaction options.
 
+--- 
+
 ### Sign Out
 ![Welcome Page Screenshots](documentation/responsiveness/sign-out.png)
 
 The Sign Out Modal appears when the user clicks the "Sign Out" navigation link. This modal provides a confirmation message to ensure that users are certain they want to sign out. The modal can be dismissed in several ways: by clicking the 'X' in the top corner, pressing the 'Cancel' button, or by clicking anywhere outside the modal.
 
 If the user confirms their intent to sign out, they will be redirected to the welcome page. This modal ensures that users don't accidentally sign out without meaning to, providing a simple and user-friendly way to confirm their action.
+
+--- 
 
 ### File Organisation and Relationships
 
@@ -499,11 +530,13 @@ The frontend code resides in the nomad-narratives-frontend folder. Within the sr
 
 * `styles`: contains styles specific to the frontend, with individual CSS modules or stylesheets for each page or component.
 
-
+--- 
 
 ## Deployment
 
 Steps followed for deployment can be found [here](DEPLOYMENT.md).
+
+--- 
 
 ## Future Developments
 
@@ -527,6 +560,8 @@ Below is a list of future developments I noted down during planning and over the
 | **Email Validation** so that users can be verified. |
 | **My Feed page refresh** so that users don't have to do it manually and can begin browsing articles. |
 | **Add more groups to 'Relevant For'** so that users can more accurately tag the appropriate category. I would also like to support multiple group selections, so I’ve deferred this to a future iteration. |
+
+--- 
 
 ## Credits
 
