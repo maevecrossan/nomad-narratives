@@ -527,7 +527,7 @@ Below is a list of future developments I noted down during planning and over the
 | **Add a dark-mode colour scheme** so that users reading in low light can continue to enjoy content. |
 | **Email Validation** so that users can be verified. |
 | **My Feed page refresh** so that users don't have to do it manually and can begin browsing articles. |
-
+| **Add more groups to 'Relevant For'** so that users can more accurately tag the appropriate category. I would also like to support multiple group selections, so I’ve deferred this to a future iteration. |
 
 ## Credits
 
