@@ -44,6 +44,7 @@ h5 {
 
 .Heart:hover {
     color: #f85032;
+    cursor: pointer;
 }
 
 .HeartOutline:hover {
