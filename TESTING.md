@@ -5,124 +5,150 @@ The following is a breakdown of the testing done to ensure that the Nomad Narrat
 ## Manual Testing
 Below is a breakdown of the tests performed to ensure that users can see and interact with assets correctly based on their logged in status. The tests for the API apps were executed through the default interface created by the Django Rest Framework. The apps were retested once the front end functionality was implemented. The front end functionality was also tested. These tests were based on the user stories and acceptance criteria [here](https://github.com/users/maevecrossan/projects/5).
 
-These tests are broken down by app. The test cases account for both front and back end functionality.
+These tests are broken down by frontend and backend API, and then by app.
 
 
-### Comments Tests
+### Backend API Tests
 
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| Logged in users can see comments under a post. | Yes | ✔ |
-| Logged in users can add a comment to a post. | Yes | ✔ |
-| Logged in users can see their comment under a post instantly. | Yes | ✔ |
-| Comment data is accurately updated. | Yes | ✔ |
-| Comment data is accurately deleted. | Yes | ✔ |
-| Logged in users can edit/update their comment. | Yes | ✔ |
-| Logged in users can delete their comment. | Yes | ✔ |
-| Logged out users can add a comment to a post. | No | ✔ |
-| Logged out users can see comments under a post. | No | ✔ |
-| Logged out users can edit other users comments. | No | ✔ |
-| Logged in users can edit other users comments. | No | ✔ |
-| Users can see the username and profile image belonging to the comment writer. | Yes | ✔ |
-| When attempting to delete a comment, a user will see a confirmation dialog. | Yes | ✔ |
+#### Comments API
 
+| Test Case                                       | Expected Outcome | Passed |
+| :---------------------------------------------- | :--------------: | :----: |
+| Logged in users can add a comment to a post.    |        Yes       |    ✔   |
+| Comment data is accurately updated.             |        Yes       |    ✔   |
+| Comment data is accurately deleted.             |        Yes       |    ✔   |
+| Logged out users can add a comment to a post.   |        No        |    ✔   |
+| Logged out users can edit other users comments. |        No        |    ✔   |
+| Logged in users can edit other users comments.  |        No        |    ✔   |
 
-### Followers Tests
+#### Followers API
 
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| Logged in users can follow another user | Yes | ✔ |
-| Logged in users can unfollow a user they are following | Yes | ✔ |
-| Logged out users can follow another user | No | ✔ |
-| Logged out users can unfollow another user | No | ✔ |
-| Logged in users can follow themselves | No | ✔ |
-| Logged in users can see how many followers they have | Yes | ✔ |
-| Logged in users can see how many followers another user has | Yes | ✔ |
-| A user's follower and following count is instantly updated if a change is made (i.e. someone is followed/unfollowed) | Yes | ✔ |
+| Test Case                                              | Expected Outcome | Passed |
+| :----------------------------------------------------- | :--------------: | :----: |
+| Logged in users can follow another user                |        Yes       |    ✔   |
+| Logged in users can unfollow a user they are following |        Yes       |    ✔   |
+| Logged out users can follow another user               |        No        |    ✔   |
+| Logged out users can unfollow another user             |        No        |    ✔   |
+| Logged in users can follow themselves                  |        No        |    ✔   |
 
+#### Likes API
 
-### Likes Tests
+| Test Case                                               | Expected Outcome | Passed |
+| :------------------------------------------------------ | :--------------: | :----: |
+| Logged in users can like a post by another user         |        Yes       |    ✔   |
+| Logged in users can unlike a post they previously liked |        Yes       |    ✔   |
+| Logged in users can like a post they previously liked   |        No        |    ✔   |
+| Logged out users can like/unlike posts                  |        No        |    ✔   |
 
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| Logged in users can like a post by another user on the feed/explore/likes pages | Yes | ✔ |
-| Logged in users can like a post by another user on the post page | Yes | ✔ |
-| Logged in users can unlike a post they previously liked | Yes | ✔ |
-| Logged in users can unlike a post by another user on the feed/explore/likes pages | Yes | ✔ |
-| Logged in users can unlike a post by another user on the post page | Yes | ✔ |
-| Logged in users can like a post they previously liked | No | ✔ |
-| Logged out users can like/unlike posts | No | ✔ |
+#### Posts API
 
+| Test Case                                                                   | Expected Outcome | Passed |
+| :-------------------------------------------------------------------------- | :--------------: | :----: |
+| Posts can be retrieved with a valid ID.                                     |        Yes       |    ✔   |
+| Posts can be retrieved with an invalid ID.                                  |        No        |    ✔   |
+| A logged out user can see all posts                                         |        No        |    ✔   |
+| A logged in user can see all posts                                          |        Yes       |    ✔   |
+| A logged out user can create a post                                         |        No        |    ✔   |
+| A logged in user can create a post                                          |        Yes       |    ✔   |
+| A logged out user can edit a post                                           |        No        |    ✔   |
+| A logged in user can edit a post they own                                   |        Yes       |    ✔   |
+| A logged in user can edit a post they DON'T own.                            |        No        |    ✔   |
+| A logged out user can delete a post                                         |        No        |    ✔   |
+| A logged in user can delete a post they own                                 |        Yes       |    ✔   |
+| A logged in user can delete a post they DON'T own.                          |        No        |    ✔   |
+| A logged in user can submit a form with an empty field.                     |        No        |    ✔   |
+| A logged in user can add an image exceeding the sizing criteria.            |        No        |    ✔   |
+| A logged in user can add trip details (location, number of travellers, etc) |        Yes       |    ✔   |
 
-### Posts Tests
+#### Profiles API
 
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| Posts can be retrieved with a valid ID. | Yes | ✔ |
-| Posts can be retrieved with an invalid ID. | No | ✔ |
-| A logged out user can see all posts | No | ✔ |
-| A logged in user can see all posts | Yes | ✔ |
-| A logged out user can create a post | No | ✔ |
-| A logged in user can create a post | Yes | ✔ |
-| A logged in user can cancel creating a post and be redirected. | Yes | ✔ |
-| A logged out user can edit a post | No | ✔ |
-| A logged in user can edit a post they own | Yes | ✔ |
-| A logged in user can cancel editing a post they own and any changes are reverted. | Yes | ✔ |
-| A logged in user can edit a post they DON'T own. | No | ✔ |
-| A logged out user can delete a post | No | ✔ |
-| A logged in user can delete a post they own | Yes | ✔ |
-| When attempting to delete a post, a user will see a confirmation dialog. | Yes | ✔ |
-| A logged in user can delete a post they DON'T own. | No | ✔ |
-| A logged in user can submit a form with an empty field. | No | ✔ |
-| A logged in user can add an image meeting the sizing criteria. | Yes | ✔ |
-| A logged in user can add an image exceeding the sizing criteria. | No | ✔ |
-| A logged in user can see an error message when attempting to upload an image exceeding the sizing criteria. | Yes | ✔ |
-| A logged in user can add trip details (location, number of travellers, etc) | Yes | ✔ |
-| Users can see comments made under posts. | Yes | ✔ |
-| Posts appear in searches if their title is a match. | Yes | ✔ |
-| Posts appear in searches if their country is a match. | Yes | ✔ |
-| Posts appear in searches if their city is a match. | Yes | ✔ |
+| Test Case                                                                 | Expected Outcome | Passed |
+| :------------------------------------------------------------------------ | :--------------: | :----: |
+| A logged out user can create a profile by signing up.                     |        Yes       |    ✔   |
+| Logged in users can update their own profile picture.                     |        Yes       |    ✔   |
+| Logged in users can add a profile description.                            |        Yes       |    ✔   |
+| Logged in users can edit and update their own profile description.        |        Yes       |    ✔   |
+| Users (logged in or out) can edit profile picture of other users          |        No        |    ✔   |
+| Users (logged in or out) can edit the profile descriptions of other users |        No        |    ✔   |
+| Users can reset their password.                                           |        Yes       |    ✔   |
 
+#### Contact API
 
-### Profiles Tests
-
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| A logged out user can create a profile by signing up. | Yes | ✔ |
-| Users can upload a personal profile picture. | Yes | ✔ |
-| Logged in users can update their own profile picture. | Yes | ✔ |
-| Users (logged in or out) can edit profile picture of other users | No | ✔ |
-| Logged in users can add a profile description. | Yes | ✔ |
-| Logged in users can edit and update their own profile description. | Yes | ✔ |
-| Users (logged in or out) can edit the profile descriptions of other users | No | ✔ |
-| Users can see their own followers (who follows them). | Yes | ✔ |
-| Users can see other users' followers (who follows another user). | Yes | ✔ |
-| Users appear in searches if their username is a match. | Yes | ✔ |
-| Users can access a dropdown to access profile-editing features. | Yes | ✔ |
-| Users can change their profile picture. | Yes | ✔ |
-| If a user cancels changing their profile picture, the previous one will be kept. | Yes | ✔ |
-| Users can reset their password. | Yes | ✔ |
+| Test Case                                                   | Expected Outcome | Passed |
+| :---------------------------------------------------------- | :--------------: | :----: |
+| A logged out user I can send a message to admin.            |        Yes       |    ✔   |
+| A logged in user I can send a message to admin.             |        Yes       |    ✔   |
+| A user I can send a message to admin with missing fields.   |        No        |    ✔   |
+| A user I can send a message to admin with invalid fields.   |        No        |    ✔   |
+| A user I can get a message indicating invalid/empty fields. |        Yes       |    ✔   |
 
 
-### Contact Tests
+### Frontend Tests
 
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| A logged out user I can send a message to admin. | Yes | ✔ |
-| A logged in user I can send a message to admin. | Yes | ✔ |
-| A user I can send a message to admin with missing fields. | No | ✔ |
-| A user I can send a message to admin with invalid fields. | No | ✔ |
-| A user I can get a message indicating invalid/empty fields. | Yes | ✔ |
+#### Comments UI
 
+| Test Case                                                                     | Expected Outcome | Passed |
+| :---------------------------------------------------------------------------- | :--------------: | :----: |
+| Logged in users can see comments under a post.                                |        Yes       |    ✔   |
+| Logged in users can see their comment under a post instantly.                 |        Yes       |    ✔   |
+| Logged in users can edit/update their comment.                                |        Yes       |    ✔   |
+| Logged in users can delete their comment.                                     |        Yes       |    ✔   |
+| Logged out users can see comments under a post.                               |        No        |    ✔   |
+| Users can see the username and profile image belonging to the comment writer. |        Yes       |    ✔   |
+| When attempting to delete a comment, a user will see a confirmation dialog.   |        Yes       |    ✔   |
 
-### User Redirection Tests
+#### Followers UI
 
-| Test Case | Expected Outcome | Passed |
-| :--- | :---: | :---: |
-| A logged out user I can view the welcome page, sign in, sign up and contact forms. | Yes | ✔ |
-| A logged in user I can view the welcome page, sign in, sign up and contact forms. | Yes | ✔ |
-| If their token expires, a logged in user can be redirected to the page they were on when logging in again. | Yes | ✔ |
-| A logged out user will be redirected to the homepage when trying to access user exclusive pages (new post, feed, likes, comments, etc). | Yes | ✔ |
+| Test Case                                                                                                            | Expected Outcome | Passed |
+| :------------------------------------------------------------------------------------------------------------------- | :--------------: | :----: |
+| Logged in users can see how many followers they have                                                                 |        Yes       |    ✔   |
+| Logged in users can see how many followers another user has                                                          |        Yes       |    ✔   |
+| A user's follower and following count is instantly updated if a change is made (i.e. someone is followed/unfollowed) |        Yes       |    ✔   |
+
+#### Likes UI
+
+| Test Case                                                                         | Expected Outcome | Passed |
+| :-------------------------------------------------------------------------------- | :--------------: | :----: |
+| Logged in users can like a post by another user on the feed/explore/likes pages   |        Yes       |    ✔   |
+| Logged in users can like a post by another user on the post page                  |        Yes       |    ✔   |
+| Logged in users can unlike a post by another user on the feed/explore/likes pages |        Yes       |    ✔   |
+| Logged in users can unlike a post by another user on the post page                |        Yes       |    ✔   |
+
+#### Posts UI
+
+| Test Case                                                                                                   | Expected Outcome | Passed |
+| :---------------------------------------------------------------------------------------------------------- | :--------------: | :----: |
+| A logged in user can cancel creating a post and be redirected.                                              |        Yes       |    ✔   |
+| A logged in user can cancel editing a post they own and any changes are reverted.                           |        Yes       |    ✔   |
+| When attempting to delete a post, a user will see a confirmation dialog.                                    |        Yes       |    ✔   |
+| A logged in user can add an image meeting the sizing criteria.                                              |        Yes       |    ✔   |
+| A logged in user can see an error message when attempting to upload an image exceeding the sizing criteria. |        Yes       |    ✔   |
+| Users can see comments made under posts.                                                                    |        Yes       |    ✔   |
+| Posts appear in searches if their title is a match.                                                         |        Yes       |    ✔   |
+| Posts appear in searches if their country is a match.                                                       |        Yes       |    ✔   |
+| Posts appear in searches if their city is a match.                                                          |        Yes       |    ✔   |
+
+#### Profiles UI
+
+| Test Case                                                                        | Expected Outcome | Passed |
+| :------------------------------------------------------------------------------- | :--------------: | :----: |
+| Users can upload a personal profile picture.                                     |        Yes       |    ✔   |
+| Users can see their own followers (who follows them).                            |        Yes       |    ✔   |
+| Users can see other users' followers (who follows another user).                 |        Yes       |    ✔   |
+| Users appear in searches if their username is a match.                           |        Yes       |    ✔   |
+| Users can access a dropdown to access profile-editing features.                  |        Yes       |    ✔   |
+| Users can change their profile picture.                                          |        Yes       |    ✔   |
+| If a user cancels changing their profile picture, the previous one will be kept. |        Yes       |    ✔   |
+
+#### User Redirection UI
+
+| Test Case                                                                                                                               | Expected Outcome | Passed |
+| :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------: | :----: |
+| A logged out user I can view the welcome page, sign in, sign up and contact forms.                                                      |        Yes       |    ✔   |
+| A logged in user I can view the welcome page, sign in, sign up and contact forms.                                                       |        Yes       |    ✔   |
+| If their token expires, a logged in user can be redirected to the page they were on when logging in again.                              |        Yes       |    ✔   |
+| A logged out user will be redirected to the homepage when trying to access user exclusive pages (new post, feed, likes, comments, etc). |        Yes       |    ✔   |
+
 
 
 ## Validator Testing
@@ -164,7 +190,7 @@ ESLint was installed as a VSCODE extension. Any issues it identified would show 
 
 Pylint and Flake8 were used throughout development. 
  - Only one error occured which required a pylint comment (`# pylint: disable=no-member`) to be added when `.objects` was used to prevent the false positive.
- 
+
  - The `AUTH_PASSWORD_VALIDATORS` in the `settings.py` file exceeds PEP8's line-length recommendation due to Django's predefined configuration. This was left as is as it does not affect code functionality
 
 The below results are from the CI Python Linter into which I copied and pasted my code. 
