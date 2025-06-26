@@ -164,8 +164,10 @@ ESLint was installed as a VSCODE extension. Any issues it identified would show 
 
 Pylint and Flake8 were used throughout development. 
  - Only one error occured which required a pylint comment (`# pylint: disable=no-member`) to be added when `.objects` was used to prevent the false positive.
+ 
+ - The `AUTH_PASSWORD_VALIDATORS` in the `settings.py` file exceeds PEP8's line-length recommendation due to Django's predefined configuration. This was left as is as it does not affect code functionality
 
-The below results are from the CI Python Linter into which I copied and pasted my code.
+The below results are from the CI Python Linter into which I copied and pasted my code. 
 
 [Python Validation Report](documentation/validation/nn-pep8.pdf)
 
